@@ -1,0 +1,270 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>INTERACT</title>
+    
+    <!--Bootstrap and jquery-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+    
+    
+    <!-- costum css and js--->
+    <link rel="stylesheet" type="text/css" href="css.css">
+    <script src="makelarge.js"></script>
+    
+    <!--Font Awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+   
+  </head>
+  <body>
+      <div class="container">
+       <!-- Overskrift, brodsmulemeny -->
+       <h1 class="my-4"><a href="case_mer.html">Interact</a> | <small>Ola</small></h1>
+       
+
+        <!-- Modal endre bilde -->
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Endre/slett bildet for GET_TITLE</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="input-group mb-3">
+                  <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="inputGroupFile02">
+                    <label class="custom-file-label" for="inputGroupFile02">Veldg fil</label>
+                  </div>
+                  <div class="input-group-append">
+                    <span class="input-group-text" id="">Last opp</span>
+                  </div>
+                </div>
+                  
+                    <hr/>
+                    <center><i>eller</i></center><br>
+                    <center><button type="button" style="background-color: coral" class="btn btn-primary">Slett bildet</button></center>
+              </div>
+              <div class="modal-footer">
+                
+                <button type="button" class="btn btn-primary">Lagre</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Modal end -->
+        
+        <!-- Modal hover main bilde -->
+        <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">GET_MAIN TITLE</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <img src="./img/0.jpg" alt="">
+                <p>Ola er tidligere rusmisbruker, på vei tilbake til normal hverdag. Dette er en case som tar for seg informasjon om Ola Normann og hans verdier.</p>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Modal end -->
+       
+       <!-- Cases body -->
+       <div class="empty node n1">
+            <div class="card">
+                <i class="new_node fas fa-plus"></i>
+            </div>
+       </div>
+       
+       
+            <div class="main">
+                
+            <div class="card" data-toggle="modal" data-target=".bd-example-modal-lg">
+             <div class="edit_icons">
+            <i class="edit fas fa-pencil-alt"></i>
+            </div>
+            <div class="new_picture" data-toggle="modal" data-target="#exampleModalCenter">
+            <span>Endre bildet</span>
+            </div>
+              <a href="#"><img class="card-img-top" src="./img/0.jpg" alt=""></a>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a href="#">Ola Normann</a>
+                </h4>
+                <p class="card-text">Ola er tidligere rusmisbruker, på vei tilbake til normal hverdag. Dette er en case som tar for seg informasjon om Ola Normann og hans verdier.</p>
+              </div>
+            </div>
+       </div>
+       
+       <div class="node n2">
+            <div class="card">
+                <img class="card-img-top" src="./img/veiledning.png" alt="">
+                    <div class="edit_icons">
+                <i class="edit fas fa-trash-alt"></i>
+                <i class="edit fas fa-pencil-alt"></i>
+              </div>
+              <div class="new_picture" data-toggle="modal" data-target="#exampleModalCenter">
+                  <span>Endre bildet</span>
+              </div>
+                
+              
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a href="#">Veiledning</a>
+                </h4>
+                <p class="card-text"></p>
+              </div>
+            </div>
+       </div>
+       <div class="node n3">
+            <div class="card">
+              <a href="#"><img class="card-img-top" src="./img/nav.jpg" alt=""></a>
+              <div class="edit_icons">
+                <i class="edit fas fa-trash-alt"></i>
+                <i class="edit fas fa-pencil-alt"></i>
+              </div>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a href="#">NAV</a>
+                </h4>
+                <p class="card-text"></p>
+              </div>
+            </div>
+       </div>
+       <div class="node n4">
+            <div class="card">
+              <a href="#"><img class="card-img-top" src="./img/jobb.png" alt=""></a>
+              <div class="edit_icons">
+                <i class="edit fas fa-trash-alt"></i>
+                <i class="edit fas fa-pencil-alt"></i>
+              </div>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a href="#">Jobb</a>
+                </h4>
+                <p class="card-text"></p>
+              </div>
+            </div>
+       </div>
+       <div class="node n5">
+            <div class="card">
+              <a href="#"><img class="card-img-top" src="./img/helse.jpg" alt=""></a>
+              <div class="edit_icons">
+                <i class="edit fas fa-trash-alt"></i>
+                <i class="edit fas fa-pencil-alt"></i>
+              </div>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a href="#">Helse</a>
+                </h4>
+                <p class="card-text"></p>
+              </div>
+            </div>
+       </div>
+       <div class="node n6">
+            <div class="card">
+              <a href="#"><img class="card-img-top" src="./img/pers.png" alt=""></a>
+              <div class="edit_icons">
+                <i class="edit fas fa-trash-alt"></i>
+                <i class="edit fas fa-pencil-alt"></i>
+              </div>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a href="#">Persona</a>
+                </h4>
+                <p class="card-text"></p>
+              </div>
+            </div>
+       </div>
+    <!-- slutt case body -->
+    </div>
+    <!-- slutt container -->
+      
+      
+      <!--https://codepen.io/JFarrow/pen/fFrpg-->
+      <!--meny--->
+      <nav class="main-menu">
+            <ul>
+                <li class="has-subnav">
+                    <a href="#">
+                        <i class="fas fa-font fa-2x" style="color:lightcoral"></i>
+                        <span class="nav-text">
+                            Tekst
+                        </span>
+                    </a>
+                  
+                </li>
+                <li class="has-subnav">
+                    <a href="#">
+                        <i class="fas fa-camera fa-2x" style="color:lightpink"></i>
+                        <span class="nav-text">
+                            Bilde
+                        </span>
+                    </a>
+                    
+                </li>
+                <li class="has-subnav">
+                    <a href="#">
+                       <i class="fas fa-video fa-2x" style="color:lightsteelblue"></i>
+                        <span class="nav-text">
+                            Videofil
+                        </span>
+                    </a>
+                    
+                </li>
+                <li class="has-subnav">
+                    <a href="#">
+                       <i class="fas fa-headphones fa-2x" style="color:lightgreen"></i>
+                        <span class="nav-text">
+                            Lydfil
+                        </span>
+                    </a>
+                   
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="far fa-file fa-2x" style="color:lightcyan"></i>
+                        <span class="nav-text">
+                            Dokument
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-link fa-2x" style="color:lightskyblue"></i>
+                        <span class="nav-text">
+                           Link
+                        </span>
+                    </a>
+                </li>
+                <li>
+                   <a href="#">
+                       <i class="fas fa-question fa-2x" style="color:orange"></i>
+                        <span class="nav-text">
+                            Oppgave
+                        </span>
+                    </a>
+                </li>
+                
+            </ul>
+        </nav>
+     <!-- meny slutt --->
+      
+    <!-- Logg ut knapp -->
+    <button class="button pluss"><i class="fas fa-plus"></i></button>
+    <div class="savelog">
+    <a href="#" class="lagre btn btn-info btn-lg" style="background-color: coral"> Large endringer</a>
+    <a href="login.html" class="logout btn btn-info btn-lg"> Logg ut</a>
+    </div>
+  </body>
+ </html>

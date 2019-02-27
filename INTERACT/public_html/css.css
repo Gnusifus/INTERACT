@@ -1,0 +1,387 @@
+/* Fonts */
+@import url(https://fonts.googleapis.com/css?family=Titillium+Web:300);
+@font-face {
+  font-family: 'Titillium Web';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Titillium WebLight'), local('TitilliumWeb-Light'), url(http://themes.googleusercontent.com/static/fonts/titilliumweb/v2/anMUvcNT0H1YN4FII8wpr24bNCNEoFTpS2BTjF6FB5E.woff) format('woff');
+}
+
+body{
+    background-color: lightseagreen;
+    padding: 0;
+    overflow-x: hidden;
+    margin-bottom: 80px;
+}
+
+.main{
+    width: 20%;
+    display: block;
+    position: absolute;
+    left: 40%;
+    top: 40%;
+    transition: all .2s ease-in-out;
+}
+
+.main:hover{
+    transform: scale(1.2);
+    z-index: 1000;
+}
+
+.main.active{
+    width: 40%;
+    height: 100%;
+    z-index: 1000;
+    left: 30%;
+    top: 20%;
+}
+
+
+.node:hover{
+    transform: scale(1.2);
+    z-index: 1000;
+}
+
+.node{
+    width: 15%;
+    position: absolute;
+    transition: all .2s ease-in-out;
+}
+
+.node.active{
+    width: 40%;
+    height: 100%;
+    z-index: 1000;
+    left: 30%;
+    top: 20%;
+}
+
+.main>.card-text{
+    line-height:1.2em;
+    height:1.5em;
+    overflow-y: scroll;
+}
+
+.n1{
+    left: 42%;
+    top: 1%;
+}
+
+.n1>.card{
+    opacity: 0.5; 
+}
+
+.n2{
+    right: 23%;
+    top: 13%;
+}
+
+.n3{
+    right: 20%;
+    top: 55%;
+}
+
+.n4{
+    right: 42%;
+    top: 90%;
+}
+
+.n5{
+    left: 20%;
+    top: 55%;
+}
+
+.n6{
+    left: 23%;
+    top: 13%;
+}
+
+.savelog{
+    bottom: 2%;
+    position: fixed;
+    left: 1%;
+}
+
+.logout, .lagre{
+    margin: 2%;
+}
+
+.pluss{
+    border-radius: 50%;
+    right: 1%;
+    bottom: 2%;
+    position: fixed;
+    background-color: coral;
+    border: 0;
+}
+
+.pluss>.fas{
+    margin: 0;
+    padding: 15px;
+}
+
+/*Ikoner i hver case-node */
+
+.edit_icons{
+    background-color: rgba(255, 255, 255, 0.5);
+    display: none;
+    width: 40%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-bottom-left-radius: 20px;
+}
+
+.edit_icons>.edit{
+    padding: 10%;
+    margin: 0;
+    float: right;
+}
+
+.new_picture{
+    background-color: rgba(255, 255, 255, 0.7);
+    display: none;
+    user-select: none; 
+    width: 50%;
+    position: absolute;
+    top: 0;
+    padding: 3%;
+    font-weight: bold;
+    border-bottom-right-radius: 20px;
+}
+
+.display_block{
+    display: block;
+}
+
+.editable{ 
+    background: lightskyblue;
+}
+
+.new_node{
+    font-size: 3em;
+    padding: 35%;
+    color: gray;
+}
+
+a{
+    color: black;
+    transition: 0.5s color;
+}
+
+a:hover{
+    color: blue;
+}
+
+.content{
+    background-color: green;
+    width: 150px;
+    height: 30px;
+    margin: 2%;
+}
+
+.card-img-top{
+    height: 150px;
+    object-fit: cover;
+}
+
+/* https://codepen.io/JFarrow/pen/fFrpg */
+.fa-2x {
+font-size: 2em;
+}
+
+.fas, .far {
+position: relative;
+display: table-cell;
+margin: 10px 30px 10px 20px;
+text-align: center;
+vertical-align: middle;
+font-size: 1.5em;
+}
+
+.main-menu:hover,nav.main-menu.expanded {
+width:250px;
+overflow:visible;
+}
+
+.main-menu {
+background:#212121;
+border-top-left-radius: 20px;
+border-bottom-left-radius: 20px;
+position:fixed;
+top:15%;
+right:0;
+width:60px;
+overflow:hidden;
+-webkit-transition:width .05s linear;
+transition:width .05s linear;
+transition-duration: 0.2s;
+-webkit-transform:translateZ(0) scale(1,1);
+z-index:1000;
+}
+
+.main-menu>ul {
+margin:7px 0;
+}
+
+.main-menu li {
+position:relative;
+padding-top: 4%;
+padding-bottom: 4%;
+display:block;
+width:250px;
+}
+
+.main-menu li>a {
+position:relative;
+display:table;
+border-collapse:collapse;
+border-spacing:0;
+color:#999;
+ font-family: arial;
+font-size: 14px;
+text-decoration:none;
+-webkit-transform:translateZ(0) scale(1,1);
+-webkit-transition:all .1s linear;
+transition: all .1s linear;
+  
+}
+
+.main-menu .nav-icon {
+position:relative;
+display:table-cell;
+width:60px;
+height:36px;
+text-align:center;
+vertical-align:middle;
+font-size:18px;
+}
+
+.main-menu .nav-text {
+font-size: 1.5em;
+position:relative;
+display:table-cell;
+vertical-align:middle;
+width:190px;
+font-family: 'Titillium Web', sans-serif;
+}
+
+.no-touch .scrollable.hover {
+overflow-y:hidden;
+}
+
+.no-touch .scrollable.hover:hover {
+overflow-y:auto;
+overflow:visible;
+}
+
+a:hover,a:focus {
+text-decoration:none;
+}
+
+nav {
+-webkit-user-select:none;
+-moz-user-select:none;
+-ms-user-select:none;
+-o-user-select:none;
+user-select:none;
+}
+
+nav ul,nav li {
+outline:0;
+margin:0;
+padding:0;
+}
+.main-menu li:hover>a,nav.main-menu li.active>a,.dropdown-menu>li>a:hover,.dropdown-menu>li>a:focus,.dropdown-menu>.active>a,.dropdown-menu>.active>a:hover,.dropdown-menu>.active>a:focus,.no-touch .dashboard-page nav.dashboard-menu ul li:hover a,.dashboard-page nav.dashboard-menu ul li.active a, fas:hover{
+    color: white;
+}
+
+/*!
+ * Start Bootstrap - 4 Col Portfolio (https://startbootstrap.com/template-overviews/4-col-portfolio)
+ * Copyright 2013-2018 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-4-col-portfolio/blob/master/LICENSE)
+ */
+
+.portfolio-item {
+  margin: 1%;
+}
+
+/*LOGIN FORM */
+.login-container{
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+.login-logo{
+    position: relative;
+    margin-left: -41.5%;
+}
+.login-logo img{
+    position: absolute;
+    width: 20%;
+    margin-top: 19%;
+    background: #282726;
+    border-radius: 4.5rem;
+    padding: 5%;
+}
+.login-form-1{
+    padding: 9%;
+    background:#282726;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+}
+.login-form-1 h3{
+    text-align: center;
+    margin-bottom:12%;
+    color:#fff;
+}
+.login-form-2{
+    padding: 9%;
+    background: #f05837;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+}
+.login-form-2 h3{
+    text-align: center;
+    margin-bottom:12%;
+    color: #fff;
+}
+.btnSubmit{
+    font-weight: 600;
+    width: 50%;
+    color: #282726;
+    background-color: #fff;
+    border: none;
+    border-radius: 1.5rem;
+    padding:2%;
+}
+
+.btnStudent{
+    font-weight: 600;
+    width: 100%;
+    color: #282726;
+    background-color: #fff;
+    border: none;
+    border-radius: 1.5rem;
+    padding:2%;
+}
+.btnForgetPwd{
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+}
+.btnForgetPwd:hover{
+    text-decoration:none;
+    color:#fff;
+}
+
+/*!
+ * Start Bootstrap - 4 Col Portfolio (https://startbootstrap.com/template-overviews/4-col-portfolio)
+ * Copyright 2013-2018 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-4-col-portfolio/blob/master/LICENSE)
+ */
+
+.portfolio-item {
+  margin: 1%;
+}
+
+.pagination {
+  margin-bottom: 30px;
+}
