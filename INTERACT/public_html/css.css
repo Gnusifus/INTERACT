@@ -1,4 +1,4 @@
-/* Fonts */
+/* Fonts ---------------------------------------------------------------------*/
 @import url(https://fonts.googleapis.com/css?family=Titillium+Web:300);
 @font-face {
   font-family: 'Titillium Web';
@@ -7,6 +7,7 @@
   src: local('Titillium WebLight'), local('TitilliumWeb-Light'), url(http://themes.googleusercontent.com/static/fonts/titilliumweb/v2/anMUvcNT0H1YN4FII8wpr24bNCNEoFTpS2BTjF6FB5E.woff) format('woff');
 }
 
+/*Generelt -------------------------------------------------------------------*/
 body{
     background-color: #8DA9C4;
     padding: 0;
@@ -14,6 +15,16 @@ body{
     margin-bottom: 80px;
 }
 
+a{
+    color: black;
+    transition: 0.5s color;
+}
+
+a:hover{
+    color: blue;
+}
+
+/*Midterste node på case.html ------------------------------------------------*/
 .main{
     width: 20%;
     display: block;
@@ -36,7 +47,13 @@ body{
     top: 20%;
 }
 
+.main>.card-text{
+    line-height:1.2em;
+    height:1.5em;
+    overflow-y: scroll;
+}
 
+/*Noder rundt main på case.html ----------------------------------------------*/
 .node:hover{
     transform: scale(1.2);
     z-index: 1000;
@@ -56,19 +73,10 @@ body{
     top: 20%;
 }
 
-.main>.card-text{
-    line-height:1.2em;
-    height:1.5em;
-    overflow-y: scroll;
-}
-
+/*noder plassering -----------------------------------------------------------*/
 .n1{
     left: 42%;
     top: 1%;
-}
-
-.n1>.card{
-    opacity: 0.5;
 }
 
 .n2{
@@ -96,6 +104,13 @@ body{
     top: 13%;
 }
 
+/*tom node eksempel ----------------------------------------------------------*/
+.n1>.card{
+    opacity: 0.5;
+}
+
+/*Logg ut / lagre endringer / pluss knapp ------------------------------------*/
+
 .savelog{
     bottom: 2%;
     position: fixed;
@@ -120,8 +135,7 @@ body{
     padding: 15px;
 }
 
-/*Ikoner i hver case-node */
-
+/*Ikoner i hver case-node ----------------------------------------------------*/
 .edit_icons{
     background-color: rgba(255, 255, 255, 0.5);
     display: none;
@@ -164,15 +178,6 @@ body{
     color: gray;
 }
 
-a{
-    color: black;
-    transition: 0.5s color;
-}
-
-a:hover{
-    color: blue;
-}
-
 .content{
     background-color: green;
     width: 150px;
@@ -185,7 +190,9 @@ a:hover{
     object-fit: cover;
 }
 
-/* https://codepen.io/JFarrow/pen/fFrpg */
+/* Venstre meny med ikoner -----------------------------------------------------
+https://codepen.io/JFarrow/pen/fFrpg
+ikoner*/
 .fa-2x {
 font-size: 2em;
 }
@@ -199,6 +206,7 @@ vertical-align: middle;
 font-size: 1.5em;
 }
 
+/*meny -----------------------------------------------------------------------*/
 .main-menu:hover,nav.main-menu.expanded {
 width:250px;
 overflow:visible;
@@ -244,7 +252,6 @@ text-decoration:none;
 -webkit-transform:translateZ(0) scale(1,1);
 -webkit-transition:all .1s linear;
 transition: all .1s linear;
-
 }
 
 .main-menu .nav-icon {
@@ -296,33 +303,25 @@ padding:0;
     color: white;
 }
 
-/*!
- * Start Bootstrap - 4 Col Portfolio (https://startbootstrap.com/template-overviews/4-col-portfolio)
- * Copyright 2013-2018 Start Bootstrap
- * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-4-col-portfolio/blob/master/LICENSE)
- */
-
-.portfolio-item {
-  margin: 1%;
-}
-
-/*LOGIN FORM */
+/* login form login.html -----------------------------------------------------*/
 .login-container{
     margin-top: 5%;
     margin-bottom: 5%;
 }
 .login-logo{
     position: relative;
-    margin-left: -41.5%;
+    margin-left: -50%;
 }
 .login-logo img{
     position: absolute;
-    width: 20%;
-    margin-top: 19%;
+    width: 30%;
+    margin-top: 15%;
     background: #282726;
-    border-radius: 4.5rem;
-    padding: 5%;
+    border-radius: 50%;
+    padding-top: 3%;
+    padding-bottom: 3%;
 }
+/*administrator side ---------------------------------------------------------*/
 .login-form-1{
     padding: 9%;
     background:#282726;
@@ -333,9 +332,10 @@ padding:0;
     margin-bottom:12%;
     color:#fff;
 }
+/*student side ---------------------------------------------------------------*/
 .login-form-2{
     padding: 9%;
-    background: #f05837;
+    background: coral;
     box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
 }
 .login-form-2 h3{
@@ -376,6 +376,8 @@ padding:0;
  * Start Bootstrap - 4 Col Portfolio (https://startbootstrap.com/template-overviews/4-col-portfolio)
  * Copyright 2013-2018 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-4-col-portfolio/blob/master/LICENSE)
+
+ all_cases.html ----------------------------------------------------------------
  */
 
 .portfolio-item {
