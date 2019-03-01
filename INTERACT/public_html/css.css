@@ -8,7 +8,7 @@
 }
 
 body{
-    background-color: green;
+    background-color: #8DA9C4;
     padding: 0;
     overflow-x: hidden;
     margin-bottom: 80px;
@@ -384,4 +384,7 @@ padding:0;
 
 .pagination {
   margin-bottom: 30px;
+}
+.lagre{
+  border-color: coral;
 }
