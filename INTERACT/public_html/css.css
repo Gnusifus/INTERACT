@@ -8,7 +8,11 @@
 }
 
 body{
+<<<<<<< HEAD
     background-color: #75B9BE; /* evt. 0097A7*/
+=======
+    background-color: #8DA9C4;
+>>>>>>> a009c260f800df2457447789b1d722eb1434b27d
     padding: 0;
     overflow-x: hidden;
     margin-bottom: 80px;
@@ -384,4 +388,7 @@ padding:0;
 
 .pagination {
   margin-bottom: 30px;
+}
+.lagre{
+  border-color: coral;
 }
