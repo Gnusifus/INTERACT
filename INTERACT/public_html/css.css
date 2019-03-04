@@ -190,6 +190,10 @@ a:hover{
     object-fit: cover;
 }
 
+.fa-question{
+  margin: 0;
+}
+
 /* Venstre meny med ikoner -----------------------------------------------------
 https://codepen.io/JFarrow/pen/fFrpg
 ikoner*/
@@ -351,6 +355,12 @@ padding:0;
     border: none;
     border-radius: 1.5rem;
     padding:2%;
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+
+.btnSubmit:hover{
+  transform: scale(1.05);
 }
 
 .btnStudent{
@@ -361,7 +371,14 @@ padding:0;
     border: none;
     border-radius: 1.5rem;
     padding:2%;
+    cursor: pointer;
+    transition: transform 0.3s;
 }
+
+.btnStudent:hover{
+    transform: scale(1.05);
+}
+
 .btnForgetPwd{
     color: #fff;
     font-weight: 600;
