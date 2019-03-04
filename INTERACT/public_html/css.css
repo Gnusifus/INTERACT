@@ -147,6 +147,7 @@ a:hover{
 }
 
 .edit_icons>.edit{
+    cursor: pointer;
     padding: 10%;
     margin: 0;
     float: right;
@@ -159,6 +160,7 @@ a:hover{
     width: 50%;
     position: absolute;
     top: 0;
+    cursor: pointer;
     padding: 3%;
     font-weight: bold;
     border-bottom-right-radius: 20px;
