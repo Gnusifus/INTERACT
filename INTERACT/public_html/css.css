@@ -10,11 +10,17 @@
 /*Generelt -------------------------------------------------------------------*/
 body{
     background-color: #8DA9C4;
-    padding: 0;
     overflow-x: hidden;
-    margin-bottom: 80px;
-}
+    margin-left: 0;
+    margin-right: 0;
+    width:100%;
 
+
+}
+.container{
+  min-height: calc(100vh)- 70px);
+
+}
 a{
     color: black;
     transition: 0.5s color;
@@ -23,6 +29,8 @@ a{
 a:hover{
     color: blue;
 }
+
+
 
 /*Midterste node på case.html ------------------------------------------------*/
 .main{
@@ -372,6 +380,8 @@ padding:0;
     color:#fff;
 }
 
+}
+
 /*!
  * Start Bootstrap - 4 Col Portfolio (https://startbootstrap.com/template-overviews/4-col-portfolio)
  * Copyright 2013-2018 Start Bootstrap
@@ -390,3 +400,13 @@ padding:0;
 .lagre{
   border-color: coral;
 }
+
+/* fotter---------------------------------------------------------------------*/
+.footer {
+width: auto;
+height: 15%;
+background-color: gray;
+margin-bottom: 0;
+  clear: both;
+  position: relative;
+  margin-top: 80%;
