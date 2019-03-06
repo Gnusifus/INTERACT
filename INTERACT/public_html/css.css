@@ -15,13 +15,11 @@ body{
     margin-left: 0;
     margin-right: 0;
     width:100%;
+    padding: 0;
 
 
 }
-.container{
-  min-height: calc(100vh)- 70px);
 
-}
 a{
     color: black;
     transition: 0.5s color;
@@ -393,8 +391,6 @@ padding:0;
     color:#fff;
 }
 
-}
-
 /*!
  * Start Bootstrap - 4 Col Portfolio (https://startbootstrap.com/template-overviews/4-col-portfolio)
  * Copyright 2013-2018 Start Bootstrap
@@ -403,8 +399,12 @@ padding:0;
  all_cases.html ----------------------------------------------------------------
  */
 
-.portfolio-item>.card{
-  margin: 10px;
+.portfolio-item{
+  margin-bottom: 2%;
+}
+
+.empty>.card{
+  background-color: rgba(255,255,255,0.5);
 }
 
 .lagre{
