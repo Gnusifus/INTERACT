@@ -34,51 +34,44 @@ a:hover{
 
 /*Midterste node på case.html ------------------------------------------------*/
 .main{
-    width: 20%;
+    width: 300px;
     display: block;
-    position: absolute;
-    left: 40%;
-    top: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    float: none;
     transition: all .2s ease-in-out;
 }
 
 .main:hover{
     transform: scale(1.2);
-    z-index: 1000;
+    z-index: 9999;
 }
 
-.main.active{
-    width: 40%;
-    height: 100%;
-    z-index: 1000;
-    left: 30%;
-    top: 20%;
+/* grid */
+.outer {
+  display: table;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
 }
 
-.main>.card-text{
-    line-height:1.2em;
-    height:1.5em;
-    overflow-y: scroll;
+.middle {
+  display: table-cell;
+  vertical-align: middle;
 }
 
 /*Noder rundt main på case.html ----------------------------------------------*/
 .node:hover{
     transform: scale(1.2);
-    z-index: 1000;
+    z-index: 100;
 }
 
 .node{
-    width: 15%;
+    width: 250px;
     position: absolute;
     transition: all .2s ease-in-out;
-}
-
-.node.active{
-    width: 40%;
-    height: 100%;
-    z-index: 1000;
-    left: 30%;
-    top: 20%;
 }
 
 /*noder plassering -----------------------------------------------------------*/
@@ -155,6 +148,7 @@ a:hover{
 }
 
 .edit_icons>.edit{
+    cursor: pointer;
     padding: 10%;
     margin: 0;
     float: right;
@@ -167,6 +161,7 @@ a:hover{
     width: 50%;
     position: absolute;
     top: 0;
+    cursor: pointer;
     padding: 3%;
     font-weight: bold;
     border-bottom-right-radius: 20px;
@@ -196,6 +191,10 @@ a:hover{
 .card-img-top{
     height: 150px;
     object-fit: cover;
+}
+
+.fa-question{
+  margin: 0;
 }
 
 /* Venstre meny med ikoner -----------------------------------------------------
@@ -359,6 +358,12 @@ padding:0;
     border: none;
     border-radius: 1.5rem;
     padding:2%;
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+
+.btnSubmit:hover{
+  transform: scale(1.05);
 }
 
 .btnStudent{
@@ -369,7 +374,14 @@ padding:0;
     border: none;
     border-radius: 1.5rem;
     padding:2%;
+    cursor: pointer;
+    transition: transform 0.3s;
 }
+
+.btnStudent:hover{
+    transform: scale(1.05);
+}
+
 .btnForgetPwd{
     color: #fff;
     font-weight: 600;
