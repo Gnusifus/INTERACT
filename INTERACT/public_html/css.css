@@ -8,6 +8,7 @@
 }
 
 /*Generelt -------------------------------------------------------------------*/
+
 body{
     background-color: #8DA9C4;
     overflow-x: hidden;
@@ -402,23 +403,20 @@ padding:0;
  all_cases.html ----------------------------------------------------------------
  */
 
-.portfolio-item {
-  margin: 1%;
+.portfolio-item>.card{
+  margin: 10px;
 }
 
-.pagination {
-  margin-bottom: 30px;
-}
 .lagre{
   border-color: coral;
 }
 
-/* fotter---------------------------------------------------------------------*/
+/* footer---------------------------------------------------------------------*/
 .footer {
-width: auto;
-height: 15%;
-background-color: gray;
-margin-bottom: 0;
+  width: auto;
+  height: 15%;
+  background-color: gray;
+  margin-bottom: 0;
   clear: both;
   position: relative;
   margin-top: 80%;
