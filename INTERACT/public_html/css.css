@@ -16,20 +16,17 @@ body{
     margin-right: 0;
     width:100%;
     padding: 0;
-
-
 }
 
 a{
     color: black;
-    transition: 0.5s color;
+    transition: 0.3s all;
 }
 
 a:hover{
-    color: blue;
+  color: white;
+  text-shadow: 0px 0px 9px black;
 }
-
-
 
 /*Midterste node på case.html ------------------------------------------------*/
 .main{
@@ -75,7 +72,7 @@ a:hover{
     /*transition: all .2s ease-in-out;*/
 }
 
-/*noder plassering -----------------------------------------------------------*/
+/*noder plassering case.html -------------------------------------------------*/
 .n1{
     left: 42%;
     top: 1%;
@@ -207,6 +204,39 @@ margin: 10px 30px 10px 20px;
 text-align: center;
 vertical-align: middle;
 font-size: 1.5em;
+}
+
+/*case navigation case_mer.html ----------------------------------------------*/
+.navigation{
+  float: left;
+  overflow: hidden;
+  margin-left: 1%;
+  top: 15%;
+  position: absolute;
+}
+
+.navigation>a{
+  display: block;
+  width: 100px;
+  margin-top: 20%;
+  margin-bottom: 20%;
+}
+
+.navigation>a>img{
+  width: 60px;
+  height: 60px;
+  margin-left: 5%;
+  object-fit: cover;
+  position: relative;
+  display: block;
+  border-radius: 50px;
+  max-width: 100
+
+}
+
+.navigation>a>img:hover{
+  transition: filter 0.7s;
+  filter: drop-shadow(0 0 0.2rem black);
 }
 
 /*meny -----------------------------------------------------------------------*/
