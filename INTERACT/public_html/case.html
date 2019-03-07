@@ -8,12 +8,16 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
+<script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
 
 
 
     <!-- costum css and js--->
     <link rel="stylesheet" type="text/css" href="css.css">
     <script src="makelarge.js"></script>
+    <script src="draggable.js"></script>
 
     <!--Font Awesome-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -84,32 +88,32 @@
        <!-- Cases body -->
        <div class="outer">
          <div class="middle">
-       <div class="empty node n1">
+           <div class="main">
+                 <div class="card" data-toggle="modal" data-target=".bd-example-modal-lg">
+                  <div class="edit_icons">
+                 <i class="edit fas fa-pencil-alt"></i>
+                 </div>
+                 <div class="new_picture" data-toggle="modal" data-target="#exampleModalCenter">
+                 <span>Endre bildet</span>
+                 </div>
+                   <a href="#"><img class="card-img-top" src="./img/pers.png" alt=""></a>
+                   <div class="card-body">
+                     <h4 class="card-title">
+                       <a href="#">Ola Normann</a>
+                     </h4>
+                     <p class="card-text">Ola er tidligere rusmisbruker, på vei tilbake til normal hverdag. Dette er en case som tar for seg informasjon om Ola Normann og hans verdier.</p>
+                   </div>
+                 </div>
+            </div>
+
+       <div class="empty node n6">
             <div class="card">
                 <i class="new_node fas fa-plus"></i>
             </div>
        </div>
 
 
-      <div class="main">
-            <div class="card" data-toggle="modal" data-target=".bd-example-modal-lg">
-             <div class="edit_icons">
-            <i class="edit fas fa-pencil-alt"></i>
-            </div>
-            <div class="new_picture" data-toggle="modal" data-target="#exampleModalCenter">
-            <span>Endre bildet</span>
-            </div>
-              <a href="#"><img class="card-img-top" src="./img/pers.png" alt=""></a>
-              <div class="card-body">
-                <h4 class="card-title">
-                  <a href="#">Ola Normann</a>
-                </h4>
-                <p class="card-text">Ola er tidligere rusmisbruker, på vei tilbake til normal hverdag. Dette er en case som tar for seg informasjon om Ola Normann og hans verdier.</p>
-              </div>
-            </div>
-       </div>
-
-       <div class="node n2">
+       <div class="node n1">
             <div class="card">
                 <img class="card-img-top" src="./img/veiledning.png" alt="">
                     <div class="edit_icons">
@@ -119,8 +123,6 @@
               <div class="new_picture" data-toggle="modal" data-target="#exampleModalCenter">
                   <span>Endre bildet</span>
               </div>
-
-
               <div class="card-body">
                 <h4 class="card-title">
                   <a href="#">Veiledning</a>
@@ -129,9 +131,11 @@
               </div>
             </div>
        </div>
-       <div class="node n3">
+
+
+       <div class="node n2">
             <div class="card">
-              <a href="#"><img class="card-img-top" src="./img/økonomi.png" alt=""></a>
+              <a href="#"><img class="card-img-top nodeimg" src="./img/økonomi.png" alt=""></a>
               <div class="edit_icons">
                 <i class="edit fas fa-trash-alt"></i>
                 <i class="edit fas fa-pencil-alt"></i>
@@ -144,9 +148,10 @@
               </div>
             </div>
        </div>
-       <div class="node n4">
+
+       <div class="node n3">
             <div class="card">
-              <a href="#"><img class="card-img-top" src="./img/jobb.jpg" alt=""></a>
+              <a href="#"><img class="card-img-top nodeimg" src="./img/jobb.jpg" alt=""></a>
               <div class="edit_icons">
                 <i class="edit fas fa-trash-alt"></i>
                 <i class="edit fas fa-pencil-alt"></i>
@@ -159,9 +164,10 @@
               </div>
             </div>
        </div>
-       <div class="node n5">
+
+       <div class="node n4">
             <div class="card">
-              <a href="#"><img class="card-img-top" src="./img/helse.png" alt=""></a>
+              <a href="#"><img class="card-img-top nodeimg" src="./img/helse.png" alt=""></a>
               <div class="edit_icons">
                 <i class="edit fas fa-trash-alt"></i>
                 <i class="edit fas fa-pencil-alt"></i>
@@ -174,9 +180,10 @@
               </div>
             </div>
        </div>
-       <div class="node n6">
+
+       <div class="node n5">
             <div class="card">
-              <a href="#"><img class="card-img-top" src="./img/ola.png" alt=""></a>
+              <a href="#"><img class="card-img-top nodeimg" src="./img/ola.png" alt=""></a>
               <div class="edit_icons">
                 <i class="edit fas fa-trash-alt"></i>
                 <i class="edit fas fa-pencil-alt"></i>
@@ -189,91 +196,15 @@
               </div>
             </div>
        </div>
-<<<<<<< HEAD
 
     <!-- slutt case body -->
 </div>
     <!-- slutt container -->
 
-
-
-
-
-
-      <!--https://codepen.io/JFarrow/pen/fFrpg-->
-      <!--meny
-      <nav class="main-menu">
-            <ul>
-                <li class="has-subnav">
-                    <a href="#">
-                        <i class="teksticon fas fa-font fa-2x"></i>
-                        <span class="nav-text">
-                            Tekst
-                        </span>
-                    </a>
-
-                </li>
-                <li class="has-subnav">
-                    <a href="#">
-                        <i class="bildeicon fas fa-camera fa-2x"></i>
-                        <span class="nav-text">
-                            Bilde
-                        </span>
-                    </a>
-
-                </li>
-                <li class="has-subnav">
-                    <a href="#">
-                       <i class="videoicon fas fa-video fa-2x"></i>
-                        <span class="nav-text">
-                            Videofil
-                        </span>
-                    </a>
-
-                </li>
-                <li class="has-subnav">
-                    <a href="#">
-                       <i class="lydicon fas fa-headphones fa-2x"></i>
-                        <span class="nav-text">
-                            Lydfil
-                        </span>
-                    </a>
-
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="dokumenticon far fa-file fa-2x"></i>
-                        <span class="nav-text">
-                            Dokument
-                        </span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="linkicon fas fa-link fa-2x"></i>
-                        <span class="nav-text">
-                           Link
-                        </span>
-                    </a>
-                </li>
-                <li>
-                   <a href="#">
-                       <i class="oppgaveicon fas fa-question fa-2x"></i>
-                        <span class="nav-text">
-                            Oppgave
-                        </span>
-                    </a>
-                </li>
-
-            </ul>
-        </nav>-->
-     <!-- meny slutt --->
-=======
      </div>
    </div>
     <!-- slutt case body -->
 
->>>>>>> 6cb949651298c1999e6ba05c6ceffdb3aa0ffdf1
 
     <!-- Logg ut knapp -->
     <button class="button pluss"><i class="fas fa-plus"></i></button>

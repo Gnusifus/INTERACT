@@ -62,15 +62,17 @@ a:hover{
 }
 
 /*Noder rundt main på case.html ----------------------------------------------*/
+
 .node:hover{
-    transform: scale(1.2);
+    /*transform: scale(1.2);*/
     z-index: 100;
+    cursor: move;
 }
 
 .node{
     width: 250px;
     position: absolute;
-    transition: all .2s ease-in-out;
+    /*transition: all .2s ease-in-out;*/
 }
 
 /*noder plassering -----------------------------------------------------------*/
@@ -102,11 +104,6 @@ a:hover{
 .n6{
     left: 23%;
     top: 13%;
-}
-
-/*tom node eksempel ----------------------------------------------------------*/
-.n1>.card{
-    opacity: 0.5;
 }
 
 /*Logg ut / lagre endringer / pluss knapp ------------------------------------*/
