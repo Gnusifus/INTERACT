@@ -238,8 +238,7 @@ audio{
   position: relative;
   display: block;
   border-radius: 50px;
-  max-width: 100
-
+  max-width: 100%;
 }
 
 .navigation>a>img:hover{
@@ -362,17 +361,19 @@ nav ul,nav li {
     margin-bottom: 5%;
 }
 .login-logo{
-    position: relative;
-    margin-left: -50%;
+    position: absolute;
+    display: block;
+    margin-left: 33.5%;
+    margin-top: 10%;
+    width: 120px;
+    filter: drop-shadow(0 0 0.2rem black);
+    z-index: 1000;
 }
 .login-logo img{
-    position: absolute;
-    width: 30%;
-    margin-top: 15%;
-    background: #282726;
-    border-radius: 50%;
-    padding-top: 3%;
-    padding-bottom: 3%;
+    height: 120px;
+    border-radius: 100px;
+    object-fit: cover;
+    max-width: 100%;
 }
 /*administrator side ---------------------------------------------------------*/
 .login-form-1{
