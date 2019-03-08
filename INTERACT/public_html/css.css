@@ -8,30 +8,25 @@
 }
 
 /*Generelt -------------------------------------------------------------------*/
+
 body{
     background-color: #8DA9C4;
     overflow-x: hidden;
     margin-left: 0;
     margin-right: 0;
     width:100%;
-
-
+    padding: 0;
 }
-.container{
-  min-height: calc(100vh)- 70px);
 
-}
 a{
     color: black;
-    transition: 0.5s color;
+    transition: 0.3s all;
 }
 
 a:hover{
-    color: blue;
+  color: white;
+  text-shadow: 0px 0px 9px black;
 }
-
-
-
 
 /*Midterste node på case.html ------------------------------------------------*/
 .main{
@@ -64,18 +59,20 @@ a:hover{
 }
 
 /*Noder rundt main på case.html ----------------------------------------------*/
+
 .node:hover{
-    transform: scale(1.2);
+    /*transform: scale(1.2);*/
     z-index: 100;
+    cursor: move;
 }
 
 .node{
     width: 250px;
     position: absolute;
-    transition: all .2s ease-in-out;
+    /*transition: all .2s ease-in-out;*/
 }
 
-/*noder plassering -----------------------------------------------------------*/
+/*noder plassering case.html -------------------------------------------------*/
 .n1{
     left: 42%;
     top: 1%;
@@ -104,11 +101,6 @@ a:hover{
 .n6{
     left: 23%;
     top: 13%;
-}
-
-/*tom node eksempel ----------------------------------------------------------*/
-.n1>.card{
-    opacity: 0.5;
 }
 
 /*Logg ut / lagre endringer / pluss knapp ------------------------------------*/
@@ -212,6 +204,39 @@ margin: 10px 30px 10px 20px;
 text-align: center;
 vertical-align: middle;
 font-size: 1.5em;
+}
+
+/*case navigation case_mer.html ----------------------------------------------*/
+.navigation{
+  float: left;
+  overflow: hidden;
+  margin-left: 1%;
+  top: 15%;
+  position: fixed;
+}
+
+.navigation>a{
+  display: block;
+  width: 100px;
+  margin-top: 20%;
+  margin-bottom: 20%;
+}
+
+.navigation>a>img{
+  width: 60px;
+  height: 60px;
+  margin-left: 5%;
+  object-fit: cover;
+  position: relative;
+  display: block;
+  border-radius: 50px;
+  max-width: 100
+
+}
+
+.navigation>a>img:hover{
+  transition: filter 0.7s;
+  filter: drop-shadow(0 0 0.2rem black);
 }
 
 /*meny -----------------------------------------------------------------------*/
@@ -393,8 +418,6 @@ padding:0;
     color:#fff;
 }
 
-}
-
 /*!
  * Start Bootstrap - 4 Col Portfolio (https://startbootstrap.com/template-overviews/4-col-portfolio)
  * Copyright 2013-2018 Start Bootstrap
@@ -403,23 +426,24 @@ padding:0;
  all_cases.html ----------------------------------------------------------------
  */
 
-.portfolio-item {
-  margin: 1%;
+.portfolio-item{
+  margin-bottom: 2%;
 }
 
-.pagination {
-  margin-bottom: 30px;
+.empty>.card{
+  background-color: rgba(255,255,255,0.5);
 }
+
 .lagre{
   border-color: coral;
 }
 
-/* fotter---------------------------------------------------------------------*/
+/* footer---------------------------------------------------------------------*/
 .footer {
-width: auto;
-height: 15%;
-background-color: gray;
-margin-bottom: 0;
+  width: auto;
+  height: 15%;
+  background-color: gray;
+  margin-bottom: 0;
   clear: both;
   position: relative;
   margin-top: 80%;
