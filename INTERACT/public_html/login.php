@@ -31,19 +31,21 @@ https://bootsnipp.com/snippets/z8l2X
               </div>
                 <div class="col-md-6 login-form-1">
                     <h3>Jeg er administrator!</h3>
+                    <form action="./PHP/login_php.php" method="post">
 
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Skriv inn epostadresse..." value="" />
+                            <input type="text" name="email" class="form-control" placeholder="Skriv inn epostadresse..." value="" />
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" placeholder="Skriv inn passord..." value="" />
+                            <input type="password" name="password" class="form-control" placeholder="Skriv inn passord..." value="" />
                         </div>
                         <div class="form-group">
-                            <input type="submit" class="btnSubmit" value="Logg inn" />
+                            <input type="submit" class="btnSubmit" name="logginn" value="Logg inn" />
                         </div>
                         <div class="form-group">
                             <a href="#" class="btnForgetPwd">Glemt passord?</a>
                         </div>
+                    </form>
 
                 </div>
                 <div class="col-md-6 login-form-2">
