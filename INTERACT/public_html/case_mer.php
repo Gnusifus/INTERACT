@@ -1,4 +1,5 @@
 <?php
+session_start();
 include './html_elements/head.html';
 ?>
     <body>
@@ -32,7 +33,7 @@ include './html_elements/head.html';
         <!-- Modal end -->
 
       <!-- Overskrift, brodsmulemeny/ endre overskrift for hvor du er-->
-        <h1 class="my-4"><a href="all_cases.html">INTERACT</a> | <a href="case.html">Ola</a> | <small>Helse</small></h1>
+        <h1 class="my-4"><a href="all_cases.php">INTERACT</a> | <a href="case.html">Ola</a> | <small>Helse</small></h1>
 
         <!-- Cases oversikt -->
           <div class="container">
@@ -109,9 +110,10 @@ include './html_elements/head.html';
               <?php
               //Viser ikke pluss, når siden vises i student-modus
               if($_SESSION['loggetinn'] == true){
+              include "./html_elements/new_case_subnode_modal.html";
                 echo "
               <div class='col-lg-3 col-md-4 col-sm-6 portfolio-item empty'>
-                <div class='card h-100'>
+                <div class='card h-100' data-toggle='modal' data-target='.ny_case_subnode_modal'>
                   <i class='new_node fas fa-plus'></i>
                 </div>
               </div>
@@ -193,7 +195,7 @@ include './html_elements/head.html';
 
               </ul>
           </nav>
-          "};
+          ";}
           ?>
 
      <?php include './html_elements/logout_btn.php'; ?>

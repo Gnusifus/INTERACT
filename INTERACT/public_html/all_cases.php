@@ -48,19 +48,13 @@ include './html_elements/head.html';
 
         <!-- Viser alle cases i en row -->
         <div class="row">
+          <script>
+          $(document).ready(function() {
+              $("body").tooltip({ selector: '[data-toggle=tooltip]' });
+          });
+          </script>
           <?php
           include './PHP/show_all_cases.php';
-          echo $_SESSION['loggetinn'] ? 'true' : 'false';
-          //Viser ikke card med pluss tegn hvis siden vises i student-modus
-          if($_SESSION['loggetinn'] == true){
-            echo "
-            <div class='col-lg-3 col-md-4 col-sm-6 portfolio-item'>
-              <div class='card h-100' data-toggle='modal' data-target='.bd-example-modal-lg'>
-                  <i class='new_node fas fa-plus'></i>
-              </div>
-            </div>
-            ";
-          }
           ?>
         </div><!-- row end -->
       </div><!-- container end -->

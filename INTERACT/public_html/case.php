@@ -135,9 +135,8 @@ include './html_elements/head.html';
 <!-- Logg ut knapp -->
 <button class="button pluss"><i class="fas fa-plus"></i></button>
 <div class="savelog">
-  <!-- usikker på om vi trenger denne? -->
-  <a href="#" class="lagre btn btn-info btn-lg" style="background-color: coral"> Large endringer</a>
-
+  <!-- usikker på om vi trenger denne?
+    <a href="#" class="lagre btn btn-info btn-lg" style="background-color: coral"> Large endringer</a>-->
   <?php include './html_elements/logout_btn.php' ?>
 </div>
 <?php include './html_elements/footer.html'; ?>

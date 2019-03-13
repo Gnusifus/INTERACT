@@ -1,0 +1,95 @@
+<!-- Modal ny node -->
+<div class="modal fade ny_case_subnode_modal" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Legg til en ny node til GET_CASE_NODE</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <form action="./PHP/new_case_subnode.php" method="post">
+            <div class="form-row">
+
+            <!--Overskrift * -->
+            <div class="form-group col-md-12">
+              <label for="exampleFormControlInput1">Node overskrift</label>
+              <input type="text" class="form-control" name="overskrift" placeholder="Skriv inn en overskrift her...">
+            </div>
+
+            <!-- Bilde -->
+            <div class="form-group col-md-12">
+              <label for="exampleFormControlInput1">Bilde</label>
+              <div class="custom-file">
+                <input type="file" class="custom-file-input" id="inputGroupFile02">
+                <label class="custom-file-label" name="bilde" for="inputGroupFile02">Last opp et bilde her...</label>
+              </div>
+            </div>
+
+            <!-- Video -->
+            <div class="form-group col-md-6">
+            <label for="exampleFormControlInput1">Video</label>
+              <div class="custom-file">
+                <input type="file" class="custom-file-input" id="inputGroupFile02">
+                <label class="custom-file-label" name="video" for="inputGroupFile02">Last opp en video her...</label>
+              </div>
+            </div>
+
+            <div class="form-group col-md-6">
+            <label for="exampleFormControlInput1">Youtube-video</label>
+              <input type="text" class="form-control" name="lenke" placeholder="Lim inn en lenke her...">
+            </div>
+
+            <!-- Lyd -->
+            <div class="form-group col-md-12">
+            <label for="exampleFormControlInput1">Lydfil</label>
+              <div class="custom-file">
+                <input type="file" class="custom-file-input" id="inputGroupFile02">
+                <label class="custom-file-label" name="lyd" for="inputGroupFile02">Last opp en lydfil her...</label>
+              </div>
+            </div>
+
+
+            <!-- Lenke -->
+            <div class="form-group col-md-12">
+              <label for="exampleFormControlInput1">Lenke</label>
+              <input type="text" class="form-control" name="lenke" placeholder="Lim inn en lenke her...">
+            </div>
+
+            <!-- Tekst -->
+            <div class="form-group col-md-12">
+              <label for="exampleFormControlInput1">Tekst</label>
+              <textarea class="form-control" rows="3" name="tekst">Skriv tekst her...</textarea>
+            </div>
+
+            <!-- Dokument -->
+            <div class="form-group col-md-12">
+            <label for="exampleFormControlInput1">Dokument</label>
+              <div class="custom-file">
+                <input type="file" class="custom-file-input" id="inputGroupFile02">
+                <label class="custom-file-label" name="dokument" for="inputGroupFile02">Last opp et dokument her...</label>
+              </div>
+            </div>
+
+            <!-- Spørsmål -->
+            <div class="form-group col-md-12">
+            <label for="exampleFormControlInput1">Spørsmål</label>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">?</span>
+              </div>
+              <input type="text" class="form-control" placeholder="Skriv inn ett spørsmål i hvert felt..." aria-label="sporsmaal" aria-describedby="basic-addon1">
+            </div>
+            <button type="submit" class="btn btn-secondary">Legg til flere spørsmål</button>
+            </div>
+
+            </div>
+
+            <button type="submit" name="submit" class="btn btn-primary mb-2">Legg til node</button>
+          </form>
+
+      </div><!-- modal-body end -->
+    </div><!-- modal-content end -->
+  </div><!-- modal-dialog end -->
+</div><!-- modal end -->
