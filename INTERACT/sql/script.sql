@@ -51,7 +51,13 @@ CREATE TABLE IF NOT EXISTS `interact`.`nodes` (
   `bilde` VARCHAR(45) NULL,
   `overskrift` VARCHAR(45) NOT NULL,
   `cases_idcases` INT NOT NULL,
-  PRIMARY KEY (`idnodes`, `cases_idcases`))
+  PRIMARY KEY (`idnodes`, `cases_idcases`),
+  INDEX `fk_nodes_cases1_idx` (`cases_idcases` ASC),
+  CONSTRAINT `fk_nodes_cases1`
+    FOREIGN KEY (`cases_idcases`)
+    REFERENCES `interact`.`cases` (`idcases`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
@@ -65,7 +71,13 @@ CREATE TABLE IF NOT EXISTS `interact`.`sub_nodes` (
   `overskrift` VARCHAR(45) NOT NULL,
   `nodes_idnodes` INT NOT NULL,
   `nodes_cases_idcases` INT NOT NULL,
-  PRIMARY KEY (`idsub_nodes`, `nodes_idnodes`, `nodes_cases_idcases`))
+  PRIMARY KEY (`idsub_nodes`, `nodes_idnodes`, `nodes_cases_idcases`),
+  INDEX `fk_sub_nodes_nodes1_idx` (`nodes_idnodes` ASC, `nodes_cases_idcases` ASC),
+  CONSTRAINT `fk_sub_nodes_nodes1`
+    FOREIGN KEY (`nodes_idnodes` , `nodes_cases_idcases`)
+    REFERENCES `interact`.`nodes` (`idnodes` , `cases_idcases`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
@@ -80,7 +92,13 @@ CREATE TABLE IF NOT EXISTS `interact`.`tekst` (
   `sub_nodes_idsub_nodes` INT NOT NULL,
   `sub_nodes_nodes_idnodes` INT NOT NULL,
   `sub_nodes_nodes_cases_idcases` INT NOT NULL,
-  PRIMARY KEY (`idtekst`, `sub_nodes_idsub_nodes`, `sub_nodes_nodes_idnodes`, `sub_nodes_nodes_cases_idcases`))
+  PRIMARY KEY (`idtekst`, `sub_nodes_idsub_nodes`, `sub_nodes_nodes_idnodes`, `sub_nodes_nodes_cases_idcases`),
+  INDEX `fk_tekst_sub_nodes1_idx` (`sub_nodes_idsub_nodes` ASC, `sub_nodes_nodes_idnodes` ASC, `sub_nodes_nodes_cases_idcases` ASC),
+  CONSTRAINT `fk_tekst_sub_nodes1`
+    FOREIGN KEY (`sub_nodes_idsub_nodes` , `sub_nodes_nodes_idnodes` , `sub_nodes_nodes_cases_idcases`)
+    REFERENCES `interact`.`sub_nodes` (`idsub_nodes` , `nodes_idnodes` , `nodes_cases_idcases`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
@@ -91,11 +109,17 @@ DROP TABLE IF EXISTS `interact`.`bilde` ;
 
 CREATE TABLE IF NOT EXISTS `interact`.`bilde` (
   `idbilde` INT NOT NULL AUTO_INCREMENT,
-  `bilde` BLOB NOT NULL,
+  `bilde` VARCHAR(45) NOT NULL,
   `sub_nodes_idsub_nodes` INT NOT NULL,
   `sub_nodes_nodes_idnodes` INT NOT NULL,
   `sub_nodes_nodes_cases_idcases` INT NOT NULL,
-  PRIMARY KEY (`idbilde`, `sub_nodes_idsub_nodes`, `sub_nodes_nodes_idnodes`, `sub_nodes_nodes_cases_idcases`))
+  PRIMARY KEY (`idbilde`, `sub_nodes_idsub_nodes`, `sub_nodes_nodes_idnodes`, `sub_nodes_nodes_cases_idcases`),
+  INDEX `fk_bilde_sub_nodes1_idx` (`sub_nodes_idsub_nodes` ASC, `sub_nodes_nodes_idnodes` ASC, `sub_nodes_nodes_cases_idcases` ASC),
+  CONSTRAINT `fk_bilde_sub_nodes1`
+    FOREIGN KEY (`sub_nodes_idsub_nodes` , `sub_nodes_nodes_idnodes` , `sub_nodes_nodes_cases_idcases`)
+    REFERENCES `interact`.`sub_nodes` (`idsub_nodes` , `nodes_idnodes` , `nodes_cases_idcases`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
@@ -110,7 +134,13 @@ CREATE TABLE IF NOT EXISTS `interact`.`sporsmaal` (
   `sub_nodes_idsub_nodes` INT NOT NULL,
   `sub_nodes_nodes_idnodes` INT NOT NULL,
   `sub_nodes_nodes_cases_idcases` INT NOT NULL,
-  PRIMARY KEY (`idsporsmaal`, `sub_nodes_idsub_nodes`, `sub_nodes_nodes_idnodes`, `sub_nodes_nodes_cases_idcases`))
+  PRIMARY KEY (`idsporsmaal`, `sub_nodes_idsub_nodes`, `sub_nodes_nodes_idnodes`, `sub_nodes_nodes_cases_idcases`),
+  INDEX `fk_sporsmaal_sub_nodes1_idx` (`sub_nodes_idsub_nodes` ASC, `sub_nodes_nodes_idnodes` ASC, `sub_nodes_nodes_cases_idcases` ASC),
+  CONSTRAINT `fk_sporsmaal_sub_nodes1`
+    FOREIGN KEY (`sub_nodes_idsub_nodes` , `sub_nodes_nodes_idnodes` , `sub_nodes_nodes_cases_idcases`)
+    REFERENCES `interact`.`sub_nodes` (`idsub_nodes` , `nodes_idnodes` , `nodes_cases_idcases`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
@@ -121,11 +151,17 @@ DROP TABLE IF EXISTS `interact`.`video` ;
 
 CREATE TABLE IF NOT EXISTS `interact`.`video` (
   `idvideo` INT NOT NULL AUTO_INCREMENT,
-  `video` BLOB NOT NULL,
+  `video` VARCHAR(45) NOT NULL,
   `sub_nodes_idsub_nodes` INT NOT NULL,
   `sub_nodes_nodes_idnodes` INT NOT NULL,
   `sub_nodes_nodes_cases_idcases` INT NOT NULL,
-  PRIMARY KEY (`idvideo`, `sub_nodes_idsub_nodes`, `sub_nodes_nodes_idnodes`, `sub_nodes_nodes_cases_idcases`))
+  PRIMARY KEY (`idvideo`, `sub_nodes_idsub_nodes`, `sub_nodes_nodes_idnodes`, `sub_nodes_nodes_cases_idcases`),
+  INDEX `fk_video_sub_nodes1_idx` (`sub_nodes_idsub_nodes` ASC, `sub_nodes_nodes_idnodes` ASC, `sub_nodes_nodes_cases_idcases` ASC),
+  CONSTRAINT `fk_video_sub_nodes1`
+    FOREIGN KEY (`sub_nodes_idsub_nodes` , `sub_nodes_nodes_idnodes` , `sub_nodes_nodes_cases_idcases`)
+    REFERENCES `interact`.`sub_nodes` (`idsub_nodes` , `nodes_idnodes` , `nodes_cases_idcases`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
@@ -136,11 +172,17 @@ DROP TABLE IF EXISTS `interact`.`lyd` ;
 
 CREATE TABLE IF NOT EXISTS `interact`.`lyd` (
   `idlyd` INT NOT NULL AUTO_INCREMENT,
-  `lyd` BLOB NULL,
+  `lyd` VARCHAR(45) NOT NULL,
   `sub_nodes_idsub_nodes` INT NOT NULL,
   `sub_nodes_nodes_idnodes` INT NOT NULL,
   `sub_nodes_nodes_cases_idcases` INT NOT NULL,
-  PRIMARY KEY (`idlyd`, `sub_nodes_idsub_nodes`, `sub_nodes_nodes_idnodes`, `sub_nodes_nodes_cases_idcases`))
+  PRIMARY KEY (`idlyd`, `sub_nodes_idsub_nodes`, `sub_nodes_nodes_idnodes`, `sub_nodes_nodes_cases_idcases`),
+  INDEX `fk_lyd_sub_nodes1_idx` (`sub_nodes_idsub_nodes` ASC, `sub_nodes_nodes_idnodes` ASC, `sub_nodes_nodes_cases_idcases` ASC),
+  CONSTRAINT `fk_lyd_sub_nodes1`
+    FOREIGN KEY (`sub_nodes_idsub_nodes` , `sub_nodes_nodes_idnodes` , `sub_nodes_nodes_cases_idcases`)
+    REFERENCES `interact`.`sub_nodes` (`idsub_nodes` , `nodes_idnodes` , `nodes_cases_idcases`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
@@ -151,11 +193,17 @@ DROP TABLE IF EXISTS `interact`.`link` ;
 
 CREATE TABLE IF NOT EXISTS `interact`.`link` (
   `idlink` INT NOT NULL AUTO_INCREMENT,
-  `link` VARCHAR(45) NULL,
+  `link` VARCHAR(45) NOT NULL,
   `sub_nodes_idsub_nodes` INT NOT NULL,
   `sub_nodes_nodes_idnodes` INT NOT NULL,
   `sub_nodes_nodes_cases_idcases` INT NOT NULL,
-  PRIMARY KEY (`idlink`, `sub_nodes_idsub_nodes`, `sub_nodes_nodes_idnodes`, `sub_nodes_nodes_cases_idcases`))
+  PRIMARY KEY (`idlink`, `sub_nodes_idsub_nodes`, `sub_nodes_nodes_idnodes`, `sub_nodes_nodes_cases_idcases`),
+  INDEX `fk_link_sub_nodes1_idx` (`sub_nodes_idsub_nodes` ASC, `sub_nodes_nodes_idnodes` ASC, `sub_nodes_nodes_cases_idcases` ASC),
+  CONSTRAINT `fk_link_sub_nodes1`
+    FOREIGN KEY (`sub_nodes_idsub_nodes` , `sub_nodes_nodes_idnodes` , `sub_nodes_nodes_cases_idcases`)
+    REFERENCES `interact`.`sub_nodes` (`idsub_nodes` , `nodes_idnodes` , `nodes_cases_idcases`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
@@ -166,11 +214,17 @@ DROP TABLE IF EXISTS `interact`.`dokument` ;
 
 CREATE TABLE IF NOT EXISTS `interact`.`dokument` (
   `iddokument` INT NOT NULL AUTO_INCREMENT,
-  `dokument` BLOB NOT NULL,
+  `dokument` VARCHAR(45) NOT NULL,
   `sub_nodes_idsub_nodes` INT NOT NULL,
   `sub_nodes_nodes_idnodes` INT NOT NULL,
   `sub_nodes_nodes_cases_idcases` INT NOT NULL,
-  PRIMARY KEY (`iddokument`, `sub_nodes_idsub_nodes`, `sub_nodes_nodes_idnodes`, `sub_nodes_nodes_cases_idcases`))
+  PRIMARY KEY (`iddokument`, `sub_nodes_idsub_nodes`, `sub_nodes_nodes_idnodes`, `sub_nodes_nodes_cases_idcases`),
+  INDEX `fk_dokument_sub_nodes1_idx` (`sub_nodes_idsub_nodes` ASC, `sub_nodes_nodes_idnodes` ASC, `sub_nodes_nodes_cases_idcases` ASC),
+  CONSTRAINT `fk_dokument_sub_nodes1`
+    FOREIGN KEY (`sub_nodes_idsub_nodes` , `sub_nodes_nodes_idnodes` , `sub_nodes_nodes_cases_idcases`)
+    REFERENCES `interact`.`sub_nodes` (`idsub_nodes` , `nodes_idnodes` , `nodes_cases_idcases`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
@@ -182,7 +236,19 @@ DROP TABLE IF EXISTS `interact`.`admin_has_cases` ;
 CREATE TABLE IF NOT EXISTS `interact`.`admin_has_cases` (
   `admin_idadmin` INT NOT NULL,
   `cases_idcases` INT NOT NULL,
-  PRIMARY KEY (`admin_idadmin`, `cases_idcases`))
+  PRIMARY KEY (`admin_idadmin`, `cases_idcases`),
+  INDEX `fk_admin_has_cases_cases1_idx` (`cases_idcases` ASC),
+  INDEX `fk_admin_has_cases_admin_idx` (`admin_idadmin` ASC),
+  CONSTRAINT `fk_admin_has_cases_admin`
+    FOREIGN KEY (`admin_idadmin`)
+    REFERENCES `interact`.`admin` (`idadmin`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_admin_has_cases_cases1`
+    FOREIGN KEY (`cases_idcases`)
+    REFERENCES `interact`.`cases` (`idcases`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
