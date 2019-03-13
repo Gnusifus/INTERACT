@@ -1,31 +1,7 @@
-<!DOCTYPE html>
-<html lang="no">
-
-  <head>
-    <meta charset="UTF-8">
-    <title>INTERACT</title>
-
-    <!--Bootstrap and jquery lib-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
-    <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
-    <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
-
-
-
-
-    <!--Egen css-->
-
-    <link rel="stylesheet" type="text/css" href="css.css">
-    <script src="makelarge.js"></script>
-
-    <!--Font Awesome-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
-  </head>
-
+<?php
+session_start();
+include './html_elements/head.html';
+?>
     <body>
       <!-- case navigation -->
       <div class="navigation">
@@ -131,12 +107,17 @@
                   </div>
                 </div>
               </div>
-
-              <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item empty">
-                <div class="card h-100">
-                  <i class="new_node fas fa-plus"></i>
+              <?php
+              //Viser ikke pluss, når siden vises i student-modus
+              if($_SESSION['loggetinn'] == true){
+                echo "
+              <div class='col-lg-3 col-md-4 col-sm-6 portfolio-item empty'>
+                <div class='card h-100'>
+                  <i class='new_node fas fa-plus'></i>
                 </div>
               </div>
+              ";}
+              ?>
 
             </div>
           </div>
@@ -144,64 +125,68 @@
 
         <!--https://codepen.io/JFarrow/pen/fFrpg-->
         <!--meny--->
-        <nav class="main-menu">
+        <?php
+        //Viser ikke meny hvis siden vises i student-modus
+        if($_SESSION['loggetinn'] == true){
+          echo "
+        <nav class='main-menu'>
               <ul>
-                  <li class="has-subnav">
-                      <a href="#">
-                          <i class="teksticon fas fa-font fa-2x"></i>
-                          <span class="nav-text">
+                  <li class='has-subnav'>
+                      <a href='#'>
+                          <i class='teksticon fas fa-font fa-2x'></i>
+                          <span class='nav-text'>
                               Tekst
                           </span>
                       </a>
 
                   </li>
-                  <li class="has-subnav">
-                      <a href="#">
-                          <i class="bildeicon fas fa-camera fa-2x"></i>
-                          <span class="nav-text">
+                  <li class='has-subnav'>
+                      <a href='#'>
+                          <i class='bildeicon fas fa-camera fa-2x'></i>
+                          <span class='nav-text'>
                               Bilde
                           </span>
                       </a>
 
                   </li>
-                  <li class="has-subnav">
-                      <a href="#">
-                         <i class="videoicon fas fa-video fa-2x"></i>
-                          <span class="nav-text">
+                  <li class='has-subnav'>
+                      <a href='#'>
+                         <i class='videoicon fas fa-video fa-2x'></i>
+                          <span class='nav-text'>
                               Videofil
                           </span>
                       </a>
 
                   </li>
-                  <li class="has-subnav">
-                      <a href="#">
-                         <i class="lydicon fas fa-headphones fa-2x"></i>
-                          <span class="nav-text">
+                  <li class='has-subnav'>
+                      <a href='#'>
+                         <i class='lydicon fas fa-headphones fa-2x'></i>
+                          <span class='nav-text'>
                               Lydfil
                           </span>
                       </a>
 
                   </li>
                   <li>
-                      <a href="#">
-                          <i class="dokumenticon far fa-file fa-2x"></i>
-                          <span class="nav-text">
+                      <a href='#'>
+                          <i class='dokumenticon far fa-file fa-2x'></i>
+                          <span class='nav-text'>
                               Dokument
                           </span>
                       </a>
                   </li>
                   <li>
-                      <a href="#">
-                          <i class="linkicon fas fa-link fa-2x"></i>
-                          <span class="nav-text">
+                      <a href='#'>
+                          <i class='linkicon fas fa-link fa-2x'></i>
+                          <span class='nav-text'>
                              Link
                           </span>
                       </a>
                   </li>
                   <li>
-                     <a href="#">
-                         <i class="oppgaveicon fas fa-question fa-2x"></i>
-                          <span class="nav-text">
+                     <a href='#'>
+                         <i class='oppgaveicon fas fa-question fa-2x'></i>
+                          <span class='nav-text'>
                               Oppgave
                           </span>
                       </a>
@@ -209,87 +194,10 @@
 
               </ul>
           </nav>
-       <!-- meny slutt --->
-      </div>
-      <!-- container slutt -->
-      <!--https://codepen.io/JFarrow/pen/fFrpg-->
+          ";}
+          ?>
 
-      <!--meny-->
-      <nav class="main-menu">
-            <ul>
-                <li class="has-subnav">
-                    <a href="#">
-                        <i class="teksticon fas fa-font fa-2x"></i>
-                        <span class="nav-text">
-                            Tekst
-                        </span>
-                    </a>
-
-                </li>
-                <li class="has-subnav">
-                    <a href="#">
-                        <i class="bildeicon fas fa-camera fa-2x"></i>
-                        <span class="nav-text">
-                            Bilde
-                        </span>
-                    </a>
-
-                </li>
-                <li class="has-subnav">
-                    <a href="#">
-                       <i class="videoicon fas fa-video fa-2x"></i>
-                        <span class="nav-text">
-                            Videofil
-                        </span>
-                    </a>
-
-                </li>
-                <li class="has-subnav">
-                    <a href="#">
-                       <i class="lydicon fas fa-headphones fa-2x"></i>
-                        <span class="nav-text">
-                            Lydfil
-                        </span>
-                    </a>
-
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="dokumenticon far fa-file fa-2x"></i>
-                        <span class="nav-text">
-                            Dokument
-                        </span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="linkicon fas fa-link fa-2x"></i>
-                        <span class="nav-text">
-                           Link
-                        </span>
-                    </a>
-                </li>
-                <li>
-                   <a href="#">
-                       <i class="oppgaveicon fas fa-question fa-2x"></i>
-                        <span class="nav-text">
-                            Oppgave
-                        </span>
-                    </a>
-                </li>
-
-            </ul>
-        </nav>
-     <!-- meny slutt --->
-
-      <!-- Logg ut knapp -->
-      <a href="login.html" class="logout btn btn-info btn-lg"> Logg ut</a>
-
-      <!-- Footer -->
-      <footer class="py-5 bg-dark footer">
-        <div class="container">
-          <p class="m-0 text-center text-white">Copyright &copy; INTERACT 2018</p>
-        </div>
-      </footer>
+     <?php include './html_elements/logout_btn.php'; ?>
+     <?php include './html_elements/footer.html'; ?>
     </body>
 </html>
