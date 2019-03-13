@@ -1,5 +1,4 @@
 <?php
-session_start();
 include './html_elements/head.html';
 ?>
     <body>
@@ -194,7 +193,7 @@ include './html_elements/head.html';
 
               </ul>
           </nav>
-          ";}
+          "};
           ?>
 
      <?php include './html_elements/logout_btn.php'; ?>

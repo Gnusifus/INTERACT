@@ -4,7 +4,7 @@ $conn = mysqli_connect("localhost","root","","interact");
 
 //Sjekker tilkobling
 if (mysqli_connect_errno()) {
-    printf("Connect failed: %s\n", mysqli_connect_error());
+    printf("Kunne ikke koble til database:\n %s\n", mysqli_connect_error());
     exit();
 }
 ?>

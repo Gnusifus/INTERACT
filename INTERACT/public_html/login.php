@@ -1,28 +1,8 @@
-<!DOCTYPE html>
-<!--
-https://bootsnipp.com/snippets/z8l2X
--->
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>INTERACT</title>
-
-    <!--Bootstrap and jquery-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
-
-
-    <!--Own css--->
-    <link rel="stylesheet" type="text/css" href="css.css">
-
-    <!--Font Awesome-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
-
-  </head>
+<?php session_start();
+include './html_elements/head.html';
+?>
     <body>
+    <!-- https://bootsnipp.com/snippets/z8l2X -->
     <div class="container login-container">
         <h1 class="my-4">INTERACT | <small>Hvem er du?</small></h1>
             <div class="row">
@@ -30,21 +10,40 @@ https://bootsnipp.com/snippets/z8l2X
                   <img src="./static_img/bilde.jpg" alt=""/>
               </div>
                 <div class="col-md-6 login-form-1">
-                    <h3>Jeg er administrator!</h3>
-                    <form action="./PHP/login_php.php" method="post">
-
-                        <div class="form-group">
-                            <input type="text" name="email" class="form-control" placeholder="Skriv inn epostadresse..." value="" />
-                        </div>
-                        <div class="form-group">
-                            <input type="password" name="password" class="form-control" placeholder="Skriv inn passord..." value="" />
-                        </div>
-                        <div class="form-group">
-                            <input type="submit" class="btnSubmit" name="logginn" value="Logg inn" />
-                        </div>
-                        <div class="form-group">
-                            <a href="#" class="btnForgetPwd">Glemt passord?</a>
-                        </div>
+                        <?php
+                        include "./PHP/login_php.php";
+                        if($_SESSION['loggetinn'] == true){
+                          echo "
+                          <h3>Du er allerede logget inn som administrator...</h3>
+                          <form action='./PHP/login_php.php' method='post'>
+                          <div class='text-center'>
+                            <div class='form-group'>
+                                <input type='submit' class='btnStudent' name='videre' value='Klikk her for å gå videre'/>
+                            </div>
+                            <div class='form-group'>
+                                <input type='submit' class='btnSubmit' name='loggut' value='Logg meg ut' />
+                            </div>
+                          </div>
+                          ";
+                        }
+                        else{ ?>
+                          <h3>Jeg er administrator!</h3>
+                          <form action='./PHP/login_php.php' method="post">
+                          <div class="form-group">
+                              <input type="text" name="email" class="form-control" placeholder="Skriv inn epostadresse..." value="" />
+                          </div>
+                          <div class="form-group">
+                              <input type="password" name="password" class="form-control" placeholder="Skriv inn passord..." value="" />
+                          </div>
+                          <div class="form-group">
+                              <input type="submit" class="btnSubmit" name="logginn" value="Logg inn" />
+                          </div>
+                          <div class="form-group">
+                              <a href="#" class="btnForgetPwd">Glemt passord?</a>
+                          </div>
+                        <?php
+                      }
+                        ?>
                     </form>
 
                 </div>

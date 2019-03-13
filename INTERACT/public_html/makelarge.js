@@ -36,9 +36,6 @@ $(function(){
       $("li").find("i").css("color", "gray");
     })
 
-
-
-
     //Klikke på edit-ikonene
     $(".fa-trash-alt").click(function(){
        if (confirm("Er du sikker på at du vil slette dette elementet?")) {

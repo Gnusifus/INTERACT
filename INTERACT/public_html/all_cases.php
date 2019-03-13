@@ -1,25 +1,8 @@
-<!DOCTYPE html>
-<html lang="no">
-
-  <head>
-    <meta charset="UTF-8">
-    <title>INTERACT</title>
-
-    <!--Bootstrap and jquery lib-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
-
-
-    <!--Egen css-->
-    <link rel="stylesheet" type="text/css" href="css.css">
-
-    <!--Font Awesome-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
-  </head>
-
+<?php
+session_start();
+include './PHP/login_php.php';
+include './html_elements/head.html';
+?>
     <body>
       <div class="container">
       <!-- Overskrift, brodsmulemeny -->
@@ -36,58 +19,53 @@
                 </button>
               </div>
               <div class="modal-body">
-                <form action="./PHP/new_case.php" method="post">
+                  <form action="./PHP/new_case.php" method="post">
 
-                  <div class="form-group">
-                    <label for="exampleFormControlInput1">Case tittel</label>
-                    <input type="text" class="form-control" name="tittel" placeholder="Skriv inn case tittel her...">
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleFormControlTextarea1">Case beskrivelse</label>
-                    <textarea class="form-control" name="beskrivelse" rows="3" placeholder="Beskriv casen her..."></textarea>
-                  </div>
-
-                  <div class="form-group">
-                    <div class="custom-file">
-                      <input type="file" class="custom-file-input" id="inputGroupFile02">
-                      <label class="custom-file-label" name="bilde" for="inputGroupFile02">Last opp et bilde her...</label>
+                    <div class="form-group">
+                      <label for="exampleFormControlInput1">Case tittel</label>
+                      <input type="text" class="form-control" name="tittel" placeholder="Skriv inn case tittel her...">
                     </div>
-                  </div>
 
-                  <button type="submit" name="submit" class="btn btn-primary mb-2">Large case</button>
+                    <div class="form-group">
+                      <label for="exampleFormControlTextarea1">Case beskrivelse</label>
+                      <textarea class="form-control" name="beskrivelse" rows="3" placeholder="Beskriv casen her..."></textarea>
+                    </div>
 
-                </form>
-              </div>
+                    <div class="form-group">
+                      <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="inputGroupFile02">
+                        <label class="custom-file-label" name="bilde" for="inputGroupFile02">Last opp et bilde her...</label>
+                      </div>
+                    </div>
 
-              </div>
-            </div>
-          </div>
-        <!-- Modal end -->
+                    <button type="submit" name="submit" class="btn btn-primary mb-2">Large case</button>
+                  </form>
 
-        <!-- Cases oversikt -->
-        <div class="row" id="row">
+              </div><!-- modal-body end -->
+            </div><!-- modal-content end -->
+          </div><!-- modal-dialog end -->
+        </div><!-- modal end -->
+
+        <!-- Viser alle cases i en row -->
+        <div class="row">
           <?php
           include './PHP/show_all_cases.php';
-          ?>
-            <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
-            <div class="card h-100" data-toggle="modal" data-target=".bd-example-modal-lg">
-                <i class="new_node fas fa-plus"></i>
+          echo $_SESSION['loggetinn'] ? 'true' : 'false';
+          //Viser ikke card med pluss tegn hvis siden vises i student-modus
+          if($_SESSION['loggetinn'] == true){
+            echo "
+            <div class='col-lg-3 col-md-4 col-sm-6 portfolio-item'>
+              <div class='card h-100' data-toggle='modal' data-target='.bd-example-modal-lg'>
+                  <i class='new_node fas fa-plus'></i>
+              </div>
             </div>
-          </div>
-          </div>
-        <!-- case oversikt slutt -->
-      </div>
-      </div>
-      <!-- container slutt -->
+            ";
+          }
+          ?>
+        </div><!-- row end -->
+      </div><!-- container end -->
 
-      <!-- Logg ut knapp -->
-      <a href="login.html" class="logout btn btn-info btn-lg"> Logg ut</a>
-
-      <!-- Footer -->
-      <footer class="py-5 bg-dark footer">
-        <div class="container">
-          <p class="m-0 text-center text-white">Copyright &copy; INTERACT 2018</p>
-        </div>
-      </footer>
+      <?php include './html_elements/logout_btn.php'; ?>
+      <?php include './html_elements/footer.html'; ?>
     </body>
 </html>
