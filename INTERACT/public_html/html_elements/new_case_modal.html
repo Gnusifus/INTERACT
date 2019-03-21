@@ -11,14 +11,14 @@
       <div class="modal-body">
           <form action="./PHP/new_case.php" method="post" enctype="multipart/form-data">
 
-            <div class="form-group">
-              <label for="exampleFormControlInput1">Case tittel</label>
-              <input type="text" class="form-control" name="tittel" placeholder="Skriv inn case tittel her...">
+            <div class="form-group" required>
+              <label class="control-label" for="tittel">Case tittel</label>
+              <input type="text" class="form-control" name="tittel" required="required" placeholder="Skriv inn case tittel her...">
             </div>
 
-            <div class="form-group">
-              <label for="exampleFormControlTextarea1">Case beskrivelse</label>
-              <textarea class="form-control" name="beskrivelse" rows="3" placeholder="Beskriv casen her..."></textarea>
+            <div class="form-group" required>
+              <label class="control-label" for="beskrivelse">Case beskrivelse</label>
+              <textarea class="form-control" name="beskrivelse" rows="3" required="required" placeholder="Beskriv casen her..."></textarea>
             </div>
 
             <div class="form-group">
