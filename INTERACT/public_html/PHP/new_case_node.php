@@ -10,15 +10,22 @@ $_SESSION['overskrift'] = $_POST['overskrift'];
 //$_SESSION['bilde'] = $_POST['bilde'];
 
 $overskrift = $_SESSION['overskrift'];
-//$bilde = $_SESSION['bilde'];
+$bilde = $_FILES['bildeup']['name'];
 
-    $sql = "INSERT INTO nodes (overskrift) VALUES ('$overskrift')";
+$bildedir = "../img/";
+$path = time().$bilde;
+
+    $sql = "INSERT INTO nodes (overskrift, bilde, cases_idcases)
+            VALUES ('$overskrift', '$path', 1)";
+            
+if(move_uploaded_file($_FILES['bildeup']['tmp_name'], $bildedir.$path)){
     if ($conn->query($sql) === TRUE) {
-      header('Location: ../case.php');
-  }
-    else {
-       echo "Error: " . $sql . "<br>" . $conn->error;
-       $conn->close();
+        header('Location: ../case.php');
     }
+    else {
+         echo "Error: " . $sql . "<br>" . $conn->error;
+         $conn->close();
+    }
+  }
 }
 ?>

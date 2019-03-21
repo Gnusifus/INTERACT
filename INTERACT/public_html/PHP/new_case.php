@@ -8,19 +8,25 @@ include './dbconnect.php';
 
 $_SESSION['tittel'] = $_POST['tittel'];
 $_SESSION['beskrivelse'] = $_POST['beskrivelse'];
-//$_SESSION['bilde'] = $_POST['bilde'];
+//$_SESSION['bilde'] = $_FILES['bildeup']['name'];
 
 $tittel = $_SESSION['tittel'];
 $beskrivelse = $_SESSION['beskrivelse'];
-//$bilde = $_SESSION['bilde'];
+$bilde = $_FILES['bildeup']['name'];
 
-    $sql = "INSERT INTO cases (tittel, tekst) VALUES ('$tittel', '$beskrivelse')"; //Perf fnutt
-    if ($conn->query($sql) === TRUE) {
-      header('Location: ../all_cases.php');
+$bildedir = "../img/";
+$path = time().$bilde;
+
+if(move_uploaded_file($_FILES['bildeup']['tmp_name'], $bildedir.$path)){
+  $sql = "INSERT INTO cases (tittel, tekst, bilde)
+          VALUES ('$tittel', '$beskrivelse', '$path')"; //Perf fnutt
+  if ($conn->query($sql) === TRUE) {
+    header('Location: ../all_cases.php');
+}
+  else {
+     echo "Error: " . $sql . "<br>" . $conn->error;
+     $conn->close();
   }
-    else {
-       echo "Error: " . $sql . "<br>" . $conn->error;
-       $conn->close();
-    }
+}
 }
 ?>

@@ -8,38 +8,8 @@ include './html_elements/head.html';
      <!-- Skal oppdateres automatisk med php / js -->
     <h1 class="my-4"><a href="all_cases.html">INTERACT</a> | <small>case</small></h1>
 
-      <!-- Modal endre bilde -->
-      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLongTitle">Endre/slett bildet for GET_TITLE</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <div class="input-group mb-3">
-                <div class="custom-file">
-                  <input type="file" class="custom-file-input" id="inputGroupFile02">
-                  <label class="custom-file-label" for="inputGroupFile02">Veldg fil</label>
-                </div>
-                <div class="input-group-append">
-                  <span class="input-group-text" id="">Last opp</span>
-                </div>
-              </div>
-                  <hr/>
-                  <center><i>eller</i></center><br>
-                  <center><button type="button" style="background-color: coral" class="btn btn-primary">Slett bildet</button></center>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-primary">Lagre</button>
-            </div>
-
-          </div>
-        </div>
-      </div>
-      <!-- Modal end -->
+    <?php include "./html_elements/new_node_modal.html";
+          include "./html_elements/endre_bilde_modal.html"; ?>
 
       <!-- Modal hover main bilde -->
       <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
@@ -60,39 +30,6 @@ include './html_elements/head.html';
         </div>
       <!-- Modal end -->
 
-      <!-- Modal ny node -->
-      <div class="modal fade ny_case_node_modal" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLongTitle">Legg til en ny node</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-                <form action="./PHP/new_case_node.php" method="post">
-
-                  <div class="form-group">
-                    <label for="exampleFormControlInput1">Node overskrift</label>
-                    <input type="text" class="form-control" name="overskrift" placeholder="Skriv inn case tittel her...">
-                  </div>
-
-                  <div class="form-group">
-                    <div class="custom-file">
-                      <input type="file" class="custom-file-input" id="inputGroupFile02">
-                      <label class="custom-file-label" name="bilde" for="inputGroupFile02">Last opp et bilde her...</label>
-                    </div>
-                  </div>
-
-                  <button type="submit" name="submit" class="btn btn-primary mb-2">Legg til node</button>
-                </form>
-
-            </div><!-- modal-body end -->
-          </div><!-- modal-content end -->
-        </div><!-- modal-dialog end -->
-      </div><!-- modal end -->
-
  <!-- Cases body -->
   <div class="outer">
     <div class="middle">
@@ -106,8 +43,8 @@ include './html_elements/head.html';
           </div>
         <a href="#"><img class="card-img-top" src="#"></a>
           <div class="card-body">
-            <h4 class="card-title"><a href="#">title</a></h4>
-            <p class="card-text">tekst...</p>
+            <h4 class="card-title"><a href="#">GET_MAIN_TITLE</a></h4>
+            <p class="card-text">GET_MAIN_TEKST</p>
           </div>
         </div>
       </div><!-- main end -->
