@@ -72,6 +72,14 @@
               </div>
             </div>
 
+            <script>
+            //Viser tekst i label for elementer når de er lastet opp
+            $('.custom-file-input').on('change', function() {
+               let fileName = $(this).val().split('\\').pop();
+               $(this).next('.custom-file-label').addClass("selected").html(fileName);
+            });
+            </script>
+
             <!-- Spørsmål -->
             <div class="form-group col-md-12">
             <label for="exampleFormControlInput1">Spørsmål</label>

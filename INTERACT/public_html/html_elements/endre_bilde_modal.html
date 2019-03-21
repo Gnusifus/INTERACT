@@ -18,6 +18,15 @@
             <span class="input-group-text" id="">Last opp</span>
           </div>
         </div>
+
+        <script>
+        //Viser tekst i label for bilde når bilde er lastet opp
+        $('.custom-file-input').on('change', function() {
+           let fileName = $(this).val().split('\\').pop();
+           $(this).next('.custom-file-label').addClass("selected").html(fileName);
+        });
+        </script>
+        
             <hr/>
             <center><i>eller</i></center><br>
             <center><button type="button" style="background-color: coral" class="btn btn-primary">Slett bildet</button></center>

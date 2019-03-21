@@ -22,6 +22,14 @@
                 <label class="custom-file-label" name="bilde" for="bilde">Last opp et bilde her...</label>
               </div>
             </div>
+            
+            <script>
+            //Viser tekst i label for bilde når bilde er lastet opp
+            $('.custom-file-input').on('change', function() {
+               let fileName = $(this).val().split('\\').pop();
+               $(this).next('.custom-file-label').addClass("selected").html(fileName);
+            });
+            </script>
 
             <button type="submit" name="submit" class="btn btn-primary mb-2">Legg til node</button>
           </form>

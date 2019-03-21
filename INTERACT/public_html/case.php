@@ -23,7 +23,7 @@ include './html_elements/head.html';
             </div>
             <div class="modal-body">
               <img src="#">
-              <p>tekst</p>
+              <p>GET_MAIN_TEKST</p>
             </div>
             </div>
           </div>
