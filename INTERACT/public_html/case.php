@@ -4,12 +4,13 @@ include './html_elements/head.html';
 ?>
 <body>
     <div class="container">
-     <!-- Overskrift, brodsmulemeny -->
-     <!-- Skal oppdateres automatisk med php / js -->
-    <h1 class="my-4"><a href="all_cases.html">INTERACT</a> | <small>case</small></h1>
+    <?php
+    //Legger case id i variable
+    $case = $_GET['case'];
 
-    <?php include "./html_elements/new_node_modal.html";
-          include "./html_elements/endre_bilde_modal.html"; ?>
+    include "./PHP/brodsmule.php";
+    include "./html_elements/new_node_modal.php";
+    include "./html_elements/endre_bilde_modal.html"; ?>
 
       <!-- Modal hover main bilde -->
       <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
@@ -33,24 +34,9 @@ include './html_elements/head.html';
  <!-- Cases body -->
   <div class="outer">
     <div class="middle">
-      <div class="main">
-        <div class="card" data-toggle="modal" data-target=".bd-example-modal-lg">
-          <div class="edit_icons">
-            <i class="edit fas fa-pencil-alt"></i>
-          </div>
-          <div class="new_picture" data-toggle="modal" data-target="#exampleModalCenter">
-            <span>Endre bildet</span>
-          </div>
-        <a href="#"><img class="card-img-top" src="#"></a>
-          <div class="card-body">
-            <h4 class="card-title"><a href="#">GET_MAIN_TITLE</a></h4>
-            <p class="card-text">GET_MAIN_TEKST</p>
-          </div>
-        </div>
-      </div><!-- main end -->
-
-      <!-- nodes -->
+      <!-- Main node + nodes -->
       <?php
+      include "./PHP/show_main_case_node.php";
       include "./PHP/show_all_case_nodes.php";
       //Viser ikke card med pluss tegn hvis siden vises i student-modus
       if($_SESSION['loggetinn'] == true){

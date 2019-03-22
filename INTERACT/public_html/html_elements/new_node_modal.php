@@ -9,7 +9,7 @@
         </button>
       </div>
       <div class="modal-body">
-          <form action="./PHP/new_case_node.php" method="post" enctype="multipart/form-data">
+          <form action="./PHP/new_case_node.php?case=<?php echo $case ?>" method="post" enctype="multipart/form-data">
 
             <div class="form-group">
               <label for="exampleFormControlInput1">Node overskrift</label>
@@ -22,7 +22,7 @@
                 <label class="custom-file-label" name="bilde" for="bilde">Last opp et bilde her...</label>
               </div>
             </div>
-            
+
             <script>
             //Viser tekst i label for bilde når bilde er lastet opp
             $('.custom-file-input').on('change', function() {

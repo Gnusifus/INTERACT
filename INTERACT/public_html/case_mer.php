@@ -13,6 +13,9 @@ include './html_elements/head.html';
       </div>
 
       <div class="container">
+      <?php
+      include "./PHP/brodsmule.php";
+      ?>
         <!-- Modal klikk node -->
         <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
           <div class="modal-dialog modal-lg">
@@ -32,8 +35,6 @@ include './html_elements/head.html';
           </div>
         <!-- Modal end -->
 
-      <!-- Overskrift, brodsmulemeny/ endre overskrift for hvor du er-->
-        <h1 class="my-4"><a href="all_cases.php">INTERACT</a> | <a href="case.html">Ola</a> | <small>Helse</small></h1>
 
         <!-- Cases oversikt -->
           <div class="container">

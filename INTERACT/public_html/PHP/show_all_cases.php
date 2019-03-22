@@ -10,16 +10,17 @@ if($_SESSION['loggetinn'] == true && $row != 0){
   while($row = mysqli_fetch_array($result)) {
     echo "
     <div class='col-lg-3 col-md-4 col-sm-6 portfolio-item'>
+    <a href='case.php?case=" . $row['idcases'] . "'>
       <div class='card h-100'>
-          <a href='#'><img class='card-img-top' src='./img/" . $row['bilde'] . "'></a>
+        <img class='card-img-top' src='./img/" . $row['bilde'] . "'>
         <div class='card-body'>
-          <h4 class='card-title'>
-            <a href='#'>" .$row['tittel'] . "</a>
-          </h4>
+          <h4 class='card-title'>" .$row['tittel'] . "</h4>
             <p class='card-text'>" . $row['tekst'] . "</p>
           </div>
         </div>
-      </div>";
+        </a>
+      </div>
+      ";
     }
     echo "
     <div class='col-lg-3 col-md-4 col-sm-6 portfolio-item'>
@@ -44,16 +45,17 @@ else{ //hvis ikke logget inn, ikke vis pluss
   while($row = mysqli_fetch_array($result)) {
     echo "
     <div class='col-lg-3 col-md-4 col-sm-6 portfolio-item'>
+    <a href='case.php?case=" . $row['idcases'] . "'>
       <div class='card h-100'>
-          <a href='#'><img class='card-img-top' src=''></a>
+        <img class='card-img-top' src='./img/" . $row['bilde'] . "'>
         <div class='card-body'>
-          <h4 class='card-title'>
-            <a href='#'>" .$row['tittel'] . "</a>
-          </h4>
+          <h4 class='card-title'>" .$row['tittel'] . "</h4>
             <p class='card-text'>" . $row['tekst'] . "</p>
           </div>
         </div>
-      </div>";
+        </a>
+      </div>
+      ";
     }
 }
 ?>
