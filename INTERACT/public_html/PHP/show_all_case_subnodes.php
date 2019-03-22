@@ -1,8 +1,10 @@
 <?php
-//Henter alle casenoder fra db og viser dem til siden case.php
+//Henter alle casenoder fra db og viser dem til siden case_mer.php
 include 'dbconnect.php';
 
-$sql="SELECT * FROM sub_nodes WHERE nodeid = ''";
+$node = $_GET['node'];
+
+$sql="SELECT * FROM sub_nodes WHERE nodes_idnodes = '$node'";
 $result = mysqli_query($conn,$sql);
 
 

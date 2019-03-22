@@ -17,7 +17,7 @@ if(mysqli_num_rows($result) == 1){
       <div class='new_picture' data-toggle='modal' data-target='#exampleModalCenter'>
         <span>Endre bildet</span>
       </div>
-    <img class='card-img-top' src='./img/" . $row['bilde'] . ">
+    <img class='card-img-top' src='./img/" . $row['bilde'] . "'>
       <div class='card-body'>
         <h4 class='card-title'>" . $row['tittel'] . "</h4>
         <p class='card-text'>" . $row['tekst'] . "</p>

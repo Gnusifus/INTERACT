@@ -6,12 +6,12 @@ if(isset($_POST['submit'])){
 
 include './dbconnect.php';
 
+$case = $_GET['case'];
+
 $_SESSION['overskrift'] = $_POST['overskrift'];
 $overskrift = $_SESSION['overskrift'];
 
 $bilde = $_FILES['bildeup']['name'];
-$case = $_GET['case'];
-
 $bildedir = "../img/";
 $path = time().$bilde;
 
@@ -26,6 +26,10 @@ if(move_uploaded_file($_FILES['bildeup']['tmp_name'], $bildedir.$path)){
          echo "Error: " . $sql . "<br>" . $conn->error;
          $conn->close();
     }
+  }
+  else{
+    //Funker innimellom?
+    echo "if(move_uploaded_file(_FILES['bildeup']['tmp_name'], bildedir.path)){ funker ikke";
   }
 }
 ?>

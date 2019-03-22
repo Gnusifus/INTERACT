@@ -3,15 +3,9 @@ session_start();
 include './html_elements/head.html';
 ?>
     <body>
-      <!-- case navigation -->
-      <div class="navigation">
-        <a><img src="./img/pers.png" alt=""></a>
-        <a><img src="./img/veiledning.png" alt=""></a>
-        <a><img src="./img/økonomi.png" alt=""></a>
-        <a><img src="./img/jobb.jpg" alt=""></a>
-        <a><img src="./img/helse.png" alt=""></a>
-      </div>
-
+      <?php
+      include "./PHP/case_mer_nav.php";
+      ?>
       <div class="container">
       <?php
       include "./PHP/brodsmule.php";
