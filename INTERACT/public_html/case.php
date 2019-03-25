@@ -40,12 +40,7 @@ include './html_elements/head.html';
       include "./PHP/show_all_case_nodes.php";
       //Viser ikke card med pluss tegn hvis siden vises i student-modus
       if($_SESSION['loggetinn'] == true){
-      echo "
-      <div class='empty node n6'>
-        <div class='card' data-toggle='modal' data-target='.ny_case_node_modal'>
-          <i class='new_node fas fa-plus'></i>
-        </div>
-      </div>";
+      echo "<button data-toggle='modal' data-target='.ny_case_node_modal' class='button pluss'><i class='fas fa-plus'></i></button>";
       }
       ?>
       <!-- nodes end -->
@@ -56,7 +51,6 @@ include './html_elements/head.html';
 
 
 <!-- Logg ut knapp -->
-<button class="button pluss"><i class="fas fa-plus"></i></button>
 <div class="savelog">
   <!-- usikker på om vi trenger denne?
     <a href="#" class="lagre btn btn-info btn-lg" style="background-color: coral"> Large endringer</a>-->
