@@ -114,15 +114,24 @@ include './html_elements/head.html';
               </div>
               ";}
               ?>
-
+              <script>
+              $(document).ready(function () {
+                  $('.material-button-toggle').on("click", function () {
+                      $(this).toggleClass('open');
+                      $('.option').toggleClass('scale-on');
+                  });
+              });
+              </script>
             </div>
           </div>
+        </div>
         <!-- case oversikt slutt -->
 
         <!--https://codepen.io/JFarrow/pen/fFrpg-->
         <!--meny--->
         <?php
         //Viser ikke meny hvis siden vises i student-modus
+        /*
         if($_SESSION['loggetinn'] == true){
           echo "
         <nav class='main-menu'>
@@ -190,7 +199,7 @@ include './html_elements/head.html';
 
               </ul>
           </nav>
-          ";}
+          ";} */
           ?>
 
      <?php include './html_elements/logout_btn.php'; ?>

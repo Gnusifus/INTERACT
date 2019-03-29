@@ -13,7 +13,7 @@
 
             <div class="form-group">
               <label for="exampleFormControlInput1">Node overskrift</label>
-              <input type="text" class="form-control" name="overskrift" placeholder="Skriv inn case tittel her...">
+              <input type="text" class="form-control" name="overskrift" placeholder="Skriv inn case tittel her..." required>
             </div>
 
             <div class="form-group">
