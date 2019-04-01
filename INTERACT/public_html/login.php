@@ -2,6 +2,9 @@
 include './html_elements/head.html';
 ?>
     <body>
+      <?php
+      include "./html_elements/oslomet_logo.html";
+       ?>
     <!-- https://bootsnipp.com/snippets/z8l2X -->
     <div class="container login-container">
         <h1 class="my-4">INTERACT | <small>Hvem er du?</small></h1>

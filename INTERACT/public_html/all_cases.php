@@ -4,6 +4,9 @@ include './PHP/login_php.php';
 include './html_elements/head.html';
 ?>
     <body>
+      <?php
+      include "./html_elements/oslomet_logo.html";
+       ?>
       <div class="container">
         <?php
         include "./PHP/brodsmule.php";

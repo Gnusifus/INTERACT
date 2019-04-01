@@ -4,6 +4,7 @@ include './html_elements/head.html';
 ?>
     <body>
       <?php
+      include "./html_elements/oslomet_logo.html";
       include "./PHP/case_mer_nav.php";
       ?>
       <div class="container">
@@ -33,6 +34,10 @@ include './html_elements/head.html';
         <!-- Cases oversikt -->
           <div class="container">
             <div class="row">
+              <?php
+              include "./PHP/show_all_case_subnodes.php";
+              ?>
+              <!--
 
               <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
                 <div class="card h-100" data-toggle="modal" data-target=".bd-example-modal-lg">
@@ -100,15 +105,17 @@ include './html_elements/head.html';
                     <h4 class="card-title">Medikamenter</h4>
                     <p class="card-text">Her inkluderer vi en videosnutt for legemiddelhåndtering.</p>
                   </div>
+                -->
                 </div>
               </div>
               <?php
               //Viser ikke pluss, når siden vises i student-modus
               if($_SESSION['loggetinn'] == true){
-              include "./html_elements/new_case_subnode_modal.html";
+              include "./html_elements/new_case_subnode_modal.php";
+              include './PHP/new_case_subnode.php';
                 echo "
               <div class='col-lg-3 col-md-4 col-sm-6 portfolio-item empty'>
-                <div class='card h-100' data-toggle='modal' data-target='.ny_case_subnode_modal'>
+                <div class='card' data-toggle='modal' data-target='.ny_case_subnode_modal'>
                   <i class='new_node fas fa-plus'></i>
                 </div>
               </div>
@@ -126,81 +133,6 @@ include './html_elements/head.html';
           </div>
         </div>
         <!-- case oversikt slutt -->
-
-        <!--https://codepen.io/JFarrow/pen/fFrpg-->
-        <!--meny--->
-        <?php
-        //Viser ikke meny hvis siden vises i student-modus
-        /*
-        if($_SESSION['loggetinn'] == true){
-          echo "
-        <nav class='main-menu'>
-              <ul>
-                  <li class='has-subnav'>
-                      <a href='#'>
-                          <i class='teksticon fas fa-font fa-2x'></i>
-                          <span class='nav-text'>
-                              Tekst
-                          </span>
-                      </a>
-
-                  </li>
-                  <li class='has-subnav'>
-                      <a href='#'>
-                          <i class='bildeicon fas fa-camera fa-2x'></i>
-                          <span class='nav-text'>
-                              Bilde
-                          </span>
-                      </a>
-
-                  </li>
-                  <li class='has-subnav'>
-                      <a href='#'>
-                         <i class='videoicon fas fa-video fa-2x'></i>
-                          <span class='nav-text'>
-                              Videofil
-                          </span>
-                      </a>
-
-                  </li>
-                  <li class='has-subnav'>
-                      <a href='#'>
-                         <i class='lydicon fas fa-headphones fa-2x'></i>
-                          <span class='nav-text'>
-                              Lydfil
-                          </span>
-                      </a>
-
-                  </li>
-                  <li>
-                      <a href='#'>
-                          <i class='dokumenticon far fa-file fa-2x'></i>
-                          <span class='nav-text'>
-                              Dokument
-                          </span>
-                      </a>
-                  </li>
-                  <li>
-                      <a href='#'>
-                          <i class='linkicon fas fa-link fa-2x'></i>
-                          <span class='nav-text'>
-                             Link
-                          </span>
-                      </a>
-                  </li>
-                  <li>
-                     <a href='#'>
-                         <i class='oppgaveicon fas fa-question fa-2x'></i>
-                          <span class='nav-text'>
-                              Oppgave
-                          </span>
-                      </a>
-                  </li>
-
-              </ul>
-          </nav>
-          ";} */
-          ?>
 
      <?php include './html_elements/logout_btn.php'; ?>
      <?php include './html_elements/footer.html'; ?>

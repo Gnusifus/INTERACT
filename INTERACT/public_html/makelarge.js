@@ -22,20 +22,6 @@ $(function(){
         };
     });
 
-    $(".main-menu").hover(function(){
-      //Setter farger på hvert ikon i valgmeny ved hover.
-      $(".teksticon").css("color", "white");
-      $(".bildeicon").css("color", "#FF5C44");
-      $(".videoicon").css("color", "#FF72D3");
-      $(".lydicon").css("color", "#896DFF");
-      $(".dokumenticon").css("color", "#1ABFFF");
-      $(".linkicon").css("color", "#1AD44A");
-      $(".oppgaveicon").css("color", "#FF961A");
-    }, function(){
-      //Tilbakestiller fargen til alle ikoner i valgmeny, når ikke hover.
-      $("li").find("i").css("color", "gray");
-    })
-
     //Klikke på edit-ikonene
     $(".fa-trash-alt").click(function(){
        if (confirm("Er du sikker på at du vil slette dette elementet?")) {

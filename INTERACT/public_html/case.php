@@ -3,6 +3,9 @@ session_start();
 include './html_elements/head.html';
 ?>
 <body>
+  <?php
+  include "./html_elements/oslomet_logo.html";
+   ?>
     <div class="container">
     <?php
     //Legger case id i variable
