@@ -27,5 +27,7 @@ include './html_elements/head.html';
 
       <?php include './html_elements/logout_btn.php'; ?>
       <?php include './html_elements/footer.html'; ?>
+
+      <imput type="button" value="slett">
     </body>
 </html>
