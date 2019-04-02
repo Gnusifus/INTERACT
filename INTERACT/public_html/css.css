@@ -187,13 +187,19 @@ a:hover{
 .all_cases_delete{
   display: none;
   position: absolute;
-  top: 1%;
-  right: 1%;
-  font-size: 2em;
+  top: 0;
+  right: 0;
+  font-size: 1.7em;
+  margin: 1%;
+}
+
+.edit{
+  transition: color 0.5s;
 }
 
 .all_cases_delete>.edit:hover{
   cursor: pointer;
+  color: #DC3545;
 }
 
 .edit_icons{

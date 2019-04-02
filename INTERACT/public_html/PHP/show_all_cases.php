@@ -7,10 +7,10 @@ $result = mysqli_query($conn,$sql);
 $row = mysqli_fetch_array($result);
 
 if($_SESSION['loggetinn'] == true && $row != 0){
-  $dbdate = DateTime::createFromFormat('Y-m-d H:i:s', $row['dato']);
-  $nordate = $dbdate->format('d/m/Y');
-  $nortime = $dbdate->format('H:i');
   while($row = mysqli_fetch_array($result)) {
+    $dbdate = DateTime::createFromFormat('Y-m-d H:i:s', $row['dato']);
+    $nordate = $dbdate->format('d/m/Y');
+    $nortime = $dbdate->format('H:i');
     if($row['publisert'] == false){
       echo "
       <div class='col-lg-3 col-md-4 col-sm-6 portfolio-item'>
@@ -20,7 +20,7 @@ if($_SESSION['loggetinn'] == true && $row != 0){
           <div id='ikke_pub2' class='text-center text-danger'>Klikk her for å publisere</div>
         </div>
         <div class='all_cases_delete'>
-          <i class='edit fas fa-trash-alt'></i>
+          <i class='edit fas fa-trash-alt' id='" . $row['idcases'] . "'></i>
         </div>
         <a href='case.php?case=" . $row['idcases'] . "'>
           <img class='card-img-top' src='./img/" . $row['bilde'] . "'>
@@ -43,6 +43,9 @@ if($_SESSION['loggetinn'] == true && $row != 0){
         <div class='card-header'>
           <div id='pub' class='text-center text-success font-weight-bold'>Publisert!<br></div>
           <div id='pub2' class='text-center text-success'>Klikk her for å avpublisere</div>
+        </div>
+        <div class='all_cases_delete'>
+          <i class='edit fas fa-trash-alt'></i>
         </div>
         <a href='case.php?case=" . $row['idcases'] . "'>
           <img class='card-img-top' src='./img/" . $row['bilde'] . "'>
