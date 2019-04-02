@@ -7,21 +7,57 @@ $result = mysqli_query($conn,$sql);
 $row = mysqli_fetch_array($result);
 
 if($_SESSION['loggetinn'] == true && $row != 0){
+  $dbdate = DateTime::createFromFormat('Y-m-d H:i:s', $row['dato']);
+  $nordate = $dbdate->format('d/m/Y');
+  $nortime = $dbdate->format('H:i');
   while($row = mysqli_fetch_array($result)) {
-    echo "
-    <div class='col-lg-3 col-md-4 col-sm-6 portfolio-item'>
-    <a href='case.php?case=" . $row['idcases'] . "'>
-      <div class='card h-100'>
-        <img class='card-img-top' src='./img/" . $row['bilde'] . "'>
-        <div class='card-body'>
-          <h4 class='card-title'>" .$row['tittel'] . "</h4>
-            <p class='card-text'>" . $row['tekst'] . "</p>
-          </div>
+    if($row['publisert'] == false){
+      echo "
+      <div class='col-lg-3 col-md-4 col-sm-6 portfolio-item'>
+        <div class='card'>
+        <div class='card-header' id='" . $row['idcases'] . "'>
+          <div id='ikke_pub' class='text-center text-danger font-weight-bold'>Ikke publisert</div><br>
+          <div id='ikke_pub2' class='text-center text-danger'>Klikk her for å publisere</div>
         </div>
-        </a>
-      </div>
-      ";
+        <a href='case.php?case=" . $row['idcases'] . "'>
+          <img class='card-img-top' src='./img/" . $row['bilde'] . "'>
+          <div class='card-body'>
+            <h4 class='card-title'>" .$row['tittel'] . "</h4>
+            <p class='card-text'>" . $row['tekst'] . "</p>
+            </div>
+            <div class='card-footer text-muted'>
+              <div class='float-left'>" . $nordate . "</div>
+              <div class='float-right'>kl. " . $nortime . "</div>
+            </div>
+          </div>
+          </a>
+        </div>
+        ";
     }
+    else{
+      echo "
+      <div class='col-lg-3 col-md-4 col-sm-6 portfolio-item'>
+        <div class='card'>
+        <div class='card-header'>
+          <div id='pub' class='text-center text-success font-weight-bold'>Publisert!</div><br>
+          <div id='pub2' class='text-center text-success'>Klikk her for å avpublisere</div>
+        </div>
+        <a href='case.php?case=" . $row['idcases'] . "'>
+          <img class='card-img-top' src='./img/" . $row['bilde'] . "'>
+          <div class='card-body'>
+            <h4 class='card-title'>" .$row['tittel'] . "</h4>
+              <p class='card-text'>" . $row['tekst'] . "</p>
+            </div>
+            <div class='card-footer text-muted'>
+              <div class='float-left'>" . $nordate . "</div>
+              <div class='float-right'>kl. " . $nortime . "</div>
+            </div>
+          </div>
+          </a>
+        </div>
+        ";
+    }
+  }
     echo "
     <div class='col-lg-3 col-md-4 col-sm-6 portfolio-item'>
       <div class='card h-100' data-toggle='modal' data-target='.bd-example-modal-lg'>
@@ -30,10 +66,10 @@ if($_SESSION['loggetinn'] == true && $row != 0){
     </div>
     ";
 }
-elseif($_SESSION['loggetinn'] == true && $row == 0){
+elseif($_SESSION['loggetinn'] == true && $row == 0){ //Hvis ingen caser er laget
   echo "
   <div class='col-lg-3 col-md-4 col-sm-6 portfolio-item'>
-    <span data-toggle='tooltip' data-placement='top' title='Du har ingen caser enda, klikk her for å begynne!'>
+    <span data-toggle='tooltip' data-placement='right' title='Du har ingen caser enda, klikk her for å begynne!'>
       <div class='card h-100' data-toggle='modal' data-target='.bd-example-modal-lg'>
           <i class='new_node fas fa-plus'></i>
       </div>
@@ -43,14 +79,21 @@ elseif($_SESSION['loggetinn'] == true && $row == 0){
 }
 else{ //hvis ikke logget inn, ikke vis pluss
   while($row = mysqli_fetch_array($result)) {
+    $dbdate = DateTime::createFromFormat('Y-m-d H:i:s', $row['dato']);
+    $nordate = $dbdate->format('d/m/Y');
+    $nortime = $dbdate->format('H:i');
     echo "
     <div class='col-lg-3 col-md-4 col-sm-6 portfolio-item'>
     <a href='case.php?case=" . $row['idcases'] . "'>
-      <div class='card h-100'>
+      <div class='card'>
         <img class='card-img-top' src='./img/" . $row['bilde'] . "'>
         <div class='card-body'>
           <h4 class='card-title'>" .$row['tittel'] . "</h4>
             <p class='card-text'>" . $row['tekst'] . "</p>
+          </div>
+          <div class='card-footer text-muted'>
+            <div class='float-left'>" . $nordate . "</div>
+            <div class='float-right'>kl. " . $nortime . "</div>
           </div>
         </div>
         </a>

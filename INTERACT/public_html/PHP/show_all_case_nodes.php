@@ -16,7 +16,6 @@ for($i = 1; $i <= $count; $i++){
     echo "
     <a href='case_mer.php?case=" . $row['cases_idcases'] . "&node=" . $row['idnodes'] . "'>
       <img class='card-img-top nodeimg' src='./img/" . $row['bilde'] . "'>
-    </a>
     <div class='edit_icons'>
       <i class='edit fas fa-trash-alt'></i>
       <i class='edit fas fa-pencil-alt'></i>
@@ -26,7 +25,8 @@ for($i = 1; $i <= $count; $i++){
     </div>
     <div class='card-body'>
       <h4 class='card-title'>" .$row['overskrift'] . "</h4>
-    </div>";
+    </div>
+    </a>";
   echo "</div></div>";
 }
 ?>

@@ -2,6 +2,9 @@
 include './html_elements/head.html';
 ?>
     <body>
+      <?php
+      include "./html_elements/oslomet_logo.html";
+       ?>
     <!-- https://bootsnipp.com/snippets/z8l2X -->
     <div class="container login-container">
         <h1 class="my-4">INTERACT | <small>Hvem er du?</small></h1>
@@ -50,7 +53,7 @@ include './html_elements/head.html';
                 <div class="col-md-6 login-form-2">
                     <h3>Jeg er student!</h3>
                     <div class="form-group">
-                        <a href="all_cases.html"><input type="submit" class="btnStudent" value="Se caser"/></a>
+                        <a href="all_cases.php"><input type="submit" class="btnStudent" value="Se caser"/></a>
                     </div>
                 </div>
             </div>

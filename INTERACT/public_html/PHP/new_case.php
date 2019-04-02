@@ -17,8 +17,8 @@ $bildedir = "../img/";
 $path = time().$bilde;
 
 if(move_uploaded_file($_FILES['bildeup']['tmp_name'], $bildedir.$path)){
-  $sql = "INSERT INTO cases (tittel, tekst, bilde)
-          VALUES ('$tittel', '$beskrivelse', '$path')";
+  $sql = "INSERT INTO cases (tittel, tekst, bilde, publisert, dato)
+          VALUES ('$tittel', '$beskrivelse', '$path', FALSE, now())";
 
   $result = mysqli_query($conn, $sql);
   $case = mysqli_fetch_object($result);

@@ -8,7 +8,6 @@
 }
 
 /*Generelt -------------------------------------------------------------------*/
-
 body{
     background-color: #8DA9C4;
     overflow-x: hidden;
@@ -18,14 +17,31 @@ body{
     padding: 0;
 }
 
-a{
+.lenke{
     color: black;
     transition: 0.3s all;
 }
 
-a:hover{
+.lenke:hover{
   color: white;
   text-shadow: 0px 0px 9px black;
+  text-decoration: none;
+}
+
+a{
+  color: black;
+}
+
+a:hover{
+  text-decoration: none;
+  color: black;
+}
+
+#oslomet{
+  width: 110px;
+  filter: invert(1);
+  position: absolute;
+  top: 0;
 }
 
 .form-group.required .control-label:after {
@@ -36,9 +52,27 @@ a:hover{
   top:7px;
 }
 
-/*Midterste node på case.html ------------------------------------------------*/
+/*cards ----------------------------------------------------------------------*/
+.card-text{
+  max-width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  text-align: justify;
+}
+
+.card-header{
+  transition: 0.5s all;
+}
+
+.card-header:hover{
+  filter: brightness(0);
+  letter-spacing: 0.5px;
+}
+
+/*Midterste node på case.php -------------------------------------------------*/
 .main{
-    width: 300px;
+    width: 290px;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -47,8 +81,13 @@ a:hover{
 }
 
 .main:hover{
-    transform: scale(1.2);
+    transform: scale(1.01);
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.3);
     z-index: 9999;
+}
+
+.modalimg{
+  max-width: 100%;
 }
 
 /* grid ----------------------------------------------------------------------*/
@@ -67,13 +106,13 @@ a:hover{
 }
 
 /*Noder rundt main på case.html ----------------------------------------------*/
-
-
+.node:hover{
+  bow-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
 
 .node{
-    width: 250px;
-    position: absolute;
-    /*transition: all .2s ease-in-out;*/
+  width: 250px;
+  position: absolute;
 }
 
 /*noder plassering case.html -------------------------------------------------*/
@@ -107,17 +146,11 @@ a:hover{
     top: 13%;
 }
 
-/*Logg ut / lagre endringer / pluss knapp ------------------------------------*/
-
-.savelog{
-    bottom: 2%;
-    position: fixed;
-    left: 1%;
-}
-
+/*Logg ut / pluss knapp ------------------------------------------------------*/
 .logout{
-    margin: 2%;
-    
+  bottom: 0;
+  position: fixed;
+  margin: 2%;
 }
 
 .pluss{
@@ -144,64 +177,62 @@ a:hover{
   color: white;
 }
 
+.new_node{
+  font-size: 3em;
+  color: gray;
+  margin: auto;
+}
+
 /*Ikoner i hver case-node ----------------------------------------------------*/
 .edit_icons{
-    background-color: rgba(255, 255, 255, 0.5);
-    display: none;
-    width: 40%;
-    position: absolute;
-    top: 0;
-    right: 0;
-    border-bottom-left-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.5);
+  display: none;
+  width: 40%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-bottom-left-radius: 20px;
 }
 
 .edit_icons>.edit{
-    cursor: pointer;
-    padding: 10%;
-    margin: 0;
-    float: right;
-    font-size: 1.5em;
+  cursor: pointer;
+  padding: 10%;
+  margin: 0;
+  float: right;
+  font-size: 1.5em;
 }
 
 .new_picture{
-    background-color: rgba(255, 255, 255, 0.7);
-    display: none;
-    user-select: none;
-    width: 50%;
-    position: absolute;
-    top: 0;
-    cursor: pointer;
-    padding: 3%;
-    font-weight: bold;
-    border-bottom-right-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.7);
+  display: none;
+  user-select: none;
+  width: 50%;
+  position: absolute;
+  top: 0;
+  cursor: pointer;
+  padding: 3%;
+  font-weight: bold;
+  border-bottom-right-radius: 20px;
 }
 
 .display_block{
-    display: block;
+  display: block;
 }
 
 .editable{
-    background: lightskyblue;
-}
-
-.new_node{
-    font-size: 3em;
-    padding: 35%;
-    color: gray;
-    margin: auto;
-    padding: 0;
+  background: lightskyblue;
 }
 
 .content{
-    background-color: green;
-    width: 150px;
-    height: 30px;
-    margin: 2%;
+  background-color: green;
+  width: 150px;
+  height: 30px;
+  margin: 2%;
 }
 
 .card-img-top{
-    height: 150px;
-    object-fit: cover;
+  height: 150px;
+  object-fit: cover;
 }
 
 .fa-question{
@@ -218,6 +249,15 @@ audio{
   margin: auto;
   margin-top: 2%;
   margin-bottom: 2%;
+}
+
+/* new_case_subnode_modal ----------------------------------------------------*/
+.btn-circle.btn-xl {
+    border-radius: 90px;
+    padding: 10px 20px 10px 20px;
+    text-align: center;
+    font-size: 1.9em;
+    margin: 2%;
 }
 
 /*case navigation case_mer.html ----------------------------------------------*/
@@ -250,115 +290,6 @@ audio{
 .navigation>a>img:hover{
   transition: filter 0.7s;
   filter: drop-shadow(0 0 0.2rem black);
-}
-
-/*meny
-https://codepen.io/JFarrow/pen/fFrpg  ----------------------------------------*/
-.main-menu:hover,nav.main-menu.expanded {
-  width:250px;
-  overflow:visible;
-}
-
-.main-menu {
-  background: #262626;
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
-  position:fixed;
-  top:15%;
-  right:0;
-  width:60px;
-  overflow:hidden;
-  -webkit-transition:width .05s linear;
-  transition:width .05s linear;
-  transition-duration: 0.2s;
-  -webkit-transform:translateZ(0) scale(1,1);
-  z-index:100000;
-}
-
-.main-menu>ul {
-  margin: 7px 0;
-}
-
-.main-menu li {
-  position:relative;
-  padding-top: 4%;
-  padding-bottom: 4%;
-  display:block;
-  width:250px;
-}
-
-.main-menu li>a {
-  position:relative;
-  display:table;
-  border-collapse:collapse;
-  border-spacing:0;
-  color: gray;
-   font-family: arial;
-  font-size: 14px;
-  text-decoration:none;
-  -webkit-transform:translateZ(0) scale(1,1);
-  -webkit-transition:all .1s linear;
-  transition: all .1s linear;
-}
-
-.main-menu .nav-icon {
-  position:relative;
-  display:table-cell;
-  width:60px;
-  height:36px;
-  text-align:center;
-  vertical-align:middle;
-  font-size:18px;
-}
-
-.main-menu .nav-text {
-  font-size: 1.5em;
-  position:relative;
-  display:table-cell;
-  vertical-align:middle;
-  width:190px;
-  font-family: 'Titillium Web', sans-serif;
-}
-
-.no-touch .scrollable.hover {
-  overflow-y:hidden;
-}
-
-.no-touch .scrollable.hover:hover {
-  overflow-y:auto;
-  overflow:visible;
-}
-
-a:hover,a:focus {
-  text-decoration:none;
-}
-
-nav {
-  -webkit-user-select:none;
-  -moz-user-select:none;
-  -ms-user-select:none;
-  -o-user-select:none;
-  user-select:none;
-}
-
-nav ul,nav li {
-  outline:0;
-  margin:0;
-  padding:0;
-}
-
-.main-menu li:hover>a,nav.main-menu li.active>a,.dropdown-menu>li>a:hover,.dropdown-menu>li>a:focus,.dropdown-menu>.active>a,.dropdown-menu>.active>a:hover,.dropdown-menu>.active>a:focus,.no-touch .dashboard-page nav.dashboard-menu ul li:hover a,.dashboard-page nav.dashboard-menu ul li.active a, fas:hover{
-  color: white;
-  text-shadow: 0px 0px 9px black;
-}
-
-.fa-2x {
-  font-size: 2em;
-  position: relative;
-  display: table-cell;
-  margin: 10px 30px 10px 20px;
-  text-align: center;
-  vertical-align: middle;
 }
 
 /* login form login.html -----------------------------------------------------*/
@@ -453,7 +384,6 @@ nav ul,nav li {
 
  all_cases.html ----------------------------------------------------------------
  */
-
 .portfolio-item{
   margin-bottom: 2%;
   cursor: pointer;
@@ -461,10 +391,6 @@ nav ul,nav li {
 
 .empty>.card{
   background-color: rgba(255,255,255,0.5);
-}
-
-.lagre{
-  border-color: coral;
 }
 
 /* footer---------------------------------------------------------------------*/
@@ -476,3 +402,4 @@ nav ul,nav li {
   position: relative;
   margin-top: 80%;
   z-index: -1;
+}
