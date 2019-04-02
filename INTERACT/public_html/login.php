@@ -53,7 +53,7 @@ include './html_elements/head.html';
                 <div class="col-md-6 login-form-2">
                     <h3>Jeg er student!</h3>
                     <div class="form-group">
-                        <a href="all_cases.html"><input type="submit" class="btnStudent" value="Se caser"/></a>
+                        <a href="all_cases.php"><input type="submit" class="btnStudent" value="Se caser"/></a>
                     </div>
                 </div>
             </div>

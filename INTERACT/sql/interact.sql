@@ -38,6 +38,7 @@ CREATE TABLE IF NOT EXISTS `interact`.`cases` (
   `tittel` VARCHAR(45) NOT NULL,
   `publisert` TINYINT NOT NULL,
   `dato` DATETIME NOT NULL,
+  `tekst` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`idcases`))
 ENGINE = InnoDB;
 

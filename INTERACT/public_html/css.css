@@ -17,15 +17,24 @@ body{
     padding: 0;
 }
 
-a{
+.lenke{
     color: black;
     transition: 0.3s all;
 }
 
-a:hover{
+.lenke:hover{
   color: white;
   text-shadow: 0px 0px 9px black;
   text-decoration: none;
+}
+
+a{
+  color: black;
+}
+
+a:hover{
+  text-decoration: none;
+  color: black;
 }
 
 #oslomet{
@@ -41,6 +50,24 @@ a:hover{
   position: absolute;
   margin-left: 8px;
   top:7px;
+}
+
+/*cards ----------------------------------------------------------------------*/
+.card-text{
+  max-width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  text-align: justify;
+}
+
+.card-header{
+  transition: 0.5s all;
+}
+
+.card-header:hover{
+  filter: brightness(0);
+  letter-spacing: 0.5px;
 }
 
 /*Midterste node på case.php -------------------------------------------------*/
@@ -80,12 +107,12 @@ a:hover{
 
 /*Noder rundt main på case.html ----------------------------------------------*/
 .node:hover{
-    bow-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  bow-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
 .node{
-    width: 250px;
-    position: absolute;
+  width: 250px;
+  position: absolute;
 }
 
 /*noder plassering case.html -------------------------------------------------*/
@@ -119,15 +146,9 @@ a:hover{
     top: 13%;
 }
 
-/*Logg ut / pluss /publiser knapp --------------------------------------------*/
+/*Logg ut / pluss knapp ------------------------------------------------------*/
 .logout{
   bottom: 0;
-  position: fixed;
-  margin: 2%;
-}
-
-.publiser{
-  bottom: 8%;
   position: fixed;
   margin: 2%;
 }
@@ -154,6 +175,12 @@ a:hover{
 
 .pluss>.fas:hover{
   color: white;
+}
+
+.new_node{
+  font-size: 3em;
+  color: gray;
+  margin: auto;
 }
 
 /*Ikoner i hver case-node ----------------------------------------------------*/
@@ -194,14 +221,6 @@ a:hover{
 
 .editable{
   background: lightskyblue;
-}
-
-.new_node{
-  font-size: 3em;
-  padding: 35%;
-  color: gray;
-  margin: auto;
-  padding: 0;
 }
 
 .content{
