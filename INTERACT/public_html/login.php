@@ -9,9 +9,6 @@ include './html_elements/head.html';
     <div class="container login-container">
         <h1 class="my-4">INTERACT | <small>Hvem er du?</small></h1>
             <div class="row">
-              <div class="login-logo">
-                  <img src="./static_img/bilde.jpg" alt=""/>
-              </div>
                 <div class="col-md-6 login-form-1">
                         <?php
                         include "./PHP/login_php.php";

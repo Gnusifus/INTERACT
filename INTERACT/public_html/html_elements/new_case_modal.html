@@ -17,24 +17,17 @@
             </div>
 
             <div class="form-group" required>
-              <label class="control-label" for="beskrivelse">Case beskrivelse</label>
-              <textarea class="form-control" name="beskrivelse" rows="3" required="required" placeholder="Beskriv casen her..."></textarea>
+              <label class="control-label" for="beskrivelse" >Case beskrivelse</label><div class="float-right text-muted" id="teller"></div>
+              <textarea class="form-control" name="beskrivelse" rows="3" required="required" onkeyup="countChar(this)" placeholder="Beskriv casen her..."></textarea>
             </div>
 
             <div class="form-group">
               <div class="custom-file">
                 <input type="file" class="custom-file-input" id="bilde" name="bildeup">
                 <label class="custom-file-label" name="bilde" for="bilde">Last opp et bilde her...</label>
+                <div class="invalid-feedback">Bildet må være av typen gif, jpg eller png</div>
               </div>
             </div>
-
-            <script>
-            //Viser tekst i label for bilde når bilde er lastet opp
-            $('.custom-file-input').on('change', function() {
-               let fileName = $(this).val().split('\\').pop();
-               $(this).next('.custom-file-label').addClass("selected").html(fileName);
-            });
-            </script>
 
             <button type="submit" name="submit" class="btn btn-primary mb-2">Large case</button>
           </form>
