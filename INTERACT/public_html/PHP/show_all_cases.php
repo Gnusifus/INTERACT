@@ -14,32 +14,34 @@ if($_SESSION['loggetinn'] == true && $row != 0){
     if($row['publisert'] == false){
       echo "
       <div class='col-lg-3 col-md-4 col-sm-6 portfolio-item'>
-        <div class='card'>
+        <div class='card case_card'>
         <div class='card-header' id='" . $row['idcases'] . "'>
-          <div id='ikke_pub' class='text-center text-danger font-weight-bold'>Ikke publisert</div><br>
+          <div id='ikke_pub' class='text-center text-danger font-weight-bold'>Ikke publisert<br></div>
           <div id='ikke_pub2' class='text-center text-danger'>Klikk her for å publisere</div>
+        </div>
+        <div class='all_cases_delete'>
+          <i class='edit fas fa-trash-alt'></i>
         </div>
         <a href='case.php?case=" . $row['idcases'] . "'>
           <img class='card-img-top' src='./img/" . $row['bilde'] . "'>
-          <div class='card-body'>
-            <h4 class='card-title'>" .$row['tittel'] . "</h4>
-            <p class='card-text'>" . $row['tekst'] . "</p>
+            <div class='card-body'>
+              <h4 class='card-title'>" .$row['tittel'] . "</h4>
+              <p class='card-text'>" . $row['tekst'] . "</p>
             </div>
             <div class='card-footer text-muted'>
               <div class='float-left'>" . $nordate . "</div>
               <div class='float-right'>kl. " . $nortime . "</div>
             </div>
           </div>
-          </a>
-        </div>
-        ";
+        </a>
+      </div>";
     }
     else{
       echo "
       <div class='col-lg-3 col-md-4 col-sm-6 portfolio-item'>
         <div class='card'>
         <div class='card-header'>
-          <div id='pub' class='text-center text-success font-weight-bold'>Publisert!</div><br>
+          <div id='pub' class='text-center text-success font-weight-bold'>Publisert!<br></div>
           <div id='pub2' class='text-center text-success'>Klikk her for å avpublisere</div>
         </div>
         <a href='case.php?case=" . $row['idcases'] . "'>

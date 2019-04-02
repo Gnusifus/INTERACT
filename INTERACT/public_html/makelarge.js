@@ -1,13 +1,6 @@
 $(function(){
     $(".node").mouseenter(function(){
-        //fjerner hover effekt på tomme nodes.
-        if($(this).find(".node").hasClass("empty")){
-          $(".node:hover").css("transform", "none");
-        }
-        //Viser edit_icons hvis .node ikke er tom ved mouseenter.
-        else{
-          $(this).find(".edit_icons").css("display", "block");
-        };
+        $(this).find(".edit_icons").css("display", "block");
     }).mouseleave(function(){
         //Skjuler .edit_icons ved mouseleave
         $(this).find(".edit_icons").css("display", "none");
