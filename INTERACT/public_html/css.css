@@ -68,11 +68,7 @@ a:hover{
 
 /*Noder rundt main på case.html ----------------------------------------------*/
 
-.node:hover{
-    /*transform: scale(1.2);*/
-    z-index: 100;
-    cursor: move;
-}
+
 
 .node{
     width: 250px;
@@ -119,8 +115,9 @@ a:hover{
     left: 1%;
 }
 
-.logout, .lagre{
+.logout{
     margin: 2%;
+    
 }
 
 .pluss{
@@ -447,6 +444,7 @@ nav ul,nav li {
     text-decoration:none;
     color:#fff;
 }
+
 
 /*!
  * Start Bootstrap - 4 Col Portfolio (https://startbootstrap.com/template-overviews/4-col-portfolio)
