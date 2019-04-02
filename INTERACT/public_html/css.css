@@ -61,15 +61,6 @@ a:hover{
   text-align: justify;
 }
 
-.card-header{
-  transition: 0.5s all;
-}
-
-.card-header:hover{
-  filter: brightness(0);
-  letter-spacing: 0.5px;
-}
-
 /*Midterste node på case.php -------------------------------------------------*/
 .main{
     width: 290px;

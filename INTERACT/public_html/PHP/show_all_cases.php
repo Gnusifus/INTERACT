@@ -4,9 +4,8 @@ include 'dbconnect.php';
 
 $sql="SELECT * FROM cases";
 $result = mysqli_query($conn,$sql);
-$row = mysqli_fetch_array($result);
 
-if($_SESSION['loggetinn'] == true && $row != 0){
+if($_SESSION['loggetinn'] == true && mysqli_num_rows($result) >= 0){
   while($row = mysqli_fetch_array($result)) {
     $dbdate = DateTime::createFromFormat('Y-m-d H:i:s', $row['dato']);
     $nordate = $dbdate->format('d/m/Y');
@@ -71,7 +70,7 @@ if($_SESSION['loggetinn'] == true && $row != 0){
     </div>
     ";
 }
-elseif($_SESSION['loggetinn'] == true && $row == 0){ //Hvis ingen caser er laget
+elseif($_SESSION['loggetinn'] == true && mysqli_num_rows($result) == 0){ //Hvis ingen caser er laget
   echo "
   <div class='col-lg-3 col-md-4 col-sm-6 portfolio-item'>
     <span data-toggle='tooltip' data-placement='right' title='Du har ingen caser enda, klikk her for å begynne!'>
