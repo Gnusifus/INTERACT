@@ -9,7 +9,7 @@ $(function(){
 
   //Klikke på søppelbøtte, kaller på php som sletter
   $(".fa-trash-alt").click(function(){
-     if (confirm("Er du sikker på at du vil slette denne casen?")) {
+     if (confirm("Er du sikker på at du vil slette denne casen, og alle dens noder?")) {
        var id = $(this).attr('id');
        $.post({
            url: './PHP/delete_case.php',
@@ -19,6 +19,18 @@ $(function(){
            }
        });
     }
+  });
+
+  //Klikke på card-header, publiserer case
+  $(".card-header").click(function(){
+       var id = $(this).attr('id');
+         $.post({
+           url: './PHP/publish_case.php',
+           data: {id: id},
+           success: function(result){
+             location.reload();
+           }
+       });
   });
 
 
@@ -46,4 +58,31 @@ $(function(){
 
       $($card).prop('contenteditable',!isEditable).toggleClass('editable');
   });
+
+  //new_case_subnode_modal handler
+  $("#addText").click(function(){
+    $("#textInput").show("200");
+  });
+  $("#addImage").click(function(){
+    $("#imageInput").show("200");
+  });
+  $("#addVideo").click(function(){
+    $(".videoInput").show("200");
+  });
+  $("#addDocument").click(function(){
+    $("#documentInput").show("200");
+  });
+  $("#addQuestion").click(function(){
+    $("#questionInput").show("200");
+  });
+  $("#addLink").click(function(){
+    $("#linkInput").show("200");
+  });
+  $("#addAudio").click(function(){
+    $("#audioInput").show("200");
+  });
+
+  $(".removeInput").click(function(){
+    $(this).parent().hide("200");
+  })
 });

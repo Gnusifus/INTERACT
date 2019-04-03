@@ -26,9 +26,16 @@ $row = mysqli_fetch_array($result);
               <input type="text" class="form-control" name="overskrift" placeholder="Skriv inn en overskrift her..." required>
             </div>
 
+            <!-- Tekst -->
+            <div class="form-group col-md-12" id="textInput">
+              <label for="exampleFormControlInput1">Tekst</label>
+              <textarea class="form-control" rows="3" name="tekst">Skriv tekst her...</textarea>
+            </div>
+
             <!-- Bilde -->
-            <div class="form-group col-md-12">
+            <div class="form-group col-md-12" id="imageInput">
               <label for="exampleFormControlInput1">Bilde</label>
+              <div class="btn btn-circle btn-danger removeInput fa fa-remove"></div>
               <div class="custom-file">
                 <input type="file" class="custom-file-input" id="inputGroupFile02" name="bildeup">
                 <label class="custom-file-label" name="bilde" for="inputGroupFile02">Last opp et bilde her...</label>
@@ -36,21 +43,22 @@ $row = mysqli_fetch_array($result);
             </div>
 
             <!-- Video -->
-            <div class="form-group col-md-6">
-            <label for="exampleFormControlInput1">Video</label>
-              <div class="custom-file">
-                <input type="file" class="custom-file-input" id="inputGroupFile02" name="videoup">
-                <label class="custom-file-label" name="video" for="inputGroupFile02">Last opp en video her...</label>
+              <div class="form-group col-md-6 videoInput">
+              <label for="exampleFormControlInput1">Video</label>
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input" id="inputGroupFile02" name="videoup">
+                  <label class="custom-file-label" name="video" for="inputGroupFile02">Last opp en video her...</label>
+                </div>
               </div>
-            </div>
 
-            <div class="form-group col-md-6">
-            <label for="exampleFormControlInput1">Youtube-video</label>
-              <input type="text" class="form-control" name="ytvideo" placeholder="Lim inn en lenke her...">
-            </div>
+
+              <div class="form-group col-md-6 videoInput">
+              <label for="exampleFormControlInput1">Youtube-video</label>
+                <input type="text" class="form-control" name="ytvideo" placeholder="Lim inn en lenke her...">
+              </div>
 
             <!-- Lyd -->
-            <div class="form-group col-md-12">
+            <div class="form-group col-md-12" id="audioInput">
             <label for="exampleFormControlInput1">Lydfil</label>
               <div class="custom-file">
                 <input type="file" class="custom-file-input" id="inputGroupFile02" name="lydup">
@@ -60,19 +68,13 @@ $row = mysqli_fetch_array($result);
 
 
             <!-- Lenke -->
-            <div class="form-group col-md-12">
+            <div class="form-group col-md-12" id="linkInput">
               <label for="exampleFormControlInput1">Lenke</label>
               <input type="text" class="form-control" name="lenke" placeholder="Lim inn en lenke her...">
             </div>
 
-            <!-- Tekst -->
-            <div class="form-group col-md-12">
-              <label for="exampleFormControlInput1">Tekst</label>
-              <textarea class="form-control" rows="3" name="tekst">Skriv tekst her...</textarea>
-            </div>
-
             <!-- Dokument -->
-            <div class="form-group col-md-12">
+            <div class="form-group col-md-12" id="documentInput">
             <label for="exampleFormControlInput1">Dokument</label>
               <div class="custom-file">
                 <input type="file" class="custom-file-input" id="inputGroupFile02" name="dokumentup">
@@ -80,18 +82,8 @@ $row = mysqli_fetch_array($result);
               </div>
             </div>
 
-            <script>
-            //Viser tekst i label for elementer når de er lastet opp
-            $(document).ready(function(){
-                $('.toggle').click(function(){
-                    $('.toggle').toggleClass('active');
-                    $('ul').toggleClass('active');
-                });
-            });
-            </script>
-
             <!-- Spørsmål -->
-            <div class="form-group col-md-12">
+            <div class="form-group col-md-12" id="questionInput">
             <label for="exampleFormControlInput1">Spørsmål</label>
             <div class="input-group mb-3">
               <div class="input-group-prepend">
@@ -104,25 +96,25 @@ $row = mysqli_fetch_array($result);
 
             <div class="form-group col-md-12">
               <span data-toggle='tooltip' data-placement='top' title='Legg til tekst'>
-              <button type="button" class="btn btn-danger btn-circle btn-xl"><i class="fas fa-font"></i></button>
+              <button type="button" id='addText' class="btn btn-danger btn-circle btn-xl"><i class="fas fa-font"></i></button>
               </span>
               <span data-toggle='tooltip' data-placement='top' title='Legg til bilde'>
-              <button type="button" class="btn btn-primary btn-circle btn-xl"><i class="fas fa-camera"></i></button>
+              <button type="button" id='addImage' class="btn btn-primary btn-circle btn-xl"><i class="fas fa-camera"></i></button>
               </span>
               <span data-toggle='tooltip' data-placement='top' title='Legg til video'>
-              <button type="button" class="btn btn-secondary btn-circle btn-xl"><i class="fas fa-video"></i></button>
+              <button type="button" id='addVideo' class="btn btn-secondary btn-circle btn-xl"><i class="fas fa-video"></i></button>
               </span>
               <span data-toggle='tooltip' data-placement='top' title='Legg til lydfil'>
-              <button type="button" class="btn btn-success btn-circle btn-xl"><i class="fas fa-headphones"></i></button>
+              <button type="button" id='addAudio' class="btn btn-success btn-circle btn-xl"><i class="fas fa-headphones"></i></button>
               </span>
               <span data-toggle='tooltip' data-placement='top' title='Legg til dokument'>
-              <button type="button" class="btn btn-warning btn-circle btn-xl"><i class="far fa-file"></i></button>
+              <button type="button" id='addDocument' class="btn btn-warning btn-circle btn-xl"><i class="far fa-file"></i></button>
               </span>
               <span data-toggle='tooltip' data-placement='top' title='Legg til lenke'>
-              <button type="button" class="btn btn-info btn-circle btn-xl"><i class="fas fa-link"></i></button>
+              <button type="button" id='addLink' class="btn btn-info btn-circle btn-xl"><i class="fas fa-link"></i></button>
               </span>
               <span data-toggle='tooltip' data-placement='top' title='Legg til oppgave'>
-              <button type="button" class="btn btn-dark btn-circle btn-xl"><i class="fas fa-question"></i></button>
+              <button type="button" id='addQuestion' class="btn btn-dark btn-circle btn-xl"><i class="fas fa-question"></i></button>
             </div>
             <script>
             //Viser tooltip når hover over tom case

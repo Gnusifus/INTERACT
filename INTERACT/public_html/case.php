@@ -23,7 +23,8 @@ include './html_elements/head.html';
       <?php
       include "./PHP/show_main_case_node.php";
       include "./PHP/show_all_case_nodes.php";
-      //Viser ikke card med pluss tegn hvis siden vises i student-modus
+
+      //Viser ikke pluss-button hvis siden vises i student-modus
       if($_SESSION['loggetinn'] == true){
         echo "<button data-toggle='modal' data-target='.ny_case_node_modal' class='button pluss'><i class='fas fa-plus'></i></button>";
       }
