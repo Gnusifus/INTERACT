@@ -63,18 +63,18 @@ a:hover{
 
 /*Midterste node på case.php -------------------------------------------------*/
 .main{
-    width: 290px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    float: none;
-    transition: all .2s ease-in-out;
+  width: 290px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  float: none;
+  transition: all .2s ease-in-out;
 }
 
 .main:hover{
-    transform: scale(1.01);
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.3);
-    z-index: 9999;
+  transform: scale(1.01);
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.3);
+  z-index: 9999;
 }
 
 .modalimg{
@@ -138,26 +138,30 @@ a:hover{
 }
 
 /*Logg ut / pluss knapp ------------------------------------------------------*/
-.logout{
+.logdiv{
   bottom: 0;
   position: fixed;
-  margin: 2%;
+  margin: 3%;
+  width: 100%;
+}
+.logout{
+  display: inline;
 }
 
 .pluss{
-    border-radius: 50%;
-    right: 1%;
-    bottom: 2%;
-    position: fixed;
-    background-color: coral;
-    border: 0;
-    transition: filter 0.7s;
+  border-radius: 50%;
+  right: 1%;
+  bottom: 2%;
+  position: fixed;
+  background-color: coral;
+  border: 0;
+  transition: filter 0.7s;
 }
 
 .pluss>.fas{
-    margin: auto;
-    padding: 15px;
-    transition: filter 0.7s;
+  margin: auto;
+  padding: 15px;
+  transition: filter 0.7s;
 }
 
 .pluss:hover, .pluss>.fas:hover{
@@ -293,58 +297,50 @@ audio{
   filter: drop-shadow(0 0 0.2rem black);
 }
 
+#nav-text{
+  margin: 2%;
+  display: inline;
+  font-size: 1.6em;
+}
+
 /* login form login.html -----------------------------------------------------*/
 .login-container{
-    margin-top: 5%;
-    margin-bottom: 5%;
+  margin-top: 5%;
+  margin-bottom: 5%;
 }
-.login-logo{
-    position: absolute;
-    display: block;
-    margin-left: 33.5%;
-    margin-top: 10%;
-    width: 120px;
-    filter: drop-shadow(0 0 0.2rem black);
-    z-index: 1000;
-}
-.login-logo img{
-    height: 120px;
-    border-radius: 100px;
-    object-fit: cover;
-    max-width: 100%;
-}
+
 /*administrator side ---------------------------------------------------------*/
 .login-form-1{
-    padding: 9%;
-    background:#282726;
-    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+  padding: 9%;
+  background:#282726;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
 }
 .login-form-1 h3{
-    text-align: center;
-    margin-bottom:12%;
-    color:#fff;
+  text-align: center;
+  margin-bottom:12%;
+  color:#fff;
 }
 /*student side ---------------------------------------------------------------*/
 .login-form-2{
-    padding: 9%;
-    background: coral;
-    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+  padding: 9%;
+  background: coral;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
 }
 .login-form-2 h3{
-    text-align: center;
-    margin-bottom:12%;
-    color: #fff;
+  text-align: center;
+  margin-bottom:12%;
+  color: #fff;
 }
 .btnSubmit{
-    font-weight: 600;
-    width: 50%;
-    color: #282726;
-    background-color: #fff;
-    border: none;
-    border-radius: 1.5rem;
-    padding:2%;
-    transition: transform 0.3s;
-    cursor: pointer;
+  font-weight: 600;
+  width: 50%;
+  color: #282726;
+  background-color: #fff;
+  border: none;
+  border-radius: 1.5rem;
+  padding:2%;
+  transition: transform 0.3s;
+  cursor: pointer;
 }
 
 .btnSubmit:hover{
@@ -352,29 +348,29 @@ audio{
 }
 
 .btnStudent{
-    font-weight: 600;
-    width: 100%;
-    color: #282726;
-    background-color: #fff;
-    border: none;
-    border-radius: 1.5rem;
-    padding:2%;
-    cursor: pointer;
-    transition: transform 0.3s;
+  font-weight: 600;
+  width: 100%;
+  color: #282726;
+  background-color: #fff;
+  border: none;
+  border-radius: 1.5rem;
+  padding:2%;
+  cursor: pointer;
+  transition: transform 0.3s;
 }
 
 .btnStudent:hover{
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 .btnForgetPwd{
-    color: #fff;
-    font-weight: 600;
-    text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
 }
 .btnForgetPwd:hover{
-    text-decoration:none;
-    color:#fff;
+  text-decoration:none;
+  color:#fff;
 }
 
 
@@ -392,6 +388,17 @@ audio{
 
 .empty>.card{
   background-color: rgba(255,255,255,0.5);
+}
+
+/* new_case_subnode_modal ----------------------------------------------------*/
+#textInput, #imageInput, #videoInput, #audioInput, #linkInput, #questionInput, .videoInput, #documentInput{
+  display: none;
+}
+
+.removeInput{
+  float: right;
+  border-radius: 50%;
+  font-size: 0.5em;
 }
 
 /* footer---------------------------------------------------------------------*/

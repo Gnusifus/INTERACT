@@ -106,8 +106,8 @@ include './html_elements/head.html';
                     <p class="card-text">Her inkluderer vi en videosnutt for legemiddelhåndtering.</p>
                   </div>
                 -->
-                </div>
-              </div>
+                </div><!-- Row slutt -->
+              </div><!--Container slutt -->
               <?php
               //Viser ikke pluss, når siden vises i student-modus
               if($_SESSION['loggetinn'] == true){
@@ -122,6 +122,7 @@ include './html_elements/head.html';
               ";}
               ?>
               <script>
+              //HVA ER DET HER?
               $(document).ready(function () {
                   $('.material-button-toggle').on("click", function () {
                       $(this).toggleClass('open');
@@ -129,9 +130,7 @@ include './html_elements/head.html';
                   });
               });
               </script>
-            </div>
-          </div>
-        </div>
+          </div><!-- Container slutt -->
         <!-- case oversikt slutt -->
 
      <?php include './html_elements/logout_btn.php'; ?>

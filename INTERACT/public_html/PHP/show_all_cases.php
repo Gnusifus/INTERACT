@@ -39,12 +39,12 @@ if($_SESSION['loggetinn'] == true && mysqli_num_rows($result) >= 0){
       echo "
       <div class='col-lg-3 col-md-4 col-sm-6 portfolio-item'>
         <div class='card'>
-        <div class='card-header'>
+        <div class='card-header' id='" . $row['idcases'] . "'>
           <div id='pub' class='text-center text-success font-weight-bold'>Publisert!<br></div>
           <div id='pub2' class='text-center text-success'>Klikk her for å avpublisere</div>
         </div>
         <div class='all_cases_delete'>
-          <i class='edit fas fa-trash-alt'></i>
+          <i class='edit fas fa-trash-alt' id='" . $row['idcases'] . "'></i>
         </div>
         <a href='case.php?case=" . $row['idcases'] . "'>
           <img class='card-img-top' src='./img/" . $row['bilde'] . "'>
@@ -82,7 +82,7 @@ elseif($_SESSION['loggetinn'] == true && mysqli_num_rows($result) == 0){ //Hvis 
   ";
 }
 else{ //hvis ikke logget inn, ikke vis pluss
-  while($row = mysqli_fetch_array($result)) {
+  while($row = mysqli_fetch_array($result) && $row['publisert'] == true) {
     $dbdate = DateTime::createFromFormat('Y-m-d H:i:s', $row['dato']);
     $nordate = $dbdate->format('d/m/Y');
     $nortime = $dbdate->format('H:i');

@@ -20,11 +20,11 @@ echo "</div>";
 <script>
 //Endrer brodsmulemeny, setter bildet sin alt (overksriften til noden) i menyen ved hover
 $(function () {
-    var old = $("#nodeoverskrift").html();
+    var old = $("#nav-text").html();
     $(".navimg").hover(function (e) {
-        $('#nodeoverskrift').html($(this).attr("alt"));
+        $('#nav-text').html($(this).attr("alt"));
     }, function (e) {
-        $('#nodeoverskrift').html(old);
+        $('#nav-text').html(old);
     });
 });
 </script>
