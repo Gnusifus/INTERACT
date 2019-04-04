@@ -9,7 +9,7 @@
 
 /*Generelt -------------------------------------------------------------------*/
 body{
-    background-color: #8DA9C4;
+    background-color: #EEE;
     overflow-x: hidden;
     margin-left: 0;
     margin-right: 0;
@@ -429,12 +429,18 @@ audio{
 }
 
 /* footer---------------------------------------------------------------------*/
-.footer {
+.footer{
   width: auto;
-  height: 15%;
+  height: 250px;
   margin-bottom: 0;
   clear: both;
   position: relative;
-  margin-top: 80%;
+  margin-top: 60%;
   z-index: -1;
+  background-color: #565656;
+}
+#p_footer{
+  color: white;
+  text-align: center;
+  padding-top: 130px;
 }
