@@ -395,10 +395,37 @@ audio{
   display: none;
 }
 
-.removeInput{
-  float: right;
-  border-radius: 50%;
-  font-size: 0.5em;
+.removeInput>#removeInput-text{
+  font-size: 0.8em;
+  position: absolute;
+  display: none;
+  right: 25px;
+  bottom: 40px;
+}
+
+.removetext{
+  position: absolute;
+  right: 0;
+  bottom: 47px;
+}
+
+.removetext>#removeInput-text{
+  width: 80px;
+  text-align: right;
+}
+
+.removeInput>.fa-remove{
+  margin-left: 5px;
+  font-size: 1.2em;
+  position: absolute;
+  right: 5px;
+  bottom: 40px;
+  transition: color 0.3s;
+}
+
+.removeInput>.fa-remove:hover{
+  cursor: pointer;
+  color: #DC3545;
 }
 
 /* footer---------------------------------------------------------------------*/

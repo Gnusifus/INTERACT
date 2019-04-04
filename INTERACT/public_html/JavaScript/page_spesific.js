@@ -82,7 +82,13 @@ $(function(){
     $("#audioInput").show("200");
   });
 
-  $(".removeInput").click(function(){
+  //TODO: Slette det faktiske oplastede input value fra inputfeltet når den krysses ut
+
+  $(".removeInput").mouseenter(function(){
+    $(this).find("#removeInput-text").stop(1,1).fadeIn("500");
+  }).mouseleave(function () {
+    $(this).find("#removeInput-text").stop(1,1).fadeOut("500");
+  }).click(function(){
     $(this).parent().hide("200");
   })
 });

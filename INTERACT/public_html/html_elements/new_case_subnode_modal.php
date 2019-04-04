@@ -29,13 +29,14 @@ $row = mysqli_fetch_array($result);
             <!-- Tekst -->
             <div class="form-group col-md-12" id="textInput">
               <label for="exampleFormControlInput1">Tekst</label>
+              <div class="removeInput removetext"><div id="removeInput-text">Fjern teksten</div><i class="fa fa-remove"></i></div>
               <textarea class="form-control" rows="3" name="tekst">Skriv tekst her...</textarea>
             </div>
 
             <!-- Bilde -->
             <div class="form-group col-md-12" id="imageInput">
               <label for="exampleFormControlInput1">Bilde</label>
-              <div class="btn btn-circle btn-danger removeInput fa fa-remove"></div>
+              <div class="removeInput"><div id="removeInput-text">Fjern bildet</div><i class="fa fa-remove"></i></div>
               <div class="custom-file">
                 <input type="file" class="custom-file-input" id="inputGroupFile02" name="bildeup">
                 <label class="custom-file-label" name="bilde" for="inputGroupFile02">Last opp et bilde her...</label>
@@ -45,6 +46,7 @@ $row = mysqli_fetch_array($result);
             <!-- Video -->
               <div class="form-group col-md-6 videoInput">
               <label for="exampleFormControlInput1">Video</label>
+              <div class="removeInput"><div id="removeInput-text">Fjern videoen</div><i class="fa fa-remove"></i></div>
                 <div class="custom-file">
                   <input type="file" class="custom-file-input" id="inputGroupFile02" name="videoup">
                   <label class="custom-file-label" name="video" for="inputGroupFile02">Last opp en video her...</label>
@@ -54,12 +56,14 @@ $row = mysqli_fetch_array($result);
 
               <div class="form-group col-md-6 videoInput">
               <label for="exampleFormControlInput1">Youtube-video</label>
+              <div class="removeInput"><div id="removeInput-text">Fjern videoen</div><i class="fa fa-remove"></i></div>
                 <input type="text" class="form-control" name="ytvideo" placeholder="Lim inn en lenke her...">
               </div>
 
             <!-- Lyd -->
             <div class="form-group col-md-12" id="audioInput">
             <label for="exampleFormControlInput1">Lydfil</label>
+            <div class="removeInput"><div id="removeInput-text">Fjern lydfilen</div><i class="fa fa-remove"></i></div>
               <div class="custom-file">
                 <input type="file" class="custom-file-input" id="inputGroupFile02" name="lydup">
                 <label class="custom-file-label" name="lyd" for="inputGroupFile02">Last opp en lydfil her...</label>
@@ -70,12 +74,14 @@ $row = mysqli_fetch_array($result);
             <!-- Lenke -->
             <div class="form-group col-md-12" id="linkInput">
               <label for="exampleFormControlInput1">Lenke</label>
+              <div class="removeInput"><div id="removeInput-text">Fjern lenken</div><i class="fa fa-remove"></i></div>
               <input type="text" class="form-control" name="lenke" placeholder="Lim inn en lenke her...">
             </div>
 
             <!-- Dokument -->
             <div class="form-group col-md-12" id="documentInput">
             <label for="exampleFormControlInput1">Dokument</label>
+            <div class="removeInput"><div id="removeInput-text">Fjern dokumentet</div><i class="fa fa-remove"></i></div>
               <div class="custom-file">
                 <input type="file" class="custom-file-input" id="inputGroupFile02" name="dokumentup">
                 <label class="custom-file-label" name="dokument" for="inputGroupFile02">Last opp et dokument her...</label>
