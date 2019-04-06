@@ -120,7 +120,7 @@ $row = mysqli_fetch_array($result);
               <button type="button" id='addLink' class="btn btn-info btn-circle btn-xl"><i class="fas fa-link"></i></button>
               </span>
               <span data-toggle='tooltip' data-placement='top' title='Legg til oppgave'>
-              <button type="button" id='addQuestion' class="btn btn-dark btn-circle btn-xl"><i class="fas fa-question"></i></button>
+              <button type="button" id='addQuestion' class="btn btn-dark btn-circle btn-xl"><i class="fas fa-tasks"></i></button>
             </div>
             <script>
             //Viser tooltip når hover over tom case
