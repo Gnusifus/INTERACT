@@ -279,16 +279,10 @@ audio{
   position: fixed;
 }
 
-.navigation>a{
-  display: block;
-  width: 100px;
-  margin-top: 20%;
-  margin-bottom: 20%;
-}
-
-.navigation>a>img{
-  width: 60px;
-  height: 60px;
+.navimg{
+  padding: 10%;
+  width: 85px;
+  height: 85px;
   margin-left: 5%;
   object-fit: cover;
   position: relative;
@@ -297,15 +291,9 @@ audio{
   max-width: 100%;
 }
 
-.navigation>a>img:hover{
+.navimg:hover{
   transition: filter 0.7s;
   filter: drop-shadow(0 0 0.2rem black);
-}
-
-#nav-text{
-  margin: 2%;
-  display: inline;
-  font-size: 1.6em;
 }
 
 /* login form login.html -----------------------------------------------------*/
@@ -396,7 +384,7 @@ audio{
 }
 
 /* new_case_subnode_modal ----------------------------------------------------*/
-#textInput, #imageInput, #videoInput, #audioInput, #linkInput, #questionInput, .videoInput, #documentInput{
+#textInput, #imageInput, #videoInput, #audioInput, #linkInput, #questionInput, .videoInput, #documentInput, #linkInput_beskrivelse, #documentInput_beskrivelse{
   display: none;
 }
 

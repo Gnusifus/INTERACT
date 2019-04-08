@@ -4,14 +4,14 @@ include 'dbconnect.php';
 
 $sql="SELECT * FROM cases";
 $result = mysqli_query($conn,$sql);
-$upload_max_filesize = ini_get('upload_max_filesize');
-echo $upload_max_filesize;
 
+//Hvis bruker er logget inn, og det finnes caser
 if($_SESSION['loggetinn'] == true && mysqli_num_rows($result) >= 0){
   while($row = mysqli_fetch_array($result)) {
     $dbdate = DateTime::createFromFormat('Y-m-d H:i:s', $row['dato']);
     $nordate = $dbdate->format('d/m/Y');
     $nortime = $dbdate->format('H:i');
+    //Hvis case ikke er publisert, vis "ikke publisert" i footer.
     if($row['publisert'] == false){
       echo "
       <div class='col-lg-3 col-md-4 col-sm-6 portfolio-item'>
@@ -37,7 +37,7 @@ if($_SESSION['loggetinn'] == true && mysqli_num_rows($result) >= 0){
         </a>
       </div>";
     }
-    else{
+    else{ //Hvis case er publisert, vis "publisert" i footer.
       echo "
       <div class='col-lg-3 col-md-4 col-sm-6 portfolio-item'>
         <div class='card'>
@@ -63,7 +63,7 @@ if($_SESSION['loggetinn'] == true && mysqli_num_rows($result) >= 0){
         </div>
         ";
     }
-  }
+  } //Viser pluss-tegn siden bruker er logget inn
     echo "
     <div class='col-lg-3 col-md-4 col-sm-6 portfolio-item'>
       <div class='card h-100' data-toggle='modal' data-target='.bd-example-modal-lg'>
@@ -72,7 +72,8 @@ if($_SESSION['loggetinn'] == true && mysqli_num_rows($result) >= 0){
     </div>
     ";
 }
-elseif($_SESSION['loggetinn'] == true && mysqli_num_rows($result) == 0){ //Hvis ingen caser er laget
+//Hvis brukeren er logget inn, men ingen caser er laget enda.
+elseif($_SESSION['loggetinn'] == true && mysqli_num_rows($result) == 0){
   echo "
   <div class='col-lg-3 col-md-4 col-sm-6 portfolio-item'>
     <span data-toggle='tooltip' data-placement='right' title='Du har ingen caser enda, klikk her for å begynne!'>
@@ -83,7 +84,7 @@ elseif($_SESSION['loggetinn'] == true && mysqli_num_rows($result) == 0){ //Hvis 
   </div>
   ";
 }
-else{ //hvis ikke logget inn, ikke vis pluss
+else{ //hvis ikke logget inn, ikke vis pluss, og bare vis publiserte caser
   while($row = mysqli_fetch_array($result) && $row['publisert'] == true) {
     $dbdate = DateTime::createFromFormat('Y-m-d H:i:s', $row['dato']);
     $nordate = $dbdate->format('d/m/Y');

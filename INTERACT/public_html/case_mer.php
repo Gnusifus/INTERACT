@@ -32,7 +32,6 @@ include './html_elements/head.html';
 
 
         <!-- Cases oversikt -->
-          <div class="container">
             <div class="row">
               <?php
               include "./PHP/show_all_case_subnodes.php";
@@ -106,8 +105,6 @@ include './html_elements/head.html';
                     <p class="card-text">Her inkluderer vi en videosnutt for legemiddelhåndtering.</p>
                   </div>
                 -->
-                </div><!-- Row slutt -->
-              </div><!--Container slutt -->
               <?php
               //Viser ikke pluss, når siden vises i student-modus
               if($_SESSION['loggetinn'] == true){
@@ -121,16 +118,8 @@ include './html_elements/head.html';
               </div>
               ";}
               ?>
-              <script>
-              //HVA ER DET HER?
-              $(document).ready(function () {
-                  $('.material-button-toggle').on("click", function () {
-                      $(this).toggleClass('open');
-                      $('.option').toggleClass('scale-on');
-                  });
-              });
-              </script>
-          </div><!-- Container slutt -->
+            </div><!-- Row slutt -->
+        </div><!-- Container slutt -->
         <!-- case oversikt slutt -->
 
      <?php include './html_elements/logout_btn.php'; ?>

@@ -17,7 +17,7 @@ $row = mysqli_fetch_array($result);
         </button>
       </div>
       <div class="modal-body">
-          <form action="./PHP/new_case_subnode.php?case=<?php echo $case?>&node=<?php echo $node?>" method="post" enctype="multipart/form-data">
+          <form action="./PHP/new_case_subnode.php?case=<?php echo $case?>&node=<?php echo $node?>" method="post" enctype="multipart/form-data" onsubmit="return check_val()">
             <div class="form-row">
 
             <!--Overskrift * -->
@@ -75,12 +75,18 @@ $row = mysqli_fetch_array($result);
               </div>
             </div>
 
-
             <!-- Lenke -->
             <div class="form-group col-md-12" id="linkInput">
               <label for="exampleFormControlInput1">Lenke</label>
               <div class="removeInput"><div id="removeInput-text">Fjern lenken</div><i class="fa fa-remove"></i></div>
-              <input type="text" class="form-control" name="lenke" placeholder="Lim inn en lenke her...">
+              <input type="text" class="form-control link-input" name="lenke" placeholder="Lim inn en lenke her...">
+              <div class="feil d-none text-danger">Påse at du har kopiert linken direkte fra nettleseren, denne linken er ikke gyldig!</div>
+            </div>
+
+            <!-- Lenke beksrivelse -->
+            <div class="form-group col-md-12" id="linkInput_beskrivelse">
+              <label for="exampleFormControlInput1">Skriv inn et ord eller to om hva som befinner seg bak linken</label>
+              <input type="text" class="form-control link-desc" name="lenke_beksrivelse" placeholder="Feks. kosthold, legemiddelhåndtering eller bruk av tannpirker">
             </div>
 
             <!-- Dokument -->
@@ -93,6 +99,12 @@ $row = mysqli_fetch_array($result);
                 <div class="feil d-none text-danger">Dokumentet du har lastet opp er i et ugyldig format!</div>
                 <div class="anbefal d-none text-warning">Formatet er gyldig, men anbefalt format er .pdf.</div>
               </div>
+            </div>
+
+            <!-- dokument beksrivelse -->
+            <div class="form-group col-md-12" id="documentInput_beskrivelse">
+              <label for="exampleFormControlInput1">Skriv gjerne inn tittelen på dokumentet, lar du denne stå tom vises kun filnavnet på dokumentet.</label>
+              <input type="text" class="form-control doc-desc" name="dokument_beksrivelse" placeholder="Feks. Olas regnskap, lampe bruksanvisning eller lønnsslipp">
             </div>
 
             <!-- Spørsmål -->
