@@ -38,8 +38,9 @@ $row = mysqli_fetch_array($result);
               <label for="exampleFormControlInput1">Bilde</label>
               <div class="removeInput"><div id="removeInput-text">Fjern bildet</div><i class="fa fa-remove"></i></div>
               <div class="custom-file">
-                <input type="file" class="custom-file-input" id="inputGroupFile02" name="bildeup">
+                <input type="file" class="custom-file-input image-input" id="inputGroupFile02" name="bildeup">
                 <label class="custom-file-label" name="bilde" for="inputGroupFile02">Last opp et bilde her...</label>
+                <div class="feil d-none text-danger">Bildet må være av typen gif, jpeg eller png!</div>
               </div>
             </div>
 
@@ -48,8 +49,11 @@ $row = mysqli_fetch_array($result);
               <label for="exampleFormControlInput1">Video</label>
               <div class="removeInput"><div id="removeInput-text">Fjern videoen</div><i class="fa fa-remove"></i></div>
                 <div class="custom-file">
-                  <input type="file" class="custom-file-input" id="inputGroupFile02" name="videoup">
+                  <input type="file" class="custom-file-input video-input" id="inputGroupFile02" name="videoup">
                   <label class="custom-file-label" name="video" for="inputGroupFile02">Last opp en video her...</label>
+                  <div class="feil d-none text-danger">Videoen må være av typen .mp4, .ogg eller .webm!<br>
+                                                      Har du en video i annet format, eller en lengre video,
+                                                      anbefales det å laste opp videoen på YouTube.</div>
                 </div>
               </div>
 
@@ -65,8 +69,9 @@ $row = mysqli_fetch_array($result);
             <label for="exampleFormControlInput1">Lydfil</label>
             <div class="removeInput"><div id="removeInput-text">Fjern lydfilen</div><i class="fa fa-remove"></i></div>
               <div class="custom-file">
-                <input type="file" class="custom-file-input" id="inputGroupFile02" name="lydup">
+                <input type="file" class="custom-file-input audio-input" id="inputGroupFile02" name="lydup">
                 <label class="custom-file-label" name="lyd" for="inputGroupFile02">Last opp en lydfil her...</label>
+                <div class="feil d-none text-danger">Lydfil må være av typen .mp3, .ogg eller .wav!</div>
               </div>
             </div>
 
@@ -83,8 +88,10 @@ $row = mysqli_fetch_array($result);
             <label for="exampleFormControlInput1">Dokument</label>
             <div class="removeInput"><div id="removeInput-text">Fjern dokumentet</div><i class="fa fa-remove"></i></div>
               <div class="custom-file">
-                <input type="file" class="custom-file-input" id="inputGroupFile02" name="dokumentup">
+                <input type="file" class="custom-file-input document-input" id="inputGroupFile02" name="dokumentup">
                 <label class="custom-file-label" name="dokument" for="inputGroupFile02">Last opp et dokument her...</label>
+                <div class="feil d-none text-danger">Dokumentet du har lastet opp er i et ugyldig format!</div>
+                <div class="anbefal d-none text-warning">Formatet er gyldig, men anbefalt format er .pdf.</div>
               </div>
             </div>
 

@@ -4,6 +4,8 @@ include 'dbconnect.php';
 
 $sql="SELECT * FROM cases";
 $result = mysqli_query($conn,$sql);
+$upload_max_filesize = ini_get('upload_max_filesize');
+echo $upload_max_filesize;
 
 if($_SESSION['loggetinn'] == true && mysqli_num_rows($result) >= 0){
   while($row = mysqli_fetch_array($result)) {

@@ -18,8 +18,9 @@
 
             <div class="form-group">
               <div class="custom-file">
-                <input type="file" class="custom-file-input" id="bilde" name="bildeup">
+                <input type="file" class="custom-file-input image-input" id="bilde" name="bildeup">
                 <label class="custom-file-label" name="bilde" for="bilde">Last opp et bilde her...</label>
+                <div class="feil d-none text-danger">Bildet må være av typen gif, jpeg eller png!</div>
               </div>
             </div>
 

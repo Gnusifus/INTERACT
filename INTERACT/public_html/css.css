@@ -61,6 +61,11 @@ a:hover{
   text-align: justify;
 }
 
+.footer-icons>i{
+  color: grey;
+  margin: 2%;
+}
+
 /*Midterste node på case.php -------------------------------------------------*/
 .main{
   width: 290px;
