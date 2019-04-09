@@ -85,10 +85,11 @@ elseif($_SESSION['loggetinn'] == true && mysqli_num_rows($result) == 0){
   ";
 }
 else{ //hvis ikke logget inn, ikke vis pluss, og bare vis publiserte caser
-  while($row = mysqli_fetch_array($result) && $row['publisert'] == true) {
+  while($row = mysqli_fetch_array($result)) {
     $dbdate = DateTime::createFromFormat('Y-m-d H:i:s', $row['dato']);
     $nordate = $dbdate->format('d/m/Y');
     $nortime = $dbdate->format('H:i');
+    if($row['publisert'] == true){
     echo "
     <div class='col-lg-3 col-md-4 col-sm-6 portfolio-item'>
     <a href='case.php?case=" . $row['idcases'] . "'>
@@ -107,5 +108,6 @@ else{ //hvis ikke logget inn, ikke vis pluss, og bare vis publiserte caser
       </div>
       ";
     }
+  }
 }
 ?>
