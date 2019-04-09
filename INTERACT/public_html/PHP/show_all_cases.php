@@ -24,7 +24,7 @@ if($_SESSION['loggetinn'] == true && mysqli_num_rows($result) >= 0){
           <i class='edit fas fa-trash-alt' id='" . $row['idcases'] . "'></i>
         </div>
         <a href='case.php?case=" . $row['idcases'] . "'>
-          <img class='card-img-top' src='./img/" . $row['bilde'] . "'>
+          <img class='card-img-top' src='" . $row['bilde'] . "'>
             <div class='card-body'>
               <h4 class='card-title'>" .$row['tittel'] . "</h4>
               <p class='card-text'>" . $row['tekst'] . "</p>
