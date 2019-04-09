@@ -1,37 +1,31 @@
 <?php
 //Legger til ny case fra modal-form i all_cases.php
-session_start();
-
 if(isset($_POST['submit'])){
+  include './dbconnect.php';
 
-include './dbconnect.php';
+  $tittel = $_POST['tittel'];
+  $beskrivelse = $_POST['beskrivelse'];
 
-$_SESSION['tittel'] = $_POST['tittel'];
-$_SESSION['beskrivelse'] = $_POST['beskrivelse'];
+  $bilde = $_FILES['bildeup']['name'];
+  $bildedir = "../img/";
+  $path = time().$bilde;
 
-$tittel = $_SESSION['tittel'];
-$beskrivelse = $_SESSION['beskrivelse'];
+  if(move_uploaded_file($_FILES['bildeup']['tmp_name'], $bildedir.$path)){
+    $sql = "INSERT INTO cases (tittel, tekst, bilde, publisert, dato)
+            VALUES ('$tittel', '$beskrivelse', '$path', FALSE, now())";
 
-$bilde = $_FILES['bildeup']['name'];
-$bildedir = "../img/";
-$path = time().$bilde;
-
-if(move_uploaded_file($_FILES['bildeup']['tmp_name'], $bildedir.$path)){
-  $sql = "INSERT INTO cases (tittel, tekst, bilde, publisert, dato)
-          VALUES ('$tittel', '$beskrivelse', '$path', FALSE, now())";
-
-  $result = mysqli_query($conn, $sql);
-  $case = mysqli_fetch_object($result);
-  if ($result) {
-    header("Location: ../all_cases.php");
-}
-  else {
-     echo "Error: " . $sql . "<br>" . $conn->error;
-     $conn->close();
+    $result = mysqli_query($conn, $sql);
+    $case = mysqli_fetch_object($result);
+    if ($result) {
+      header("Location: ../all_cases.php");
   }
-}
-else{
-  echo "hæ";
-}
+    else {
+       echo "Error: " . $sql . "<br>" . $conn->error;
+       $conn->close();
+    }
+  }
+  else{
+    echo "hæ";
+  }
 }
 ?>

@@ -2,9 +2,6 @@
 //Henter alle caser fra db og viser dem til siden all_cases.php
 include 'dbconnect.php';
 
-echo "Logget inn?";
-echo $_SESSION['loggetinn'];
-
 $sql="SELECT * FROM cases";
 $result = mysqli_query($conn,$sql);
 
@@ -115,6 +112,9 @@ else{ //hvis ikke logget inn, ikke vis pluss, og bare vis publiserte caser
           </a>
         </div>
         ";
+      }
+      else{
+        echo "<h4><small>Det er ingen publiserte caser enda...<small></h4>";
       }
     }
   }

@@ -292,7 +292,6 @@ audio{
 }
 
 .navimg:hover{
-  transition: filter 0.7s;
   filter: drop-shadow(0 0 0.2rem black);
 }
 
