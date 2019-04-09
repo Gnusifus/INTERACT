@@ -1,5 +1,6 @@
 <?php
 session_start();
+include './PHP/login_php.php';
 include './html_elements/head.html';
 ?>
     <body>
@@ -30,3 +31,4 @@ include './html_elements/head.html';
       <imput type="button" value="slett">
     </body>
 </html>
+heihei
