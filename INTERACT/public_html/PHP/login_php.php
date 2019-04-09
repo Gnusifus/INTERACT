@@ -23,7 +23,7 @@ if(isset($_POST['logginn'])){
     if ($email == $check_email && $password == $check_pw){
       $_SESSION['loggetinn'] = true;
       header("Location: ../all_cases.php");
-      exit;
+      exit();
     }
   }
   else{
@@ -36,7 +36,7 @@ if(isset($_POST['logginn'])){
     </script>
     ";
     header("Location: ../login.php");
-    exit;
+    exit();
   }
 
 /*
