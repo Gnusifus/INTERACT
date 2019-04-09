@@ -1,10 +1,7 @@
 <?php
 //Sjekker logginn validering, logger inn bruker hvis riktig
-$_SESSION['loggetinn'] = false;
 if(isset($_POST['logginn'])){
   include 'dbconnect.php';
-
-  echo "hei";
 
   $_SESSION['email'] = $_POST['email'];
   $_SESSION['password'] = $_POST['password'];
@@ -13,14 +10,52 @@ if(isset($_POST['logginn'])){
   $email = stripslashes($_SESSION['email']);
   $password = stripslashes($_SESSION['password']);
 
+  $sql = "SELECT epost, passord FROM admin WHERE epost = '$email' AND passord = '$password'";
+  $result = mysqli_query($conn, $sql);
+  $count = mysqli_num_rows($result);
+
+  if($count == 1){
+    while ($row = mysqli_fetch_array($result)){
+      $check_email = $row['epost'];
+      $check_pw = $row['passord'];
+    }
+
+    if ($email == $check_email && $password == $check_pw){
+      $_SESSION['loggetinn'] = true;
+      header("Location: ../all_cases.php");
+      exit;
+    }
+  }
+  else{
+    $_SESSION['loggetinn'] = false;
+    echo "
+    <script>
+    $(function(){
+      $('#feilpw').show('200');
+    });
+    </script>
+    ";
+    header("Location: ../login.php");
+    exit;
+  }
+
+/*
   $sql = "SELECT * FROM admin WHERE epost='$email'";
   $result = mysqli_query($conn, $sql);
   $count = mysqli_num_rows($result);
+
+  echo $count; //1
+
   if($result){
+    echo "result funker";
     //Hvis brukeren finnes
     if($count == 1){
       $sqlpw = "SELECT passord FROM admin WHERE epost='$email'";
       $resultpw = mysqli_query($conn, $sqlpw);
+      $countpw = mysqli_num_rows($resultpw);
+
+      echo "antall med pw:";
+      echo $resultpw;
 
       //Hvis passord stemmer med db
       if($resultpw == $password){
@@ -28,11 +63,7 @@ if(isset($_POST['logginn'])){
         header('Location: ./all_cases.php');
       }
       else{
-        echo "
-        <script>
-          $('#feilpw').show('200');
-        </script>
-        ";
+
         $_SESSION['loggetinn'] = false;
         $conn->close();
       }
@@ -53,7 +84,7 @@ if(isset($_POST['logginn'])){
     </script>
     ";
     $conn->close();
-  }
+  }*/
 }
 
 if(isset($_POST['loggut'])){

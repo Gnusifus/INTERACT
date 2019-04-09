@@ -1,4 +1,5 @@
-<?php session_start();
+<?php
+session_start();
 include './html_elements/head.html';
 ?>
     <body>
@@ -33,7 +34,7 @@ include './html_elements/head.html';
                               <span class="btnForgetPwd d-none" id="feilbruker">Det finnes ingen bruker registrert på denne epostadressen!</span><br>
                               <span class="btnForgetPwd d-none" id="feilconn">Kunne ikke koble til databasen.</span><br>
                           </div>
-                          <form action='' method="post">
+                          <form action='./PHP/login_php.php' method="post">
                           <div class="form-group">
                               <input type="text" name="email" class="form-control" placeholder="Skriv inn epostadresse..." value="" />
                           </div>
@@ -41,7 +42,7 @@ include './html_elements/head.html';
                               <input type="password" name="password" class="form-control" placeholder="Skriv inn passord..." value="" />
                           </div>
                           <div class="form-group">
-                              <input type="button" class="btnSubmit" name="logginn" value="Logg inn" />
+                              <input type="submit" class="btnSubmit" name="logginn" value="Logg inn" />
                           </div>
                           <div class="form-group">
                               <a href="#" class="btnForgetPwd">Glemt passord?</a>

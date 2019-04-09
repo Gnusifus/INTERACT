@@ -2,6 +2,9 @@
 //Henter alle caser fra db og viser dem til siden all_cases.php
 include 'dbconnect.php';
 
+echo "Logget inn?";
+echo $_SESSION['loggetinn'];
+
 $sql="SELECT * FROM cases";
 $result = mysqli_query($conn,$sql);
 
@@ -85,28 +88,34 @@ elseif($_SESSION['loggetinn'] == true && mysqli_num_rows($result) == 0){
   ";
 }
 else{ //hvis ikke logget inn, ikke vis pluss, og bare vis publiserte caser
-  while($row = mysqli_fetch_array($result)) {
-    $dbdate = DateTime::createFromFormat('Y-m-d H:i:s', $row['dato']);
-    $nordate = $dbdate->format('d/m/Y');
-    $nortime = $dbdate->format('H:i');
-    if($row['publisert'] == true){
-    echo "
-    <div class='col-lg-3 col-md-4 col-sm-6 portfolio-item'>
-    <a href='case.php?case=" . $row['idcases'] . "'>
-      <div class='card'>
-        <img class='card-img-top' src='./img/" . $row['bilde'] . "'>
-        <div class='card-body'>
-          <h4 class='card-title'>" .$row['tittel'] . "</h4>
-            <p class='card-text'>" . $row['tekst'] . "</p>
+  //Hvis det ikke er laget noen caser, og du ikke er logget inn
+  if(mysqli_num_rows($result) == 0){
+    echo "<h4><small>Det er ikke laget noen caser enda...<small></h4>";
+  }
+  else{
+    while($row = mysqli_fetch_array($result)) {
+      $dbdate = DateTime::createFromFormat('Y-m-d H:i:s', $row['dato']);
+      $nordate = $dbdate->format('d/m/Y');
+      $nortime = $dbdate->format('H:i');
+      if($row['publisert'] == true){
+      echo "
+      <div class='col-lg-3 col-md-4 col-sm-6 portfolio-item'>
+      <a href='case.php?case=" . $row['idcases'] . "'>
+        <div class='card'>
+          <img class='card-img-top' src='./img/" . $row['bilde'] . "'>
+          <div class='card-body'>
+            <h4 class='card-title'>" .$row['tittel'] . "</h4>
+              <p class='card-text'>" . $row['tekst'] . "</p>
+            </div>
+            <div class='card-footer text-muted'>
+              <div class='float-left'>" . $nordate . "</div>
+              <div class='float-right'>kl. " . $nortime . "</div>
+            </div>
           </div>
-          <div class='card-footer text-muted'>
-            <div class='float-left'>" . $nordate . "</div>
-            <div class='float-right'>kl. " . $nortime . "</div>
-          </div>
+          </a>
         </div>
-        </a>
-      </div>
-      ";
+        ";
+      }
     }
   }
 }

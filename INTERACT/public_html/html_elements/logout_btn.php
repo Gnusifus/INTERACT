@@ -8,4 +8,9 @@ if($_SESSION['loggetinn'] === true){
           </div>
         </form>";
 }
+else{
+  echo "<div class='logdiv'>
+          <a href='./login.php'><button class='logout btn btn-info btn-lg'> Logg inn</button></a>
+        </div>";
+}
 ?>

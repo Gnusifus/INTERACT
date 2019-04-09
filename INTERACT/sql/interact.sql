@@ -58,8 +58,8 @@ CREATE TABLE IF NOT EXISTS `interact`.`nodes` (
   CONSTRAINT `fk_nodes_cases1`
     FOREIGN KEY (`cases_idcases`)
     REFERENCES `interact`.`cases` (`idcases`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
@@ -78,8 +78,8 @@ CREATE TABLE IF NOT EXISTS `interact`.`sub_nodes` (
   CONSTRAINT `fk_sub_nodes_nodes1`
     FOREIGN KEY (`nodes_idnodes` , `nodes_cases_idcases`)
     REFERENCES `interact`.`nodes` (`idnodes` , `cases_idcases`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
@@ -99,8 +99,8 @@ CREATE TABLE IF NOT EXISTS `interact`.`tekst` (
   CONSTRAINT `fk_tekst_sub_nodes1`
     FOREIGN KEY (`sub_nodes_idsub_nodes` , `sub_nodes_nodes_idnodes` , `sub_nodes_nodes_cases_idcases`)
     REFERENCES `interact`.`sub_nodes` (`idsub_nodes` , `nodes_idnodes` , `nodes_cases_idcases`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
@@ -120,8 +120,8 @@ CREATE TABLE IF NOT EXISTS `interact`.`bilde` (
   CONSTRAINT `fk_bilde_sub_nodes1`
     FOREIGN KEY (`sub_nodes_idsub_nodes` , `sub_nodes_nodes_idnodes` , `sub_nodes_nodes_cases_idcases`)
     REFERENCES `interact`.`sub_nodes` (`idsub_nodes` , `nodes_idnodes` , `nodes_cases_idcases`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
@@ -141,8 +141,8 @@ CREATE TABLE IF NOT EXISTS `interact`.`sporsmaal` (
   CONSTRAINT `fk_sporsmaal_sub_nodes1`
     FOREIGN KEY (`sub_nodes_idsub_nodes` , `sub_nodes_nodes_idnodes` , `sub_nodes_nodes_cases_idcases`)
     REFERENCES `interact`.`sub_nodes` (`idsub_nodes` , `nodes_idnodes` , `nodes_cases_idcases`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
@@ -162,8 +162,8 @@ CREATE TABLE IF NOT EXISTS `interact`.`video` (
   CONSTRAINT `fk_video_sub_nodes1`
     FOREIGN KEY (`sub_nodes_idsub_nodes` , `sub_nodes_nodes_idnodes` , `sub_nodes_nodes_cases_idcases`)
     REFERENCES `interact`.`sub_nodes` (`idsub_nodes` , `nodes_idnodes` , `nodes_cases_idcases`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
@@ -183,8 +183,8 @@ CREATE TABLE IF NOT EXISTS `interact`.`lyd` (
   CONSTRAINT `fk_lyd_sub_nodes1`
     FOREIGN KEY (`sub_nodes_idsub_nodes` , `sub_nodes_nodes_idnodes` , `sub_nodes_nodes_cases_idcases`)
     REFERENCES `interact`.`sub_nodes` (`idsub_nodes` , `nodes_idnodes` , `nodes_cases_idcases`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
@@ -199,13 +199,14 @@ CREATE TABLE IF NOT EXISTS `interact`.`link` (
   `sub_nodes_idsub_nodes` INT NOT NULL,
   `sub_nodes_nodes_idnodes` INT NOT NULL,
   `sub_nodes_nodes_cases_idcases` INT NOT NULL,
+  `beskrivelse` VARCHAR(45) NULL,
   PRIMARY KEY (`idlink`, `sub_nodes_idsub_nodes`, `sub_nodes_nodes_idnodes`, `sub_nodes_nodes_cases_idcases`),
   INDEX `fk_link_sub_nodes1_idx` (`sub_nodes_idsub_nodes` ASC, `sub_nodes_nodes_idnodes` ASC, `sub_nodes_nodes_cases_idcases` ASC),
   CONSTRAINT `fk_link_sub_nodes1`
     FOREIGN KEY (`sub_nodes_idsub_nodes` , `sub_nodes_nodes_idnodes` , `sub_nodes_nodes_cases_idcases`)
     REFERENCES `interact`.`sub_nodes` (`idsub_nodes` , `nodes_idnodes` , `nodes_cases_idcases`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
@@ -220,13 +221,14 @@ CREATE TABLE IF NOT EXISTS `interact`.`dokument` (
   `sub_nodes_idsub_nodes` INT NOT NULL,
   `sub_nodes_nodes_idnodes` INT NOT NULL,
   `sub_nodes_nodes_cases_idcases` INT NOT NULL,
+  `beskrivelse` VARCHAR(45) NULL,
   PRIMARY KEY (`iddokument`, `sub_nodes_idsub_nodes`, `sub_nodes_nodes_idnodes`, `sub_nodes_nodes_cases_idcases`),
   INDEX `fk_dokument_sub_nodes1_idx` (`sub_nodes_idsub_nodes` ASC, `sub_nodes_nodes_idnodes` ASC, `sub_nodes_nodes_cases_idcases` ASC),
   CONSTRAINT `fk_dokument_sub_nodes1`
     FOREIGN KEY (`sub_nodes_idsub_nodes` , `sub_nodes_nodes_idnodes` , `sub_nodes_nodes_cases_idcases`)
     REFERENCES `interact`.`sub_nodes` (`idsub_nodes` , `nodes_idnodes` , `nodes_cases_idcases`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
@@ -270,8 +272,8 @@ CREATE TABLE IF NOT EXISTS `interact`.`videolink` (
   CONSTRAINT `fk_link_sub_nodes10`
     FOREIGN KEY (`sub_nodes_idsub_nodes` , `sub_nodes_nodes_idnodes` , `sub_nodes_nodes_cases_idcases`)
     REFERENCES `interact`.`sub_nodes` (`idsub_nodes` , `nodes_idnodes` , `nodes_cases_idcases`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
