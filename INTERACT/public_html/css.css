@@ -66,6 +66,10 @@ a:hover{
   margin: 2%;
 }
 
+.empty>.new_node{
+  padding: 40%;
+}
+
 /*Midterste node på case.php -------------------------------------------------*/
 .main{
   width: 290px;

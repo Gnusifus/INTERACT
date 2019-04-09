@@ -112,7 +112,7 @@ include './html_elements/head.html';
               include './PHP/new_case_subnode.php';
                 echo "
               <div class='col-lg-3 col-md-4 col-sm-6 portfolio-item empty'>
-                <div class='card' data-toggle='modal' data-target='.ny_case_subnode_modal'>
+                <div class='card empty' data-toggle='modal' data-target='.ny_case_subnode_modal'>
                   <i class='new_node fas fa-plus'></i>
                 </div>
               </div>
