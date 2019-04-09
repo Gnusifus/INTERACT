@@ -31,4 +31,3 @@ include './html_elements/head.html';
       <imput type="button" value="slett">
     </body>
 </html>
-heihei

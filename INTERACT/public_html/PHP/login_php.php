@@ -22,10 +22,11 @@ if(isset($_POST['logginn'])){
 
     if ($email == $check_email && $password == $check_pw){
       $_SESSION['loggetinn'] = true;
-      header("Location: ../all_cases.php");
+      header('Location: ../all_cases.php');
       exit;
     }
   }
+
   else{
     $_SESSION['loggetinn'] = false;
     echo "
