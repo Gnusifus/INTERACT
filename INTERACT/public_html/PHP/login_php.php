@@ -38,8 +38,11 @@ if(isset($_POST['logginn'])){
     </script>
     ";
 <<<<<<< HEAD
+<<<<<<< HEAD
     exit();
 =======
+=======
+>>>>>>> parent of 703c93e... Nå kan man logge inn ;)
     header("Location: ../login.php");
     exit;
   }
