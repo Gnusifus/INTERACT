@@ -27,7 +27,7 @@ if(isset($_POST['submit'])){
   }
   else{ //Tilfeldig farge
     $random_bilde_dir = "../color_imgs/";
-    $images = glob($random_bilde_dir . '*.{png}', GLOB_BRACE);
+    $images = glob($random_bilde_dir . '*.{jpg}', GLOB_BRACE);
     $randomImg = $images[array_rand($images)];
     $dbBilde = "./color_imgs/".$randomImg;
 
