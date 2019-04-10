@@ -8,9 +8,9 @@ $(function(){
   });
 
   //Klikke på søppelbøtte, kaller på php som sletter
-  $(".fa-trash-alt").click(function(){
+  $(".all_cases_delete").click(function(){
      if (confirm("Er du sikker på at du vil slette denne casen, og alle dens noder?")) {
-       var id = $(this).attr('id');
+       var id = $(this).find('.fa-trash-alt').attr('id');
        $.post({
            url: './PHP/delete_case.php',
            data: {id: id},
@@ -49,14 +49,6 @@ $(function(){
       if($(this).find(".new_picture").hasClass("display_block")){
          $(".new_picture").removeClass("display_block");
       };
-  });
-
-  $(".fa-pencil-alt").click(function(){
-      $(this).parent().parent().find(".new_picture").toggleClass("display_block");
-      var $card = $(this).parent().parent().find(".card-title");
-      var isEditable = $card.is('.editable');
-
-      $($card).prop('contenteditable',!isEditable).toggleClass('editable');
   });
 
   //new_case_subnode_modal handler

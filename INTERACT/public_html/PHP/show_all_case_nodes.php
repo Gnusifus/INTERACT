@@ -15,7 +15,7 @@ for($i = 1; $i <= $count; $i++){
     $row = mysqli_fetch_array($result);
     echo "
     <a href='case_mer.php?case=" . $row['cases_idcases'] . "&node=" . $row['idnodes'] . "'>
-      <img class='card-img-top nodeimg' src='./img/" . $row['bilde'] . "'>
+      <img class='card-img-top nodeimg' src='" . $row['bilde'] . "'>
     <div class='edit_icons'>
       <i class='edit fas fa-trash-alt'></i>
       <i class='edit fas fa-pencil-alt'></i>

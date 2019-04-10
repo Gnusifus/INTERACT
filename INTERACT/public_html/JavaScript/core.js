@@ -108,7 +108,7 @@ $(function(){
   });
 
   function check_val(){
-  if($(".feil", ".size").hasClass("d-block")){
+  if($(this).find('.form-group').find('.custom-file').find(".feil" || ".size").hasClass("d-block")){
     return false;
   }
   else{

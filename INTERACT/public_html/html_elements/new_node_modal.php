@@ -21,18 +21,12 @@
                 <input type="file" class="custom-file-input image-input" id="bilde" name="bildeup">
                 <label class="custom-file-label" name="bilde" for="bilde">Last opp et bilde her...</label>
                 <div class="feil d-none text-danger">Bildet må være av typen gif, jpeg eller png!</div>
+                <div class="size d-none text-danger">Filen kan ikke være større enn 2MB!</div>
+                <label class="control-label" for="bildeup"><small class="text-muted">Noden blir gitt en tilfeldig farge, dersom du velger å ikke laste opp et bilde.</small></label>
               </div>
             </div>
 
-            <script>
-            //Viser tekst i label for bilde når bilde er lastet opp
-            $('.custom-file-input').on('change', function() {
-               let fileName = $(this).val().split('\\').pop();
-               $(this).next('.custom-file-label').addClass("selected").html(fileName);
-            });
-            </script>
-
-            <button type="submit" name="submit" class="btn btn-primary mb-2">Legg til node</button>
+            <input type="submit" value="Legg til node" name="submit" class="btn btn-primary mb-2">
           </form>
 
       </div><!-- modal-body end -->

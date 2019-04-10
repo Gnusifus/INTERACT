@@ -90,6 +90,15 @@ a:hover{
   max-width: 100%;
 }
 
+#modalheaderimg{
+  border-bottom: none;
+  padding: 15px 15px 0 15px;
+  height: 60px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
 /* grid ----------------------------------------------------------------------*/
 .outer {
   display: table;
@@ -241,10 +250,6 @@ a:hover{
   display: block;
 }
 
-.editable{
-  background: lightskyblue;
-}
-
 .content{
   background-color: green;
   width: 150px;
@@ -277,17 +282,16 @@ audio{
 /*case navigation case_mer.html ----------------------------------------------*/
 .navigation{
   float: left;
-  overflow: hidden;
   margin-left: 1%;
   top: 15%;
   position: fixed;
 }
 
 .navimg{
-  padding: 10%;
-  width: 85px;
-  height: 85px;
-  margin-left: 5%;
+  margin: 10%;
+  border: 1px solid gray;
+  width: 70px;
+  height: 70px;
   object-fit: cover;
   position: relative;
   display: block;

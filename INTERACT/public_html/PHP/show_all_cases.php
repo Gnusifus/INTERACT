@@ -40,7 +40,7 @@ if($_SESSION['loggetinn'] == true && mysqli_num_rows($result) > 0){
     else{ //Hvis case er publisert, vis "publisert" i footer.
       echo "
       <div class='col-lg-3 col-md-4 col-sm-6 portfolio-item'>
-        <div class='card'>
+        <div class='card case_card'>
         <div class='card-header' id='" . $row['idcases'] . "'>
           <div id='pub' class='text-center text-success font-weight-bold'>Publisert!<br></div>
           <div id='pub2' class='text-center text-success'>Klikk her for å avpublisere</div>
