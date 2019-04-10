@@ -37,7 +37,7 @@ include './html_elements/head.html';
 
 <?php
 include './html_elements/logout_btn.php';
-include './html_elements/footer.html';
+
 ?>
 
 </body>
