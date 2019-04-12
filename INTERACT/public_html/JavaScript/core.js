@@ -30,12 +30,12 @@ $(function(){
       if ($.inArray(fileType, validImageTypes) < 0) {
          $(this).parent().find(".feil").addClass("d-block");
          $(this).parent().find(".feil").removeClass("d-none");
-         $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", true);
+           $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", true);
        }
      else{
        $(this).parent().find(".feil").removeClass("d-block");
        $(this).parent().find(".feil").addClass("d-none");
-       $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", false);
+         $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", false);
      }
     }
 
@@ -43,24 +43,24 @@ $(function(){
       if ($.inArray(fileType, validVideoTypes) < 0) {
          $(this).parent().find(".feil").addClass("d-block");
          $(this).parent().find(".feil").removeClass("d-none");
-         $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", true);
+          $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", true);
        }
      else{
        $(this).parent().find(".feil").removeClass("d-block");
        $(this).parent().find(".feil").addClass("d-none");
-       $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", false);
+        $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", false);
      }
     }
     if ($(this).hasClass("audio-input")){
       if ($.inArray(fileType, validAudioTypes) < 0) {
          $(this).parent().find(".feil").addClass("d-block");
          $(this).parent().find(".feil").removeClass("d-none");
-         $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", true);
+           $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", true);
        }
      else{
        $(this).parent().find(".feil").removeClass("d-block");
        $(this).parent().find(".feil").addClass("d-none");
-       $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", false);
+         $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", false);
      }
     }
 
@@ -72,7 +72,7 @@ $(function(){
          $(this).parent().find(".feil").removeClass("d-none");
          $(this).parent().find(".anbefal").removeClass("d-block");
          $(this).parent().find(".anbefal").addClass("d-none");
-         $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", true);
+           $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", true);
        }
      else{
        //Anbefaler pdf, hvis andre gyldige filtyper er lastet opp.
@@ -82,7 +82,7 @@ $(function(){
          $(this).parent().find(".feil").addClass("d-none");
          $(this).parent().find(".anbefal").addClass("d-block");
          $(this).parent().find(".anbefal").removeClass("d-none");
-         $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", false);
+           $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", false);
        }
        else{
          $('#documentInput_beskrivelse').show("200");
@@ -90,7 +90,7 @@ $(function(){
          $(this).parent().find(".feil").addClass("d-none");
          $(this).parent().find(".anbefal").removeClass("d-block");
          $(this).parent().find(".anbefal").addClass("d-none");
-         $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", false);
+           $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", true);
        }
      }
     }
@@ -107,15 +107,31 @@ $(function(){
       $("#linkInput_beskrivelse").show("200");
       $(this).parent().find(".feil").removeClass("d-block");
       $(this).parent().find(".feil").addClass("d-none");
-      $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", true);
     }
     else{
       $("#linkInput_beskrivelse").hide("200");
       $(this).parent().find(".feil").addClass("d-block");
       $(this).parent().find(".feil").removeClass("d-none");
-      $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", false);
     }
 
   });
 
   });
+
+
+function check_val(){
+  var file = $(this).find('.custom-file-input').files[0];
+  var fileType = file["type"];
+  var fileSize = $(this).find('.custom-file-input').files[0].size;
+
+  if(fileSize > 2000000){
+    return false;
+  }
+
+  if($(this).find('.form-group').find('.custom-file').find(".feil" || ".size").hasClass("d-block")){
+    return false;
+  }
+  else{
+    return true;
+  }
+}
