@@ -30,7 +30,7 @@ if(mysqli_num_rows($result) == 1){
               <span aria-hidden='true'>&times;</span>
             </button>
           </div>
-          <div class='modal-body'>;
+          <div class='modal-body'>
           <img class= 'modalimg' src='" . $row['bilde'] . "'>";
         }
         echo "

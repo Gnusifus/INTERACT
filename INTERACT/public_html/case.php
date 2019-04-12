@@ -1,5 +1,5 @@
 <?php
-session_start();
+include "./PHP/login_php.php";
 include './html_elements/head.html';
 ?>
 <body>

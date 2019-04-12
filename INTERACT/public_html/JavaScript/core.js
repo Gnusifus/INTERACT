@@ -1,5 +1,11 @@
 $(function(){
   //Sjekker multimedia input
+  //Deklarerer gyldige filtyper
+  var validImageTypes = ["image/gif", "image/jpeg", "image/png"];
+  var validVideoTypes = ["video/mp4", "video/webm", "video/ogg"];
+  var validDocTypes = ["application/pdf", "application/msword", "text/plain", "application/vnd.oasis.opendocument.text", "application/vnd.ms-powerpoint", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"];
+  var validAudioTypes = ["audio/mpeg", "audio/ogg", "audio/wav"];
+
   $('.custom-file-input').on('change', function(){
     var file = this.files[0];
     var fileType = file["type"];
@@ -17,12 +23,6 @@ $(function(){
     //Viser filnavn i inputfelt når lastet opp
     let fileName = $(this).val().split('\\').pop();
     $(this).next('.custom-file-label').addClass("selected").html(fileName);
-
-    //Deklarerer gyldige filtyper
-    var validImageTypes = ["image/gif", "image/jpeg", "image/png"];
-    var validVideoTypes = ["video/mp4", "video/webm", "video/ogg"];
-    var validDocTypes = ["application/pdf", "application/msword", "text/plain", "application/vnd.oasis.opendocument.text", "application/vnd.ms-powerpoint", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"];
-    var validAudioTypes = ["audio/mpeg", "audio/ogg", "audio/wav"];
 
     if ($(this).hasClass("image-input")){
       if ($.inArray(fileType, validImageTypes) < 0) {
@@ -107,7 +107,16 @@ $(function(){
 
   });
 
-  function check_val(){
+
+function check_val(){
+  var file = $(this).find('.custom-file-input').files[0];
+  var fileType = file["type"];
+  var fileSize = $(this).find('.custom-file-input').files[0].size;
+
+  if(fileSize > 2000000){
+    return false;
+  }
+
   if($(this).find('.form-group').find('.custom-file').find(".feil" || ".size").hasClass("d-block")){
     return false;
   }

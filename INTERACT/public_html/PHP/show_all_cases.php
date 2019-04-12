@@ -5,13 +5,16 @@ include 'dbconnect.php';
 $sql="SELECT * FROM cases";
 $result = mysqli_query($conn,$sql);
 
+$student_sql = "SELECT * FROM cases WHERE publisert = 1";
+$student_result = mysqli_query($conn,$student_sql);
+
 //Hvis bruker er logget inn, og det finnes caser
 if($_SESSION['loggetinn'] == true && mysqli_num_rows($result) > 0){
   while($row = mysqli_fetch_array($result)) {
     $dbdate = DateTime::createFromFormat('Y-m-d H:i:s', $row['dato']);
     $nordate = $dbdate->format('d/m/Y');
     $nortime = $dbdate->format('H:i');
-    //Hvis case ikke er publisert, vis "ikke publisert" i footer.
+    //Hvis case ikke er publisert, vis "ikke publisert" i header.
     if($row['publisert'] == false){
       echo "
       <div class='col-lg-3 col-md-4 col-sm-6 portfolio-item'>
@@ -37,7 +40,7 @@ if($_SESSION['loggetinn'] == true && mysqli_num_rows($result) > 0){
         </a>
       </div>";
     }
-    else{ //Hvis case er publisert, vis "publisert" i footer.
+    else{ //Hvis case er publisert, vis "publisert" i header.
       echo "
       <div class='col-lg-3 col-md-4 col-sm-6 portfolio-item'>
         <div class='card case_card'>
@@ -73,7 +76,7 @@ if($_SESSION['loggetinn'] == true && mysqli_num_rows($result) > 0){
     ";
 }
 //Hvis brukeren er logget inn, men ingen caser er laget enda.
-elseif($_SESSION['loggetinn'] == true && mysqli_num_rows($result) == 0){
+elseif(mysqli_num_rows($result) == 0){
   echo "
   <div class='col-lg-3 col-md-4 col-sm-6 portfolio-item'>
     <span data-toggle='tooltip' data-placement='right' title='Du har ingen caser enda, klikk her for å begynne!'>
@@ -84,17 +87,12 @@ elseif($_SESSION['loggetinn'] == true && mysqli_num_rows($result) == 0){
   </div>
   ";
 }
-else{ //hvis ikke logget inn, ikke vis pluss, og bare vis publiserte caser
-  //Hvis det ikke er laget noen caser, og du ikke er logget inn
-  if(mysqli_num_rows($result) == 0){
-    echo "<h4><small>Det er ikke laget noen caser enda...<small></h4>";
-  }
-  else{
-    while($row = mysqli_fetch_array($result)) {
+else{
+  if(mysqli_num_rows($student_result) > 0){
+    while($row = mysqli_fetch_array($student_result)) {
       $dbdate = DateTime::createFromFormat('Y-m-d H:i:s', $row['dato']);
       $nordate = $dbdate->format('d/m/Y');
       $nortime = $dbdate->format('H:i');
-      if($row['publisert'] == true){
       echo "
       <div class='col-lg-3 col-md-4 col-sm-6 portfolio-item'>
       <a href='case.php?case=" . $row['idcases'] . "'>
@@ -113,10 +111,9 @@ else{ //hvis ikke logget inn, ikke vis pluss, og bare vis publiserte caser
         </div>
         ";
       }
-      else{
-        echo "<h4><small>Det er ingen publiserte caser enda...<small></h4>";
-      }
+    }
+    else{
+      echo "<h4><small>Det er ikke publisert noen caser enda...<small></h4>";
     }
   }
-}
 ?>

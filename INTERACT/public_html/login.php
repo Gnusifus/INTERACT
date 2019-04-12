@@ -59,6 +59,9 @@ include './html_elements/head.html';
                   }
                 }
               }
+              else{
+                $_SESSION['loggetinn'] = false;
+              }
               ?>
 
                 </div>
