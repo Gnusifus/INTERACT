@@ -9,7 +9,7 @@
         </button>
       </div>
       <div class="modal-body">
-          <form action="./PHP/new_case_node.php?case=<?php echo $case ?>" method="post" enctype="multipart/form-data" onsubmit="return check_val()">
+          <form action="./PHP/new_case_node.php?case=<?php echo $case ?>" method="post" enctype="multipart/form-data" onsubmit="return check_val()" id="new_node_form">
 
             <div class="form-group">
               <label for="exampleFormControlInput1">Node overskrift</label>

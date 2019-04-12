@@ -8,10 +8,12 @@ $(function(){
     //Godtar ikke filer større enn 2MB.
     if(fileSize > 2000000){
       $(this).parent().find(".size").removeClass("d-none");
+      $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", true);
     }
     else {
       $(this).parent().find(".size").removeClass("d-block");
       $(this).parent().find(".size").addClass("d-none");
+      $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", false);
     }
 
     //Viser filnavn i inputfelt når lastet opp

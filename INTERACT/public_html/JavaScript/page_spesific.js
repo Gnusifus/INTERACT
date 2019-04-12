@@ -41,7 +41,7 @@ $(function(){
       //Skjuler .edit_icons ved mouseleave
       $(this).find(".edit_icons").css("display", "none");
 
-      //gjør card-title ikke-editable ved mouseleave
+  //gjør card-title ikke-editable ved mouseleave
       if($(this).find(".card-title").hasClass("editable")){
           $(".card-title").removeClass("editable");
       }
