@@ -7,12 +7,12 @@ $(function(){
       $(this).find(".all_cases_delete").css("display", "none");
   });
 
-  //Klikke på søppelbøtte, kaller på php som sletter
+  //Sletter case
   $(".all_cases_delete").click(function(){
      if (confirm("Er du sikker på at du vil slette denne casen, og alle dens noder?")) {
        var id = $(this).find('.fa-trash-alt').attr('id');
        $.post({
-           url: './PHP/delete_case.php',
+           url: './PHP/handlers/delete_case.php',
            data: {id: id},
            success: function(result){
              location.reload();
@@ -21,11 +21,54 @@ $(function(){
     }
   });
 
+  //Sletter node
+  $(".node_trash").click(function(){
+     if (confirm("Er du sikker på at du vil slette denne noden?")) {
+       var id = $(this).parent().attr('id');
+       $.post({
+           url: './PHP/handlers/delete_case_node.php',
+           data: {id: id},
+           success: function(result){
+             location.reload();
+           }
+       });
+    }
+  });
+
+  //Sletter sub_node
+  $(".node_trash").click(function(){
+     if (confirm("Er du sikker på at du vil slette denne noden?")) {
+       var id = $(this).parent().attr('id');
+       $.post({
+           url: './PHP/handlers/delete_case_node.php',
+           data: {id: id},
+           success: function(result){
+             location.reload();
+           }
+       });
+    }
+  });
+
+  //Sletter sub_node
+  $(".node_trash").click(function(){
+     if (confirm("Er du sikker på at du vil slette denne noden?")) {
+       var id = $(this).parent().attr('id');
+       $.post({
+           url: './PHP/handlers/delete_case_subnode.php',
+           data: {id: id},
+           success: function(result){
+             location.reload();
+           }
+       });
+    }
+    break;
+  });
+
   //Klikke på card-header, publiserer case
   $(".card-header").click(function(){
        var id = $(this).attr('id');
          $.post({
-           url: './PHP/publish_case.php',
+           url: './PHP/hanslers/publish_case.php',
            data: {id: id},
            success: function(result){
              location.reload();
@@ -35,7 +78,7 @@ $(function(){
 
 
 //Endre / slette noder
-  $(".node").mouseenter(function(){
+  $(".roundcards").mouseenter(function(){
       $(this).find(".edit_icons").css("display", "block");
   }).mouseleave(function(){
       //Skjuler .edit_icons ved mouseleave

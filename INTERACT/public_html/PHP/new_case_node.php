@@ -40,7 +40,6 @@ if(move_uploaded_file($_FILES['bildeup']['tmp_name'], $bildedir.$path)){
             VALUES ('$overskrift', '$dbBilde', '$case')";
 
     $result = mysqli_query($conn, $sql);
-    $case = mysqli_fetch_object($result);
     if ($result) {
         header("Location: ../case.php?case=".$case);
   }

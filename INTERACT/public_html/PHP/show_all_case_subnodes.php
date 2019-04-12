@@ -12,7 +12,7 @@ while($row = mysqli_fetch_array($result)) {
 
   echo "
   <div class='col-lg-3 col-md-4 col-sm-6 portfolio-item'>
-    <div class='card h-100' data-toggle='modal' data-target='.bd-example-modal-lg'>";
+    <div class='card' data-toggle='modal' data-target='.bd-example-modal-lg'>";
 
     $bildesql = "SELECT * FROM bilde
                 WHERE sub_nodes_idsub_nodes = '$sub_node_id'";
@@ -21,6 +21,13 @@ while($row = mysqli_fetch_array($result)) {
     if($bildecount > 0 ){
         $bilderow = mysqli_fetch_array($bilderes);
         echo "<img class='card-img-top' src='./img/" . $bilderow['bilde'] . "'>";
+    }
+
+    if($_SESSION['loggetinn'] == true){
+      echo "
+      <div class='sub_node_delete edit_icons'>
+        <i class='edit fas fa-trash-alt' id='" . $row['idsub_nodes'] . "'></i>
+      </div>";
     }
 
     echo "
@@ -40,11 +47,11 @@ while($row = mysqli_fetch_array($result)) {
       <div class='card-footer'>
         <div class='footer-icons'>";
         //Tekst
-        if($tekstcount >0 ){
+        if($tekstcount > 0 ){
           echo "<i class='fas fa-font'></i>";
         }
         //Bilde
-        if($bildecount >0 ){
+        if($bildecount > 0 ){
           echo "<i class='fas fa-camera'></i>";
         }
         //Video

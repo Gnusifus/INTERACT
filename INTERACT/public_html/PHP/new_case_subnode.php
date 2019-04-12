@@ -24,7 +24,7 @@ if(isset($_POST['submit'])){
   $sub_node = $conn->insert_id;
 
   if ($result == true && $conn->affected_rows == 1) {
-    if(isset($tekst)){
+    if(strlen($tekst) > 0){
       $tekstsql = "INSERT INTO tekst (tekst, sub_nodes_idsub_nodes, sub_nodes_nodes_idnodes, sub_nodes_nodes_cases_idcases)
                     VALUES ('$tekst', $sub_node, '$node', '$case')";
       mysqli_query($conn, $tekstsql);
@@ -47,12 +47,12 @@ if(isset($_POST['submit'])){
         mysqli_query($conn, $videosql);
       }
     }
-    if(isset($ytvideo)){
-      $ytvideosql = "INSERT INTO link (link, sub_nodes_idsub_nodes, sub_nodes_nodes_idnodes, sub_nodes_nodes_cases_idcases)
+    if(strlen($ytvideo) > 0){
+      $ytvideosql = "INSERT INTO videolink (videolink, sub_nodes_idsub_nodes, sub_nodes_nodes_idnodes, sub_nodes_nodes_cases_idcases)
                     VALUES ('$ytvideo', $sub_node, '$node', '$case')";
       mysqli_query($conn, $ytvideosql);
     }
-    if(isset($lenke)){
+    if(strlen($lenke) > 0){
       $lenkesql = "INSERT INTO link (link, sub_nodes_idsub_nodes, sub_nodes_nodes_idnodes, sub_nodes_nodes_cases_idcases)
                     VALUES ('$lenke', $sub_node, '$node', '$case')";
       mysqli_query($conn, $lenkesql);
