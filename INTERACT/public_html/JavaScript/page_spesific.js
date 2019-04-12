@@ -1,16 +1,22 @@
 $(function(){
 
-//Slette case fra all_cases.php
+//Viser ikoner
   $(".case_card").mouseenter(function(){
       $(this).find(".all_cases_delete").css("display", "block");
   }).mouseleave(function(){
       $(this).find(".all_cases_delete").css("display", "none");
   });
 
+  $(".editable-card").mouseenter(function(){
+      $(this).find(".edit_icons").css("display", "block");
+  }).mouseleave(function(){
+      $(this).find(".edit_icons").css("display", "none");
+  });
+
   //Sletter case
   $(".all_cases_delete").click(function(){
      if (confirm("Er du sikker på at du vil slette denne casen, og alle dens noder?")) {
-       var id = $(this).find('.fa-trash-alt').attr('id');
+       var id = $(this).find('.edit').attr('id');
        $.post({
            url: './PHP/handlers/delete_case.php',
            data: {id: id},
@@ -36,7 +42,7 @@ $(function(){
   });
 
   //Sletter sub_node
-  $(".sub_node_delete").click(function(){
+  $(".sub_node_trash").click(function(){
      if (confirm("Er du sikker på at du vil slette denne noden?")) {
        var id = $(this).parent().attr('id');
        $.post({
@@ -47,51 +53,18 @@ $(function(){
            }
        });
     }
-  });
-
-  //Sletter sub_node
-  $(".node_trash").click(function(){
-     if (confirm("Er du sikker på at du vil slette denne noden?")) {
-       var id = $(this).parent().attr('id');
-       $.post({
-           url: './PHP/handlers/delete_case_subnode.php',
-           data: {id: id},
-           success: function(result){
-             location.reload();
-           }
-       });
-    }
-    break;
   });
 
   //Klikke på card-header, publiserer case
   $(".card-header").click(function(){
        var id = $(this).attr('id');
          $.post({
-           url: './PHP/hanslers/publish_case.php',
+           url: './PHP/handlers/publish_case.php',
            data: {id: id},
            success: function(result){
              location.reload();
            }
        });
-  });
-
-
-//Endre / slette noder
-  $(".roundcards").mouseenter(function(){
-      $(this).find(".edit_icons").css("display", "block");
-  }).mouseleave(function(){
-      //Skjuler .edit_icons ved mouseleave
-      $(this).find(".edit_icons").css("display", "none");
-
-  //gjør card-title ikke-editable ved mouseleave
-      if($(this).find(".card-title").hasClass("editable")){
-          $(".card-title").removeClass("editable");
-      }
-      //fjerner .display_block fra noden sin .new_picture div.
-      if($(this).find(".new_picture").hasClass("display_block")){
-         $(".new_picture").removeClass("display_block");
-      };
   });
 
   //new_case_subnode_modal handler

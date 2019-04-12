@@ -12,7 +12,7 @@ while($row = mysqli_fetch_array($result)) {
 
   echo "
   <div class='col-lg-3 col-md-4 col-sm-6 portfolio-item'>
-    <div class='card' data-toggle='modal' data-target='.bd-example-modal-lg'>";
+    <div class='card editable-card' data-toggle='modal' data-target='.bd-example-modal-lg'>";
 
     $bildesql = "SELECT * FROM bilde
                 WHERE sub_nodes_idsub_nodes = '$sub_node_id'";
@@ -25,8 +25,8 @@ while($row = mysqli_fetch_array($result)) {
 
     if($_SESSION['loggetinn'] == true){
       echo "
-      <div class='sub_node_delete edit_icons'>
-        <i class='edit fas fa-trash-alt' id='" . $row['idsub_nodes'] . "'></i>
+      <div class='edit_icons' id='" . $row['idsub_nodes'] . "'>
+        <i class='edit fas fa-trash-alt sub_node_trash'></i>
       </div>";
     }
 

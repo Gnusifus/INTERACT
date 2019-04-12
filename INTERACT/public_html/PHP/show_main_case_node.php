@@ -12,7 +12,7 @@ if ($_SESSION['loggetinn']){
   if(mysqli_num_rows($result) == 1){
     echo "
     <div class='main'>
-      <div class='card roundcards' data-toggle='modal' data-target='.bd-example-modal-lg'>
+      <div class='card editable-card' data-toggle='modal' data-target='.bd-example-modal-lg'>
       <img class='card-img-top' src='" . $row['bilde'] . "'>
       <div class='edit_icons'>
         <i class='edit fas fa-pencil-alt'></i>
@@ -29,7 +29,7 @@ if ($_SESSION['loggetinn']){
 else{
     echo "
     <div class='main'>
-      <div class='card roundcards' data-toggle='modal' data-target='.bd-example-modal-lg'>
+      <div class='card' data-toggle='modal' data-target='.bd-example-modal-lg'>
       <img class='card-img-top' src='" . $row['bilde'] . "'>
         <div class='card-body'>
           <h4 class='card-title'>" . $row['tittel'] . "</h4>
