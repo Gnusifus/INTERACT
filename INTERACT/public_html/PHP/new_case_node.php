@@ -6,6 +6,7 @@ if(isset($_POST['submit'])){
 
 include './dbconnect.php';
 
+
 $case = $_GET['case'];
 
 $_SESSION['overskrift'] = $_POST['overskrift'];
@@ -14,6 +15,7 @@ $overskrift = $_SESSION['overskrift'];
 $bilde = $_FILES['bildeup']['name'];
 $bildedir = "../img/";
 $path = time().$bilde;
+
 
 if(move_uploaded_file($_FILES['bildeup']['tmp_name'], $bildedir.$path)){
     $dbBilde = "./img/".$path;
