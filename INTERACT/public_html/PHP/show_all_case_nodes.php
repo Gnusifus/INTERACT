@@ -12,7 +12,7 @@ $count = mysqli_num_rows($result);
 //Legger n(i) som class til hver node MIDLERTIDIG LØSNING
 if ($_SESSION['loggetinn']){
   for($i = 1; $i <= $count; $i++){
-    echo "<div class='node n" . $i . "'> <div class='card roundcards'>";
+    echo "<div class='node n" . $i . "'> <div class='card editable-card'>";
       $row = mysqli_fetch_array($result);
       echo "
       <a href='case_mer.php?case=" . $row['cases_idcases'] . "&node=" . $row['idnodes'] . "'>
@@ -33,7 +33,7 @@ if ($_SESSION['loggetinn']){
 }
 else{
   for($i = 1; $i <= $count; $i++){
-    echo "<div class='node n" . $i . "'> <div class='card roundcards'>";
+    echo "<div class='node n" . $i . "'> <div class='card editable-card'>";
       $row = mysqli_fetch_array($result);
       echo "
       <a href='case_mer.php?case=" . $row['cases_idcases'] . "&node=" . $row['idnodes'] . "'>
