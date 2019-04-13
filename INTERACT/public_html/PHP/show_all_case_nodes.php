@@ -21,9 +21,6 @@ if ($_SESSION['loggetinn']){
         <i class='edit fas fa-trash-alt node_trash'></i>
         <i class='edit fas fa-pencil-alt'></i>
       </div>
-      <div class='new_picture' data-toggle='modal' data-target='#exampleModalCenter'>
-        <span>Endre bildet</span>
-      </div>
       <div class='card-body'>
         <h4 class='card-title'>" .$row['overskrift'] . "</h4>
       </div>

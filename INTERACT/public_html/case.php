@@ -26,7 +26,9 @@ include './html_elements/head.html';
 
       //Viser ikke pluss-button hvis siden vises i student-modus
       if($_SESSION['loggetinn'] == true){
-        echo "<button data-toggle='modal' data-target='.ny_case_node_modal' class='button pluss'><i class='fas fa-plus'></i></button>";
+        echo "<div class='pluss_btn'>
+                <button data-toggle='modal' data-target='.ny_case_node_modal' class='btn btn-info btn-lg'><i class='fas fa-plus'></i></button>
+              </div>";
       }
       ?>
       <!-- nodes end -->

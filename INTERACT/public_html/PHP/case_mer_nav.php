@@ -16,3 +16,10 @@ while($row = mysqli_fetch_array($result)) {
   }
 echo "</div>";
 ?>
+
+<script>
+//Viser tooltip når hover over tom case
+$(document).ready(function() {
+    $("body").tooltip({ selector: '[data-toggle=tooltip]' });
+});
+</script>

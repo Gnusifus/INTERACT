@@ -48,15 +48,19 @@ if(isset($_POST['submit'])){
       }
     }
     if(strlen($ytvideo) > 0){
+      preg_match("#(?<=v=)[a-zA-Z0-9-]+(?=&)|(?<=v\/)[^&\n]+(?=\?)|(?<=v=)[^&\n]+|(?<=youtu.be/)[^&\n]+#", $ytvideo, $treff);
+      $funn = $treff[0];
       $ytvideosql = "INSERT INTO videolink (videolink, sub_nodes_idsub_nodes, sub_nodes_nodes_idnodes, sub_nodes_nodes_cases_idcases)
-                    VALUES ('$ytvideo', $sub_node, '$node', '$case')";
+                    VALUES ('$funn', $sub_node, '$node', '$case')";
       mysqli_query($conn, $ytvideosql);
     }
+
     if(strlen($lenke) > 0){
       $lenkesql = "INSERT INTO link (link, sub_nodes_idsub_nodes, sub_nodes_nodes_idnodes, sub_nodes_nodes_cases_idcases)
                     VALUES ('$lenke', $sub_node, '$node', '$case')";
       mysqli_query($conn, $lenkesql);
     }
+
     if(isset($lyd)){
       $lyddir = "../audio/";
       $lydpath = time().$lyd;
@@ -68,10 +72,11 @@ if(isset($_POST['submit'])){
     }
     if(isset($dokument)){
       $docdir = "../doc/";
-      $docpath = time().$dokument;
+      $docpath = $dokument;
+      $docbeskrivelse = $_POST['dokument_beksrivelse'];
       if(move_uploaded_file($_FILES['dokumentup']['tmp_name'], $docdir.$docpath)){
-        $docsql = "INSERT INTO dokument (dokument, sub_nodes_idsub_nodes, sub_nodes_nodes_idnodes, sub_nodes_nodes_cases_idcases)
-                      VALUES ('$docpath', $sub_node, '$node', '$case')";
+        $docsql = "INSERT INTO dokument (dokument, sub_nodes_idsub_nodes, sub_nodes_nodes_idnodes, sub_nodes_nodes_cases_idcases, beskrivelse)
+                      VALUES ('$docpath', $sub_node, '$node', '$case', '$docbeskrivelse')";
         mysqli_query($conn, $docsql);
       }
     }

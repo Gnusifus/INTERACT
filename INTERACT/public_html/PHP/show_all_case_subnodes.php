@@ -12,7 +12,7 @@ while($row = mysqli_fetch_array($result)) {
 
   echo "
   <div class='col-lg-3 col-md-4 col-sm-6 portfolio-item'>
-    <div class='card editable-card' data-toggle='modal' data-target='.bd-example-modal-lg'>";
+    <div class='card editable-card sub_node_card' data-toggle='modal' data-target='.show_subnode_content' id='" . $sub_node_id . "'>";
 
     $bildesql = "SELECT * FROM bilde
                 WHERE sub_nodes_idsub_nodes = '$sub_node_id'";
@@ -54,12 +54,16 @@ while($row = mysqli_fetch_array($result)) {
         if($bildecount > 0 ){
           echo "<i class='fas fa-camera'></i>";
         }
-        //Video
-        $videosql = "SELECT * FROM video
-                    WHERE sub_nodes_idsub_nodes = '$sub_node_id'";
+        //Video (velger både videofil, og yt-link)
+        $videosql = "(SELECT * FROM video
+                    WHERE sub_nodes_idsub_nodes = '$sub_node_id')
+                    union
+                    (SELECT * FROM videolink
+                    WHERE sub_nodes_idsub_nodes = '$sub_node_id')";
+
         $videores = mysqli_query($conn, $videosql);
         $videocount = mysqli_num_rows($videores);
-        if($videocount > 0 ){
+        if($videocount > 0){
           echo "<i class='fas fa-video'></i>";
         }
         //Lydfil
