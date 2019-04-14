@@ -120,8 +120,16 @@ $(function(){
     }
 
   });
-
+  
+  $("body").tooltip({
+    selector: '[data-toggle=tooltip]'
   });
+
+  $('[data-toggle="tooltip"]').tooltip({
+    animation: true,
+  });
+
+});
 
 
 function check_val(){

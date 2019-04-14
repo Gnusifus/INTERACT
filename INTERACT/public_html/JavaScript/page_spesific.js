@@ -1,7 +1,6 @@
 $(function(){
 
   //Publiser / avpubliser
-  //Klikke på card-header, publiserer case
   $(".card-header").click(function(){
        var id = $(this).attr('id');
          $.post({
