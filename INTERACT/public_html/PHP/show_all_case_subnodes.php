@@ -32,8 +32,7 @@ while($row = mysqli_fetch_array($result)) {
 
     echo "
       <div class='card-body'>
-        <h4 class='card-title'>" .$row['overskrift'] . "</h4>
-      </div>";
+        <h4 class='card-title'>" .$row['overskrift'] . "</h4>";
 
       $tekstsql = "SELECT * FROM tekst
                   WHERE sub_nodes_idsub_nodes = '$sub_node_id'";
@@ -44,6 +43,7 @@ while($row = mysqli_fetch_array($result)) {
           echo "<p class='card-text'>" . $tekstrow['tekst'] . "</p>";
       }
       echo "
+      </div>
       <div class='card-footer'>
         <div class='footer-icons'>";
         //Tekst

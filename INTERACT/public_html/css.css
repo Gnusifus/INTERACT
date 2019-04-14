@@ -264,6 +264,8 @@ audio{
 iframe{
   width: 560px;
   height: 315px;
+  margin-left: 14%;
+  padding: 1rem;
 }
 
 /* new_case_subnode_modal ----------------------------------------------------*/

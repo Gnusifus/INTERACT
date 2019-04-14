@@ -156,7 +156,7 @@ $row = mysqli_fetch_array($result);
             </script>
 
             </div>
-          
+
             <input type="submit" value="Legg til node" name="submit" class="btn btn-primary mb-2">
           </form>
 

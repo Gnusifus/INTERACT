@@ -56,8 +56,9 @@ if(isset($_POST['submit'])){
     }
 
     if(strlen($lenke) > 0){
-      $lenkesql = "INSERT INTO link (link, sub_nodes_idsub_nodes, sub_nodes_nodes_idnodes, sub_nodes_nodes_cases_idcases)
-                    VALUES ('$lenke', $sub_node, '$node', '$case')";
+      $lenkebeskrivelse = $_POST['lenke_beksrivelse'];
+      $lenkesql = "INSERT INTO link (link, sub_nodes_idsub_nodes, sub_nodes_nodes_idnodes, sub_nodes_nodes_cases_idcases, beskrivelse)
+                    VALUES ('$lenke', $sub_node, '$node', '$case', '$lenkebeskrivelse')";
       mysqli_query($conn, $lenkesql);
     }
 
