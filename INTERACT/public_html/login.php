@@ -12,9 +12,6 @@ include './html_elements/head.html';
             <div class="row">
                 <div class="col-md-6 login-form-1">
                   <h3>Jeg er administrator!</h3>
-                  <div class="form-group">
-                      <span class="btnForgetPwd d-none" id="feilpw">Feil passord!</span><br>
-                  </div>
                 <form action='#' method="post">
                   <div class="form-group">
                       <input type="text" name="email" class="form-control" placeholder="Skriv inn epostadresse..." value="" />
@@ -25,9 +22,19 @@ include './html_elements/head.html';
                   <div class="form-group">
                       <input type="submit" class="btnSubmit" name="logginn" value="Logg inn" />
                   </div>
+                  <!--
                   <div class="form-group">
                       <a href="#" class="btnForgetPwd">Glemt passord?</a>
-                  </div>
+                  </div>-->
+                  <?php
+                  if(isset($_POST['logginn']) && $_SESSION['loggetinn'] == FALSE){
+                    echo "
+                    <div class='form-group'>
+                        <span class='btnForgetPwd'>Feil passord!</span><br>
+                    </div>
+                    ";
+                  }
+                  ?>
               </form>
 
               <?php
