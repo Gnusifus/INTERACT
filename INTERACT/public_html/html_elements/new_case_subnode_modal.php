@@ -116,7 +116,7 @@ $row = mysqli_fetch_array($result);
               </div>
               <input type="text" class="form-control" name="sporsmaal" placeholder="Skriv inn ett spørsmål i hvert felt..." aria-label="sporsmaal" aria-describedby="basic-addon1">
             </div>
-            <button type="submit" class="btn btn-secondary">Legg til flere spørsmål</button>
+              <div class="btn btn-secondary addSpm">Legg til flere spørsmål</div>
             </div>
 
             <div class="form-group col-md-12">
@@ -142,9 +142,6 @@ $row = mysqli_fetch_array($result);
               <button type="button" id='addQuestion' class="btn btn-dark btn-circle btn-xl"><i class="fas fa-tasks"></i></button>
             </div>
           </div>
-
-
-
             <input type="submit" value="Legg til node" name="submit" class="btn btn-primary mb-2">
           </form>
 

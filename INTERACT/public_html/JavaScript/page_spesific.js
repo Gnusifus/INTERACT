@@ -57,7 +57,22 @@ $(function(){
     //Fjerner opplastet fil
     $(this).parent().find(".custom-file-input").val(null);
     $(this).parent().find('.custom-file-label').removeClass("selected").html("Last opp her..");
-    //TODO: fjerne link og dokument beskrivelse, og dens input val
     $(this).parent().hide("200");
+    $(this).parent().find(".form-control").val(null);
+  })
+
+  $("#documentInput").find(".removeInput").click(function(){
+    $(this).parent().parent().find("#documentInput_beskrivelse").hide("200");
+    $(this).parent().parent().find("#documentInput_beskrivelse").val(null);
+  });
+
+  $("#linkInput").find(".removeInput").click(function(){
+    $(this).parent().parent().find("#linkInput_beskrivelse").hide("200");
+    $(this).parent().parent().find("#linkInput_beskrivelse").val(null);
+  });
+
+  $(".addSpm").click(function(){
+    console.log("hei");
+    $(this).parent().find(".mb-3").appendTo("#questionInput");
   })
 });
