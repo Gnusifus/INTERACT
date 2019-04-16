@@ -90,7 +90,7 @@ $(function(){
          $(this).parent().find(".feil").addClass("d-none");
          $(this).parent().find(".anbefal").removeClass("d-block");
          $(this).parent().find(".anbefal").addClass("d-none");
-           $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", true);
+            $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", false);
        }
      }
     }
