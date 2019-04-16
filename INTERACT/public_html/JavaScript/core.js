@@ -79,7 +79,7 @@ $(function(){
          $(this).parent().find(".anbefal").addClass("d-none");
            $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", true);
        }
-     else{
+
        //Anbefaler pdf, hvis andre gyldige filtyper er lastet opp.
        if (fileType != "application/pdf"){
          $('#documentInput_beskrivelse').show("200");
@@ -97,7 +97,7 @@ $(function(){
          $(this).parent().find(".anbefal").addClass("d-none");
             $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", false);
        }
-     }
+
     }
   });
 
@@ -112,13 +112,13 @@ $(function(){
       $("#linkInput_beskrivelse").show("200");
       $(this).parent().find(".feil").removeClass("d-block");
       $(this).parent().find(".feil").addClass("d-none");
-         $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", true);
+         $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", false);
     }
     else{
       $("#linkInput_beskrivelse").hide("200");
       $(this).parent().find(".feil").addClass("d-block");
       $(this).parent().find(".feil").removeClass("d-none");
-         $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", false);
+         $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", true);
     }
 
   });
