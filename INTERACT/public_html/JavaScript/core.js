@@ -112,15 +112,17 @@ $(function(){
       $("#linkInput_beskrivelse").show("200");
       $(this).parent().find(".feil").removeClass("d-block");
       $(this).parent().find(".feil").addClass("d-none");
+         $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", true);
     }
     else{
       $("#linkInput_beskrivelse").hide("200");
       $(this).parent().find(".feil").addClass("d-block");
       $(this).parent().find(".feil").removeClass("d-none");
+         $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", false);
     }
 
   });
-  
+
   $("body").tooltip({
     selector: '[data-toggle=tooltip]'
   });
