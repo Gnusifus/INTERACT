@@ -109,12 +109,12 @@ $row = mysqli_fetch_array($result);
 
             <!-- Spørsmål -->
             <div class="form-group col-md-12" id="questionInput">
-            <label for="exampleFormControlInput1">Spørsmål</label>
+            <label class= "spmlabel" for="exampleFormControlInput1">Spørsmål</label>
             <div class="input-group mb-3">
               <div class="input-group-prepend">
                 <span class="input-group-text" id="basic-addon1">?</span>
               </div>
-              <input type="text" class="form-control" name="sporsmaal" placeholder="Skriv inn ett spørsmål i hvert felt..." aria-label="sporsmaal" aria-describedby="basic-addon1">
+              <input type="text" class="form-control" name="sporsmaal[]" placeholder="Skriv inn ett spørsmål i hvert felt..." aria-label="sporsmaal" aria-describedby="basic-addon1">
             </div>
               <div class="btn btn-secondary addSpm">Legg til flere spørsmål</div>
             </div>

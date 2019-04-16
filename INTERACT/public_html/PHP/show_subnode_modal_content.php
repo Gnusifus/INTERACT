@@ -83,6 +83,16 @@ if($result){
     </video>";
   }
 
+  $sporsmaalsql = "SELECT * FROM sporsmaal WHERE sub_nodes_idsub_nodes = '$sub_node_id'";
+  $sporsmaalresult = mysqli_query($conn, $sporsmaalsql);
+  if(mysqli_num_rows($sporsmaalresult) > 0){
+    echo "<hr>";
+    echo "<p class='h3'>Oppgaver</p><br>";
+    while($sporsmaalrow = mysqli_fetch_array($sporsmaalresult)){
+      echo "<i class='fas fa-question'></i><i>" . $sporsmaalrow['sporsmaal'] . "</i><br>";
+    }
+  }
+
 
 
   echo "</div>";
