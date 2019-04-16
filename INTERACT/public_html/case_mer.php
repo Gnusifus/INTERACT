@@ -10,27 +10,8 @@ include './html_elements/head.html';
       <div class="container">
       <?php
       include "./PHP/brodsmule.php";
+      include "./html_elements/show_subnode_modal.php";
       ?>
-        <!-- Modal klikk node -->
-        <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
-          <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">GET_NODE TITLE</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <p class="card-text">Her finer du Olas sykehusdokuemt, for oppholder januar 2019.<br>
-                <a download="ex.pdf" href="./doc/ex.pdf" title="Ex" target="_blank">Sykehusopphold.pdf<i class="far fa-file"></i></a></p>
-              </div>
-              </div>
-            </div>
-          </div>
-        <!-- Modal end -->
-
-
         <!-- Cases oversikt -->
             <div class="row">
               <?php

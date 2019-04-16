@@ -16,12 +16,6 @@ include './html_elements/head.html';
         <!-- Viser alle cases i en row -->
         <div class="row">
           <?php include './PHP/show_all_cases.php'; ?>
-          <script>
-          //Viser tooltip når hover over tom case
-          $(document).ready(function() {
-              $("body").tooltip({ selector: '[data-toggle=tooltip]' });
-          });
-          </script>
         </div><!-- row end -->
       </div><!-- container end -->
 

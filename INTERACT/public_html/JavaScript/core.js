@@ -1,4 +1,9 @@
 $(function(){
+
+  $('.modal').on('hidden.bs.modal', function() {
+    location.reload();
+  });
+
   //Sjekker multimedia input
   //Deklarerer gyldige filtyper
   var validImageTypes = ["image/gif", "image/jpeg", "image/png"];
@@ -115,8 +120,16 @@ $(function(){
     }
 
   });
-
+  
+  $("body").tooltip({
+    selector: '[data-toggle=tooltip]'
   });
+
+  $('[data-toggle="tooltip"]').tooltip({
+    animation: true,
+  });
+
+});
 
 
 function check_val(){

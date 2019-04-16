@@ -1,61 +1,6 @@
 $(function(){
 
-//Viser ikoner
-  $(".case_card").mouseenter(function(){
-      $(this).find(".all_cases_delete").css("display", "block");
-  }).mouseleave(function(){
-      $(this).find(".all_cases_delete").css("display", "none");
-  });
-
-  $(".editable-card").mouseenter(function(){
-      $(this).find(".edit_icons").css("display", "block");
-  }).mouseleave(function(){
-      $(this).find(".edit_icons").css("display", "none");
-  });
-
-  //Sletter case
-  $(".all_cases_delete").click(function(){
-     if (confirm("Er du sikker på at du vil slette denne casen, og alle dens noder?")) {
-       var id = $(this).find('.edit').attr('id');
-       $.post({
-           url: './PHP/handlers/delete_case.php',
-           data: {id: id},
-           success: function(result){
-             location.reload();
-           }
-       });
-    }
-  });
-
-  //Sletter node
-  $(".node_trash").click(function(){
-     if (confirm("Er du sikker på at du vil slette denne noden?")) {
-       var id = $(this).parent().attr('id');
-       $.post({
-           url: './PHP/handlers/delete_case_node.php',
-           data: {id: id},
-           success: function(result){
-             location.reload();
-           }
-       });
-    }
-  });
-
-  //Sletter sub_node
-  $(".sub_node_trash").click(function(){
-     if (confirm("Er du sikker på at du vil slette denne noden?")) {
-       var id = $(this).parent().attr('id');
-       $.post({
-           url: './PHP/handlers/delete_case_subnode.php',
-           data: {id: id},
-           success: function(result){
-             location.reload();
-           }
-       });
-    }
-  });
-
-  //Klikke på card-header, publiserer case
+  //Publiser / avpubliser
   $(".card-header").click(function(){
        var id = $(this).attr('id');
          $.post({
@@ -63,6 +8,17 @@ $(function(){
            data: {id: id},
            success: function(result){
              location.reload();
+           }
+         });
+       });
+
+  $(".sub_node_card").click(function(){
+       var id = $(this).attr('id');
+       $.get({
+           url: './PHP/show_subnode_modal_content.php',
+           data: {id: id},
+           success: function(result){
+              $('.show_subnode_content').find('.modal-content').append(result);
            }
        });
   });
@@ -104,39 +60,4 @@ $(function(){
     //TODO: fjerne link og dokument beskrivelse, og dens input val
     $(this).parent().hide("200");
   })
-});
-
-
-//Publiser / avpubliser
-$('.card-header').click(function() {
-  //Publiserer casen
-  if ($(this).find('.font-weight-bold').text() = 'Ikke publisert' ){
-    var id = $(this).attr('id');
-    $.ajax({
-        url: './PHP/publish.php',
-        type: "get",
-        data:{
-          id: id,
-        },
-        success: function(){
-          $("#ikke_pub, #ikke_pub2").remove();
-          $(this).append("<div id='pub' class='text-center text-success font-weight-bold'>Publisert!</div><br><div id='pub2' class='text-center text-success'>Klikk her for å avpublisere</div>");
-        }
-    });
-  }
-  //avpubliserer casen
-  if($(this).find('.font-weight-bold').text() = 'Ikke publisert' ){
-    var id = $(this).attr('id');
-    $.ajax({
-        url: './PHP/publish.php',
-        type: "get",
-        data:{
-          id: id,
-        },
-        success: function(){
-          $("#pub, #pub2").remove();
-          $(this).append("<div id='ikke_pub' class='text-center text-danger font-weight-bold'>Ikke publisert</div><br><div id='ikke_pub2' class='text-center text-danger'>Klikk her for å publisere</div>");
-        }
-    });
-  }
 });
