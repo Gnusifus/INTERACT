@@ -30,6 +30,8 @@ include './html_elements/head.html';
                 <button data-toggle='modal' data-target='.ny_case_node_modal' class='btn btn-info btn-lg'><i class='fas fa-plus'></i></button>
               </div>";
       }
+
+
       ?>
       <!-- nodes end -->
 
