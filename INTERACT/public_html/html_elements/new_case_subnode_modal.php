@@ -29,10 +29,10 @@ $row = mysqli_fetch_array($result);
             <!-- Tekst -->
             <div class="form-group col-md-12" id="textInput">
               <label for="exampleFormControlInput1">Tekst</label><div class="float-right text-muted" id="teller"></div>
-              <div class="removeInput removetext"><div id="removeInput-text">Fjern teksten</div><i class="fa fa-remove"></i></div>
-            <textarea id="TypeHere" name="tekst" rows="3" onkeyup="countChar(this)" placeholder="Skriv tekst her..."></textarea>
+              <textarea class="form-control" name="tekst" rows="3" onkeyup="countChar(this)" placeholder="Skriv tekst her..."></textarea>
+          
 
-            </div>
+          </div>
 
             <!-- Bilde -->
             <div class="form-group col-md-12" id="imageInput">

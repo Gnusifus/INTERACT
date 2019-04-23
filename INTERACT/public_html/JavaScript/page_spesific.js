@@ -76,5 +76,3 @@ $(function(){
     $($spm).insertBefore(".addSpm");
   });
 });
-//tekst editor
-  
