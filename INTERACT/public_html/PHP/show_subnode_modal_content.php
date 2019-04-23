@@ -16,6 +16,7 @@ if($result){
     </button>
   </div>
   <div class='modal-body'>";
+  //Bilde
   $bildesql = "SELECT * FROM bilde WHERE sub_nodes_idsub_nodes = '$sub_node_id'";
   $bilderesult = mysqli_query($conn,$bildesql);
   if(mysqli_num_rows($bilderesult) > 0){
@@ -23,21 +24,7 @@ if($result){
     echo "<img class= 'modalimg' src='./img/" . $bilderow['bilde'] . "'>";
   }
 
-  $tekstsql = "SELECT * FROM tekst WHERE sub_nodes_idsub_nodes = '$sub_node_id'";
-  $tekstresult = mysqli_query($conn,$tekstsql);
-  if(mysqli_num_rows($tekstresult) > 0){
-    $tekstrow = mysqli_fetch_array($tekstresult);
-    echo "<p class='modal_txt'>" . $tekstrow['tekst'] . "</p>";
-  }
-
-
-  $ytvideosql = "SELECT * FROM videolink WHERE sub_nodes_idsub_nodes = '$sub_node_id'";
-  $ytvideoresult = mysqli_query($conn,$ytvideosql);
-  if(mysqli_num_rows($ytvideoresult) > 0){
-    $ytvideorow = mysqli_fetch_array($ytvideoresult);
-    echo "<iframe src='https://www.youtube.com/embed/" . $ytvideorow['videolink'] . "' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>";
-  }
-
+  //Dokument
   $docsql = "SELECT * FROM dokument WHERE sub_nodes_idsub_nodes = '$sub_node_id'";
   $docresult = mysqli_query($conn,$docsql);
   if(mysqli_num_rows($docresult) > 0){
@@ -55,6 +42,7 @@ if($result){
     }
   }
 
+  //Lenke
   $linksql = "SELECT * FROM link WHERE sub_nodes_idsub_nodes = '$sub_node_id'";
   $linkresult = mysqli_query($conn,$linksql);
   if(mysqli_num_rows($linkresult) > 0){
@@ -71,18 +59,15 @@ if($result){
     }
   }
 
-  $videosql = "SELECT * FROM video WHERE sub_nodes_idsub_nodes = '$sub_node_id'";
-  $videoresult = mysqli_query($conn,$videosql);
-  if(mysqli_num_rows($videoresult) > 0){
-    $videorow = mysqli_fetch_array($videoresult);
-    $ext = pathinfo($videorow['video'], PATHINFO_EXTENSION);
-    echo "
-    <video controls>
-      <source src='./vid/" . $videorow['video'] . "' type='video/" . $ext . "'>
-      Nettleseren din kan ikke vise videoen, prøv en annen nettleser.
-    </video>";
+  //Tekst
+  $tekstsql = "SELECT * FROM tekst WHERE sub_nodes_idsub_nodes = '$sub_node_id'";
+  $tekstresult = mysqli_query($conn,$tekstsql);
+  if(mysqli_num_rows($tekstresult) > 0){
+    $tekstrow = mysqli_fetch_array($tekstresult);
+    echo "<p class='modal_txt'>" . $tekstrow['tekst'] . "</p>";
   }
 
+  //Lyd
   $lydsql = "SELECT * FROM lyd WHERE sub_nodes_idsub_nodes = '$sub_node_id'";
   $lydresult = mysqli_query($conn,$lydsql);
   if(mysqli_num_rows($lydresult) > 0){
@@ -95,6 +80,28 @@ if($result){
     </audio>";
   }
 
+  //Yt-video
+  $ytvideosql = "SELECT * FROM videolink WHERE sub_nodes_idsub_nodes = '$sub_node_id'";
+  $ytvideoresult = mysqli_query($conn,$ytvideosql);
+  if(mysqli_num_rows($ytvideoresult) > 0){
+    $ytvideorow = mysqli_fetch_array($ytvideoresult);
+    echo "<iframe src='https://www.youtube.com/embed/" . $ytvideorow['videolink'] . "' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>";
+  }
+
+  //Video
+  $videosql = "SELECT * FROM video WHERE sub_nodes_idsub_nodes = '$sub_node_id'";
+  $videoresult = mysqli_query($conn,$videosql);
+  if(mysqli_num_rows($videoresult) > 0){
+    $videorow = mysqli_fetch_array($videoresult);
+    $ext = pathinfo($videorow['video'], PATHINFO_EXTENSION);
+    echo "
+    <video controls>
+      <source src='./vid/" . $videorow['video'] . "' type='video/" . $ext . "'>
+      Nettleseren din kan ikke vise videoen, prøv en annen nettleser.
+    </video>";
+  }
+
+  //Spørsmål
   $sporsmaalsql = "SELECT * FROM sporsmaal WHERE sub_nodes_idsub_nodes = '$sub_node_id'";
   $sporsmaalresult = mysqli_query($conn, $sporsmaalsql);
   if(mysqli_num_rows($sporsmaalresult) > 0){

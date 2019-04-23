@@ -26,14 +26,6 @@ $row = mysqli_fetch_array($result);
               <input type="text" class="form-control" name="overskrift" placeholder="Skriv inn en overskrift her..." required>
             </div>
 
-            <!-- Tekst -->
-            <div class="form-group col-md-12" id="textInput">
-              <label for="exampleFormControlInput1">Tekst</label><div class="float-right text-muted" id="teller"></div>
-              <textarea class="form-control" name="tekst" rows="3" onkeyup="countChar(this)" placeholder="Skriv tekst her..."></textarea>
-
-
-          </div>
-
             <!-- Bilde -->
             <div class="form-group col-md-12" id="imageInput">
               <label for="exampleFormControlInput1">Bilde</label>
@@ -43,6 +35,44 @@ $row = mysqli_fetch_array($result);
                 <label class="custom-file-label" name="bilde" for="inputGroupFile02">Last opp et bilde her...</label>
                 <div class="feil d-none text-danger">Bildet må være av typen gif, jpeg eller png!</div>
               </div>
+            </div>
+
+            <!-- Dokument -->
+            <div class="form-group col-md-12" id="documentInput">
+            <label for="exampleFormControlInput1">Dokument</label>
+            <div class="removeInput"><div id="removeInput-text">Fjern dokumentet</div><i class="fa fa-remove"></i></div>
+              <div class="custom-file">
+                <input type="file" class="custom-file-input document-input" id="inputGroupFile02" name="dokumentup">
+                <label class="custom-file-label" name="dokument" for="inputGroupFile02">Last opp et dokument her...</label>
+                <div class="feil d-none text-danger">Dokumentet du har lastet opp er i et ugyldig format!</div>
+                <div class="anbefal d-none text-warning">Formatet er gyldig, men anbefalt format er .pdf.</div>
+              </div>
+            </div>
+
+            <!-- dokument beksrivelse -->
+            <div class="form-group col-md-12" id="documentInput_beskrivelse">
+              <label for="exampleFormControlInput1">Skriv gjerne inn tittelen på dokumentet, lar du denne stå tom vises kun filnavnet på dokumentet.</label>
+              <input type="text" class="form-control doc-desc" name="dokument_beksrivelse" placeholder="Feks. Olas regnskap, lampe bruksanvisning eller lønnsslipp">
+            </div>
+
+            <!-- Lenke -->
+            <div class="form-group col-md-12" id="linkInput">
+              <label for="exampleFormControlInput1">Lenke</label>
+              <div class="removeInput"><div id="removeInput-text">Fjern lenken</div><i class="fa fa-remove"></i></div>
+              <input type="text" class="form-control link-input" name="lenke" placeholder="Lim inn en lenke her...">
+              <div class="feil d-none text-danger">Påse at du har kopiert linken direkte fra nettleseren, denne linken er ikke gyldig!</div>
+            </div>
+
+            <!-- Lenke beksrivelse -->
+            <div class="form-group col-md-12" id="linkInput_beskrivelse">
+              <label for="exampleFormControlInput1">Skriv inn et ord eller to om hva som befinner seg bak linken</label>
+              <input type="text" class="form-control link-desc" name="lenke_beksrivelse" placeholder="Feks. kosthold, legemiddelhåndtering eller bruk av tannpirker">
+            </div>
+
+            <!-- Tekst -->
+            <div class="form-group col-md-12" id="textInput">
+              <label for="exampleFormControlInput1">Tekst</label><div class="float-right text-muted" id="teller"></div>
+              <textarea class="form-control" name="tekst" rows="3" onkeyup="countChar(this)" placeholder="Skriv tekst her..."></textarea>
             </div>
 
             <!-- Video -->
@@ -75,38 +105,6 @@ $row = mysqli_fetch_array($result);
                 <label class="custom-file-label" name="lyd" for="inputGroupFile02">Last opp en lydfil her...</label>
                 <div class="feil d-none text-danger">Lydfil må være av typen .mp3, .ogg eller .wav!</div>
               </div>
-            </div>
-
-            <!-- Lenke -->
-            <div class="form-group col-md-12" id="linkInput">
-              <label for="exampleFormControlInput1">Lenke</label>
-              <div class="removeInput"><div id="removeInput-text">Fjern lenken</div><i class="fa fa-remove"></i></div>
-              <input type="text" class="form-control link-input" name="lenke" placeholder="Lim inn en lenke her...">
-              <div class="feil d-none text-danger">Påse at du har kopiert linken direkte fra nettleseren, denne linken er ikke gyldig!</div>
-            </div>
-
-            <!-- Lenke beksrivelse -->
-            <div class="form-group col-md-12" id="linkInput_beskrivelse">
-              <label for="exampleFormControlInput1">Skriv inn et ord eller to om hva som befinner seg bak linken</label>
-              <input type="text" class="form-control link-desc" name="lenke_beksrivelse" placeholder="Feks. kosthold, legemiddelhåndtering eller bruk av tannpirker">
-            </div>
-
-            <!-- Dokument -->
-            <div class="form-group col-md-12" id="documentInput">
-            <label for="exampleFormControlInput1">Dokument</label>
-            <div class="removeInput"><div id="removeInput-text">Fjern dokumentet</div><i class="fa fa-remove"></i></div>
-              <div class="custom-file">
-                <input type="file" class="custom-file-input document-input" id="inputGroupFile02" name="dokumentup">
-                <label class="custom-file-label" name="dokument" for="inputGroupFile02">Last opp et dokument her...</label>
-                <div class="feil d-none text-danger">Dokumentet du har lastet opp er i et ugyldig format!</div>
-                <div class="anbefal d-none text-warning">Formatet er gyldig, men anbefalt format er .pdf.</div>
-              </div>
-            </div>
-
-            <!-- dokument beksrivelse -->
-            <div class="form-group col-md-12" id="documentInput_beskrivelse">
-              <label for="exampleFormControlInput1">Skriv gjerne inn tittelen på dokumentet, lar du denne stå tom vises kun filnavnet på dokumentet.</label>
-              <input type="text" class="form-control doc-desc" name="dokument_beksrivelse" placeholder="Feks. Olas regnskap, lampe bruksanvisning eller lønnsslipp">
             </div>
 
             <!-- Spørsmål -->

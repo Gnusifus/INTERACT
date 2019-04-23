@@ -10,9 +10,12 @@ $result = mysqli_query($conn,$sql);
 
 echo "<div class='navigation'>";
 while($row = mysqli_fetch_array($result)) {
-  echo "<span data-toggle='tooltip' data-placement='right' title='" . $row['overskrift'] . "'>
-          <img class='navimg' src='" . $row['bilde'] . "' alt='" . $row['overskrift'] . "'>
-        </span>";
+  echo "<a href='./case_mer.php?case=" . $case . "&node=" . $row['idnodes'] . "'>
+        <span data-toggle='tooltip' data-placement='right' title='" . $row['overskrift'] . "'>
+            <img class='navimg' src='" . $row['bilde'] . "' alt='" . $row['overskrift'] . "'>
+        </span>
+        </a>
+        ";
   }
 echo "</div>";
 ?>
