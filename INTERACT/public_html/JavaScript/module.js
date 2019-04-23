@@ -24,13 +24,14 @@ $(function(){
   });
 
   //Sletter case
-  $(".all_cases_delete").click(function(){
+  $(".all_cases_delete").click(function(e){
      if (confirm("Er du sikker på at du vil slette denne casen, og alle dens noder?")) {
        var id = $(this).find('.edit').attr('id');
        $.post({
            url: './PHP/handlers/delete_case.php',
            data: {id: id},
            success: function(result){
+             e.preventDefault();
              location.reload();
            }
        });
@@ -38,26 +39,28 @@ $(function(){
   });
 
   //Sletter node
-  $(".node_trash").click(function(){
+  $(".node_trash").click(function(e){
      if (confirm("Er du sikker på at du vil slette denne?"))
        var id = $(this).parent().attr('id');
        $.post({
            url: './PHP/handlers/delete_case_node.php',
            data: {id: id},
            success: function(result){
+             e.preventDefault();
              location.reload();
            }
        });
   });
 
   //Sletter sub_node
-  $(".sub_node_trash").click(function(){
+  $(".sub_node_trash").click(function(e){
      if (confirm("Er du sikker på at du vil slette denne noden?")) {
        var id = $(this).parent().attr('id');
        $.post({
            url: './PHP/handlers/delete_case_subnode.php',
            data: {id: id},
            success: function(result){
+             e.preventDefault();
              location.reload();
            }
        });
