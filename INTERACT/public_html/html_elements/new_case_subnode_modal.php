@@ -63,9 +63,7 @@ $row = mysqli_fetch_array($result);
               <label for="exampleFormControlInput1">Youtube-video</label>
               <div class="removeInput"><div id="removeInput-text">Fjern videoen</div><i class="fa fa-remove"></i></div>
                 <input type="text" class="form-control yt-video" name="ytvideo" placeholder="Lim inn en lenke her...">
-                <div class="feil d-none text-danger">fas FA<br>
-
-                                                  </div>
+                <div class="feil d-none text-danger">Linken du har limt inn er ingen gyldig YouTube-link</div>
               </div>
 
             <!-- Lyd -->
