@@ -39,6 +39,7 @@ $(function(){
 
   //Sletter node
   $(".node_trash").click(function(){
+     if (confirm("Er du sikker på at du vil slette denne?"))
        var id = $(this).parent().attr('id');
        $.post({
            url: './PHP/handlers/delete_case_node.php',

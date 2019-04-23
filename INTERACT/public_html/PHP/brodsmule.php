@@ -11,7 +11,7 @@ if(!empty($_GET['case']) && empty($_GET['node'])){
   $result = mysqli_query($conn,$sql);
   $row = mysqli_fetch_array($result);
   echo "<h1 class='my-4'><a href='./all_cases.php'>INTERACT</a> |
-        <a href='./case.php?case=" . $case . "'><small>" .$row['tittel'] . "</small></a></h1>";
+      <a href='./case.php?case=" . $case . "'><small>" .$row['tittel'] . "</small></a></h1>";
 }
 
 // INTERACT | Case | Node
