@@ -81,6 +81,14 @@ if(isset($_POST['submit'])){
         mysqli_query($conn, $docsql);
       }
     }
+
+    if(strlen($sporsmaal[0]) > 0){
+      foreach ($sporsmaal as $key) {
+        $sporsmaalsql = "INSERT INTO sporsmaal (sporsmaal, sub_nodes_idsub_nodes, sub_nodes_nodes_idnodes, sub_nodes_nodes_cases_idcases)
+                      VALUES ('$key', $sub_node, '$node', '$case')";
+        mysqli_query($conn, $sporsmaalsql);
+      }
+    }
     header("Location: ../case_mer.php?case=" . $case . "&node=" . $node);
   }
   else {

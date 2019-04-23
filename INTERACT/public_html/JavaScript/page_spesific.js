@@ -72,9 +72,9 @@ $(function(){
   });
 
   $(".addSpm").click(function(){
-    console.log("hei");
-    $(this).parent().find(".mb-3").appendTo("#questionInput");
-  })
+    var $spm = "<div class='input-group mb-3'><div class='input-group-prepend'><span class='input-group-text' id='basic-addon1'>?</span></div><input type='text' class='form-control' name='sporsmaal[]' placeholder='Skriv inn ett spørsmål i hvert felt...' aria-label='sporsmaal' aria-describedby='basic-addon1'></div>";
+    $($spm).insertBefore(".addSpm");
+  });
 });
 //tekst editor
   

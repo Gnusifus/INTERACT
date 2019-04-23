@@ -271,6 +271,12 @@ iframe{
   padding: 1rem;
 }
 
+.fa-question{
+  font-size: 1.4em;
+  color: gray;
+  margin: 1.5%;
+}
+
 /* new_case_subnode_modal ----------------------------------------------------*/
 .btn-circle.btn-xl {
     border-radius: 90px;
