@@ -14,6 +14,13 @@ $(function(){
     }
   });
 
+//HVORFOR KOMMMER DU TO GANGE?!??!
+  $('.edit_icons').on('click', function(e){
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    $(".endre_bilde_modal").modal('toggle');
+  });
+
   //Sjekker multimedia input
   //Deklarerer gyldige filtyper
   var validImageTypes = ["image/gif", "image/jpeg", "image/png"];

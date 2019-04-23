@@ -74,7 +74,7 @@ a:hover{
 }
 
 /*Midterste node på case.php -------------------------------------------------*/
-.main{
+.main>.card{
   width: 290px;
   display: block;
   margin-left: auto;
@@ -83,10 +83,14 @@ a:hover{
   transition: all .2s ease-in-out;
 }
 
-.main:hover{
+.main>.card{
+  z-index: 1;
+}
+
+.main>.card:hover{
+  z-index: 1;
   transform: scale(1.01);
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.3);
-  z-index: 9999;
 }
 
 .modalimg{
@@ -124,6 +128,7 @@ a:hover{
 }
 
 .node{
+  z-index: 0;
   width: 250px;
   position: absolute;
 }
