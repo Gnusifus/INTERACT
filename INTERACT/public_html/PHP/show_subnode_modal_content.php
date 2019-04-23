@@ -78,9 +78,21 @@ if($result){
     $ext = pathinfo($videorow['video'], PATHINFO_EXTENSION);
     echo "
     <video controls>
-      <source src='" . $videorow['video'] . "' type='video/" . $ext . "'>
+      <source src='./vid/" . $videorow['video'] . "' type='video/" . $ext . "'>
       Nettleseren din kan ikke vise videoen, prøv en annen nettleser.
     </video>";
+  }
+
+  $lydsql = "SELECT * FROM lyd WHERE sub_nodes_idsub_nodes = '$sub_node_id'";
+  $lydresult = mysqli_query($conn,$lydsql);
+  if(mysqli_num_rows($lydresult) > 0){
+    $lydrow = mysqli_fetch_array($lydresult);
+    $ext = pathinfo($lydrow['lyd'], PATHINFO_EXTENSION);
+    echo "
+    <audio controls>
+      <source src='./audio/" . $lydrow['lyd'] . "' type='audio/" . $ext . "'>
+    Your browser does not support the audio element.
+    </audio>";
   }
 
   $sporsmaalsql = "SELECT * FROM sporsmaal WHERE sub_nodes_idsub_nodes = '$sub_node_id'";

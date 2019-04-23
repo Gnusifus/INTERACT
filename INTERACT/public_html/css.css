@@ -282,6 +282,10 @@ iframe{
   margin-top: 3%;
 }
 
+video{
+  max-width: 100%;
+}
+
 /* new_case_subnode_modal ----------------------------------------------------*/
 .btn-circle.btn-xl {
     border-radius: 90px;
