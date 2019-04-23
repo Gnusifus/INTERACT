@@ -278,6 +278,10 @@ iframe{
   margin: 1.5%;
 }
 
+.modal_txt{
+  margin-top: 3%;
+}
+
 /* new_case_subnode_modal ----------------------------------------------------*/
 .btn-circle.btn-xl {
     border-radius: 90px;

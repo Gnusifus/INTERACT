@@ -1,5 +1,4 @@
 $(function(){
-
   //Publiser / avpubliser
   $(".card-header").click(function(){
        var id = $(this).attr('id');
@@ -12,7 +11,7 @@ $(function(){
          });
        });
 
-  $(".sub_node_card").click(function(){
+  $(".sub_node_card").one('click', function(){
        var id = $(this).attr('id');
        $.get({
            url: './PHP/show_subnode_modal_content.php',
