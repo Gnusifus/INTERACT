@@ -122,23 +122,23 @@ $row = mysqli_fetch_array($result);
             </div>
 
             <div class="form-group col-md-12">
-              <span data-toggle='tooltip' data-placement='top' title='Legg til tekst'>
-              <button type="button" id='addText' class="btn btn-danger btn-circle btn-xl"><i class="fas fa-font"></i></button>
-              </span>
               <span data-toggle='tooltip' data-placement='top' title='Legg til bilde'>
               <button type="button" id='addImage' class="btn btn-primary btn-circle btn-xl"><i class="fas fa-camera"></i></button>
-              </span>
-              <span data-toggle='tooltip' data-placement='top' title='Legg til video'>
-              <button type="button" id='addVideo' class="btn btn-secondary btn-circle btn-xl"><i class="fas fa-video"></i></button>
-              </span>
-              <span data-toggle='tooltip' data-placement='top' title='Legg til lydfil'>
-              <button type="button" id='addAudio' class="btn btn-success btn-circle btn-xl"><i class="fas fa-headphones"></i></button>
               </span>
               <span data-toggle='tooltip' data-placement='top' title='Legg til dokument'>
               <button type="button" id='addDocument' class="btn btn-warning btn-circle btn-xl"><i class="far fa-file"></i></button>
               </span>
               <span data-toggle='tooltip' data-placement='top' title='Legg til lenke'>
               <button type="button" id='addLink' class="btn btn-info btn-circle btn-xl"><i class="fas fa-link"></i></button>
+              </span>
+              <span data-toggle='tooltip' data-placement='top' title='Legg til tekst'>
+              <button type="button" id='addText' class="btn btn-danger btn-circle btn-xl"><i class="fas fa-font"></i></button>
+              </span>
+              <span data-toggle='tooltip' data-placement='top' title='Legg til video'>
+              <button type="button" id='addVideo' class="btn btn-secondary btn-circle btn-xl"><i class="fas fa-video"></i></button>
+              </span>
+              <span data-toggle='tooltip' data-placement='top' title='Legg til lydfil'>
+              <button type="button" id='addAudio' class="btn btn-success btn-circle btn-xl"><i class="fas fa-headphones"></i></button>
               </span>
               <span data-toggle='tooltip' data-placement='top' title='Legg til oppgave'>
               <button type="button" id='addQuestion' class="btn btn-dark btn-circle btn-xl"><i class="fas fa-tasks"></i></button>
