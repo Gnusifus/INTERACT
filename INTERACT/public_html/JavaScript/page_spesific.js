@@ -76,3 +76,5 @@ $(function(){
     $(this).parent().find(".mb-3").appendTo("#questionInput");
   })
 });
+//tekst editor
+  

@@ -30,7 +30,8 @@ $row = mysqli_fetch_array($result);
             <div class="form-group col-md-12" id="textInput">
               <label for="exampleFormControlInput1">Tekst</label><div class="float-right text-muted" id="teller"></div>
               <div class="removeInput removetext"><div id="removeInput-text">Fjern teksten</div><i class="fa fa-remove"></i></div>
-              <textarea class="form-control" name="tekst" rows="3" onkeyup="countChar(this)" placeholder="Skriv tekst her..."></textarea>
+            <textarea id="TypeHere" name="tekst" rows="3" onkeyup="countChar(this)" placeholder="Skriv tekst her..."></textarea>
+
             </div>
 
             <!-- Bilde -->

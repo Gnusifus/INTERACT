@@ -87,7 +87,7 @@ $(function(){
          $(this).parent().find(".feil").addClass("d-none");
          $(this).parent().find(".anbefal").addClass("d-block");
          $(this).parent().find(".anbefal").removeClass("d-none");
-           $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", true);
+           $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", false);
        }
        else{
          $('#documentInput_beskrivelse').show("200");
