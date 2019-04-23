@@ -17,7 +17,7 @@ $row = mysqli_fetch_array($result);
         </button>
       </div>
       <div class="modal-body">
-          <form action="./PHP/new_case_subnode.php?case=<?php echo $case?>&node=<?php echo $node?>" method="post" enctype="multipart/form-data" onsubmit="return check_val()">
+          <form action="./PHP/new_case_subnode.php?case=<?php echo $case?>&node=<?php echo $node?>" method="post" enctype="multipart/form-data">
             <div class="form-row">
 
             <!--Overskrift * -->
@@ -30,7 +30,7 @@ $row = mysqli_fetch_array($result);
             <div class="form-group col-md-12" id="textInput">
               <label for="exampleFormControlInput1">Tekst</label><div class="float-right text-muted" id="teller"></div>
               <textarea class="form-control" name="tekst" rows="3" onkeyup="countChar(this)" placeholder="Skriv tekst her..."></textarea>
-          
+
 
           </div>
 
@@ -62,7 +62,10 @@ $row = mysqli_fetch_array($result);
               <div class="form-group col-md-6 videoInput">
               <label for="exampleFormControlInput1">Youtube-video</label>
               <div class="removeInput"><div id="removeInput-text">Fjern videoen</div><i class="fa fa-remove"></i></div>
-                <input type="text" class="form-control" name="ytvideo" placeholder="Lim inn en lenke her...">
+                <input type="text" class="form-control yt-video" name="ytvideo" placeholder="Lim inn en lenke her...">
+                <div class="feil d-none text-danger">fas FA<br>
+
+                                                  </div>
               </div>
 
             <!-- Lyd -->

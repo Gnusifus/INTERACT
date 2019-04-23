@@ -55,8 +55,31 @@ $(function(){
        $(this).parent().find(".feil").addClass("d-none");
         $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", false);
      }
+
     }
-    if ($(this).hasClass("audio-input")){
+
+    $('.yt-video').keyup (function(){
+console.log("fasfa");
+      var expression = /^(?:https?:\/\/)?(?:m\.|www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
+      var regex = new RegExp(expression);
+      var val = $(this).val();
+
+      if(val.match(regex)){
+        //show Hva inneholder linken
+        console.log("fasfa2");
+        $(this).parent().find(".feil").removeClass("d-block");
+        $(this).parent().find(".feil").addClass("d-none");
+           $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", false);
+      }
+      else{
+        console.log("fasfa3");
+        $(this).parent().find(".feil").addClass("d-block");
+        $(this).parent().find(".feil").removeClass("d-none");
+           $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", true);
+      }
+    });
+
+if ($(this).hasClass("audio-input")){
       if ($.inArray(fileType, validAudioTypes) < 0) {
          $(this).parent().find(".feil").addClass("d-block");
          $(this).parent().find(".feil").removeClass("d-none");
@@ -121,6 +144,8 @@ $(function(){
          $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", true);
     }
 
+
+
   });
 
   $("body").tooltip({
@@ -132,21 +157,3 @@ $(function(){
   });
 
 });
-
-
-function check_val(){
-  var file = $(this).find('.custom-file-input').files[0];
-  var fileType = file["type"];
-  var fileSize = $(this).find('.custom-file-input').files[0].size;
-
-  if(fileSize > 2000000){
-    return false;
-  }
-
-  if($(this).find('.form-group').find('.custom-file').find(".feil" || ".size").hasClass("d-block")){
-    return false;
-  }
-  else{
-    return true;
-  }
-}
