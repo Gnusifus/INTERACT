@@ -27,7 +27,7 @@ if($result){
   $tekstresult = mysqli_query($conn,$tekstsql);
   if(mysqli_num_rows($tekstresult) > 0){
     $tekstrow = mysqli_fetch_array($tekstresult);
-    echo "<p>" . $tekstrow['tekst'] . "</p>";
+    echo "<p class='modal_txt'>" . $tekstrow['tekst'] . "</p>";
   }
 
 
@@ -92,8 +92,6 @@ if($result){
       echo "<i class='fas fa-question'></i><i>" . $sporsmaalrow['sporsmaal'] . "</i><br>";
     }
   }
-
-
 
   echo "</div>";
 

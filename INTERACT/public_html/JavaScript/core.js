@@ -1,7 +1,17 @@
 $(function(){
 
-  $('.modal').on('hidden.bs.modal', function() {
-    location.reload();
+  $('.ny_case_subnode_modal').on('hide.bs.modal', function(e){
+    var sure = confirm("Du er nå i ferd med å forkaste dine innfylte felt.\nVelg OK for å forkaste, eller AVBRYT for å fortsette innfyllingen.");
+    if (sure == true) {
+      $('.modal').on('hidden.bs.modal', function() {
+        location.reload();
+      });
+    }
+    else{
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      return false;
+    }
   });
 
   //Sjekker multimedia input
@@ -132,21 +142,3 @@ $(function(){
   });
 
 });
-
-
-function check_val(){
-  var file = $(this).find('.custom-file-input').files[0];
-  var fileType = file["type"];
-  var fileSize = $(this).find('.custom-file-input').files[0].size;
-
-  if(fileSize > 2000000){
-    return false;
-  }
-
-  if($(this).find('.form-group').find('.custom-file').find(".feil" || ".size").hasClass("d-block")){
-    return false;
-  }
-  else{
-    return true;
-  }
-}
