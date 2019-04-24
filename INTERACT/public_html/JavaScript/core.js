@@ -37,6 +37,7 @@ $(function(){
       $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", false);
     }
 
+
     //Viser filnavn i inputfelt når lastet opp
     let fileName = $(this).val().split('\\').pop();
     $(this).next('.custom-file-label').addClass("selected").html(fileName);
@@ -134,6 +135,8 @@ if ($(this).hasClass("audio-input")){
     }
   });
 
+//YT video Regex
+//https://stackoverflow.com/questions/28735459/how-to-validate-youtube-url-in-client-side-in-text-box
   $('.yt-video').keyup (function(){
     var expression = /^(?:https?:\/\/)?(?:m\.|www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
     var regex = new RegExp(expression);
