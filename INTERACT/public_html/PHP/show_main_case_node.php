@@ -8,6 +8,7 @@ $sql="SELECT * FROM cases WHERE idcases = '$case'";
 $result = mysqli_query($conn,$sql);
 
 $row = mysqli_fetch_array($result);
+include "./html_elements/endre_bilde_modal.html";
 if ($_SESSION['loggetinn']){
   if(mysqli_num_rows($result) == 1){
     echo "
