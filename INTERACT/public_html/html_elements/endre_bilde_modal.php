@@ -47,9 +47,9 @@ $row = mysqli_fetch_array($result);
             </center>
 
             <hr>
-            <input type="submit" value="Lagre endringer" name="submit" class="btn btn-primary mb-2">
+            <input type="submit" value="Lagre endringer" name="submit_endre" class="btn btn-primary mb-2">
       </div>
-      <form>
+    </form>
 
     </div>
   </div>
