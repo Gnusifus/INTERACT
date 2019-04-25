@@ -12,7 +12,7 @@ if(isset($_POST['submit_endre'])){
   if(move_uploaded_file($_FILES['bildeup']['tmp_name'], $bildedir.$path)){
     $dbBilde = "./img/".$path;
     $sql="UPDATE cases
-          SET tittel = '$tittel', tekst = '$tekst', bilde = '$dbBilde'
+          SET tittel = '$tittel', tekst = '$tekst', bilde = '$dbBilde', dato = now()
           WHERE idcases = '$case'";
     $result = mysqli_query($conn,$sql);
   }
@@ -23,7 +23,7 @@ if(isset($_POST['submit_endre'])){
     $dbBilde = "./color_imgs/".$randomImg;
 
     $sql="UPDATE cases
-          SET tittel = '$tittel', tekst = '$tekst', bilde = '$dbBilde'
+          SET tittel = '$tittel', tekst = '$tekst', bilde = '$dbBilde' dato = now()
           WHERE idcases = '$case'";
 
     $result = mysqli_query($conn, $sql);
@@ -31,7 +31,7 @@ if(isset($_POST['submit_endre'])){
   }
   else{
     $sql="UPDATE cases
-          SET tittel = '$tittel', tekst = '$tekst'
+          SET tittel = '$tittel', tekst = '$tekst', dato = now()
           WHERE idcases = '$case'";
     $result = mysqli_query($conn,$sql);
   }
