@@ -13,7 +13,6 @@ include './html_elements/head.html';
 
     include "./PHP/brodsmule.php";
     include "./html_elements/new_node_modal.php";
-    include "./html_elements/endre_bilde_modal.html";
     include './html_elements/show_main_modal.php'; ?>
 
  <!-- Cases body -->
