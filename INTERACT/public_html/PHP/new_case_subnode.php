@@ -24,7 +24,7 @@ if(isset($_POST['submit'])){
   $sub_node = $conn->insert_id;
 
   if ($result == true && $conn->affected_rows == 1) {
-    if(isset($tekst)){
+    if(strlen($tekst) > 0){
       $tekstsql = "INSERT INTO tekst (tekst, sub_nodes_idsub_nodes, sub_nodes_nodes_idnodes, sub_nodes_nodes_cases_idcases)
                     VALUES ('$tekst', $sub_node, '$node', '$case')";
       mysqli_query($conn, $tekstsql);
@@ -47,16 +47,21 @@ if(isset($_POST['submit'])){
         mysqli_query($conn, $videosql);
       }
     }
-    if(isset($ytvideo)){
-      $ytvideosql = "INSERT INTO link (link, sub_nodes_idsub_nodes, sub_nodes_nodes_idnodes, sub_nodes_nodes_cases_idcases)
-                    VALUES ('$ytvideo', $sub_node, '$node', '$case')";
+    if(strlen($ytvideo) > 0){
+      preg_match("#(?<=v=)[a-zA-Z0-9-]+(?=&)|(?<=v\/)[^&\n]+(?=\?)|(?<=v=)[^&\n]+|(?<=youtu.be/)[^&\n]+#", $ytvideo, $treff);
+      $funn = $treff[0];
+      $ytvideosql = "INSERT INTO videolink (videolink, sub_nodes_idsub_nodes, sub_nodes_nodes_idnodes, sub_nodes_nodes_cases_idcases)
+                    VALUES ('$funn', $sub_node, '$node', '$case')";
       mysqli_query($conn, $ytvideosql);
     }
-    if(isset($lenke)){
-      $lenkesql = "INSERT INTO link (link, sub_nodes_idsub_nodes, sub_nodes_nodes_idnodes, sub_nodes_nodes_cases_idcases)
-                    VALUES ('$lenke', $sub_node, '$node', '$case')";
+
+    if(strlen($lenke) > 0){
+      $lenkebeskrivelse = $_POST['lenke_beksrivelse'];
+      $lenkesql = "INSERT INTO link (link, sub_nodes_idsub_nodes, sub_nodes_nodes_idnodes, sub_nodes_nodes_cases_idcases, beskrivelse)
+                    VALUES ('$lenke', $sub_node, '$node', '$case', '$lenkebeskrivelse')";
       mysqli_query($conn, $lenkesql);
     }
+
     if(isset($lyd)){
       $lyddir = "../audio/";
       $lydpath = time().$lyd;
@@ -68,11 +73,20 @@ if(isset($_POST['submit'])){
     }
     if(isset($dokument)){
       $docdir = "../doc/";
-      $docpath = time().$dokument;
+      $docpath = $dokument;
+      $docbeskrivelse = $_POST['dokument_beksrivelse'];
       if(move_uploaded_file($_FILES['dokumentup']['tmp_name'], $docdir.$docpath)){
-        $docsql = "INSERT INTO dokument (dokument, sub_nodes_idsub_nodes, sub_nodes_nodes_idnodes, sub_nodes_nodes_cases_idcases)
-                      VALUES ('$docpath', $sub_node, '$node', '$case')";
+        $docsql = "INSERT INTO dokument (dokument, sub_nodes_idsub_nodes, sub_nodes_nodes_idnodes, sub_nodes_nodes_cases_idcases, beskrivelse)
+                      VALUES ('$docpath', $sub_node, '$node', '$case', '$docbeskrivelse')";
         mysqli_query($conn, $docsql);
+      }
+    }
+
+    if(strlen($sporsmaal[0]) > 0){
+      foreach ($sporsmaal as $key) {
+        $sporsmaalsql = "INSERT INTO sporsmaal (sporsmaal, sub_nodes_idsub_nodes, sub_nodes_nodes_idnodes, sub_nodes_nodes_cases_idcases)
+                      VALUES ('$key', $sub_node, '$node', '$case')";
+        mysqli_query($conn, $sporsmaalsql);
       }
     }
     header("Location: ../case_mer.php?case=" . $case . "&node=" . $node);

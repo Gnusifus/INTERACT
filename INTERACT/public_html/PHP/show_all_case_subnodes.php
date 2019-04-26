@@ -12,7 +12,7 @@ while($row = mysqli_fetch_array($result)) {
 
   echo "
   <div class='col-lg-3 col-md-4 col-sm-6 portfolio-item'>
-    <div class='card h-100' data-toggle='modal' data-target='.bd-example-modal-lg'>";
+    <div class='card editable-card sub_node_card' data-toggle='modal' data-target='.show_subnode_content' id='" . $sub_node_id . "'>";
 
     $bildesql = "SELECT * FROM bilde
                 WHERE sub_nodes_idsub_nodes = '$sub_node_id'";
@@ -23,10 +23,16 @@ while($row = mysqli_fetch_array($result)) {
         echo "<img class='card-img-top' src='./img/" . $bilderow['bilde'] . "'>";
     }
 
+    if($_SESSION['loggetinn'] == true){
+      echo "
+      <div class='edit_icons' id='" . $row['idsub_nodes'] . "'>
+        <i class='edit fas fa-trash-alt sub_node_trash'></i>
+      </div>";
+    }
+
     echo "
       <div class='card-body'>
-        <h4 class='card-title'>" .$row['overskrift'] . "</h4>
-      </div>";
+        <h4 class='card-title'>" .$row['overskrift'] . "</h4>";
 
       $tekstsql = "SELECT * FROM tekst
                   WHERE sub_nodes_idsub_nodes = '$sub_node_id'";
@@ -37,22 +43,27 @@ while($row = mysqli_fetch_array($result)) {
           echo "<p class='card-text'>" . $tekstrow['tekst'] . "</p>";
       }
       echo "
+      </div>
       <div class='card-footer'>
         <div class='footer-icons'>";
         //Tekst
-        if($tekstcount >0 ){
+        if($tekstcount > 0 ){
           echo "<i class='fas fa-font'></i>";
         }
         //Bilde
-        if($bildecount >0 ){
+        if($bildecount > 0 ){
           echo "<i class='fas fa-camera'></i>";
         }
-        //Video
-        $videosql = "SELECT * FROM video
-                    WHERE sub_nodes_idsub_nodes = '$sub_node_id'";
+        //Video (velger både videofil, og yt-link)
+        $videosql = "(SELECT * FROM video
+                    WHERE sub_nodes_idsub_nodes = '$sub_node_id')
+                    union
+                    (SELECT * FROM videolink
+                    WHERE sub_nodes_idsub_nodes = '$sub_node_id')";
+
         $videores = mysqli_query($conn, $videosql);
         $videocount = mysqli_num_rows($videores);
-        if($videocount > 0 ){
+        if($videocount > 0){
           echo "<i class='fas fa-video'></i>";
         }
         //Lydfil

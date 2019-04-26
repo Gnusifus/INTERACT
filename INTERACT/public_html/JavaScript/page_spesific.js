@@ -1,62 +1,31 @@
 $(function(){
-
-//Slette case fra all_cases.php
-  $(".case_card").mouseenter(function(){
-      $(this).find(".all_cases_delete").css("display", "block");
-  }).mouseleave(function(){
-      $(this).find(".all_cases_delete").css("display", "none");
-  });
-
-  //Klikke på søppelbøtte, kaller på php som sletter
-  $(".fa-trash-alt").click(function(){
-     if (confirm("Er du sikker på at du vil slette denne casen, og alle dens noder?")) {
-       var id = $(this).attr('id');
-       $.post({
-           url: './PHP/delete_case.php',
-           data: {id: id},
-           success: function(result){
-             location.reload();
-           }
-       });
-    }
-  });
-
-  //Klikke på card-header, publiserer case
+  //Publiser / avpubliser
   $(".card-header").click(function(){
        var id = $(this).attr('id');
          $.post({
-           url: './PHP/publish_case.php',
+           url: './PHP/handlers/publish_case.php',
            data: {id: id},
            success: function(result){
              location.reload();
            }
+         });
+       });
+
+  $(".sub_node_card").one('click', function(){
+       var id = $(this).attr('id');
+       $.get({
+           url: './PHP/show_subnode_modal_content.php',
+           data: {id: id},
+           success: function(result){
+              $('.show_subnode_content').find('.modal-content').append(result);
+           }
        });
   });
 
-
-//Endre / slette noder
-  $(".node").mouseenter(function(){
-      $(this).find(".edit_icons").css("display", "block");
-  }).mouseleave(function(){
-      //Skjuler .edit_icons ved mouseleave
-      $(this).find(".edit_icons").css("display", "none");
-
-      //gjør card-title ikke-editable ved mouseleave
-      if($(this).find(".card-title").hasClass("editable")){
-          $(".card-title").removeClass("editable");
-      }
-      //fjerner .display_block fra noden sin .new_picture div.
-      if($(this).find(".new_picture").hasClass("display_block")){
-         $(".new_picture").removeClass("display_block");
-      };
-  });
-
-  $(".fa-pencil-alt").click(function(){
-      $(this).parent().parent().find(".new_picture").toggleClass("display_block");
-      var $card = $(this).parent().parent().find(".card-title");
-      var isEditable = $card.is('.editable');
-
-      $($card).prop('contenteditable',!isEditable).toggleClass('editable');
+  $('.main_node_edit').on('click', function(e){
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    $(".endre_bilde_modal").modal('toggle');
   });
 
   //new_case_subnode_modal handler
@@ -93,42 +62,22 @@ $(function(){
     //Fjerner opplastet fil
     $(this).parent().find(".custom-file-input").val(null);
     $(this).parent().find('.custom-file-label').removeClass("selected").html("Last opp her..");
-    //TODO: fjerne link og dokument beskrivelse, og dens input val
     $(this).parent().hide("200");
+    $(this).parent().find(".form-control").val(null);
   })
-});
 
+  $("#documentInput").find(".removeInput").click(function(){
+    $(this).parent().parent().find("#documentInput_beskrivelse").hide("200");
+    $(this).parent().parent().find("#documentInput_beskrivelse").val(null);
+  });
 
-//Publiser / avpubliser
-$('.card-header').click(function() {
-  //Publiserer casen
-  if ($(this).find('.font-weight-bold').text() = 'Ikke publisert' ){
-    var id = $(this).attr('id');
-    $.ajax({
-        url: './PHP/publish.php',
-        type: "get",
-        data:{
-          id: id,
-        },
-        success: function(){
-          $("#ikke_pub, #ikke_pub2").remove();
-          $(this).append("<div id='pub' class='text-center text-success font-weight-bold'>Publisert!</div><br><div id='pub2' class='text-center text-success'>Klikk her for å avpublisere</div>");
-        }
-    });
-  }
-  //avpubliserer casen
-  if($(this).find('.font-weight-bold').text() = 'Ikke publisert' ){
-    var id = $(this).attr('id');
-    $.ajax({
-        url: './PHP/publish.php',
-        type: "get",
-        data:{
-          id: id,
-        },
-        success: function(){
-          $("#pub, #pub2").remove();
-          $(this).append("<div id='ikke_pub' class='text-center text-danger font-weight-bold'>Ikke publisert</div><br><div id='ikke_pub2' class='text-center text-danger'>Klikk her for å publisere</div>");
-        }
-    });
-  }
+  $("#linkInput").find(".removeInput").click(function(){
+    $(this).parent().parent().find("#linkInput_beskrivelse").hide("200");
+    $(this).parent().parent().find("#linkInput_beskrivelse").val(null);
+  });
+
+  $(".addSpm").click(function(){
+    var $spm = "<div class='input-group mb-3'><div class='input-group-prepend'><span class='input-group-text' id='basic-addon1'>?</span></div><input type='text' class='form-control' name='sporsmaal[]' placeholder='Skriv inn ett spørsmål i hvert felt...' aria-label='sporsmaal' aria-describedby='basic-addon1'></div>";
+    $($spm).insertBefore(".addSpm");
+  });
 });

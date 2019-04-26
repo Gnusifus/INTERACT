@@ -17,20 +17,13 @@ $row = mysqli_fetch_array($result);
         </button>
       </div>
       <div class="modal-body">
-          <form action="./PHP/new_case_subnode.php?case=<?php echo $case?>&node=<?php echo $node?>" method="post" enctype="multipart/form-data" onsubmit="return check_val()">
+          <form action="./PHP/new_case_subnode.php?case=<?php echo $case?>&node=<?php echo $node?>" method="post" enctype="multipart/form-data">
             <div class="form-row">
 
             <!--Overskrift * -->
             <div class="form-group col-md-12">
               <label for="exampleFormControlInput1">Node overskrift</label>
               <input type="text" class="form-control" name="overskrift" placeholder="Skriv inn en overskrift her..." required>
-            </div>
-
-            <!-- Tekst -->
-            <div class="form-group col-md-12" id="textInput">
-              <label for="exampleFormControlInput1">Tekst</label>
-              <div class="removeInput removetext"><div id="removeInput-text">Fjern teksten</div><i class="fa fa-remove"></i></div>
-              <textarea class="form-control" rows="3" name="tekst">Skriv tekst her...</textarea>
             </div>
 
             <!-- Bilde -->
@@ -42,51 +35,6 @@ $row = mysqli_fetch_array($result);
                 <label class="custom-file-label" name="bilde" for="inputGroupFile02">Last opp et bilde her...</label>
                 <div class="feil d-none text-danger">Bildet må være av typen gif, jpeg eller png!</div>
               </div>
-            </div>
-
-            <!-- Video -->
-              <div class="form-group col-md-6 videoInput">
-              <label for="exampleFormControlInput1">Video</label>
-              <div class="removeInput"><div id="removeInput-text">Fjern videoen</div><i class="fa fa-remove"></i></div>
-                <div class="custom-file">
-                  <input type="file" class="custom-file-input video-input" id="inputGroupFile02" name="videoup">
-                  <label class="custom-file-label" name="video" for="inputGroupFile02">Last opp en video her...</label>
-                  <div class="feil d-none text-danger">Videoen må være av typen .mp4, .ogg eller .webm!<br>
-                                                      Har du en video i annet format, eller en lengre video,
-                                                      anbefales det å laste opp videoen på YouTube.</div>
-                </div>
-              </div>
-
-
-              <div class="form-group col-md-6 videoInput">
-              <label for="exampleFormControlInput1">Youtube-video</label>
-              <div class="removeInput"><div id="removeInput-text">Fjern videoen</div><i class="fa fa-remove"></i></div>
-                <input type="text" class="form-control" name="ytvideo" placeholder="Lim inn en lenke her...">
-              </div>
-
-            <!-- Lyd -->
-            <div class="form-group col-md-12" id="audioInput">
-            <label for="exampleFormControlInput1">Lydfil</label>
-            <div class="removeInput"><div id="removeInput-text">Fjern lydfilen</div><i class="fa fa-remove"></i></div>
-              <div class="custom-file">
-                <input type="file" class="custom-file-input audio-input" id="inputGroupFile02" name="lydup">
-                <label class="custom-file-label" name="lyd" for="inputGroupFile02">Last opp en lydfil her...</label>
-                <div class="feil d-none text-danger">Lydfil må være av typen .mp3, .ogg eller .wav!</div>
-              </div>
-            </div>
-
-            <!-- Lenke -->
-            <div class="form-group col-md-12" id="linkInput">
-              <label for="exampleFormControlInput1">Lenke</label>
-              <div class="removeInput"><div id="removeInput-text">Fjern lenken</div><i class="fa fa-remove"></i></div>
-              <input type="text" class="form-control link-input" name="lenke" placeholder="Lim inn en lenke her...">
-              <div class="feil d-none text-danger">Påse at du har kopiert linken direkte fra nettleseren, denne linken er ikke gyldig!</div>
-            </div>
-
-            <!-- Lenke beksrivelse -->
-            <div class="form-group col-md-12" id="linkInput_beskrivelse">
-              <label for="exampleFormControlInput1">Skriv inn et ord eller to om hva som befinner seg bak linken</label>
-              <input type="text" class="form-control link-desc" name="lenke_beksrivelse" placeholder="Feks. kosthold, legemiddelhåndtering eller bruk av tannpirker">
             </div>
 
             <!-- Dokument -->
@@ -107,30 +55,73 @@ $row = mysqli_fetch_array($result);
               <input type="text" class="form-control doc-desc" name="dokument_beksrivelse" placeholder="Feks. Olas regnskap, lampe bruksanvisning eller lønnsslipp">
             </div>
 
+            <!-- Lenke -->
+            <div class="form-group col-md-12" id="linkInput">
+              <label for="exampleFormControlInput1">Lenke</label>
+              <div class="removeInput"><div id="removeInput-text">Fjern lenken</div><i class="fa fa-remove"></i></div>
+              <input type="text" class="form-control link-input" name="lenke" placeholder="Lim inn en lenke her...">
+              <div class="feil d-none text-danger">Påse at du har kopiert linken direkte fra nettleseren, denne linken er ikke gyldig!</div>
+            </div>
+
+            <!-- Lenke beksrivelse -->
+            <div class="form-group col-md-12" id="linkInput_beskrivelse">
+              <label for="exampleFormControlInput1">Skriv inn et ord eller to om hva som befinner seg bak linken</label>
+              <input type="text" class="form-control link-desc" name="lenke_beksrivelse" placeholder="Feks. kosthold, legemiddelhåndtering eller bruk av tannpirker">
+            </div>
+
+            <!-- Tekst -->
+            <div class="form-group col-md-12" id="textInput">
+              <label for="exampleFormControlInput1">Tekst</label><div class="float-right text-muted" id="teller"></div>
+              <textarea class="form-control" name="tekst" rows="3" onkeyup="countChar(this)" placeholder="Skriv tekst her..."></textarea>
+            </div>
+
+            <!-- Video -->
+              <div class="form-group col-md-6 videoInput">
+              <label for="exampleFormControlInput1">Video</label>
+              <div class="removeInput"><div id="removeInput-text">Fjern videoen</div><i class="fa fa-remove"></i></div>
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input video-input" id="inputGroupFile02" name="videoup">
+                  <label class="custom-file-label" name="video" for="inputGroupFile02">Last opp en video her...</label>
+                  <div class="feil d-none text-danger">Videoen må være av typen .mp4, .ogg eller .webm!<br>
+                                                      Har du en video i annet format, eller en lengre video,
+                                                      anbefales det å laste opp videoen på YouTube.</div>
+                </div>
+              </div>
+
+
+              <div class="form-group col-md-6 videoInput">
+              <label for="exampleFormControlInput1">Youtube-video</label>
+              <div class="removeInput"><div id="removeInput-text">Fjern videoen</div><i class="fa fa-remove"></i></div>
+                <input type="text" class="form-control yt-video" name="ytvideo" placeholder="Lim inn en lenke her...">
+                <div class="feil d-none text-danger">Linken du har limt inn er ingen gyldig YouTube-link</div>
+              </div>
+
+            <!-- Lyd -->
+            <div class="form-group col-md-12" id="audioInput">
+            <label for="exampleFormControlInput1">Lydfil</label>
+            <div class="removeInput"><div id="removeInput-text">Fjern lydfilen</div><i class="fa fa-remove"></i></div>
+              <div class="custom-file">
+                <input type="file" class="custom-file-input audio-input" id="inputGroupFile02" name="lydup">
+                <label class="custom-file-label" name="lyd" for="inputGroupFile02">Last opp en lydfil her...</label>
+                <div class="feil d-none text-danger">Lydfil må være av typen .mp3, .ogg eller .wav!</div>
+              </div>
+            </div>
+
             <!-- Spørsmål -->
             <div class="form-group col-md-12" id="questionInput">
-            <label for="exampleFormControlInput1">Spørsmål</label>
+            <label class= "spmlabel" for="exampleFormControlInput1">Spørsmål</label>
             <div class="input-group mb-3">
               <div class="input-group-prepend">
                 <span class="input-group-text" id="basic-addon1">?</span>
               </div>
-              <input type="text" class="form-control" name="sporsmaal" placeholder="Skriv inn ett spørsmål i hvert felt..." aria-label="sporsmaal" aria-describedby="basic-addon1">
+              <input type="text" class="form-control" name="sporsmaal[]" placeholder="Skriv inn ett spørsmål i hvert felt..." aria-label="sporsmaal" aria-describedby="basic-addon1">
             </div>
-            <button type="submit" class="btn btn-secondary">Legg til flere spørsmål</button>
+              <div class="btn btn-secondary addSpm">Legg til flere spørsmål</div>
             </div>
 
             <div class="form-group col-md-12">
-              <span data-toggle='tooltip' data-placement='top' title='Legg til tekst'>
-              <button type="button" id='addText' class="btn btn-danger btn-circle btn-xl"><i class="fas fa-font"></i></button>
-              </span>
               <span data-toggle='tooltip' data-placement='top' title='Legg til bilde'>
               <button type="button" id='addImage' class="btn btn-primary btn-circle btn-xl"><i class="fas fa-camera"></i></button>
-              </span>
-              <span data-toggle='tooltip' data-placement='top' title='Legg til video'>
-              <button type="button" id='addVideo' class="btn btn-secondary btn-circle btn-xl"><i class="fas fa-video"></i></button>
-              </span>
-              <span data-toggle='tooltip' data-placement='top' title='Legg til lydfil'>
-              <button type="button" id='addAudio' class="btn btn-success btn-circle btn-xl"><i class="fas fa-headphones"></i></button>
               </span>
               <span data-toggle='tooltip' data-placement='top' title='Legg til dokument'>
               <button type="button" id='addDocument' class="btn btn-warning btn-circle btn-xl"><i class="far fa-file"></i></button>
@@ -138,25 +129,20 @@ $row = mysqli_fetch_array($result);
               <span data-toggle='tooltip' data-placement='top' title='Legg til lenke'>
               <button type="button" id='addLink' class="btn btn-info btn-circle btn-xl"><i class="fas fa-link"></i></button>
               </span>
+              <span data-toggle='tooltip' data-placement='top' title='Legg til tekst'>
+              <button type="button" id='addText' class="btn btn-danger btn-circle btn-xl"><i class="fas fa-font"></i></button>
+              </span>
+              <span data-toggle='tooltip' data-placement='top' title='Legg til video'>
+              <button type="button" id='addVideo' class="btn btn-secondary btn-circle btn-xl"><i class="fas fa-video"></i></button>
+              </span>
+              <span data-toggle='tooltip' data-placement='top' title='Legg til lydfil'>
+              <button type="button" id='addAudio' class="btn btn-success btn-circle btn-xl"><i class="fas fa-headphones"></i></button>
+              </span>
               <span data-toggle='tooltip' data-placement='top' title='Legg til oppgave'>
               <button type="button" id='addQuestion' class="btn btn-dark btn-circle btn-xl"><i class="fas fa-tasks"></i></button>
             </div>
-            <script>
-            //Viser tooltip når hover over tom case
-            $(document).ready(function() {
-                $("body").tooltip({
-                  selector: '[data-toggle=tooltip]'
-                });
-
-                $('[data-toggle="tooltip"]').tooltip({
-                  animation: true,
-                  delay: {show: 1000, hide: 100}
-                });
-            });
-            </script>
-
-            </div>
-            <button type="submit" name="submit" class="btn btn-primary mb-2">Legg til node</button>
+          </div>
+            <input type="submit" value="Legg til node" name="submit" class="btn btn-primary mb-2">
           </form>
 
       </div><!-- modal-body end -->

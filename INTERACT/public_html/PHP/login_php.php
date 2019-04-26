@@ -1,6 +1,9 @@
 <?php
 session_start();
 //Sjekker logginn validering, logger inn bruker hvis riktig
+if(empty($_SESSION['loggetinn'])){
+  $_SESSION['loggetinn'] = false;
+}
 if(isset($_POST['logginn'])){
   include 'dbconnect.php';
 
