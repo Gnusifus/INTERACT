@@ -27,7 +27,7 @@
               </div>
             </div>
 
-            <input type="submit" value="Legg til node" name="submit" class="btn btn-primary mb-2">
+            <input type="submit" value="Legg til" name="submit" class="btn btn-primary mb-2">
 
           </form>
       </div><!-- modal-body end -->

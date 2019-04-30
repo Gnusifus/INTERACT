@@ -37,17 +37,15 @@ $row = mysqli_fetch_array($result);
             <div class="size d-none text-danger">Filen kan ikke være større enn 2MB!</div>
           </div>
         </div>
-            <center><i>eller</i></center><br>
 
-            <center>
-              <label for="checkbox" class="btn btn-danger">Slett eksisterende bilde
-                <input type="checkbox" id="checkbox" class="badgebox" name="slett_bilde">
-                <span class="badge">&check;</span>
-              </label>
-            </center>
-
-            <hr>
-            <input type="submit" value="Lagre endringer" name="submit_endre" class="btn btn-primary mb-2">
+        <div class="form-group float-right">
+          <label for="checkbox" class="btn btn-warning">Slett bilde
+            <input type="checkbox" id="checkbox" class="badgebox" name="slett_bilde">
+            <span class="badge">&check;</span>
+          </label>
+        </div>
+        <br><br><hr>
+          <input type="submit" value="Lagre endringer" name="submit_endre" class="btn btn-primary mb-2">
       </div>
     </form>
 

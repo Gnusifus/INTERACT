@@ -11,16 +11,23 @@ $(function(){
          });
        });
 
-  $(".sub_node_card").one('click', function(){
+  $(".sub_node_card").on('click', function(){
        var id = $(this).attr('id');
-       $.get({
-           url: './PHP/show_subnode_modal_content.php',
+       $.ajax({
+          type: "POST",
            data: {id: id},
+           url: './PHP/show_subnode_modal_content.php',
            success: function(result){
-              $('.show_subnode_content').find('.modal-content').append(result);
+             if($('.show_subnode_content').find('.modal-content').is(':empty')){
+                  $('.show_subnode_content').find('.modal-content').append(result);
+             }
            }
-       });
+       })
   });
+
+  $('.show_subnode_content').on('hidden.bs.modal', function () {
+      location.reload();
+  })
 
   $('.main_node_edit').on('click', function(e){
     e.preventDefault();

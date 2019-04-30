@@ -1,7 +1,6 @@
 <?php
+$sub_node_id = $_POST['id'];
 include 'dbconnect.php';
-
-$sub_node_id = $_GET['id'];
 
 $sql="SELECT * FROM sub_nodes WHERE idsub_nodes = '$sub_node_id'";
 $result = mysqli_query($conn,$sql);
@@ -10,7 +9,7 @@ $row = mysqli_fetch_array($result);
 if($result){
   echo "
   <div class='modal-header'>
-    <h5 class='modal-title' id='exampleModalLongTitle'>" . $row['overskrift'] . "</h5>
+    <h5 class='modal-title' id='exampleModalLongTitle'>" . $row['overskrift']; echo $sub_node_id . "</h5>
     <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
       <span aria-hidden='true'>&times;</span>
     </button>

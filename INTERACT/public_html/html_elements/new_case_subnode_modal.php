@@ -142,7 +142,7 @@ $row = mysqli_fetch_array($result);
               <button type="button" id='addQuestion' class="btn btn-dark btn-circle btn-xl"><i class="fas fa-tasks"></i></button>
             </div>
           </div>
-            <input type="submit" value="Legg til node" name="submit" class="btn btn-primary mb-2">
+            <input type="submit" value="Legg til" name="submit" class="btn btn-primary mb-2">
           </form>
 
       </div><!-- modal-body end -->
