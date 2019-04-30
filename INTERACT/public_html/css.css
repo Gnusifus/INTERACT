@@ -55,6 +55,24 @@ a:hover{
   top:7px;
 }
 
+/*Endre modaler --------------------------------------------------------------*/
+/* Hiding the checkbox, but allowing it to be focused */
+.badgebox{
+  opacity: 0;
+}
+
+.badgebox + .badge{
+  text-indent: -999999px;
+  width: 20px;
+  padding: 6px;
+  margin-right: 5px;
+  float: left;
+}
+
+.badgebox:checked + .badge{
+	text-indent: 0;
+}
+
 /*cards ----------------------------------------------------------------------*/
 .card-text{
   max-width: 100%;
@@ -451,7 +469,7 @@ video{
 }
 
 /* footer---------------------------------------------------------------------*/
-.footer{
+/*.footer{
   width: auto;
   height: 250px;
   margin-bottom: 0;
@@ -465,4 +483,4 @@ video{
   color: white;
   text-align: center;
   padding-top: 130px;
-}
+}*/

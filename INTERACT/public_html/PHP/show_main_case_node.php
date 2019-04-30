@@ -8,14 +8,14 @@ $sql="SELECT * FROM cases WHERE idcases = '$case'";
 $result = mysqli_query($conn,$sql);
 
 $row = mysqli_fetch_array($result);
-include "./html_elements/endre_bilde_modal.html";
+include "./html_elements/endre_bilde_modal.php";
 if ($_SESSION['loggetinn']){
   if(mysqli_num_rows($result) == 1){
     echo "
     <div class='main'>
       <div class='card editable-card' data-toggle='modal' data-target='.bd-example-modal-lg'>
       <img class='card-img-top' src='" . $row['bilde'] . "'>
-      <div class='edit_icons'>
+      <div class='edit_icons main_node_edit'>
         <i class='edit fas fa-pencil-alt'></i>
       </div>
         <div class='card-body'>

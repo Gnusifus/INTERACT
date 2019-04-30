@@ -29,10 +29,7 @@
 
             <input type="submit" value="Legg til node" name="submit" class="btn btn-primary mb-2">
 
-          
-
           </form>
-
       </div><!-- modal-body end -->
     </div><!-- modal-content end -->
   </div><!-- modal-dialog end -->

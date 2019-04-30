@@ -22,6 +22,12 @@ $(function(){
        });
   });
 
+  $('.main_node_edit').on('click', function(e){
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    $(".endre_bilde_modal").modal('toggle');
+  });
+
   //new_case_subnode_modal handler
   $("#addText").click(function(){
     $("#textInput").show("200");
