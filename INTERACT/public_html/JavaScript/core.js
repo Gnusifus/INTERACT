@@ -82,6 +82,7 @@ if ($(this).hasClass("audio-input")){
      }
     }
 
+
     if ($(this).hasClass("document-input")){
       //Sjekker dokument
       if ($.inArray(fileType, validDocTypes) < 0) {
@@ -93,6 +94,10 @@ if ($(this).hasClass("audio-input")){
            $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", true);
        }
 
+
+
+
+
        //Anbefaler pdf, hvis andre gyldige filtyper er lastet opp.
        if (fileType != "application/pdf"){
          $('#documentInput_beskrivelse').show("200");
@@ -102,6 +107,9 @@ if ($(this).hasClass("audio-input")){
          $(this).parent().find(".anbefal").removeClass("d-none");
            $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", false);
        }
+
+
+
        else{
          $('#documentInput_beskrivelse').show("200");
          $(this).parent().find(".feil").removeClass("d-block");
@@ -110,9 +118,9 @@ if ($(this).hasClass("audio-input")){
          $(this).parent().find(".anbefal").addClass("d-none");
             $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", false);
        }
+}
 
-    }
-  });
+});
 
   $('.link-input').keyup (function(){
     //RegEx hentet fra: https://stackoverflow.com/questions/3809401/what-is-a-good-regular-expression-to-match-a-url
@@ -153,6 +161,8 @@ if ($(this).hasClass("audio-input")){
          $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", true);
     }
   });
+
+
 
   $("body").tooltip({
     selector: '[data-toggle=tooltip]'
