@@ -29,9 +29,9 @@ $row = mysqli_fetch_array($result);
             <textarea class="form-control" name="beskrivelse" rows="3" required="required" onkeyup="countChar(this)"><?php echo $row['tekst']?></textarea>
           </div>
 
-        <div class="form-group">
+        <div class="form-group lastOppBilde">
           <div class="custom-file">
-            <input type="file" class="custom-file-input" id="inputGroupFile02" name="bildeup">
+            <input type="file" class="custom-file-input nyBilde" id="inputGroupFile02" name="bildeup">
             <label class="custom-file-label" for="inputGroupFile02">Last opp nytt bilde...</label>
             <div class="feil d-none text-danger">Bildet må være av typen .gif, .jpeg eller .png!</div>
             <div class="size d-none text-danger">Filen kan ikke være større enn 2MB!</div>
