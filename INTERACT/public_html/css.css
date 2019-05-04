@@ -16,6 +16,12 @@ body{
     width:100%;
     padding: 0;
 }
+
+#page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
 h1{
   cursor: default;
 }
@@ -468,19 +474,47 @@ video{
   color: #DC3545;
 }
 
-/* footer---------------------------------------------------------------------*/
-/*.footer{
-  width: auto;
-  height: 250px;
-  margin-bottom: 0;
-  clear: both;
-  position: relative;
-  margin-top: 60%;
-  z-index: -1;
-  background-color: #565656;
+/*footer*/
+
+#content-wrap {
+  padding-bottom: 197px;
 }
-#p_footer{
+
+footer {
+  padding: 3%;
+  width:100%;
+  height: 200px;
+  background-color:black;
+  border-top: 3px solid steelblue;
+}
+
+footer>p{
   color: white;
-  text-align: center;
-  padding-top: 130px;
-}*/
+}
+
+.social_footer_ul {
+  display:table;
+  margin: auto;
+  padding: 0;
+  list-style-type:none;
+}
+.social_footer_ul li {
+  float:left;
+  padding: 10px;
+  margin-left: 20px;
+}
+.social_footer_ul li a {
+  color:#999;
+  transition: all 0.5s;
+}
+
+.social_footer_ul li a:hover {
+  color:#E94724;
+}
+
+.social_footer_ul li i {
+  font-size: 1.5em;
+  width:20px;
+  height:20px;
+  text-align:center;
+}

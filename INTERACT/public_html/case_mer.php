@@ -3,6 +3,8 @@ include "./PHP/login_php.php";
 include './html_elements/head.html';
 ?>
     <body>
+      <div id="page-container">
+        <div id="content-wrap">
       <?php
       include "./html_elements/oslomet_logo.html";
       include "./PHP/case_mer_nav.php";
@@ -35,6 +37,8 @@ include './html_elements/head.html';
         <!-- case oversikt slutt -->
 
      <?php include './html_elements/logout_btn.php'; ?>
+   </div>
+ </div>
      <?php include './html_elements/footer.html'; ?>
     </body>
 </html>

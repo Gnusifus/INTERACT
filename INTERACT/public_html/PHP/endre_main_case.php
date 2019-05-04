@@ -23,7 +23,7 @@ if(isset($_POST['submit_endre'])){
     $dbBilde = "./color_imgs/".$randomImg;
 
     $sql="UPDATE cases
-          SET tittel = '$tittel', tekst = '$tekst', bilde = '$dbBilde' dato = now()
+          SET tittel = '$tittel', tekst = '$tekst', bilde = '$dbBilde', dato = now()
           WHERE idcases = '$case'";
 
     $result = mysqli_query($conn, $sql);
