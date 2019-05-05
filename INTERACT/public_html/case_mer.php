@@ -12,7 +12,7 @@ include './html_elements/head.html';
       <div class="container">
       <?php
       include "./PHP/brodsmule.php";
-      include "./html_elements/show_subnode_modal.php";
+      include "./html_elements/empty_modal.php";
       ?>
         <!-- Cases oversikt -->
             <div class="row">

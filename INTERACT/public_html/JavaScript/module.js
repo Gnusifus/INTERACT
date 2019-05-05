@@ -38,6 +38,13 @@ $(function(){
     }
   });
 
+  //Endrer case
+  $('.main_node_edit').on('click', function(e){
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    $(".endre_bilde_modal").modal('toggle');
+  });
+
   //Sletter node
   $(".node_trash").click(function(e){
      if (confirm("Er du sikker på at du vil slette denne?"))
@@ -50,6 +57,24 @@ $(function(){
              location.reload();
            }
        });
+  });
+
+  //Endrer node
+  $('.node_edit').on('click', function(e){
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    var id = $(this).parent().attr('id');
+    $.post({
+        url: './PHP/handlers/endre_node_modal.php',
+        data: {id: id},
+        success: function(result){
+          if($('.empty_modal').find('.modal-content').is(':empty')){
+              $(this).find(".modal-dialog").removeClass("modal-lg").addClass("modal-md");
+               $('.empty_modal').find('.modal-content').append(result);
+          }
+          $(".empty_modal").modal('toggle');
+        }
+    });
   });
 
   //Sletter sub_node

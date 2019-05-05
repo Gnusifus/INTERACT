@@ -13,7 +13,9 @@ include './html_elements/head.html';
 
     include "./PHP/brodsmule.php";
     include "./html_elements/new_node_modal.php";
-    include './html_elements/show_main_modal.php'; ?>
+    include './html_elements/show_main_modal.php';
+    include "./html_elements/empty_modal.php";
+     ?>
 
  <!-- Cases body -->
   <div class="outer">

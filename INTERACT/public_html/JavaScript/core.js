@@ -1,19 +1,4 @@
 $(function(){
-
-  $('.ny_case_subnode_modal').on('hide.bs.modal', function(e){
-    var sure = confirm("Du er nå i ferd med å forkaste dine innfylte felt.\nVelg OK for å forkaste, eller AVBRYT for å fortsette innfyllingen.");
-    if (sure == true) {
-      $('.modal').on('hidden.bs.modal', function() {
-        location.reload();
-      });
-    }
-    else{
-      e.preventDefault();
-      e.stopImmediatePropagation();
-      return false;
-    }
-  });
-
   //Sjekker multimedia input
   //Deklarerer gyldige filtyper
   var validImageTypes = ["image/gif", "image/jpeg", "image/png"];
@@ -36,7 +21,6 @@ $(function(){
       $(this).parent().find(".size").addClass("d-none");
       $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", false);
     }
-
 
     //Viser filnavn i inputfelt når lastet opp
     let fileName = $(this).val().split('\\').pop();
@@ -66,7 +50,6 @@ $(function(){
        $(this).parent().find(".feil").addClass("d-none");
         $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", false);
      }
-
     }
 
 if ($(this).hasClass("audio-input")){
@@ -82,7 +65,6 @@ if ($(this).hasClass("audio-input")){
      }
     }
 
-
     if ($(this).hasClass("document-input")){
       //Sjekker dokument
       if ($.inArray(fileType, validDocTypes) < 0) {
@@ -94,10 +76,6 @@ if ($(this).hasClass("audio-input")){
            $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", true);
        }
 
-
-
-
-
        //Anbefaler pdf, hvis andre gyldige filtyper er lastet opp.
        if (fileType != "application/pdf"){
          $('#documentInput_beskrivelse').show("200");
@@ -107,9 +85,6 @@ if ($(this).hasClass("audio-input")){
          $(this).parent().find(".anbefal").removeClass("d-none");
            $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", false);
        }
-
-
-
        else{
          $('#documentInput_beskrivelse').show("200");
          $(this).parent().find(".feil").removeClass("d-block");
@@ -164,6 +139,7 @@ if ($(this).hasClass("audio-input")){
 
 
 
+//Trengs for å vise tool-tips
   $("body").tooltip({
     selector: '[data-toggle=tooltip]'
   });

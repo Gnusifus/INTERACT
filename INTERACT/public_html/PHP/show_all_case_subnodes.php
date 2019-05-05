@@ -12,7 +12,7 @@ while($row = mysqli_fetch_array($result)) {
 
   echo "
   <div class='col-lg-3 col-md-4 col-sm-6 portfolio-item'>
-    <div class='card editable-card sub_node_card' data-toggle='modal' data-target='.show_subnode_content' id='" . $sub_node_id . "'>";
+    <div class='card editable-card sub_node_card' data-toggle='modal' data-target='.empty_modal' id='" . $sub_node_id . "'>";
 
     $bildesql = "SELECT * FROM bilde
                 WHERE sub_nodes_idsub_nodes = '$sub_node_id'";
