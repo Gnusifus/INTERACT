@@ -20,8 +20,8 @@ $row = mysqli_fetch_array($result);
         <form action="./PHP/endre_main_case.php?case=<?php echo $case ?>" method="post" enctype="multipart/form-data">
 
           <div class="form-group" required>
-            <label for="exampleFormControlInput1">Endre case tittel</label>
-            <input type="text" class="form-control" name="overskrift" value="<?php echo $row['tittel']?>" required>
+            <label for="exampleFormControlInput1">Endre case tittel</label><div class="float-right text-muted" id="tellerTittel"></div>
+            <input type="text" class="form-control" name="overskrift" onkeyup="countCharTitle(this)" value="<?php echo $row['tittel']?>" required>
           </div>
 
           <div class="form-group" required>

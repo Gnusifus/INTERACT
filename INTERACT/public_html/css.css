@@ -194,7 +194,7 @@ a:hover{
   bottom: 0;
   position: fixed;
   margin: 3%;
-  width: 50%;
+  max-width: 100%;
 }
 
 .logout{

@@ -8,6 +8,16 @@
     }
   };
 
+  //Teller chars i textaera
+  function countCharTitle(val) {
+    var len = val.value.length;
+    if (len >= 25) {
+      val.value = val.value.substring(0, 25);
+    } else {
+      $('#tellerTittel').text(25 - len);
+    }
+  };
+
 $(function(){
 
 //Viser ikoner
@@ -23,6 +33,22 @@ $(function(){
       $(this).find(".edit_icons").css("display", "none");
   });
 
+  //Slett bilde checkbox, skjuler bilde-opplasningfelt når valgt
+  $('.badgebox').click(function(){
+    if($(this).is(':checked')){
+      if($(this).parent().parent().parent().find('.lastOppBilde').find('.nyBilde').val() == ""){
+        $(this).parent().parent().parent().find('.lastOppBilde').hide();
+      }
+      else{
+        $(this).parent().parent().parent().find('.lastOppBilde').find('.custom-file-label').text("Last opp nytt bilde...");
+        $(this).parent().parent().parent().find('.lastOppBilde').find('.nyBilde').val("");
+      }
+    }
+    else{
+      $(this).parent().parent().parent().find('.lastOppBilde').show();
+    }
+  })
+
   //Sletter case
   $(".all_cases_delete").click(function(e){
      if (confirm("Er du sikker på at du vil slette denne casen, og alle dens noder?")) {
@@ -31,6 +57,7 @@ $(function(){
            url: './PHP/handlers/delete_case.php',
            data: {id: id},
            success: function(result){
+             alert(result);
              e.preventDefault();
              location.reload();
            }
@@ -91,4 +118,7 @@ $(function(){
        });
     }
   });
+
+  //TODO: endre sub_node!!!
+
 });

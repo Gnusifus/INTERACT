@@ -44,22 +44,6 @@ $(function(){
     }
   });
 
-  //Slett bilde checkbox, skjuler bilde-opplasningfelt når valgt
-  $('.badgebox').click(function(){
-    if($(this).is(':checked')){
-      if($(this).parent().parent().parent().find('.lastOppBilde').find('.nyBilde').val() == ""){
-        $(this).parent().parent().parent().find('.lastOppBilde').hide();
-      }
-      else{
-        $(this).parent().parent().parent().find('.lastOppBilde').find('.custom-file-label').text("Last opp nytt bilde...");
-        $(this).parent().parent().parent().find('.lastOppBilde').find('.nyBilde').val("");
-      }
-    }
-    else{
-      $(this).parent().parent().parent().find('.lastOppBilde').show();
-    }
-  })
-
   //new_case_subnode_modal handler, viser input basert på ikon-klikk i sub-node-modal
   $("#addText").click(function(){
     $("#textInput").show("200");

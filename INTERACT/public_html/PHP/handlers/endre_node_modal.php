@@ -37,6 +37,7 @@ $row = mysqli_fetch_array($result);
       <span class="badge">&check;</span>
     </label>
   </div>
+
   <br><br><hr>
     <input type="submit" value="Lagre endringer" name="submit_endre" class="btn btn-primary mb-2">
 </div>

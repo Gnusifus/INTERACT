@@ -6,7 +6,6 @@ if(isset($_POST['submit'])){
 
 include './dbconnect.php';
 
-
 $case = $_GET['case'];
 
 $_SESSION['overskrift'] = $_POST['overskrift'];

@@ -78,13 +78,6 @@ if($_SESSION['loggetinn'] == TRUE){
     </div>
     ";
   }
-  echo "
-  <div class='col-lg-3 col-md-4 col-sm-6 portfolio-item'>
-    <div class='card h-100' data-toggle='modal' data-target='.bd-example-modal-lg'>
-        <i class='new_node fas fa-plus'></i>
-    </div>
-  </div>
-  ";
 }
 else{
   if(mysqli_num_rows($student_result) > 0){

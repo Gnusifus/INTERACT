@@ -26,16 +26,25 @@ include './html_elements/head.html';
       include "./PHP/show_all_case_nodes.php";
 
       //Viser ikke pluss-button hvis siden vises i student-modus
+      $sql="SELECT * FROM nodes WHERE cases_idcases = '$case'";
+      $result = mysqli_query($conn,$sql);
+      $count = mysqli_num_rows($result);
+
       if($_SESSION['loggetinn'] == true){
-        echo "<div class='pluss_btn'>
-                <button data-toggle='modal' data-target='.ny_case_node_modal' class='btn btn-primary btn-lg'><i class='fas fa-plus'></i></button>
-              </div>";
+        if($count <= 5){
+          echo "<div class='pluss_btn'>
+                  <button data-toggle='modal' data-target='.ny_case_node_modal' class='btn btn-primary btn-lg'><i class='fas fa-plus'></i></button>
+                </div>";
+        }
+        else{
+          echo "<div class='pluss_btn'>
+                  Maks antall noder er nådd!
+                  <button disabled class='btn btn-primary btn-lg'><i class='fas fa-plus'></i></button>
+                </div>";
+        }
       }
-
-
       ?>
       <!-- nodes end -->
-
     </div><!-- middle end -->
   </div><!-- outer end -->
 </div><!-- container end -->
