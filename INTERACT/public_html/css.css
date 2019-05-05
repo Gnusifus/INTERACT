@@ -477,44 +477,38 @@ video{
 /*footer*/
 
 #content-wrap {
-  padding-bottom: 197px;
+  padding-bottom: 250px;
 }
 
 footer {
-  padding: 3%;
+  color: white;
   width:100%;
-  height: 200px;
-  background-color:black;
-  border-top: 3px solid steelblue;
+  background-color: #0568BF;
+  min-height:250px;
+  padding: 2%;
 }
 
-footer>p{
+footer p {
+  font-size:13px;
+  color:#CCC;
+}
+
+.footer_ul_amrc {
+  margin:0px ;
+  list-style-type:none;
+  font-size:14px;
+  padding:0;
+}
+.footer_ul_amrc li {
+  padding:0px 0px 5px 0px;
   color: white;
 }
 
-.social_footer_ul {
-  display:table;
-  margin: auto;
-  padding: 0;
-  list-style-type:none;
-}
-.social_footer_ul li {
-  float:left;
-  padding: 10px;
-  margin-left: 20px;
-}
-.social_footer_ul li a {
-  color:#999;
-  transition: all 0.5s;
+.footer_ul_amrc li>a {
+  color: lightblue;
 }
 
-.social_footer_ul li a:hover {
-  color:#E94724;
-}
-
-.social_footer_ul li i {
-  font-size: 1.5em;
-  width:20px;
-  height:20px;
-  text-align:center;
+.bottom_border {
+  border-bottom:1px solid lightblue;
+  padding-bottom:20px;
 }
