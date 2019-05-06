@@ -112,9 +112,14 @@ $(function(){
            data: {id: id},
            success: function(result){
              e.preventDefault();
+             e.stopImmediatePropagation();
              location.reload();
            }
        });
+    }
+    else{
+      e.preventDefault();
+      e.stopImmediatePropagation();
     }
   });
 

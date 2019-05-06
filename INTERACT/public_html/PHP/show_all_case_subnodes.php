@@ -27,6 +27,7 @@ while($row = mysqli_fetch_array($result)) {
       echo "
       <div class='edit_icons' id='" . $row['idsub_nodes'] . "'>
         <i class='edit fas fa-trash-alt sub_node_trash'></i>
+        <i class='edit fas fa-pencil-alt sub_node_edit'></i>
       </div>";
     }
 
