@@ -57,7 +57,6 @@ $(function(){
            url: './PHP/handlers/delete_case.php',
            data: {id: id},
            success: function(result){
-             alert(result);
              e.preventDefault();
              location.reload();
            }

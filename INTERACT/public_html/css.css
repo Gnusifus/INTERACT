@@ -20,10 +20,7 @@ body{
 #page-container {
   position: relative;
   min-height: 100vh;
-}
-
-.caseContainer{
-  height: 900px;
+  margin-left: 150px;
 }
 
 h1{
@@ -56,14 +53,6 @@ a:hover{
   position: absolute;
   top: 0;
   display: block;
-}
-
-.form-group.required .control-label:after {
-  color: #d00;
-  content: "*";
-  position: absolute;
-  margin-left: 8px;
-  top:7px;
 }
 
 /*Endre modaler --------------------------------------------------------------*/
@@ -122,6 +111,7 @@ a:hover{
 
 .modalimg{
   max-width: 100%;
+  width: 100%;
 }
 
 #modalheaderimg{
@@ -179,7 +169,7 @@ a:hover{
 .n4{
     right: 42%;
     top: 73%;
-
+    margin-bottom: 4%;
 }
 
 .n5{
@@ -481,7 +471,6 @@ video{
 
 #content-wrap {
   padding-bottom: 250px;
-  padding-left: 120px;
 }
 
 footer {

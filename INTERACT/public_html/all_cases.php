@@ -3,10 +3,10 @@ include "./PHP/login_php.php";
 include './html_elements/head.html';
 ?>
     <body>
+      <?php
+      include "./html_elements/oslomet_logo.html";
+       ?>
       <div id="page-container">
-        <?php
-        include "./html_elements/oslomet_logo.html";
-         ?>
         <div id="content-wrap">
           <div class="container">
             <?php
@@ -20,8 +20,8 @@ include './html_elements/head.html';
             </div><!-- row end -->
           </div><!-- container end -->
         </div>
-        <?php include './html_elements/logout_btn.php';?>
       </div>
+      <?php include './html_elements/logout_btn.php';?>
       <?php include './html_elements/footer.html'; ?>
     </body>
 </html>
