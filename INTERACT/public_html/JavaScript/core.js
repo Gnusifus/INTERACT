@@ -77,15 +77,7 @@ if ($(this).hasClass("audio-input")){
        }
 
        //Anbefaler pdf, hvis andre gyldige filtyper er lastet opp.
-       if (fileType != "application/pdf"){
-         $('#documentInput_beskrivelse').show("200");
-         $(this).parent().find(".feil").removeClass("d-block");
-         $(this).parent().find(".feil").addClass("d-none");
-         $(this).parent().find(".anbefal").addClass("d-block");
-         $(this).parent().find(".anbefal").removeClass("d-none");
-           $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", false);
-       }
-       else{
+     else{
          $('#documentInput_beskrivelse').show("200");
          $(this).parent().find(".feil").removeClass("d-block");
          $(this).parent().find(".feil").addClass("d-none");
