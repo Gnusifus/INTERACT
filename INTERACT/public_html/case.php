@@ -16,15 +16,15 @@ include './html_elements/head.html';
     include './html_elements/show_main_modal.php';
     include "./html_elements/empty_modal.php";
      ?>
+   </div>
 
  <!-- Cases body -->
   <div class="outer">
     <div class="middle">
       <!-- Main node + nodes -->
+      <?php include "./PHP/show_main_case_node.php"; ?>
+      <?php include "./PHP/show_all_case_nodes.php"; ?>
       <?php
-      include "./PHP/show_main_case_node.php";
-      include "./PHP/show_all_case_nodes.php";
-
       //Viser ikke pluss-button hvis siden vises i student-modus
       $sql="SELECT * FROM nodes WHERE cases_idcases = '$case'";
       $result = mysqli_query($conn,$sql);

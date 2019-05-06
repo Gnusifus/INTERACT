@@ -22,6 +22,10 @@ body{
   min-height: 100vh;
 }
 
+.caseContainer{
+  height: 900px;
+}
+
 h1{
   cursor: default;
 }
@@ -63,7 +67,6 @@ a:hover{
 }
 
 /*Endre modaler --------------------------------------------------------------*/
-/* Hiding the checkbox, but allowing it to be focused */
 .badgebox{
   opacity: 0;
 }
@@ -99,13 +102,12 @@ a:hover{
 }
 
 /*Midterste node på case.php -------------------------------------------------*/
-.main>.card{
-  width: 290px;
+.main{
+  width: 300px;
   display: block;
   margin-left: auto;
   margin-right: auto;
   float: none;
-  transition: all .2s ease-in-out;
 }
 
 .main>.card{
@@ -131,22 +133,6 @@ a:hover{
   background-position: center center;
 }
 
-/* grid ----------------------------------------------------------------------*/
-.outer {
-  display: table;
-  position: absolute;
-  top: 10%;
-  left: 0;
-  max-height: 100%;
-  width: 100%;
-}
-
-.middle {
-  display: table-cell;
-  vertical-align: middle;
-
-}
-
 /*Noder rundt main på case.html ----------------------------------------------*/
 .node:hover{
   bow-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
@@ -158,10 +144,26 @@ a:hover{
   position: absolute;
 }
 
+.outer {
+  display: table;
+  position: absolute;
+  top: 10%;
+  left: 0;
+  height: 100%;
+  padding-top: 2%;
+  width: 100%;
+}
+
+.middle {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+
 /*noder plassering case.html -------------------------------------------------*/
 .n1{
     left: 42%;
-    top: 1%;
+    top: 0;
 }
 
 .n2{
