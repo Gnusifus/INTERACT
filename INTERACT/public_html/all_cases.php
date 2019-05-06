@@ -4,11 +4,10 @@ include './html_elements/head.html';
 ?>
     <body>
       <div id="page-container">
+        <?php
+        include "./html_elements/oslomet_logo.html";
+         ?>
         <div id="content-wrap">
-          <?php
-          include "./html_elements/oslomet_logo.html";
-           ?>
-
           <div class="container">
             <?php
             include "./PHP/brodsmule.php";
@@ -20,11 +19,8 @@ include './html_elements/head.html';
               <?php include './PHP/show_all_cases.php'; ?>
             </div><!-- row end -->
           </div><!-- container end -->
-
-          <?php include './html_elements/logout_btn.php';?>
-
-          <imput type="button" value="slett">
         </div>
+        <?php include './html_elements/logout_btn.php';?>
       </div>
       <?php include './html_elements/footer.html'; ?>
     </body>

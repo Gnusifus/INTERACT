@@ -2,6 +2,7 @@
 include '../dbconnect.php';
 $sub_nodeid = $_POST['id'];
 
+/*
 //Sletter bilde fra mappe
 $sqlSelectImg="SELECT * FROM bilde WHERE idsub_nodes = '$sub_nodeid'";
 $resultSelectImg = mysqli_query($conn,$sqlSelectImg);
@@ -44,7 +45,7 @@ if(mysql_num_rows($resultSelectDoc) > 0){
   if (file_exists($doc)) {
     unlink($doc);
   }
-}
+}*/
 
 $sql="DELETE FROM sub_nodes WHERE idsub_nodes = '$sub_nodeid'";
 $result = mysqli_query($conn,$sql);

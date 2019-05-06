@@ -10,7 +10,6 @@ $result = mysqli_query($conn,$sql);
 //Teller antall noder i casen
 $count = mysqli_num_rows($result);
 //Legger n(i) som class til hver node
-//TODO: gjemme +-knapp når det er fyllt opp med Noder
 
 if ($_SESSION['loggetinn']){
   for($i = 1; $i <= $count; $i++){
