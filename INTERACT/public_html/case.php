@@ -31,8 +31,14 @@ include './html_elements/head.html';
       $count = mysqli_num_rows($result);
 
       if($_SESSION['loggetinn'] == true){
-        if($count <= 5){
+        if($count > 0 && $count <= 5){
           echo "<div class='pluss_btn'>
+                  <button data-toggle='modal' data-target='.ny_case_node_modal' class='btn btn-primary btn-lg'><i class='fas fa-plus'></i></button>
+                </div>";
+        }
+        else if ($count === 0){
+          echo "<div class='pluss_btn'>
+                  Klikk her for å begynne å legge til noder!
                   <button data-toggle='modal' data-target='.ny_case_node_modal' class='btn btn-primary btn-lg'><i class='fas fa-plus'></i></button>
                 </div>";
         }

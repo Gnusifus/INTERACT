@@ -27,17 +27,6 @@ h1{
   cursor: default;
 }
 
-.lenke{
-    color: black;
-    transition: 0.3s all;
-}
-
-.lenke:hover{
-  color: white;
-  text-shadow: 0px 0px 9px black;
-  text-decoration: none;
-}
-
 a{
   color: black;
 }
@@ -282,16 +271,15 @@ a:hover{
 }
 
 .edit_icons{
-  background-color: rgba(255, 255, 255, 0.5);
   display: none;
   width: 40%;
   position: absolute;
   top: 0;
   right: 0;
-  border-bottom-left-radius: 20px;
 }
 
 .edit_icons>.edit{
+  text-shadow: 0px 0px 10px #FFFFFF;
   cursor: pointer;
   padding: 10%;
   margin: 0;
@@ -466,14 +454,8 @@ video{
   color:#fff;
 }
 
+/* all_cases.html ------------------------------------------------------------*/
 
-/*!
- * Start Bootstrap - 4 Col Portfolio (https://startbootstrap.com/template-overviews/4-col-portfolio)
- * Copyright 2013-2018 Start Bootstrap
- * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-4-col-portfolio/blob/master/LICENSE)
-
- all_cases.html ----------------------------------------------------------------
- */
 .portfolio-item{
   margin-bottom: 2%;
   cursor: pointer;
@@ -486,6 +468,11 @@ video{
 /* new_case_subnode_modal ----------------------------------------------------*/
 .textInput, .imageInput, .videoInput, .audioInput, .linkInput, .questionInput, .videoInput, .documentInput, .linkInput_beskrivelse, .documentInput_beskrivelse{
   display: none;
+}
+
+.custom-file-label{
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 label{

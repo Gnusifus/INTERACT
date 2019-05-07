@@ -65,14 +65,14 @@ if($_SESSION['loggetinn'] == TRUE){
           </div>
           ";
       }
-      echo "
-      <div class='col-lg-3 col-md-4 col-sm-6 portfolio-item'>
-        <div class='card empty' data-toggle='modal' data-target='.bd-example-modal-lg'>
-            <i class='new_node fas fa-plus'></i>
-        </div>
-      </div>
-      ";
     }
+    echo "
+    <div class='col-lg-3 col-md-4 col-sm-6 portfolio-item'>
+      <div class='card empty' data-toggle='modal' data-target='.bd-example-modal-lg'>
+          <i class='new_node fas fa-plus'></i>
+      </div>
+    </div>
+    ";
   }
   else{
     echo "
