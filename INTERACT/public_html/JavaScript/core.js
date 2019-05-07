@@ -3,7 +3,7 @@ $(function(){
   //Deklarerer gyldige filtyper
   var validImageTypes = ["image/gif", "image/jpeg", "image/png"];
   var validVideoTypes = ["video/mp4", "video/webm", "video/ogg"];
-  var validDocTypes = ["application/pdf", "application/msword", "text/plain", "application/vnd.oasis.opendocument.text", "application/vnd.ms-powerpoint", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"];
+  var validDocTypes = ["application/pdf", "application/msword", "text/plain", "application/vnd.oasis.opendocument.text", "application/vnd.openxmlformats-officedocument.wordprocessingml.document", "application/vnd.ms-powerpoint", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"];
   var validAudioTypes = ["audio/ogg", "audio/wav", "audio/mp3"];
 
   $('.custom-file-input').on('change', function(){
@@ -76,7 +76,7 @@ if ($(this).hasClass("audio-input")){
            $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", true);
        }
 
-       //Anbefaler pdf, hvis andre gyldige filtyper er lastet opp.
+
      else{
          $('#documentInput_beskrivelse').show("200");
          $(this).parent().find(".feil").removeClass("d-block");
