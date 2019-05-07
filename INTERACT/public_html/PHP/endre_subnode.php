@@ -2,8 +2,6 @@
 include "dbconnect.php";
 if(isset($_POST['submit'])){
   $sub_node = $_GET['sub_node'];
-  $case = $_GET['case'];
-  $node = $_GET['node'];
 
   $overskrift = $_POST['overskrift'];
   $bilde = $_FILES['bildeup']['name'];
@@ -15,12 +13,34 @@ if(isset($_POST['submit'])){
   $dokument = $_FILES['dokumentup']['name'];
   $sporsmaal = $_POST['sporsmaal'];
 
-  //TODO: spørsmål!!!
-
   $sql = "UPDATE sub_nodes
           SET overskrift = '$overskrift'
           WHERE idsub_nodes = '$sub_node'";
   $result = mysqli_query($conn, $sql);
+
+  if(strlen($sporsmaal[0]) > 0){
+    $sql = "SELECT * FROM sporsmaal WHERE sub_nodes_idsub_nodes = $sub_node";
+    $result = mysqli_query($conn, $sql);
+    if($result){
+      foreach ($sporsmaal as $key){
+        if($key == null){
+          $row = mysqli_fetch_array($result);
+          $id = $row['idsporsmaal'];
+          $sqlSpm="DELETE FROM sporsmaal
+                  WHERE idsporsmaal = '$id'";
+          mysqli_query($conn, $sqlSpm);
+        }
+        else{
+          $row = mysqli_fetch_array($result);
+          $id = $row['idsporsmaal'];
+          $sqlSpm="UPDATE sporsmaal
+                  SET sporsmaal = '$key'
+                  WHERE idsporsmaal = '$id'";
+          mysqli_query($conn, $sqlSpm);
+        }
+      }
+    }
+  }
 
   if(isset($_POST['slett_tekst'])){
     $sql="DELETE FROM tekst

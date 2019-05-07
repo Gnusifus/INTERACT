@@ -6,51 +6,59 @@ $(function(){
   var validDocTypes = ["application/pdf", "application/msword", "text/plain", "application/vnd.oasis.opendocument.text", "application/vnd.openxmlformats-officedocument.wordprocessingml.document", "application/vnd.ms-powerpoint", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"];
   var validAudioTypes = ["audio/ogg", "audio/wav", "audio/mp3"];
 
-  $('.custom-file-input').on('change', function(){
+  $(document).on('change', '.custom-file-input', function(){
     var file = this.files[0];
     var fileType = file["type"];
     var fileSize = this.files[0].size;
 
-    //Godtar ikke filer større enn 2MB.
-    if(fileSize > 2000000){
-      $(this).parent().find(".size").removeClass("d-none");
-      $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", true);
-    }
-    else {
-      $(this).parent().find(".size").removeClass("d-block").addClass("d-none");
-      $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", false);
-    }
+    if ($(this).hasClass("image-input, document-input")){
+      if($(this).hasClass("image-input")){
 
-    if ($(this).hasClass("image-input")){
-      if ($.inArray(fileType, validImageTypes) < 0) {
-          $(this).parent().find(".feil").addClass("d-block").removeClass("d-none");
-          $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", true);
+      }
+        if ($.inArray(fileType, validImageTypes) < 0) {
+            $(this).parent().find(".feil").addClass("d-block").removeClass("d-none");
+            $(this).parents('form').find('input[type="submit"]').prop("disabled", true);
+         }
+       else if(fileSize > 2000000){
+         $(this).parent().find(".size").removeClass("d-none");
+         $(this).parents('form').find('input[type="submit"]').prop("disabled", true);
        }
-     else{
-        $(this).parent().find(".feil").removeClass("d-block").addClass("d-none");
-        $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", false);
+       else{
+         $(this).parent().find(".size").removeClass("d-block").addClass("d-none");
+         $(this).parent().find(".feil").removeClass("d-block").addClass("d-none");
+         $(this).parents('form').find('input[type="submit"]').prop("disabled", false);
+       }
      }
-    }
 
     if ($(this).hasClass("video-input")){
       if ($.inArray(fileType, validVideoTypes) < 0) {
           $(this).parent().find(".feil").addClass("d-block").removeClass("d-none");
-          $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", true);
+          $(this).parents('form').find('input[type="submit"]').prop("disabled", true);
        }
+     else if(fileSize > 2000000000){ //2GB
+       $(this).parent().find(".size").removeClass("d-none");
+       $(this).parents('form').find('input[type="submit"]').prop("disabled", true);
+     }
      else{
-        $(this).parent().find(".feil").removeClass("d-block").addClass("d-none");
-        $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", false);
+       $(this).parent().find(".size").removeClass("d-block").addClass("d-none");
+       $(this).parent().find(".feil").removeClass("d-block").addClass("d-none");
+       $(this).parents('form').find('input[type="submit"]').prop("disabled", false);
      }
     }
 
-if ($(this).hasClass("audio-input")){
+    if ($(this).hasClass("audio-input")){
       if ($.inArray(fileType, validAudioTypes) < 0) {
          $(this).parent().find(".feil").addClass("d-block").removeClass("d-none");
-         $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", true);
+         $(this).parents('form').find('input[type="submit"]').prop("disabled", true);
        }
+     else if(fileSize > 2000000000){
+       $(this).parent().find(".size").removeClass("d-none");
+       $(this).parents('form').find('input[type="submit"]').prop("disabled", true);
+     }
      else{
+       $(this).parent().find(".size").removeClass("d-block").addClass("d-none");
        $(this).parent().find(".feil").removeClass("d-block").addClass("d-none");
-       $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", false);
+       $(this).parents('form').find('input[type="submit"]').prop("disabled", false);
      }
     }
 

@@ -11,7 +11,6 @@
       <div class="modal-body">
           <form action="./PHP/new_case_node.php?case=<?php echo $case ?>" method="post" enctype="multipart/form-data" id="new_node_form">
 
-
             <div class="form-group">
               <label for="exampleFormControlInput1">Node overskrift</label>
               <input type="text" class="form-control" name="overskrift" placeholder="Skriv inn case tittel her..." required>

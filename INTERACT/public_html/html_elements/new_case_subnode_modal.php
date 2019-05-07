@@ -33,6 +33,7 @@ $row = mysqli_fetch_array($result);
                 <input type="file" class="custom-file-input image-input" id="inputGroupFile02" name="bildeup">
                 <label class="custom-file-label" name="bilde" for="inputGroupFile02">Last opp et bilde her...</label>
                 <div class="feil d-none text-danger">Bildet må være av typen gif, jpeg eller png!</div>
+                <div class="size d-none text-danger">Filen kan ikke være større enn 2MB!</div>
               </div>
             </div>
 
@@ -43,7 +44,7 @@ $row = mysqli_fetch_array($result);
                 <input type="file" class="custom-file-input document-input" id="inputGroupFile02" name="dokumentup">
                 <label class="custom-file-label" name="dokument" for="inputGroupFile02">Last opp et dokument her...</label>
                 <div class="feil d-none text-danger">Dokumentet du har lastet opp er i et ugyldig format!</div>
-                <div class="anbefal d-none text-warning">Formatet er gyldig, men anbefalt format er .pdf.</div>
+                <div class="size d-none text-danger">Filen kan ikke være større enn 2MB!</div>
               </div>
             </div>
 
@@ -79,9 +80,8 @@ $row = mysqli_fetch_array($result);
                 <div class="custom-file">
                   <input type="file" class="custom-file-input video-input" id="inputGroupFile02" name="videoup">
                   <label class="custom-file-label" name="video" for="inputGroupFile02">Last opp en video her...</label>
-                  <div class="feil d-none text-danger">Videoen må være av typen .mp4, .ogg eller .webm!<br>
-                                                      Har du en video i annet format, eller en lengre video,
-                                                      anbefales det å laste opp videoen på YouTube.</div>
+                  <div class="feil d-none text-danger">Videoen må være av typen .mp4, .ogg eller .webm!</div>
+                  <div class="size d-none text-danger">Filen kan ikke være større enn 2GB!</div>
                 </div>
               </div>
 
@@ -89,7 +89,8 @@ $row = mysqli_fetch_array($result);
               <div class="form-group col-md-6 videoInput">
               <label>Youtube-video<div class="removeInput"><div id="removeInput-text">Fjern videoen</div><i class="fa fa-remove"></i></div></label>
                 <input type="text" class="form-control yt-video" name="ytvideo" placeholder="Lim inn en lenke her...">
-                <div class="feil d-none text-danger">Linken du har limt inn er ingen gyldig YouTube-link</div>
+                <div class="feil d-none text-danger">Lenken du har limt inn er ingen gyldig YouTube-lenke, <br>
+                                                    påse at du har kopiert lenken dirakte fra YouTube</div>
               </div>
 
             <!-- Lyd -->
@@ -99,6 +100,7 @@ $row = mysqli_fetch_array($result);
                 <input type="file" class="custom-file-input audio-input" id="inputGroupFile02" name="lydup">
                 <label class="custom-file-label" name="lyd" for="inputGroupFile02">Last opp en lydfil her...</label>
                 <div class="feil d-none text-danger">Lydfil må være av typen .mp3, .ogg eller .wav!</div>
+                <div class="size d-none text-danger">Filen kan ikke være større enn 2GB!</div>
               </div>
             </div>
 
