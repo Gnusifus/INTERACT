@@ -40,7 +40,7 @@ $row = mysqli_fetch_array($result);
               }
             }
             else{ ?>
-              <div class="form-group" id="imageInput">
+              <div class="form-group imageInput">
                 <label>Legg til bilde<div class="removeInput"><div id="removeInput-text">Fjern bildet</div><i class="fa fa-remove"></i></div></label>
                 <div class="custom-file">
                   <input type="file" class="custom-file-input image-input" id="inputGroupFile02" name="bildeup">
@@ -68,7 +68,7 @@ $row = mysqli_fetch_array($result);
                 </div>
 
                 <!-- dokument beksrivelse -->
-                <div class="form-group" id="documentInput_beskrivelse">
+                <div class="form-group">
                   <label>Skriv gjerne inn tittelen på dokumentet, lar du denne stå tom vises kun filnavnet på dokumentet.</label>
                   <input type="text" class="form-control doc-desc" name="dokument_beksrivelse" value="<?php echo $rowDoc['beskrivelse'] ?>">
                 </div>
@@ -77,7 +77,7 @@ $row = mysqli_fetch_array($result);
             }
             else{ ?>
               <!-- Dokument -->
-              <div class="form-group" id="documentInput">
+              <div class="form-group documentInput">
               <label>Last opp dokument<div class="removeInput"><div id="removeInput-text">Fjern dokumentet</div><i class="fa fa-remove"></i></div></label>
                 <div class="custom-file">
                   <input type="file" class="custom-file-input document-input" id="inputGroupFile02" name="dokumentup">
@@ -88,7 +88,7 @@ $row = mysqli_fetch_array($result);
               </div>
 
               <!-- dokument beksrivelse -->
-              <div class="form-group" id="documentInput_beskrivelse">
+              <div class="form-group documentInput_beskrivelse">
                 <label>Skriv gjerne inn tittelen på dokumentet, lar du denne stå tom vises kun filnavnet på dokumentet.</label>
                 <input type="text" class="form-control doc-desc" name="dokument_beksrivelse" placeholder="Feks. Olas regnskap, lampe bruksanvisning eller lønnsslipp">
               </div>
@@ -107,7 +107,7 @@ $row = mysqli_fetch_array($result);
                 </div>
 
                 <!-- Lenke beksrivelse -->
-                <div class="form-group" id="linkInput_beskrivelse">
+                <div class="form-group">
                   <label>Skriv inn et ord eller to om hva som befinner seg bak linken</label>
                   <input type="text" class="form-control link-desc" name="lenke_beksrivelse" value="<?php echo $rowLenke['beskrivelse'] ?>">
                 </div>
@@ -116,14 +116,14 @@ $row = mysqli_fetch_array($result);
             }
             else{ ?>
               <!-- Lenke -->
-              <div class="form-group" id="linkInput">
+              <div class="form-group linkInput">
                 <label>Legg til lenke<div class="removeInput"><div id="removeInput-text">Fjern lenken</div><i class="fa fa-remove"></i></div></label>
                 <input type="text" class="form-control link-input" name="lenke" placeholder="Lim inn en lenke her...">
                 <div class="feil d-none text-danger">Påse at du har kopiert lenken direkte fra nettleseren, denne lenken er ikke gyldig!</div>
               </div>
 
               <!-- Lenke beksrivelse -->
-              <div class="form-group" id="linkInput_beskrivelse">
+              <div class="form-group linkInput_beskrivelse">
                 <label>Skriv inn et ord eller to om hva som befinner seg bak lenken</label>
                 <input type="text" class="form-control link-desc" name="lenke_beksrivelse" placeholder="Feks. kosthold, legemiddelhåndtering eller bruk av tannpirker">
               </div>
@@ -144,7 +144,7 @@ $row = mysqli_fetch_array($result);
             }
             else{ ?>
               <!-- Tekst -->
-              <div class="form-group" id="textInput">
+              <div class="form-group textInput">
                 <label>Legg til tekst<div class="removeInput"><div id="removeInput-text">Fjern teksten</div><i class="fa fa-remove"></i></div></label><div class="float-right text-muted" id="teller"></div>
                 <textarea class="form-control" name="tekst" rows="3" onkeyup="countChar(this)" placeholder="Skriv tekst her..."></textarea>
               </div>
@@ -227,7 +227,7 @@ $row = mysqli_fetch_array($result);
             }
             else{ ?>
               <!-- Lyd -->
-              <div class="form-group" id="audioInput">
+              <div class="form-group audioInput">
               <label>Legg til lydfil<div class="removeInput"><div id="removeInput-text">Fjern lydfilen</div><i class="fa fa-remove"></i></div></label>
                 <div class="custom-file">
                   <input type="file" class="custom-file-input audio-input" id="inputGroupFile02" name="lydup">
@@ -260,7 +260,7 @@ $row = mysqli_fetch_array($result);
             }
             else{ ?>
               <!-- Spørsmål -->
-              <div class="form-group col-md-12" id="questionInput">
+              <div class="form-group col-md-12 questionInput">
               <label class= "spmlabel">Spørsmål</label>
               <div class="input-group mb-3">
                 <div class="input-group-prepend">
@@ -276,25 +276,26 @@ $row = mysqli_fetch_array($result);
 
             <div class="form-group">
               <span data-toggle='tooltip' data-placement='top' title='Legg til bilde'>
-              <button type="button" id='addImage' class="btn btn-primary btn-circle btn-xl"><i class="fas fa-camera"></i></button>
+              <button type="button" class="addImage btn btn-primary btn-circle btn-xl"><i class="fas fa-camera"></i></button>
               </span>
               <span data-toggle='tooltip' data-placement='top' title='Legg til dokument'>
-              <button type="button" id='addDocument' class="btn btn-warning btn-circle btn-xl"><i class="far fa-file"></i></button>
+              <button type="button" class="addDocument btn btn-warning btn-circle btn-xl"><i class="far fa-file"></i></button>
               </span>
               <span data-toggle='tooltip' data-placement='top' title='Legg til lenke'>
-              <button type="button" id='addLink' class="btn btn-info btn-circle btn-xl"><i class="fas fa-link"></i></button>
+              <button type="button" class="addLink btn btn-info btn-circle btn-xl"><i class="fas fa-link"></i></button>
               </span>
               <span data-toggle='tooltip' data-placement='top' title='Legg til tekst'>
-              <button type="button" id='addText' class="btn btn-danger btn-circle btn-xl"><i class="fas fa-font"></i></button>
+              <button type="button" class="addText btn btn-danger btn-circle btn-xl"><i class="fas fa-font"></i></button>
               </span>
               <span data-toggle='tooltip' data-placement='top' title='Legg til video'>
-              <button type="button" id='addVideo' class="btn btn-secondary btn-circle btn-xl"><i class="fas fa-video"></i></button>
+              <button type="button" class="addVideo btn btn-secondary btn-circle btn-xl"><i class="fas fa-video"></i></button>
               </span>
               <span data-toggle='tooltip' data-placement='top' title='Legg til lydfil'>
-              <button type="button" id='addAudio' class="btn btn-success btn-circle btn-xl"><i class="fas fa-headphones"></i></button>
+              <button type="button" class="addAudio btn btn-success btn-circle btn-xl"><i class="fas fa-headphones"></i></button>
               </span>
               <span data-toggle='tooltip' data-placement='top' title='Legg til oppgave'>
-              <button type="button" id='addQuestion' class="btn btn-dark btn-circle btn-xl"><i class="fas fa-tasks"></i></button>
+              <button type="button" class="addQuestion btn btn-dark btn-circle btn-xl"><i class="fas fa-tasks"></i></button>
+              </span>
             </div>
 
             <input type="submit" value="Lagre endringer" name="submit" class="btn btn-primary mb-2">

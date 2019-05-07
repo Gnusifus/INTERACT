@@ -430,7 +430,7 @@ video{
 }
 
 /* new_case_subnode_modal ----------------------------------------------------*/
-#textInput, #imageInput, #videoInput, #audioInput, #linkInput, #questionInput, .videoInput, #documentInput, #linkInput_beskrivelse, #documentInput_beskrivelse{
+.textInput, .imageInput, .videoInput, .audioInput, .linkInput, .questionInput, .videoInput, .documentInput, .linkInput_beskrivelse, .documentInput_beskrivelse{
   display: none;
 }
 

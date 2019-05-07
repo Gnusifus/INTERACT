@@ -45,26 +45,26 @@ $(function(){
   });
 
   //new_case_subnode_modal handler, viser input basert på ikon-klikk i sub-node-modal
-  $("#addText").click(function(){
-    $("#textInput").show("200");
+  $(".addText").click(function(){
+    $(this).parents().eq(3).find(".textInput").show("200");
   });
-  $("#addImage").click(function(){
-    $("#imageInput").show("200");
+  $(".addImage").click(function(){
+    $(this).parents().eq(3).find(".imageInput").show("200");
   });
-  $("#addVideo").click(function(){
-    $(".videoInput").show("200");
+  $(".addVideo").click(function(){
+    $(this).parents().eq(3).find(".videoInput").show("200");
   });
-  $("#addDocument").click(function(){
-    $("#documentInput").show("200");
+  $(".addDocument").click(function(){
+    $(this).parents().eq(3).find(".documentInput").show("200");
   });
-  $("#addQuestion").click(function(){
-    $("#questionInput").show("200");
+  $(".addQuestion").click(function(){
+    $(this).parents().eq(3).find(".questionInput").show("200");
   });
-  $("#addLink").click(function(){
-    $("#linkInput").show("200");
+  $(".addLink").click(function(){
+    $(this).parents().eq(3).find(".linkInput").show("200");
   });
-  $("#addAudio").click(function(){
-    $("#audioInput").show("200");
+  $(".addAudio").click(function(){
+    $(this).parents().eq(3).find(".audioInput").show("200");
   });
 
   //Legger til flere spørsmål
@@ -93,19 +93,19 @@ $(function(){
     $(this).find("#removeInput-text").stop(1,1).fadeOut("500");
   }).click(function(){
     //Fjerner opplastet fil
-    $(this).parent().find(".custom-file-input").val(null);
-    $(this).parent().find('.custom-file-label').removeClass("selected").html("Last opp her..");
-    $(this).parent().hide("200");
-    $(this).parent().find(".form-control").val(null);
+    $(this).parents().eq(1).find(".custom-file-input").val(null);
+    $(this).parents().eq(1).find('.custom-file-label').removeClass("selected").html("Last opp her..");
+    $(this).parents().eq(1).hide("200");
+    $(this).parents().eq(1).find(".form-control").val(null);
   })
 
-  $("#documentInput").find(".removeInput").click(function(){
-    $(this).parent().parent().find("#documentInput_beskrivelse").hide("200");
-    $(this).parent().parent().find("#documentInput_beskrivelse").val(null);
+  $(".documentInput").find(".removeInput").click(function(){
+    $(this).parents().eq(2).find(".documentInput_beskrivelse").hide("200");
+    $(this).parents().eq(2).find(".documentInput_beskrivelse").val(null);
   });
 
-  $("#linkInput").find(".removeInput").click(function(){
-    $(this).parent().parent().find("#linkInput_beskrivelse").hide("200");
-    $(this).parent().parent().find("#linkInput_beskrivelse").val(null);
+  $(".linkInput").find(".removeInput").click(function(){
+    $(this).parents().eq(2).find(".linkInput_beskrivelse").hide("200");
+    $(this).parents().eq(2).find(".linkInput_beskrivelse").val(null);
   });
 });
