@@ -26,7 +26,7 @@ $(function(){
       if($(this).hasClass("document-input")){
         $(".documentInput_beskrivelse").hide("200");
       }
-      $(this).parent().find(".feil").addClass("d-block").removeClass("d-none");
+      $(this).parent().find(".feil").removeClass("d-none");
       $(this).parents('form').find('input[type="submit"]').prop("disabled", true);
      }
    else if(fileSize > max){
@@ -40,8 +40,7 @@ $(function(){
      if($(this).hasClass("document-input")){
        $(".documentInput_beskrivelse").show("200");
      }
-     $(this).parent().find(".size").removeClass("d-block").addClass("d-none");
-     $(this).parent().find(".feil").removeClass("d-block").addClass("d-none");
+     $(this).parent().find(".size .feil").addClass("d-none");
      $(this).parents('form').find('input[type="submit"]').prop("disabled", false);
    }
 });
@@ -55,12 +54,12 @@ $(function(){
     if(val.match(regex)){
       //show Hva inneholder linken
       $(".linkInput_beskrivelse").show("200");
-      $(this).parent().find(".feil").removeClass("d-block").addClass("d-none");
+      $(this).parent().find(".feil").addClass("d-none");
       $(this).parents('form').find('input[type="submit"]').prop("disabled", false);
     }
     else{
       $(".linkInput_beskrivelse").val("").hide("200");
-      $(this).parent().find(".feil").addClass("d-block").removeClass("d-none");
+      $(this).parent().find(".feil").removeClass("d-none");
       $(this).parents('form').find('input[type="submit"]').prop("disabled", true);
     }
   });
@@ -73,14 +72,23 @@ $(function(){
     var val = $(this).val();
 
     if(val.match(regex)){
-      $(this).parent().find(".feil").removeClass("d-block").addClass("d-none");
+      $(this).parent().find(".feil").addClass("d-none");
       $(this).parents('form').find('input[type="submit"]').prop("disabled", false);
     }
     else{
-      $(this).parent().find(".feil").addClass("d-block").removeClass("d-none");
+      $(this).parent().find(".feil").removeClass("d-none");
       $(this).parents('form').find('input[type="submit"]').prop("disabled", true);
     }
   });
+
+  $(document).on("keyup", "textarea", function(){
+    if($(this).val().length > 1970){
+      $(this).parent().find(".mye_tekst").removeClass("d-none");
+    }
+    else{
+      $(this).parent().find(".mye_tekst").addClass("d-none");
+    }
+  })
 
 //Trengs for å vise tool-tips
   $("body").tooltip({

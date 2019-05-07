@@ -172,6 +172,7 @@ $row = mysqli_fetch_array($result);
                   <label>Tekst</label><div class="float-right text-muted" id="teller"></div>
                   <div class="input">
                     <textarea class="form-control" name="tekst" rows="3" onkeyup="countChar(this)"><?php echo $rowTxt['tekst'] ?></textarea>
+                    <div class="mye_tekst d-none text-warning">Oisann, ikke plass til alt? Vurder heller å laste opp et dokument.</div>
                   </div>
                     <div class="float-right">
                       <div class="onoffswitch">
@@ -191,6 +192,7 @@ $row = mysqli_fetch_array($result);
               <div class="form-group textInput">
                 <label>Legg til tekst<div class="removeInput"><div id="removeInput-text">Fjern teksten</div><i class="fa fa-remove"></i></div></label><div class="float-right text-muted" id="teller"></div>
                 <textarea class="form-control" name="tekst" rows="3" onkeyup="countChar(this)" placeholder="Skriv tekst her..."></textarea>
+                <div class="mye_tekst d-none text-warning">Oisann, ikke plass til alt? Vurder heller å laste opp et dokument.</div>
               </div>
             <?php
             }

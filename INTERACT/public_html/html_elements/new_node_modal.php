@@ -20,7 +20,7 @@
               <div class="custom-file">
                 <input type="file" class="custom-file-input image-input" id="bilde" name="bildeup">
                 <label class="custom-file-label" name="bilde" for="bilde">Last opp et bilde her...</label>
-                <div class="feil d-none text-danger">Bildet må være av typen gif, jpeg eller png!</div>
+                <div class="feil d-none text-danger">Bildet må være av typen .gif, .jpeg eller .png!</div>
                 <div class="size d-none text-danger">Filen kan ikke være større enn 2MB!</div>
                 <label class="control-label" for="bildeup"><small class="text-muted">Noden blir gitt en tilfeldig farge, dersom du velger å ikke laste opp et bilde.</small></label>
               </div>

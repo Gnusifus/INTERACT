@@ -32,7 +32,7 @@ $row = mysqli_fetch_array($result);
               <div class="custom-file">
                 <input type="file" class="custom-file-input image-input" id="inputGroupFile02" name="bildeup">
                 <label class="custom-file-label" name="bilde" for="inputGroupFile02">Last opp et bilde her...</label>
-                <div class="feil d-none text-danger">Bildet må være av typen gif, jpeg eller png!</div>
+                <div class="feil d-none text-danger">Bildet må være av typen .gif, .jpeg eller .png!</div>
                 <div class="size d-none text-danger">Filen kan ikke være større enn 2MB!</div>
               </div>
             </div>
@@ -72,6 +72,7 @@ $row = mysqli_fetch_array($result);
               <label>Tekst<div class="removeInput"><div id="removeInput-text">Fjern teksten</div><i class="fa fa-remove"></i></div></label>
               <div class="float-right text-muted" id="teller"></div>
               <textarea class="form-control" name="tekst" rows="3" onkeyup="countChar(this)" placeholder="Skriv tekst her..."></textarea>
+              <div class="mye_tekst d-none text-warning">Oisann, ikke plass til alt? Vurder heller å laste opp et dokument.</div>
             </div>
 
             <!-- Video -->

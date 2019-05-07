@@ -163,6 +163,8 @@ if(isset($_POST['submit'])){
   }
 
   if($result){
+    $node = $_GET['node'];
+    $case = $_GET['case'];
     header("Location: ../case_mer.php?case=" . $case . "&node=" . $node);
   }
 }
