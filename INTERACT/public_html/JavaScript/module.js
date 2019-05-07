@@ -1,10 +1,10 @@
   //Teller chars i textaera
   function countChar(val) {
     var len = val.value.length;
-    if (len >= 500) {
-      val.value = val.value.substring(0, 500);
+    if (len >= 2000) {
+      val.value = val.value.substring(0, 2000);
     } else {
-      $('#teller').text(500 - len);
+      $('#teller').text(2000 - len);
     }
   };
 
@@ -123,6 +123,21 @@ $(function(){
     }
   });
 
-  //TODO: endre sub_node!!!
+  //Endrer subnode
+  $('.sub_node_edit').on('click', function(e){
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    var id = $(this).parent().attr('id');
+    $.post({
+        url: './PHP/handlers/endre_subnode_modal.php',
+        data: {id: id},
+        success: function(result){
+          if($('.empty_modal').find('.modal-content').is(':empty')){
+               $('.empty_modal').find('.modal-content').append(result);
+          }
+          $(".empty_modal").modal('toggle');
+        }
+    });
+  });
 
 });

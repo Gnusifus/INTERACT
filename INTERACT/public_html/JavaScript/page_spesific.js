@@ -69,8 +69,21 @@ $(function(){
 
   //Legger til flere spørsmål
   $(".addSpm").click(function(){
-    var $spm = "<div class='input-group mb-3'><div class='input-group-prepend'><span class='input-group-text' id='basic-addon1'>?</span></div><input type='text' class='form-control' name='sporsmaal[]' placeholder='Skriv inn ett spørsmål i hvert felt...' aria-label='sporsmaal' aria-describedby='basic-addon1'></div>";
+    var $spm = "<div class='input-group mb-3'><div class='input-group-prepend'><span class='input-group-text' id='basic-addon1'><i class='fa fa-remove'></i></span></div><input type='text' class='form-control' name='sporsmaal[]' placeholder='Skriv inn ett spørsmål i hvert felt...' aria-label='sporsmaal' aria-describedby='basic-addon1'></div>";
     $($spm).insertBefore(".addSpm");
+  });
+
+  $(document).on("mouseenter", "#basic-addon1", function(){
+    $(this).css("color", "red");
+  })
+
+  $(document).on("mouseleave", "#basic-addon1", function(){
+    $(this).css("color", "inherit");
+  });
+
+  $(document).on("click", "#basic-addon1", function(){
+    $(this).parents().eq(1).find(".form-control").val("");
+    $(this).parents().eq(1).hide("200");
   });
 
   //Fjener input-felt i "ny-subnode-modal"

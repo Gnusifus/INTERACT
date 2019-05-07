@@ -11,7 +11,7 @@ $row = mysqli_fetch_array($result);
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Legg til en ny node i <?php echo $row['overskrift'] ?> </h5>
+        <h5 class="modal-title">Legg til en ny node i <?php echo $row['overskrift'] ?> </h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -22,13 +22,13 @@ $row = mysqli_fetch_array($result);
 
             <!--Overskrift * -->
             <div class="form-group col-md-12">
-              <label for="exampleFormControlInput1">Node overskrift</label>
+              <label>Node overskrift</label>
               <input type="text" class="form-control" name="overskrift" placeholder="Skriv inn en overskrift her..." required>
             </div>
 
             <!-- Bilde -->
             <div class="form-group col-md-12" id="imageInput">
-              <label for="exampleFormControlInput1">Bilde</label>
+              <label>Bilde</label>
               <div class="removeInput"><div id="removeInput-text">Fjern bildet</div><i class="fa fa-remove"></i></div>
               <div class="custom-file">
                 <input type="file" class="custom-file-input image-input" id="inputGroupFile02" name="bildeup">
@@ -39,7 +39,7 @@ $row = mysqli_fetch_array($result);
 
             <!-- Dokument -->
             <div class="form-group col-md-12" id="documentInput">
-            <label for="exampleFormControlInput1">Dokument</label>
+            <label>Dokument</label>
             <div class="removeInput"><div id="removeInput-text">Fjern dokumentet</div><i class="fa fa-remove"></i></div>
               <div class="custom-file">
                 <input type="file" class="custom-file-input document-input" id="inputGroupFile02" name="dokumentup">
@@ -51,13 +51,13 @@ $row = mysqli_fetch_array($result);
 
             <!-- dokument beksrivelse -->
             <div class="form-group col-md-12" id="documentInput_beskrivelse">
-              <label for="exampleFormControlInput1">Skriv gjerne inn tittelen på dokumentet, lar du denne stå tom vises kun filnavnet på dokumentet.</label>
+              <label>Skriv gjerne inn tittelen på dokumentet, lar du denne stå tom vises kun filnavnet på dokumentet.</label>
               <input type="text" class="form-control doc-desc" name="dokument_beksrivelse" placeholder="Feks. Olas regnskap, lampe bruksanvisning eller lønnsslipp">
             </div>
 
             <!-- Lenke -->
             <div class="form-group col-md-12" id="linkInput">
-              <label for="exampleFormControlInput1">Lenke</label>
+              <label>Lenke</label>
               <div class="removeInput"><div id="removeInput-text">Fjern lenken</div><i class="fa fa-remove"></i></div>
               <input type="text" class="form-control link-input" name="lenke" placeholder="Lim inn en lenke her...">
               <div class="feil d-none text-danger">Påse at du har kopiert linken direkte fra nettleseren, denne linken er ikke gyldig!</div>
@@ -65,19 +65,19 @@ $row = mysqli_fetch_array($result);
 
             <!-- Lenke beksrivelse -->
             <div class="form-group col-md-12" id="linkInput_beskrivelse">
-              <label for="exampleFormControlInput1">Skriv inn et ord eller to om hva som befinner seg bak linken</label>
+              <label>Skriv inn et ord eller to om hva som befinner seg bak linken</label>
               <input type="text" class="form-control link-desc" name="lenke_beksrivelse" placeholder="Feks. kosthold, legemiddelhåndtering eller bruk av tannpirker">
             </div>
 
             <!-- Tekst -->
             <div class="form-group col-md-12" id="textInput">
-              <label for="exampleFormControlInput1">Tekst</label><div class="float-right text-muted" id="teller"></div>
+              <label>Tekst</label><div class="float-right text-muted" id="teller"></div>
               <textarea class="form-control" name="tekst" rows="3" onkeyup="countChar(this)" placeholder="Skriv tekst her..."></textarea>
             </div>
 
             <!-- Video -->
               <div class="form-group col-md-6 videoInput">
-              <label for="exampleFormControlInput1">Video</label>
+              <label>Video</label>
               <div class="removeInput"><div id="removeInput-text">Fjern videoen</div><i class="fa fa-remove"></i></div>
                 <div class="custom-file">
                   <input type="file" class="custom-file-input video-input" id="inputGroupFile02" name="videoup">
@@ -90,7 +90,7 @@ $row = mysqli_fetch_array($result);
 
 
               <div class="form-group col-md-6 videoInput">
-              <label for="exampleFormControlInput1">Youtube-video</label>
+              <label>Youtube-video</label>
               <div class="removeInput"><div id="removeInput-text">Fjern videoen</div><i class="fa fa-remove"></i></div>
                 <input type="text" class="form-control yt-video" name="ytvideo" placeholder="Lim inn en lenke her...">
                 <div class="feil d-none text-danger">Linken du har limt inn er ingen gyldig YouTube-link</div>
@@ -98,7 +98,7 @@ $row = mysqli_fetch_array($result);
 
             <!-- Lyd -->
             <div class="form-group col-md-12" id="audioInput">
-            <label for="exampleFormControlInput1">Lydfil</label>
+            <label>Lydfil</label>
             <div class="removeInput"><div id="removeInput-text">Fjern lydfilen</div><i class="fa fa-remove"></i></div>
               <div class="custom-file">
                 <input type="file" class="custom-file-input audio-input" id="inputGroupFile02" name="lydup">
@@ -109,10 +109,10 @@ $row = mysqli_fetch_array($result);
 
             <!-- Spørsmål -->
             <div class="form-group col-md-12" id="questionInput">
-            <label class= "spmlabel" for="exampleFormControlInput1">Spørsmål</label>
+            <label class= "spmlabel">Spørsmål</label>
             <div class="input-group mb-3">
               <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon1">?</span>
+                <span class="input-group-text" id="basic-addon1"><i class="fa fa-remove"></i></span>
               </div>
               <input type="text" class="form-control" name="sporsmaal[]" placeholder="Skriv inn ett spørsmål i hvert felt..." aria-label="sporsmaal" aria-describedby="basic-addon1">
             </div>

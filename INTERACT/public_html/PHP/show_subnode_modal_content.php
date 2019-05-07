@@ -9,7 +9,7 @@ $row = mysqli_fetch_array($result);
 if($result){
   echo "
   <div class='modal-header'>
-    <h5 class='modal-title' id='exampleModalLongTitle'>" . $row['overskrift'] . "</h5>
+    <h5 class='modal-title'>" . $row['overskrift'] . "</h5>
     <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
       <span aria-hidden='true'>&times;</span>
     </button>
