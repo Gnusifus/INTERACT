@@ -44,6 +44,22 @@ $(function(){
     }
   });
 
+  $('.empty_modal').on('hide.bs.modal', function(e){
+    if($(this).find("#endre_subnode").length > 0){
+      var sure = confirm("Du er nå i ferd med å forkaste dine innfylte felt.\nVelg OK for å forkaste, eller AVBRYT for å fortsette innfyllingen.");
+      if (sure == true) {
+        $('.modal').on('hidden.bs.modal', function() {
+          location.reload();
+        });
+      }
+      else{
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        return false;
+      }
+    }
+  });
+
   //new_case_subnode_modal handler, viser input basert på ikon-klikk i sub-node-modal
   $(".addText").click(function(){
     $(this).parents().eq(3).find(".textInput").show("200");

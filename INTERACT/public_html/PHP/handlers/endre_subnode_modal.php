@@ -7,7 +7,7 @@ $result = mysqli_query($conn,$sql);
 $row = mysqli_fetch_array($result);
 ?>
 <!-- Modal ny node -->
-      <div class="modal-header">
+      <div class="modal-header" id="endre_subnode">
         <h5 class="modal-title">Endre "<?php echo $row['overskrift'] ?>"</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
