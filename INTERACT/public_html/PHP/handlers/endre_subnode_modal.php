@@ -18,7 +18,7 @@ $row = mysqli_fetch_array($result);
 
             <!--Overskrift * -->
             <div class="form-group">
-              <label>Endre overskrift</label>
+              <label>Overskrift</label>
               <input type="text" class="form-control" name="overskrift" value="<?php echo $row['overskrift'] ?>" required>
             </div>
 
@@ -29,10 +29,10 @@ $row = mysqli_fetch_array($result);
               while($rowBilde = mysqli_fetch_array($resultBilde)){ ?>
                 <!-- Bilde -->
                 <div class="form-group">
-                  <label>Endre bilde</label>
+                  <label>Bilde</label>
                   <div class="custom-file">
                     <input type="file" class="custom-file-input image-input" id="inputGroupFile02" name="bildeup">
-                    <label class="custom-file-label" name="bilde" for="inputGroupFile02">Last opp et nytt bilde her...</label>
+                    <label class="custom-file-label" name="bilde" for="inputGroupFile02"><?php echo $rowBilde['bilde'] ?></label>
                     <div class="feil d-none text-danger">Bildet må være av typen gif, jpeg eller png!</div>
                   </div>
                 </div>
@@ -58,10 +58,10 @@ $row = mysqli_fetch_array($result);
               while($rowDoc = mysqli_fetch_array($resultDoc)){ ?>
                 <!-- Dokument -->
                 <div class="form-group">
-                <label>Endre dokument</label>
+                <label>Dokument</label>
                   <div class="custom-file">
                     <input type="file" class="custom-file-input document-input" id="inputGroupFile02" name="dokumentup">
-                    <label class="custom-file-label" name="dokument" for="inputGroupFile02">Last opp et nytt dokument her...</label>
+                    <label class="custom-file-label" name="dokument" for="inputGroupFile02"><?php echo $rowDoc['dokument'] ?></label>
                     <div class="feil d-none text-danger">Dokumentet du har lastet opp er i et ugyldig format!</div>
                     <div class="anbefal d-none text-warning">Formatet er gyldig, men anbefalt format er .pdf.</div>
                   </div>
@@ -101,7 +101,7 @@ $row = mysqli_fetch_array($result);
               while($rowLenke = mysqli_fetch_array($resultLenke)){ ?>
                 <!-- Lenke -->
                 <div class="form-group">
-                  <label>Endre lenke</label>
+                  <label>Lenke</label>
                   <input type="text" class="form-control link-input" name="lenke" value="<?php echo $rowLenke['link'] ?>">
                   <div class="feil d-none text-danger">Påse at du har kopiert linken direkte fra nettleseren, denne linken er ikke gyldig!</div>
                 </div>
@@ -117,14 +117,14 @@ $row = mysqli_fetch_array($result);
             else{ ?>
               <!-- Lenke -->
               <div class="form-group" id="linkInput">
-                <label>Lenke<div class="removeInput"><div id="removeInput-text">Fjern lenken</div><i class="fa fa-remove"></i></div></label>
+                <label>Legg til lenke<div class="removeInput"><div id="removeInput-text">Fjern lenken</div><i class="fa fa-remove"></i></div></label>
                 <input type="text" class="form-control link-input" name="lenke" placeholder="Lim inn en lenke her...">
-                <div class="feil d-none text-danger">Påse at du har kopiert linken direkte fra nettleseren, denne linken er ikke gyldig!</div>
+                <div class="feil d-none text-danger">Påse at du har kopiert lenken direkte fra nettleseren, denne lenken er ikke gyldig!</div>
               </div>
 
               <!-- Lenke beksrivelse -->
               <div class="form-group" id="linkInput_beskrivelse">
-                <label>Skriv inn et ord eller to om hva som befinner seg bak linken</label>
+                <label>Skriv inn et ord eller to om hva som befinner seg bak lenken</label>
                 <input type="text" class="form-control link-desc" name="lenke_beksrivelse" placeholder="Feks. kosthold, legemiddelhåndtering eller bruk av tannpirker">
               </div>
             <?php
@@ -136,8 +136,8 @@ $row = mysqli_fetch_array($result);
               while($rowTxt = mysqli_fetch_array($resultTxt)){ ?>
                 <!-- Tekst -->
                 <div class="form-group">
-                  <label>Endre tekst</label><div class="float-right text-muted" id="teller"></div>
-                  <textarea class="form-control" name="tekst" rows="3" onkeyup="countChar(this)" value="<?php $rowTxt['tekst'] ?>"></textarea>
+                  <label>Tekst</label><div class="float-right text-muted" id="teller"></div>
+                  <textarea class="form-control" name="tekst" rows="3" onkeyup="countChar(this)"><?php echo $rowTxt['tekst'] ?></textarea>
                 </div>
               <?php
               }
@@ -145,7 +145,7 @@ $row = mysqli_fetch_array($result);
             else{ ?>
               <!-- Tekst -->
               <div class="form-group" id="textInput">
-                <label>Tekst</label><div class="float-right text-muted" id="teller"></div>
+                <label>Legg til tekst</label><div class="float-right text-muted" id="teller"></div>
                 <textarea class="form-control" name="tekst" rows="3" onkeyup="countChar(this)" placeholder="Skriv tekst her..."></textarea>
               </div>
             <?php
@@ -154,11 +154,13 @@ $row = mysqli_fetch_array($result);
             $sqlYt="SELECT * FROM videolink WHERE sub_nodes_idsub_nodes = '$idsub_nodes'";
             $resultYt = mysqli_query($conn,$sqlYt);
             if(mysqli_num_rows($resultYt) > 0){
-              while($rowYt = mysqli_fetch_array($resultYt)){ ?>
+              while($rowYt = mysqli_fetch_array($resultYt)){
+                $fullLink = "https://www.youtube.com/watch?v=" . $rowYt['videolink'];
+                 ?>
                 <!-- Youtube -->
                 <div class="form-group">
-                <label>Endre youtube-video</label>
-                  <input type="text" class="form-control yt-video" name="ytvideo" value="<?php $rowYt['videolink'] ?>">
+                <label>Youtube-video</label>
+                  <input type="text" class="form-control yt-video" name="ytvideo" value="<?php echo $fullLink ?>">
                   <div class="feil d-none text-danger">Linken du har limt inn er ingen gyldig YouTube-link</div>
                 </div>
               <?php
@@ -167,7 +169,7 @@ $row = mysqli_fetch_array($result);
             else{ ?>
               <!-- Youtube -->
               <div class="form-group videoInput">
-              <label>Youtube-video<div class="removeInput"><div id="removeInput-text">Fjern videoen</div><i class="fa fa-remove"></i></div></label>
+              <label>Legg til youtube-video<div class="removeInput"><div id="removeInput-text">Fjern videoen</div><i class="fa fa-remove"></i></div></label>
                 <input type="text" class="form-control yt-video" name="ytvideo" placeholder="Lim inn en lenke her...">
                 <div class="feil d-none text-danger">Linken du har limt inn er ingen gyldig YouTube-link</div>
               </div>
@@ -180,10 +182,10 @@ $row = mysqli_fetch_array($result);
               while($rowVideo = mysqli_fetch_array($resultVideo)){ ?>
                 <!-- Video -->
                   <div class="form-group">
-                  <label>Endre video</label>
+                  <label>Video</label>
                     <div class="custom-file">
                       <input type="file" class="custom-file-input video-input" id="inputGroupFile02" name="videoup">
-                      <label class="custom-file-label" name="video" for="inputGroupFile02">Last opp en ny video her...</label>
+                      <label class="custom-file-label" name="video" for="inputGroupFile02"><?php echo $rowVideo['video'] ?></label>
                       <div class="feil d-none text-danger">Videoen må være av typen .mp4, .ogg eller .webm!<br>
                                                           Har du en video i annet format, eller en lengre video,
                                                           anbefales det å laste opp videoen på YouTube.</div>
@@ -213,7 +215,7 @@ $row = mysqli_fetch_array($result);
               while($rowLyd = mysqli_fetch_array($resultLyd)){ ?>
                 <!-- Lyd -->
                 <div class="form-group">
-                <label>Endre lydfil</label>
+                <label>Lydfil</label>
                   <div class="custom-file">
                     <input type="file" class="custom-file-input audio-input" id="inputGroupFile02" name="lydup">
                     <label class="custom-file-label" name="lyd" for="inputGroupFile02">Last opp en ny lydfil her...</label>
@@ -248,7 +250,7 @@ $row = mysqli_fetch_array($result);
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1"><i class="fa fa-remove"></i></span>
                   </div>
-                  <input type="text" class="form-control" name="sporsmaal[]" placeholder="Skriv inn ett spørsmål i hvert felt..." aria-label="sporsmaal" aria-describedby="basic-addon1">
+                  <input type="text" class="form-control" name="sporsmaal[]" value="<?php echo $rowSpm['sporsmaal'] ?>" aria-label="sporsmaal" aria-describedby="basic-addon1">
                 </div>
               <?php
               } ?>
@@ -272,7 +274,7 @@ $row = mysqli_fetch_array($result);
             }
             ?>
 
-            <div class="form-group col-md-12">
+            <div class="form-group">
               <span data-toggle='tooltip' data-placement='top' title='Legg til bilde'>
               <button type="button" id='addImage' class="btn btn-primary btn-circle btn-xl"><i class="fas fa-camera"></i></button>
               </span>
@@ -294,7 +296,8 @@ $row = mysqli_fetch_array($result);
               <span data-toggle='tooltip' data-placement='top' title='Legg til oppgave'>
               <button type="button" id='addQuestion' class="btn btn-dark btn-circle btn-xl"><i class="fas fa-tasks"></i></button>
             </div>
-            <input type="submit" value="Legg til" name="submit" class="btn btn-primary mb-2">
+
+            <input type="submit" value="Lagre endringer" name="submit" class="btn btn-primary mb-2">
           </form>
 
       </div><!-- modal-body end -->
