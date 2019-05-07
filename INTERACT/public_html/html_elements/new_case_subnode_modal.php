@@ -28,8 +28,7 @@ $row = mysqli_fetch_array($result);
 
             <!-- Bilde -->
             <div class="form-group col-md-12" id="imageInput">
-              <label>Bilde</label>
-              <div class="removeInput"><div id="removeInput-text">Fjern bildet</div><i class="fa fa-remove"></i></div>
+              <label>Bilde<div class="removeInput"><div id="removeInput-text">Fjern bildet</div><i class="fa fa-remove"></i></div></label>
               <div class="custom-file">
                 <input type="file" class="custom-file-input image-input" id="inputGroupFile02" name="bildeup">
                 <label class="custom-file-label" name="bilde" for="inputGroupFile02">Last opp et bilde her...</label>
@@ -39,8 +38,7 @@ $row = mysqli_fetch_array($result);
 
             <!-- Dokument -->
             <div class="form-group col-md-12" id="documentInput">
-            <label>Dokument</label>
-            <div class="removeInput"><div id="removeInput-text">Fjern dokumentet</div><i class="fa fa-remove"></i></div>
+            <label>Dokument<div class="removeInput"><div id="removeInput-text">Fjern dokumentet</div><i class="fa fa-remove"></i></div></label>
               <div class="custom-file">
                 <input type="file" class="custom-file-input document-input" id="inputGroupFile02" name="dokumentup">
                 <label class="custom-file-label" name="dokument" for="inputGroupFile02">Last opp et dokument her...</label>
@@ -57,8 +55,7 @@ $row = mysqli_fetch_array($result);
 
             <!-- Lenke -->
             <div class="form-group col-md-12" id="linkInput">
-              <label>Lenke</label>
-              <div class="removeInput"><div id="removeInput-text">Fjern lenken</div><i class="fa fa-remove"></i></div>
+              <label>Lenke<div class="removeInput"><div id="removeInput-text">Fjern lenken</div><i class="fa fa-remove"></i></div></label>
               <input type="text" class="form-control link-input" name="lenke" placeholder="Lim inn en lenke her...">
               <div class="feil d-none text-danger">Påse at du har kopiert linken direkte fra nettleseren, denne linken er ikke gyldig!</div>
             </div>
@@ -71,14 +68,14 @@ $row = mysqli_fetch_array($result);
 
             <!-- Tekst -->
             <div class="form-group col-md-12" id="textInput">
-              <label>Tekst</label><div class="float-right text-muted" id="teller"></div>
+              <label>Tekst<div class="removeInput"><div id="removeInput-text">Fjern teksten</div><i class="fa fa-remove"></i></div></label>
+              <div class="float-right text-muted" id="teller"></div>
               <textarea class="form-control" name="tekst" rows="3" onkeyup="countChar(this)" placeholder="Skriv tekst her..."></textarea>
             </div>
 
             <!-- Video -->
               <div class="form-group col-md-6 videoInput">
-              <label>Video</label>
-              <div class="removeInput"><div id="removeInput-text">Fjern videoen</div><i class="fa fa-remove"></i></div>
+              <label>Video<div class="removeInput"><div id="removeInput-text">Fjern videoen</div><i class="fa fa-remove"></i></div></label>
                 <div class="custom-file">
                   <input type="file" class="custom-file-input video-input" id="inputGroupFile02" name="videoup">
                   <label class="custom-file-label" name="video" for="inputGroupFile02">Last opp en video her...</label>
@@ -90,16 +87,14 @@ $row = mysqli_fetch_array($result);
 
 
               <div class="form-group col-md-6 videoInput">
-              <label>Youtube-video</label>
-              <div class="removeInput"><div id="removeInput-text">Fjern videoen</div><i class="fa fa-remove"></i></div>
+              <label>Youtube-video<div class="removeInput"><div id="removeInput-text">Fjern videoen</div><i class="fa fa-remove"></i></div></label>
                 <input type="text" class="form-control yt-video" name="ytvideo" placeholder="Lim inn en lenke her...">
                 <div class="feil d-none text-danger">Linken du har limt inn er ingen gyldig YouTube-link</div>
               </div>
 
             <!-- Lyd -->
             <div class="form-group col-md-12" id="audioInput">
-            <label>Lydfil</label>
-            <div class="removeInput"><div id="removeInput-text">Fjern lydfilen</div><i class="fa fa-remove"></i></div>
+            <label>Lydfil<div class="removeInput"><div id="removeInput-text">Fjern lydfilen</div><i class="fa fa-remove"></i></div></label>
               <div class="custom-file">
                 <input type="file" class="custom-file-input audio-input" id="inputGroupFile02" name="lydup">
                 <label class="custom-file-label" name="lyd" for="inputGroupFile02">Last opp en lydfil her...</label>

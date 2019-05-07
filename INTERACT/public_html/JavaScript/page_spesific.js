@@ -88,7 +88,7 @@ $(function(){
 
   //Fjener input-felt i "ny-subnode-modal"
   $(".removeInput").mouseenter(function(){
-    $(this).find("#removeInput-text").stop(1,1).fadeIn("500");
+    $(this).find("#removeInput-text").css("display", "inline-block").stop(1,1).fadeIn("500");
   }).mouseleave(function () {
     $(this).find("#removeInput-text").stop(1,1).fadeOut("500");
   }).click(function(){
