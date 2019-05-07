@@ -7,6 +7,11 @@ $(function(){
   var validAudioTypes = ["audio/ogg", "audio/wav", "audio/mp3"];
 
   $('.custom-file-input').on('change', function(){
+
+    //Viser filnavn i inputfelt når lastet opp
+    let fileName = $(this).val().split('\\').pop();
+    $(this).next('.custom-file-label').addClass("selected").html(fileName);
+
     var file = this.files[0];
     var fileType = file["type"];
     var fileSize = this.files[0].size;
@@ -17,73 +22,55 @@ $(function(){
       $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", true);
     }
     else {
-      $(this).parent().find(".size").removeClass("d-block");
-      $(this).parent().find(".size").addClass("d-none");
+      $(this).parent().find(".size").removeClass("d-block").addClass("d-none");
       $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", false);
     }
 
-    //Viser filnavn i inputfelt når lastet opp
-    let fileName = $(this).val().split('\\').pop();
-    $(this).next('.custom-file-label').addClass("selected").html(fileName);
-
     if ($(this).hasClass("image-input")){
       if ($.inArray(fileType, validImageTypes) < 0) {
-         $(this).parent().find(".feil").addClass("d-block");
-         $(this).parent().find(".feil").removeClass("d-none");
-           $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", true);
+          $(this).parent().find(".feil").addClass("d-block").removeClass("d-none");
+          $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", true);
        }
      else{
-       $(this).parent().find(".feil").removeClass("d-block");
-       $(this).parent().find(".feil").addClass("d-none");
-         $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", false);
+        $(this).parent().find(".feil").removeClass("d-block").addClass("d-none");
+        $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", false);
      }
     }
 
     if ($(this).hasClass("video-input")){
       if ($.inArray(fileType, validVideoTypes) < 0) {
-         $(this).parent().find(".feil").addClass("d-block");
-         $(this).parent().find(".feil").removeClass("d-none");
+          $(this).parent().find(".feil").addClass("d-block").removeClass("d-none");
           $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", true);
        }
      else{
-       $(this).parent().find(".feil").removeClass("d-block");
-       $(this).parent().find(".feil").addClass("d-none");
+        $(this).parent().find(".feil").removeClass("d-block").addClass("d-none");
         $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", false);
      }
     }
 
 if ($(this).hasClass("audio-input")){
       if ($.inArray(fileType, validAudioTypes) < 0) {
-         $(this).parent().find(".feil").addClass("d-block");
-         $(this).parent().find(".feil").removeClass("d-none");
-           $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", true);
+         $(this).parent().find(".feil").addClass("d-block").removeClass("d-none");
+         $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", true);
        }
      else{
-       $(this).parent().find(".feil").removeClass("d-block");
-       $(this).parent().find(".feil").addClass("d-none");
-         $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", false);
+       $(this).parent().find(".feil").removeClass("d-block").addClass("d-none");
+       $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", false);
      }
     }
 
     if ($(this).hasClass("document-input")){
       //Sjekker dokument
       if ($.inArray(fileType, validDocTypes) < 0) {
-        $('#documentInput_beskrivelse').hide("200");
-         $(this).parent().find(".feil").addClass("d-block");
-         $(this).parent().find(".feil").removeClass("d-none");
-         $(this).parent().find(".anbefal").removeClass("d-block");
-         $(this).parent().find(".anbefal").addClass("d-none");
-           $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", true);
+        $('.documentInput_beskrivelse').val("").hide("200");
+        $(this).parent().find(".feil").addClass("d-block").removeClass("d-none");
+        $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", true);
        }
 
-
      else{
-         $('#documentInput_beskrivelse').show("200");
-         $(this).parent().find(".feil").removeClass("d-block");
-         $(this).parent().find(".feil").addClass("d-none");
-         $(this).parent().find(".anbefal").removeClass("d-block");
-         $(this).parent().find(".anbefal").addClass("d-none");
-            $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", false);
+         $('.documentInput_beskrivelse').show("200");
+         $(this).parent().find(".feil").removeClass("d-block").addClass("d-none");
+         $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", false);
        }
 }
 
@@ -97,16 +84,14 @@ if ($(this).hasClass("audio-input")){
 
     if(val.match(regex)){
       //show Hva inneholder linken
-      $("#linkInput_beskrivelse").show("200");
-      $(this).parent().find(".feil").removeClass("d-block");
-      $(this).parent().find(".feil").addClass("d-none");
-         $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", false);
+      $(".linkInput_beskrivelse").show("200");
+      $(this).parent().find(".feil").removeClass("d-block").addClass("d-none");
+      $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", false);
     }
     else{
-      $("#linkInput_beskrivelse").hide("200");
-      $(this).parent().find(".feil").addClass("d-block");
-      $(this).parent().find(".feil").removeClass("d-none");
-         $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", true);
+      $(".linkInput_beskrivelse").val("").hide("200");
+      $(this).parent().find(".feil").addClass("d-block").removeClass("d-none");
+      $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", true);
     }
   });
 
@@ -118,14 +103,12 @@ if ($(this).hasClass("audio-input")){
     var val = $(this).val();
 
     if(val.match(regex)){
-      $(this).parent().find(".feil").removeClass("d-block");
-      $(this).parent().find(".feil").addClass("d-none");
-         $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", false);
+      $(this).parent().find(".feil").removeClass("d-block").addClass("d-none");
+      $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", false);
     }
     else{
-      $(this).parent().find(".feil").addClass("d-block");
-      $(this).parent().find(".feil").removeClass("d-none");
-         $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", true);
+      $(this).parent().find(".feil").addClass("d-block").removeClass("d-none");
+      $(this).parent().parent().parent().parent().find('input[type="submit"]').prop("disabled", true);
     }
   });
 

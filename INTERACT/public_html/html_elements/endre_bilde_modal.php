@@ -29,27 +29,40 @@ $row = mysqli_fetch_array($result);
             <textarea class="form-control" name="beskrivelse" rows="3" required="required" onkeyup="countChar(this)"><?php echo $row['tekst']?></textarea>
           </div>
 
-        <div class="form-group lastOppBilde">
-          <div class="custom-file">
-            <input type="file" class="custom-file-input nyBilde" id="inputGroupFile02" name="bildeup">
-            <label class="custom-file-label" for="inputGroupFile02">Last opp nytt bilde...</label>
-            <div class="feil d-none text-danger">Bildet må være av typen .gif, .jpeg eller .png!</div>
-            <div class="size d-none text-danger">Filen kan ikke være større enn 2MB!</div>
+          <div class="form-group lastOppBilde">
+            <label>Bilde</label>
+            <div class="custom-file">
+              <input type="file" class="custom-file-input nyBilde" id="inputGroupFile02" name="bildeup">
+              <label class="custom-file-label" for="inputGroupFile02"><?php echo $row['bilde'] ?></label>
+              <div class="feil d-none text-danger">Bildet må være av typen .gif, .jpeg eller .png!</div>
+              <div class="size d-none text-danger">Filen kan ikke være større enn 2MB!</div>
+            </div>
+              <div class="float-right">
+                <div class="onoffswitch">
+                  <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch">
+                  <label class="onoffswitch-label" for="myonoffswitch">
+                      <span class="onoffswitch-inner"></span>
+                      <span class="onoffswitch-switch"></span>
+                  </label>
+              </div>
+            </div>
           </div>
-        </div>
 
-        <div class="form-group float-right">
-          <label for="checkbox" class="btn btn-warning">Slett bilde
-            <input type="checkbox" id="checkbox" class="badgebox" name="slett_bilde">
-            <span class="badge">&check;</span>
-          </label>
-        </div>
-        <br><br><hr>
+        <br><hr>
           <input type="submit" value="Lagre endringer" name="submit_endre" class="btn btn-primary mb-2">
       </div>
     </form>
+    <script>
+    $(".onoffswitch").click(function(){
+      if($(".onoffswitch").find("input[type='checkbox']").prop('checked')){
+        $(".onoffswitch").parents().eq(1).find(".custom-file").hide("200").val("");
+      }
+      else{
+        $(".onoffswitch").parents().eq(1).find(".custom-file").show("200");
+      }
+    });
+    </script>
 
     </div>
   </div>
 </div>
-<!-- Modal end -->
