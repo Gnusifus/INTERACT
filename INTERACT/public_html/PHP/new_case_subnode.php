@@ -73,12 +73,11 @@ if(isset($_POST['submit'])){
     }
     if(isset($dokument)){
       $docdir = "../doc/";
-      $docpath = $dokument;
       $docbeskrivelse = $_POST['dokument_beksrivelse'];
-      if(move_uploaded_file($_FILES['dokumentup']['tmp_name'], $docdir.$docpath)){
+      if(move_uploaded_file($_FILES['dokumentup']['tmp_name'], $docdir.$dokument)){
         $docsql = "INSERT INTO dokument (dokument, sub_nodes_idsub_nodes, sub_nodes_nodes_idnodes, sub_nodes_nodes_cases_idcases, beskrivelse)
-                      VALUES ('$docpath', $sub_node, '$node', '$case', '$docbeskrivelse')";
-        mysqli_query($conn, $docsql);
+                    VALUES ('$dokument', $sub_node, '$node', '$case', '$docbeskrivelse')";
+        $test = mysqli_query($conn, $docsql);
       }
     }
 

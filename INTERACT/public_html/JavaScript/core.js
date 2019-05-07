@@ -7,11 +7,6 @@ $(function(){
   var validAudioTypes = ["audio/ogg", "audio/wav", "audio/mp3"];
 
   $('.custom-file-input').on('change', function(){
-
-    //Viser filnavn i inputfelt når lastet opp
-    let fileName = $(this).val().split('\\').pop();
-    $(this).next('.custom-file-label').addClass("selected").html(fileName);
-
     var file = this.files[0];
     var fileType = file["type"];
     var fileSize = this.files[0].size;

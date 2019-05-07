@@ -20,12 +20,12 @@ $row = mysqli_fetch_array($result);
         <form action="./PHP/endre_main_case.php?case=<?php echo $case ?>" method="post" enctype="multipart/form-data">
 
           <div class="form-group" required>
-            <label for="exampleFormControlInput1">Endre case tittel</label><div class="float-right text-muted" id="tellerTittel"></div>
+            <label>Endre case tittel</label><div class="float-right text-muted" id="tellerTittel"></div>
             <input type="text" class="form-control" name="overskrift" onkeyup="countCharTitle(this)" value="<?php echo $row['tittel']?>" required>
           </div>
 
           <div class="form-group" required>
-            <label class="control-label" for="beskrivelse" >Case beskrivelse</label><div class="float-right text-muted" id="teller"></div>
+            <label for="beskrivelse">Case beskrivelse</label><div class="float-right text-muted" id="teller"></div>
             <textarea class="form-control" name="beskrivelse" rows="3" required="required" onkeyup="countChar(this)"><?php echo $row['tekst']?></textarea>
           </div>
 
@@ -39,7 +39,7 @@ $row = mysqli_fetch_array($result);
             </div>
               <div class="float-right">
                 <div class="onoffswitch">
-                  <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch">
+                  <input type="checkbox" name="slett_bilde" class="onoffswitch-checkbox" id="myonoffswitch">
                   <label class="onoffswitch-label" for="myonoffswitch">
                       <span class="onoffswitch-inner"></span>
                       <span class="onoffswitch-switch"></span>
@@ -52,17 +52,6 @@ $row = mysqli_fetch_array($result);
           <input type="submit" value="Lagre endringer" name="submit_endre" class="btn btn-primary mb-2">
       </div>
     </form>
-    <script>
-    $(".onoffswitch").click(function(){
-      if($(".onoffswitch").find("input[type='checkbox']").prop('checked')){
-        $(".onoffswitch").parents().eq(1).find(".custom-file").hide("200").val("");
-      }
-      else{
-        $(".onoffswitch").parents().eq(1).find(".custom-file").show("200");
-      }
-    });
-    </script>
-
     </div>
   </div>
 </div>

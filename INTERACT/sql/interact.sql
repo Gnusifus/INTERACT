@@ -199,6 +199,7 @@ CREATE TABLE IF NOT EXISTS `interact`.`link` (
   `sub_nodes_idsub_nodes` INT NOT NULL,
   `sub_nodes_nodes_idnodes` INT NOT NULL,
   `sub_nodes_nodes_cases_idcases` INT NOT NULL,
+  `beskrivelse` VARCHAR(255) NULL,
   PRIMARY KEY (`idlink`, `sub_nodes_idsub_nodes`, `sub_nodes_nodes_idnodes`, `sub_nodes_nodes_cases_idcases`),
   INDEX `fk_link_sub_nodes1_idx` (`sub_nodes_idsub_nodes` ASC, `sub_nodes_nodes_idnodes` ASC, `sub_nodes_nodes_cases_idcases` ASC),
   CONSTRAINT `fk_link_sub_nodes1`
@@ -220,6 +221,7 @@ CREATE TABLE IF NOT EXISTS `interact`.`dokument` (
   `sub_nodes_idsub_nodes` INT NOT NULL,
   `sub_nodes_nodes_idnodes` INT NOT NULL,
   `sub_nodes_nodes_cases_idcases` INT NOT NULL,
+  `beskrivelse` VARCHAR(255) NULL,
   PRIMARY KEY (`iddokument`, `sub_nodes_idsub_nodes`, `sub_nodes_nodes_idnodes`, `sub_nodes_nodes_cases_idcases`),
   INDEX `fk_dokument_sub_nodes1_idx` (`sub_nodes_idsub_nodes` ASC, `sub_nodes_nodes_idnodes` ASC, `sub_nodes_nodes_cases_idcases` ASC),
   CONSTRAINT `fk_dokument_sub_nodes1`

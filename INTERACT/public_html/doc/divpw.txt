@@ -1,0 +1,12 @@
+TeamViewer:
+ID: 	1 157 397 747
+PW:	w8ZD+VAiJ5
+
+FTP:
+User:	Frida
+PW:	Frid@3617זרו
+(PW til SSL certifisering: Frid@3617זרו)
+
+Apache/SQL:
+User:	root
+PW:	Frid@3617זרו

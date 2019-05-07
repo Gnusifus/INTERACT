@@ -29,11 +29,20 @@ $row = mysqli_fetch_array($result);
               while($rowBilde = mysqli_fetch_array($resultBilde)){ ?>
                 <!-- Bilde -->
                 <div class="form-group">
-                  <label>Bilde<div class="removeInput"><div id="removeInput-text">Slett bildet</div><i class="fa fa-remove"></i></div></label>
+                  <label>Bilde</label>
                   <div class="custom-file">
                     <input type="file" class="custom-file-input image-input" id="inputGroupFile02" name="bildeup">
                     <label class="custom-file-label" name="bilde" for="inputGroupFile02"><?php echo $rowBilde['bilde'] ?></label>
                     <div class="feil d-none text-danger">Bildet må være av typen gif, jpeg eller png!</div>
+                  </div>
+                    <div class="float-right">
+                      <div class="onoffswitch">
+                        <input type="checkbox" name="slett_bilde" class="onoffswitch-checkbox" id="myonoffswitch1">
+                        <label class="onoffswitch-label" for="myonoffswitch1">
+                            <span class="onoffswitch-inner"></span>
+                            <span class="onoffswitch-switch"></span>
+                        </label>
+                    </div>
                   </div>
                 </div>
               <?php
@@ -58,13 +67,22 @@ $row = mysqli_fetch_array($result);
               while($rowDoc = mysqli_fetch_array($resultDoc)){ ?>
                 <!-- Dokument -->
                 <div class="form-group">
-                <label>Dokument<div class="removeInput"><div id="removeInput-text">Slett dokumentet</div><i class="fa fa-remove"></i></div></label>
+                <label>Dokument</label>
                   <div class="custom-file">
                     <input type="file" class="custom-file-input document-input" id="inputGroupFile02" name="dokumentup">
                     <label class="custom-file-label" name="dokument" for="inputGroupFile02"><?php echo $rowDoc['dokument'] ?></label>
                     <div class="feil d-none text-danger">Dokumentet du har lastet opp er i et ugyldig format!</div>
                     <div class="anbefal d-none text-warning">Formatet er gyldig, men anbefalt format er .pdf.</div>
                   </div>
+                  <div class="float-right">
+                    <div class="onoffswitch">
+                      <input type="checkbox" name="slett_dokument" class="onoffswitch-checkbox" id="myonoffswitch2">
+                      <label class="onoffswitch-label" for="myonoffswitch2">
+                          <span class="onoffswitch-inner"></span>
+                          <span class="onoffswitch-switch"></span>
+                      </label>
+                  </div>
+                </div>
                 </div>
 
                 <!-- dokument beksrivelse -->
@@ -101,9 +119,22 @@ $row = mysqli_fetch_array($result);
               while($rowLenke = mysqli_fetch_array($resultLenke)){ ?>
                 <!-- Lenke -->
                 <div class="form-group">
-                  <label>Lenke<div class="removeInput"><div id="removeInput-text">Slett lenken</div><i class="fa fa-remove"></i></div></label>
-                  <input type="text" class="form-control link-input" name="lenke" value="<?php echo $rowLenke['link'] ?>">
-                  <div class="feil d-none text-danger">Påse at du har kopiert linken direkte fra nettleseren, denne linken er ikke gyldig!</div>
+                  <div class="input">
+                    <label>Lenke</label>
+                    <div class="input">
+                      <input type="text" class="form-control link-input" name="lenke" value="<?php echo $rowLenke['link'] ?>">
+                      <div class="feil d-none text-danger">Påse at du har kopiert linken direkte fra nettleseren, denne linken er ikke gyldig!</div>
+                    </div>
+                  </div>
+                  <div class="float-right">
+                    <div class="onoffswitch">
+                      <input type="checkbox" name="slett_lenke" class="onoffswitch-checkbox" id="myonoffswitch3">
+                      <label class="onoffswitch-label" for="myonoffswitch3">
+                          <span class="onoffswitch-inner"></span>
+                          <span class="onoffswitch-switch"></span>
+                      </label>
+                  </div>
+                </div>
                 </div>
 
                 <!-- Lenke beksrivelse -->
@@ -136,8 +167,19 @@ $row = mysqli_fetch_array($result);
               while($rowTxt = mysqli_fetch_array($resultTxt)){ ?>
                 <!-- Tekst -->
                 <div class="form-group">
-                  <label>Tekst<div class="removeInput"><div id="removeInput-text">Slett teksten</div><i class="fa fa-remove"></i></div></label><div class="float-right text-muted" id="teller"></div>
-                  <textarea class="form-control" name="tekst" rows="3" onkeyup="countChar(this)"><?php echo $rowTxt['tekst'] ?></textarea>
+                  <label>Tekst</label><div class="float-right text-muted" id="teller"></div>
+                  <div class="input">
+                    <textarea class="form-control" name="tekst" rows="3" onkeyup="countChar(this)"><?php echo $rowTxt['tekst'] ?></textarea>
+                  </div>
+                    <div class="float-right">
+                      <div class="onoffswitch">
+                        <input type="checkbox" name="slett_tekst" class="onoffswitch-checkbox" id="myonoffswitch4">
+                        <label class="onoffswitch-label" for="myonoffswitch4">
+                            <span class="onoffswitch-inner"></span>
+                            <span class="onoffswitch-switch"></span>
+                        </label>
+                    </div>
+                  </div>
                 </div>
               <?php
               }
@@ -159,9 +201,20 @@ $row = mysqli_fetch_array($result);
                  ?>
                 <!-- Youtube -->
                 <div class="form-group">
-                <label>Youtube-video<div class="removeInput"><div id="removeInput-text">Slett YouTube-videoen</div><i class="fa fa-remove"></i></div></label>
-                  <input type="text" class="form-control yt-video" name="ytvideo" value="<?php echo $fullLink ?>">
-                  <div class="feil d-none text-danger">Linken du har limt inn er ingen gyldig YouTube-link</div>
+                <label>Youtube-video</label>
+                  <div class="input">
+                    <input type="text" class="form-control yt-video" name="ytvideo" value="<?php echo $fullLink ?>">
+                    <div class="feil d-none text-danger">Linken du har limt inn er ingen gyldig YouTube-link</div>
+                  </div>
+                  <div class="float-right">
+                    <div class="onoffswitch">
+                      <input type="checkbox" name="slett_youtube" class="onoffswitch-checkbox" id="myonoffswitch5">
+                      <label class="onoffswitch-label" for="myonoffswitch5">
+                          <span class="onoffswitch-inner"></span>
+                          <span class="onoffswitch-switch"></span>
+                      </label>
+                  </div>
+                </div>
                 </div>
               <?php
               }
@@ -182,7 +235,7 @@ $row = mysqli_fetch_array($result);
               while($rowVideo = mysqli_fetch_array($resultVideo)){ ?>
                 <!-- Video -->
                   <div class="form-group">
-                  <label>Video<div class="removeInput"><div id="removeInput-text">Slett videoen</div><i class="fa fa-remove"></i></div></label>
+                  <label>Video</label>
                     <div class="custom-file">
                       <input type="file" class="custom-file-input video-input" id="inputGroupFile02" name="videoup">
                       <label class="custom-file-label" name="video" for="inputGroupFile02"><?php echo $rowVideo['video'] ?></label>
@@ -190,6 +243,15 @@ $row = mysqli_fetch_array($result);
                                                           Har du en video i annet format, eller en lengre video,
                                                           anbefales det å laste opp videoen på YouTube.</div>
                     </div>
+                    <div class="float-right">
+                      <div class="onoffswitch">
+                        <input type="checkbox" name="slett_video" class="onoffswitch-checkbox" id="myonoffswitch6">
+                        <label class="onoffswitch-label" for="myonoffswitch6">
+                            <span class="onoffswitch-inner"></span>
+                            <span class="onoffswitch-switch"></span>
+                        </label>
+                    </div>
+                  </div>
                   </div>
               <?php
               }
@@ -215,12 +277,21 @@ $row = mysqli_fetch_array($result);
               while($rowLyd = mysqli_fetch_array($resultLyd)){ ?>
                 <!-- Lyd -->
                 <div class="form-group">
-                <label>Lydfil<div class="removeInput"><div id="removeInput-text">Slett lydfilen</div><i class="fa fa-remove"></i></div></label>
+                <label>Lydfil</label>
                   <div class="custom-file">
                     <input type="file" class="custom-file-input audio-input" id="inputGroupFile02" name="lydup">
                     <label class="custom-file-label" name="lyd" for="inputGroupFile02">Last opp en ny lydfil her...</label>
                     <div class="feil d-none text-danger">Lydfil må være av typen .mp3, .ogg eller .wav!</div>
                   </div>
+                  <div class="float-right">
+                    <div class="onoffswitch">
+                      <input type="checkbox" name="slett_lyd" class="onoffswitch-checkbox" id="myonoffswitch7">
+                      <label class="onoffswitch-label" for="myonoffswitch7">
+                          <span class="onoffswitch-inner"></span>
+                          <span class="onoffswitch-switch"></span>
+                      </label>
+                  </div>
+                </div>
                 </div>
               <?php
               }

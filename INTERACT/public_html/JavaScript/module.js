@@ -19,6 +19,11 @@
   };
 
 $(function(){
+  //Viser filnavn i inputfelt når lastet opp
+  $(document).on('change', '.custom-file-input', function(){
+    let fileName = $(this).val().split('\\').pop();
+    $(this).next('.custom-file-label').text(fileName);
+  });
 
 //Viser ikoner
   $(".case_card").mouseenter(function(){
@@ -85,6 +90,17 @@ $(function(){
           $(".empty_modal").modal('toggle');
         }
     });
+  });
+
+  $(document).on('change', '.onoffswitch', function(){
+    if($(this).find("input[type='checkbox']").prop('checked')){
+      $(this).parents().eq(1).find(".custom-file").hide("200");
+      $(this).parents().eq(1).find(".input").hide("200");
+    }
+    else{
+      $(this).parents().eq(1).find(".custom-file").show("200");
+      $(this).parents().eq(1).find(".input").show("200");
+    }
   });
 
   //Sletter sub_node
