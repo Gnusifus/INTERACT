@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `interact`.`cases` (
   `tittel` VARCHAR(45) NOT NULL,
   `publisert` TINYINT NOT NULL,
   `dato` DATETIME NOT NULL,
-  `tekst` VARCHAR(255) NOT NULL,
+  `tekst` TEXT(2000) NOT NULL,
   PRIMARY KEY (`idcases`))
 ENGINE = InnoDB;
 
@@ -90,7 +90,7 @@ DROP TABLE IF EXISTS `interact`.`tekst` ;
 
 CREATE TABLE IF NOT EXISTS `interact`.`tekst` (
   `idtekst` INT NOT NULL AUTO_INCREMENT,
-  `tekst` VARCHAR(255) NOT NULL,
+  `tekst` TEXT(2000) NOT NULL,
   `sub_nodes_idsub_nodes` INT NOT NULL,
   `sub_nodes_nodes_idnodes` INT NOT NULL,
   `sub_nodes_nodes_cases_idcases` INT NOT NULL,
@@ -132,7 +132,7 @@ DROP TABLE IF EXISTS `interact`.`sporsmaal` ;
 
 CREATE TABLE IF NOT EXISTS `interact`.`sporsmaal` (
   `idsporsmaal` INT NOT NULL AUTO_INCREMENT,
-  `sporsmaal` VARCHAR(45) NOT NULL,
+  `sporsmaal` VARCHAR(255) NOT NULL,
   `sub_nodes_idsub_nodes` INT NOT NULL,
   `sub_nodes_nodes_idnodes` INT NOT NULL,
   `sub_nodes_nodes_cases_idcases` INT NOT NULL,
@@ -199,7 +199,6 @@ CREATE TABLE IF NOT EXISTS `interact`.`link` (
   `sub_nodes_idsub_nodes` INT NOT NULL,
   `sub_nodes_nodes_idnodes` INT NOT NULL,
   `sub_nodes_nodes_cases_idcases` INT NOT NULL,
-  `beskrivelse` VARCHAR(45) NULL,
   PRIMARY KEY (`idlink`, `sub_nodes_idsub_nodes`, `sub_nodes_nodes_idnodes`, `sub_nodes_nodes_cases_idcases`),
   INDEX `fk_link_sub_nodes1_idx` (`sub_nodes_idsub_nodes` ASC, `sub_nodes_nodes_idnodes` ASC, `sub_nodes_nodes_cases_idcases` ASC),
   CONSTRAINT `fk_link_sub_nodes1`
@@ -221,7 +220,6 @@ CREATE TABLE IF NOT EXISTS `interact`.`dokument` (
   `sub_nodes_idsub_nodes` INT NOT NULL,
   `sub_nodes_nodes_idnodes` INT NOT NULL,
   `sub_nodes_nodes_cases_idcases` INT NOT NULL,
-  `beskrivelse` VARCHAR(45) NULL,
   PRIMARY KEY (`iddokument`, `sub_nodes_idsub_nodes`, `sub_nodes_nodes_idnodes`, `sub_nodes_nodes_cases_idcases`),
   INDEX `fk_dokument_sub_nodes1_idx` (`sub_nodes_idsub_nodes` ASC, `sub_nodes_nodes_idnodes` ASC, `sub_nodes_nodes_cases_idcases` ASC),
   CONSTRAINT `fk_dokument_sub_nodes1`
