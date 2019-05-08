@@ -105,8 +105,10 @@ $(function(){
   //Fjener input-felt i "ny-subnode-modal"
   $(document).on("mouseenter", ".removeInput", function(){
     $(this).find("#removeInput-text").css("display", "inline-block").stop(1,1).fadeIn("500");
+
   }).on("mouseleave", ".removeInput", function(){
     $(this).find("#removeInput-text").stop(1,1).fadeOut("500");
+    
   }).on("click", ".removeInput", function(){
     //Fjerner opplastet fil
     $(this).parents().eq(1).find(".custom-file-input").val(null);

@@ -114,12 +114,19 @@ $(function(){
 
   $(document).on('change', '.onoffswitch', function(){
     if($(this).find("input[type='checkbox']").prop('checked')){
-      $(this).parents().eq(1).find(".custom-file").hide("200");
-      $(this).parents().eq(1).find(".input").hide("200");
+      $(this).parents('.form-group').find(".custom-file").hide("200");
+      $(this).parents('.form-group').find(".input").hide("200");
+
+      if($(this).parents().eq(1).find(".document-input, .link-input").eq(0).length > 0){
+        $(this).parents('.form-group').next().hide("200");
+      }
     }
     else{
-      $(this).parents().eq(1).find(".custom-file").show("200");
-      $(this).parents().eq(1).find(".input").show("200");
+      if($(this).parents().eq(1).find(".document-input, .link-input").eq(0).length > 0){
+        $(this).parents('.form-group').next().show("200");
+      }
+      $(this).parents('.form-group').find(".custom-file").show("200");
+      $(this).parents('.form-group').find(".input").show("200");
     }
   });
 

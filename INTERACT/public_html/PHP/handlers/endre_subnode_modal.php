@@ -319,7 +319,7 @@ $row = mysqli_fetch_array($result);
             $resultSpm = mysqli_query($conn,$sqlSpm);
             if(mysqli_num_rows($resultSpm) > 0){ ?>
               <div class="form-group">
-              <label class= "spmlabel">Spørsmål</label>
+              <label class= "spmlabel">Spørsmål<div class="removeInput"><div id="removeInput-text">Fjern spørsmålene</div><i class="fa fa-remove"></i></div><div class="float-right text-muted" id="tellerSpm"></div></label>
               <?php
               while($rowSpm = mysqli_fetch_array($resultSpm)){ ?>
                 <!-- Spørsmål -->
@@ -327,7 +327,7 @@ $row = mysqli_fetch_array($result);
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1"><i class="fa fa-remove"></i></span>
                   </div>
-                  <input type="text" class="form-control" name="sporsmaal[]" value="<?php echo $rowSpm['sporsmaal'] ?>" aria-label="sporsmaal" aria-describedby="basic-addon1">
+                  <input type="text" class="form-control" onkeyup="countCharSpm(event, this)" name="sporsmaal[]" value="<?php echo $rowSpm['sporsmaal'] ?>" aria-label="sporsmaal" aria-describedby="basic-addon1">
                 </div>
               <?php
               } ?>
@@ -338,40 +338,67 @@ $row = mysqli_fetch_array($result);
             else{ ?>
               <!-- Spørsmål -->
               <div class="form-group col-md-12 questionInput">
-              <label class= "spmlabel">Spørsmål</label>
+              <label class= "spmlabel">Spørsmål<div class="removeInput"><div id="removeInput-text">Fjern spørsmålene</div><i class="fa fa-remove"></i></div><div class="float-right text-muted" id="tellerSpm"></div></label>
               <div class="input-group mb-3">
                 <div class="input-group-prepend">
                   <span class="input-group-text" id="basic-addon1"><i class="fa fa-remove"></i></span>
                 </div>
-                <input type="text" class="form-control" name="sporsmaal[]" placeholder="Skriv inn ett spørsmål i hvert felt..." aria-label="sporsmaal" aria-describedby="basic-addon1">
+                <input type="text" class="form-control" name="sporsmaal[]" onkeyup="countCharSpm(event, this)" placeholder="Skriv inn ett spørsmål i hvert felt..." aria-label="sporsmaal" aria-describedby="basic-addon1">
               </div>
                 <div class="btn btn-secondary addSpm">Legg til flere spørsmål</div>
               </div>
             <?php
             }
+
             ?>
 
             <div class="form-group">
-              <span data-toggle='tooltip' data-placement='top' title='Legg til bilde'>
-              <button type="button" class="addImage btn btn-primary btn-circle btn-xl"><i class="fas fa-camera"></i></button>
-              </span>
-              <span data-toggle='tooltip' data-placement='top' title='Legg til dokument'>
-              <button type="button" class="addDocument btn btn-warning btn-circle btn-xl"><i class="far fa-file"></i></button>
-              </span>
-              <span data-toggle='tooltip' data-placement='top' title='Legg til lenke'>
-              <button type="button" class="addLink btn btn-info btn-circle btn-xl"><i class="fas fa-link"></i></button>
-              </span>
-              <span data-toggle='tooltip' data-placement='top' title='Legg til tekst'>
-              <button type="button" class="addText btn btn-danger btn-circle btn-xl"><i class="fas fa-font"></i></button>
-              </span>
-              <span data-toggle='tooltip' data-placement='top' title='Legg til video'>
-              <button type="button" class="addVideo btn btn-secondary btn-circle btn-xl"><i class="fas fa-video"></i></button>
-              </span>
-              <span data-toggle='tooltip' data-placement='top' title='Legg til lydfil'>
-              <button type="button" class="addAudio btn btn-success btn-circle btn-xl"><i class="fas fa-headphones"></i></button>
-              </span>
+              <?php
+              if(mysqli_num_rows($resultBilde) == 0){
+                echo "
+                <span data-toggle='tooltip' data-placement='top' title='Legg til bilde'>
+                  <button type='button' class='addImage btn btn-primary btn-circle btn-xl'><i class='fas fa-camera'></i></button>
+                </span>
+                ";
+              }
+              if(mysqli_num_rows($resultDoc) == 0){
+                echo "
+                <span data-toggle='tooltip' data-placement='top' title='Legg til dokument'>
+                  <button type='button' class='addDocument btn btn-warning btn-circle btn-xl'><i class='far fa-file'></i></button>
+                </span>
+                ";
+              }
+              if(mysqli_num_rows($resultLenke) == 0){
+                echo "
+                <span data-toggle='tooltip' data-placement='top' title='Legg til lenke'>
+                  <button type='button' class='addLink btn btn-info btn-circle btn-xl'><i class='fas fa-link'></i></button>
+                </span>
+                ";
+              }
+              if(mysqli_num_rows($resultTxt) == 0){
+                echo "
+                <span data-toggle='tooltip' data-placement='top' title='Legg til tekst'>
+                  <button type='button' class='addText btn btn-danger btn-circle btn-xl'><i class='fas fa-font'></i></button>
+                </span>
+                ";
+              }
+              if(mysqli_num_rows($resultVideo) == 0 || mysqli_num_rows($resultYt) == 0){
+                echo "
+                <span data-toggle='tooltip' data-placement='top' title='Legg til video'>
+                  <button type='button' class='addVideo btn btn-secondary btn-circle btn-xl'><i class='fas fa-video'></i></button>
+                </span>
+                ";
+              }
+              if(mysqli_num_rows($resultLyd) == 0){
+                echo "
+                <span data-toggle='tooltip' data-placement='top' title='Legg til lydfil'>
+                  <button type='button' class='addAudio btn btn-success btn-circle btn-xl'><i class='fas fa-headphones'></i></button>
+                </span>
+                ";
+              }
+              ?>
               <span data-toggle='tooltip' data-placement='top' title='Legg til oppgave'>
-              <button type="button" class="addQuestion btn btn-dark btn-circle btn-xl"><i class="fas fa-tasks"></i></button>
+              <button type='button' class='addQuestion btn btn-dark btn-circle btn-xl'><i class='fas fa-tasks'></i></button>
               </span>
             </div>
 
