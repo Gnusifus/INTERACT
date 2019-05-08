@@ -17,6 +17,10 @@ body{
     padding: 0;
 }
 
+.tooltip{
+  pointer-events: none;
+}
+
 #page-container {
   position: relative;
   min-height: 100vh;

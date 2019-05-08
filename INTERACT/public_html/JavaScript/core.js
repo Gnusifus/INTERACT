@@ -95,11 +95,8 @@ $(function(){
 
 //Trengs for å vise tool-tips
   $("body").tooltip({
-    selector: '[data-toggle=tooltip]'
-  });
-
-  $('[data-toggle="tooltip"]').tooltip({
-    animation: true,
+    selector: '[data-toggle=tooltip]',
+    trigger: 'hover',
   });
 
 });
