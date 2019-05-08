@@ -107,7 +107,7 @@ $row = mysqli_fetch_array($result);
 
             <!-- Spørsmål -->
             <div class="form-group col-md-12 questionInput">
-            <label class="spmlabel">Spørsmål<div class="float-right text-muted" id="tellerSpm"></div></label>
+            <label class="spmlabel">Spørsmål<div class="removeInput"><div id="removeInput-text">Fjern spørsmålene</div><i class="fa fa-remove"></i></div><div class="float-right text-muted" id="tellerSpm"></div></label>
             <div class="input-group mb-3">
               <div class="input-group-prepend">
                 <span class="input-group-text" id="basic-addon1"><i class="fa fa-remove"></i></span>

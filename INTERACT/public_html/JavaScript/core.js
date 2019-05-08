@@ -1,6 +1,6 @@
 $(function(){
   //Sjekker multimedia input
-  $(document).on('change', '.custom-file-input', function(){
+  $(".custom-file-input").change(function(){
     var file = this.files[0];
     var fileType = file["type"];
     var fileSize = this.files[0].size;
@@ -14,11 +14,11 @@ $(function(){
       var max = 2000000;
     }
     if($(this).hasClass("video-input")){
-      var validVideoTypes = ["video/mp4", "video/webm", "video/ogg"];
+      var valid = ["video/mp4", "video/webm", "video/ogg"];
       var max = 2000000000; //2GB
     }
     if($(this).hasClass("audio-input")){
-      var validAudioTypes = ["audio/ogg", "audio/wav", "audio/mp3"];
+      var valid = ["audio/ogg", "audio/wav", "audio/mp3"];
       var max = 2000000000; //2GB
     }
 
@@ -26,22 +26,25 @@ $(function(){
       if($(this).hasClass("document-input")){
         $(".documentInput_beskrivelse").hide("200");
       }
-      $(this).parent().find(".feil").removeClass("d-none");
+      $(this).parent().find(".feil").removeClass("d-none").addClass("d-block");
       $(this).parents('form').find('input[type="submit"]').prop("disabled", true);
      }
    else if(fileSize > max){
      if($(this).hasClass("document-input")){
        $(".documentInput_beskrivelse").hide("200");
      }
-     $(this).parent().find(".size").removeClass("d-none");
+     $(this).parent().find(".size").removeClass("d-none").addClass("d-block");
      $(this).parents('form').find('input[type="submit"]').prop("disabled", true);
    }
    else{
+     $(this).parent().find(".size").addClass("d-none").removeClass("d-block");
+     $(this).parent().find(".feil").addClass("d-none").removeClass("d-block");
+     $(this).parents('form').find('input[type="submit"]').prop("disabled", false);
+
      if($(this).hasClass("document-input")){
        $(".documentInput_beskrivelse").show("200");
      }
-     $(this).parent().find(".size .feil").addClass("d-none");
-     $(this).parents('form').find('input[type="submit"]').prop("disabled", false);
+
    }
 });
 
