@@ -26,8 +26,10 @@ include './html_elements/head.html';
       <?php include "./PHP/show_all_case_nodes.php"; ?>
       <?php
       //Viser ikke pluss-button hvis siden vises i student-modus
-      $sql="SELECT * FROM nodes WHERE cases_idcases = '$case'";
-      $result = mysqli_query($conn,$sql);
+      $sql = $conn->prepare("SELECT * FROM nodes WHERE cases_idcases = ?");
+      $sql->bind_param('i', $case);
+      $sql->execute();
+      $result = $sql->get_result();
       $count = mysqli_num_rows($result);
 
       if($_SESSION['loggetinn'] == true){

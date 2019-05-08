@@ -4,12 +4,13 @@ include 'dbconnect.php';
 
 $case = $_GET['case'];
 
-$sql="SELECT * FROM nodes WHERE cases_idcases = '$case'";
-$result = mysqli_query($conn,$sql);
-
+$sql = $conn->prepare("SELECT * FROM nodes WHERE cases_idcases = ?");
+$sql->bind_param('i', $case);
+$sql->execute();
+$result = $sql->get_result();
 
 echo "<div class='navigation'>";
-while($row = mysqli_fetch_array($result)) {
+while($row = $result->fetch_assoc()) {
   echo "<a href='./case_mer.php?case=" . $case . "&node=" . $row['idnodes'] . "'>
         <span data-toggle='tooltip' data-placement='right' title='" . $row['overskrift'] . "'>
             <img class='navimg' src='" . $row['bilde'] . "' alt='" . $row['overskrift'] . "'>
@@ -19,10 +20,3 @@ while($row = mysqli_fetch_array($result)) {
   }
 echo "</div>";
 ?>
-
-<script>
-//Viser tooltip når hover over tom case
-$(document).ready(function() {
-    $("body").tooltip({ selector: '[data-toggle=tooltip]' });
-});
-</script>

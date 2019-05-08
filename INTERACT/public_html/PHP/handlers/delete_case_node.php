@@ -12,8 +12,10 @@ if (file_exists($bilde) && substr($rowSelect['bilde'], 0,6) === "./img/") {
   unlink($bilde);
 }*/
 
-$sql="DELETE FROM nodes WHERE idnodes = '$nodeid'";
-$result = mysqli_query($conn,$sql);
+$sql = $conn->prepare("DELETE FROM nodes WHERE idnodes = ?");
+$sql->bind_param('i', $nodeid);
+$sql->execute();
+$result = $sql->get_result();
 
 if(!$result){
   echo "Kunne ikke slette temakortet";

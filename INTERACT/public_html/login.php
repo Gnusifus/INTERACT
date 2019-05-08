@@ -46,15 +46,17 @@ include './html_elements/head.html';
                 $_SESSION['password'] = $_POST['password'];
 
                 //Sikrer sql-injection
-                $email = stripslashes($_SESSION['email']);
-                $password = stripslashes($_SESSION['password']);
+                $email = $_SESSION['email'];
+                $password = $_SESSION['password'];
 
-                $sql = "SELECT epost, passord FROM admin WHERE epost = '$email' AND passord = '$password'";
-                $result = mysqli_query($conn, $sql);
+                $sql = $conn->prepare("SELECT epost, passord FROM admin WHERE epost = ? AND passord = ?");
+                $sql->bind_param('ss', $email, $password);
+                $sql->execute();
+                $result = $sql->get_result();
                 $count = mysqli_num_rows($result);
 
                 if($count == 1){
-                  while ($row = mysqli_fetch_array($result)){
+                  while ($row = $result->fetch_assoc()){
                     $check_email = $row['epost'];
                     $check_pw = $row['passord'];
                   }

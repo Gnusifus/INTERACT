@@ -3,11 +3,11 @@
 include 'dbconnect.php';
 
 $case = $_GET['case'];
-
-$sql="SELECT * FROM cases WHERE idcases = '$case'";
-$result = mysqli_query($conn,$sql);
-
-$row = mysqli_fetch_array($result);
+$sql = $conn->prepare("SELECT * FROM cases WHERE idcases = ?");
+$sql->bind_param('i', $case);
+$sql->execute();
+$result = $sql->get_result();
+$row = $result->fetch_assoc();
 include "./html_elements/endre_bilde_modal.php";
 if ($_SESSION['loggetinn']){
   if(mysqli_num_rows($result) == 1){

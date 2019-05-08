@@ -17,82 +17,86 @@ if(isset($_POST['submit'])){
   $dokument = $_FILES['dokumentup']['name'];
   $sporsmaal = $_POST['sporsmaal'];
 
-  $sql = "INSERT INTO sub_nodes (overskrift, nodes_idnodes, nodes_cases_idcases)
-          VALUES ('$overskrift', '$node', '$case')";
+  $sql = $conn->prepare("INSERT INTO sub_nodes (overskrift, nodes_idnodes, nodes_cases_idcases)
+                        VALUES (?,?,?)");
+  $sql->bind_param('sii', $overskrift, $node, $case);
+  $sql->execute();
 
-  $result = mysqli_query($conn,$sql);
+  $result = $sql->get_result();
   $sub_node = $conn->insert_id;
 
-  if ($result == true && $conn->affected_rows == 1) {
     if(strlen($tekst) > 0){
-      $tekstsql = "INSERT INTO tekst (tekst, sub_nodes_idsub_nodes, sub_nodes_nodes_idnodes, sub_nodes_nodes_cases_idcases)
-                    VALUES ('$tekst', $sub_node, '$node', '$case')";
-      mysqli_query($conn, $tekstsql);
+      $sql = $conn->prepare("INSERT INTO tekst (tekst, sub_nodes_idsub_nodes, sub_nodes_nodes_idnodes, sub_nodes_nodes_cases_idcases)
+                            VALUES (?,?,?,?)");
+      $sql->bind_param('siii', $tekst, $sub_node, $node, $case);
+      $sql->execute();
     }
     if(isset($bilde)){
       $bildedir = "../img/";
       $bildepath = time().$bilde;
       if(move_uploaded_file($_FILES['bildeup']['tmp_name'], $bildedir.$bildepath)){
-        $bildesql = "INSERT INTO bilde (bilde, sub_nodes_idsub_nodes, sub_nodes_nodes_idnodes, sub_nodes_nodes_cases_idcases)
-                      VALUES ('$bildepath', $sub_node, '$node', '$case')";
-        mysqli_query($conn, $bildesql);
+        $sql = $conn->prepare("INSERT INTO bilde (bilde, sub_nodes_idsub_nodes, sub_nodes_nodes_idnodes, sub_nodes_nodes_cases_idcases)
+                              VALUES (?,?,?,?)");
+        $sql->bind_param('siii', $bildepath, $sub_node, $node, $case);
+        $sql->execute();
       }
     }
     if(isset($video)){
       $videodir = "../vid/";
       $videopath = time().$video;
       if(move_uploaded_file($_FILES['videoup']['tmp_name'], $videodir.$videopath)){
-        $videosql = "INSERT INTO video (video, sub_nodes_idsub_nodes, sub_nodes_nodes_idnodes, sub_nodes_nodes_cases_idcases)
-                      VALUES ('$videopath', $sub_node, '$node', '$case')";
-        mysqli_query($conn, $videosql);
+        $sql = $conn->prepare("INSERT INTO video (video, sub_nodes_idsub_nodes, sub_nodes_nodes_idnodes, sub_nodes_nodes_cases_idcases)
+                              VALUES (?,?,?,?)");
+        $sql->bind_param('siii', $videopath, $sub_node, $node, $case);
+        $sql->execute();
       }
     }
     if(strlen($ytvideo) > 0){
       preg_match("#(?<=v=)[a-zA-Z0-9-]+(?=&)|(?<=v\/)[^&\n]+(?=\?)|(?<=v=)[^&\n]+|(?<=youtu.be/)[^&\n]+#", $ytvideo, $treff);
       $funn = $treff[0];
-      $ytvideosql = "INSERT INTO videolink (videolink, sub_nodes_idsub_nodes, sub_nodes_nodes_idnodes, sub_nodes_nodes_cases_idcases)
-                    VALUES ('$funn', $sub_node, '$node', '$case')";
-      mysqli_query($conn, $ytvideosql);
+      $sql = $conn->prepare("INSERT INTO videolink (videolink, sub_nodes_idsub_nodes, sub_nodes_nodes_idnodes, sub_nodes_nodes_cases_idcases)
+                            VALUES (?,?,?,?)");
+      $sql->bind_param('siii', $funn, $sub_node, $node, $case);
+      $sql->execute();
     }
 
     if(strlen($lenke) > 0){
       $lenkebeskrivelse = $_POST['lenke_beksrivelse'];
-      $lenkesql = "INSERT INTO link (link, sub_nodes_idsub_nodes, sub_nodes_nodes_idnodes, sub_nodes_nodes_cases_idcases, beskrivelse)
-                    VALUES ('$lenke', $sub_node, '$node', '$case', '$lenkebeskrivelse')";
-      mysqli_query($conn, $lenkesql);
+      $sql = $conn->prepare("INSERT INTO link (link, sub_nodes_idsub_nodes, sub_nodes_nodes_idnodes, sub_nodes_nodes_cases_idcases, beskrivelse)
+                            VALUES (?,?,?,?,?)");
+      $sql->bind_param('siiis', $lenke, $sub_node, $node, $case,$lenkebeskrivelse);
+      $sql->execute();
     }
 
     if(isset($lyd)){
       $lyddir = "../audio/";
       $lydpath = time().$lyd;
       if(move_uploaded_file($_FILES['lydup']['tmp_name'], $lyddir.$lydpath)){
-        $lydsql = "INSERT INTO lyd (lyd, sub_nodes_idsub_nodes, sub_nodes_nodes_idnodes, sub_nodes_nodes_cases_idcases)
-                      VALUES ('$lydpath', $sub_node, '$node', '$case')";
-        mysqli_query($conn, $lydsql);
+        $sql = $conn->prepare("INSERT INTO lyd (lyd, sub_nodes_idsub_nodes, sub_nodes_nodes_idnodes, sub_nodes_nodes_cases_idcases)
+                              VALUES (?,?,?,?)");
+        $sql->bind_param('siii', $lydpath, $sub_node, $node, $case);
+        $sql->execute();
       }
     }
     if(isset($dokument)){
       $docdir = "../doc/";
       $docbeskrivelse = $_POST['dokument_beksrivelse'];
       if(move_uploaded_file($_FILES['dokumentup']['tmp_name'], $docdir.$dokument)){
-        $docsql = "INSERT INTO dokument (dokument, sub_nodes_idsub_nodes, sub_nodes_nodes_idnodes, sub_nodes_nodes_cases_idcases, beskrivelse)
-                    VALUES ('$dokument', $sub_node, '$node', '$case', '$docbeskrivelse')";
-        mysqli_query($conn, $docsql);
+        $sql = $conn->prepare("INSERT INTO dokument (dokument, sub_nodes_idsub_nodes, sub_nodes_nodes_idnodes, sub_nodes_nodes_cases_idcases, beskrivelse)
+                              VALUES (?,?,?,?,?)");
+        $sql->bind_param('siiis', $dokument, $sub_node, $node, $case, $docbeskrivelse);
+        $sql->execute();
       }
     }
 
     if(strlen($sporsmaal[0]) > 0){
       foreach ($sporsmaal as $key) {
-        $sporsmaalsql = "INSERT INTO sporsmaal (sporsmaal, sub_nodes_idsub_nodes, sub_nodes_nodes_idnodes, sub_nodes_nodes_cases_idcases)
-                      VALUES ('$key', $sub_node, '$node', '$case')";
-        mysqli_query($conn, $sporsmaalsql);
+        $sql = $conn->prepare("INSERT INTO sporsmaal (sporsmaal, sub_nodes_idsub_nodes, sub_nodes_nodes_idnodes, sub_nodes_nodes_cases_idcases)
+                              VALUES (?,?,?,?)");
+        $sql->bind_param('siii', $key, $sub_node, $node, $case);
+        $sql->execute();
       }
     }
     header("Location: ../case_mer.php?case=" . $case . "&node=" . $node);
   }
-  else {
-       echo "Error: " . $sql . "<br>" . $conn->error;
-       $conn->close();
-  }
-}
 ?>

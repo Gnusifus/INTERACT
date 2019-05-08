@@ -2,9 +2,11 @@
 include '../dbconnect.php';
 $nodeid = $_POST['id'];
 
-$sql="SELECT * FROM nodes WHERE idnodes = '$nodeid'";
-$result = mysqli_query($conn,$sql);
-$row = mysqli_fetch_array($result);
+$sql = $conn->prepare("SELECT * FROM nodes WHERE idnodes = ?");
+$sql->bind_param('i', $nodeid);
+$sql->execute();
+$result = $sql->get_result();
+$row = $result->fetch_assoc();
  ?>
 
 <div class='modal-header'>

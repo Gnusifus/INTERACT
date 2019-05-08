@@ -2,10 +2,11 @@
 <?php
 include './PHP/dbconnect.php';
 $case = $_GET['case'];
-$sql="SELECT * FROM cases WHERE idcases = '$case'";
-$result = mysqli_query($conn,$sql);
-$row = mysqli_fetch_array($result);
-
+$sql = $conn->prepare("SELECT * FROM cases WHERE idcases = ?");
+$sql->bind_param('i', $case);
+$sql->execute();
+$result = $sql->get_result();
+$row = $result->fetch_assoc();
 ?>
 <div class="modal fade endre_bilde_modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">

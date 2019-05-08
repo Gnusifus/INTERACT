@@ -7,9 +7,11 @@ include 'dbconnect.php';
 if(!empty($_GET['case']) && empty($_GET['node'])){
   $case = $_GET['case'];
 
-  $sql="SELECT tittel FROM cases c WHERE c.idcases = '$case'";
-  $result = mysqli_query($conn,$sql);
-  $row = mysqli_fetch_array($result);
+  $sql = $conn->prepare("SELECT tittel FROM cases WHERE idcases = ?");
+  $sql->bind_param('i', $case);
+  $sql->execute();
+  $result = $sql->get_result();
+  $row = $result->fetch_assoc();
   echo "<h1 class='my-4'><a href='./all_cases.php'>INTERACT</a> |
       <a href='./case.php?case=" . $case . "'><small>" .$row['tittel'] . "</small></a></h1>";
 }
@@ -19,12 +21,11 @@ elseif(!empty($_GET['case']) && !empty($_GET['node'])){
   $case = $_GET['case'];
   $node = $_GET['node'];
 
-  $sql="SELECT c.tittel, n.overskrift
-        FROM cases c
-        INNER JOIN nodes n ON n.cases_idcases = c.idcases
-        WHERE c.idcases = '$case' AND n.idnodes = '$node'";
-  $result = mysqli_query($conn,$sql);
-  $row = mysqli_fetch_array($result);
+  $sql = $conn->prepare("SELECT c.tittel, n.overskrift FROM cases c INNER JOIN nodes n ON n.cases_idcases = c.idcases WHERE c.idcases = ? AND n.idnodes = ?");
+  $sql->bind_param('ii', $case, $node);
+  $sql->execute();
+  $result = $sql->get_result();
+  $row = $result->fetch_assoc();
   echo "<h1 class='my-4'><a href='./all_cases.php'>INTERACT</a> |
         <a href='./case.php?case=" . $case . "'><small>" .$row['tittel'] . "</small></a> |
         <small>" .$row['overskrift'] . "</small></a></h1>";

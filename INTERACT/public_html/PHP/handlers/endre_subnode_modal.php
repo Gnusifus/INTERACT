@@ -2,9 +2,11 @@
 include '../dbconnect.php';
 $idsub_nodes = $_POST['id'];
 
-$sql="SELECT * FROM sub_nodes WHERE idsub_nodes = '$idsub_nodes'";
-$result = mysqli_query($conn,$sql);
-$row = mysqli_fetch_array($result);
+$sql = $conn->prepare("SELECT * FROM sub_nodes WHERE idsub_nodes = ?");
+$sql->bind_param('i', $idsub_nodes);
+$sql->execute();
+$result = $sql->get_result();
+$row = $result->fetch_assoc();
 ?>
 <!-- Modal ny node -->
       <div class="modal-header" id="endre_subnode">
@@ -23,10 +25,12 @@ $row = mysqli_fetch_array($result);
             </div>
 
             <?php
-            $sqlBilde="SELECT * FROM bilde WHERE sub_nodes_idsub_nodes = '$idsub_nodes'";
-            $resultBilde = mysqli_query($conn,$sqlBilde);
+            $sqlBilde = $conn->prepare("SELECT * FROM bilde WHERE sub_nodes_idsub_nodes = ?");
+            $sqlBilde->bind_param('i', $idsub_nodes);
+            $sqlBilde->execute();
+            $resultBilde = $sqlBilde->get_result();
             if(mysqli_num_rows($resultBilde) > 0){
-              while($rowBilde = mysqli_fetch_array($resultBilde)){ ?>
+              while($rowBilde = $resultBilde->fetch_assoc()){ ?>
                 <!-- Bilde -->
                 <div class="form-group">
                   <label>Endre bilde</label>
@@ -63,10 +67,12 @@ $row = mysqli_fetch_array($result);
             }
 
 
-            $sqlDoc="SELECT * FROM dokument WHERE sub_nodes_idsub_nodes = '$idsub_nodes'";
-            $resultDoc = mysqli_query($conn,$sqlDoc);
+            $sqlDoc = $conn->prepare("SELECT * FROM dokument WHERE sub_nodes_idsub_nodes = ?");
+            $sqlDoc->bind_param('i', $idsub_nodes);
+            $sqlDoc->execute();
+            $resultDoc = $sqlDoc->get_result();
             if(mysqli_num_rows($resultDoc) > 0){
-              while($rowDoc = mysqli_fetch_array($resultDoc)){ ?>
+              while($rowDoc = $resultDoc->fetch_assoc()){ ?>
                 <!-- Dokument -->
                 <div class="form-group">
                 <label>Endre dokument</label>
@@ -115,10 +121,12 @@ $row = mysqli_fetch_array($result);
             <?php
             }
 
-            $sqlLenke="SELECT * FROM link WHERE sub_nodes_idsub_nodes = '$idsub_nodes'";
-            $resultLenke = mysqli_query($conn,$sqlLenke);
+            $sqlLenke = $conn->prepare("SELECT * FROM link WHERE sub_nodes_idsub_nodes = ?");
+            $sqlLenke->bind_param('i', $idsub_nodes);
+            $sqlLenke->execute();
+            $resultLenke = $sqlLenke->get_result();
             if(mysqli_num_rows($resultLenke) > 0){
-              while($rowLenke = mysqli_fetch_array($resultLenke)){ ?>
+              while($rowLenke = $resultLenke->fetch_assoc()){ ?>
                 <!-- Lenke -->
                 <div class="form-group">
                   <div class="input">
@@ -163,10 +171,12 @@ $row = mysqli_fetch_array($result);
             <?php
             }
 
-            $sqlTxt="SELECT * FROM tekst WHERE sub_nodes_idsub_nodes = '$idsub_nodes'";
-            $resultTxt = mysqli_query($conn,$sqlTxt);
+            $sqlTxt = $conn->prepare("SELECT * FROM tekst WHERE sub_nodes_idsub_nodes = ?");
+            $sqlTxt->bind_param('i', $idsub_nodes);
+            $sqlTxt->execute();
+            $resultTxt = $sqlTxt->get_result();
             if(mysqli_num_rows($resultTxt) > 0){
-              while($rowTxt = mysqli_fetch_array($resultTxt)){ ?>
+              while($rowTxt = $resultTxt->fetch_assoc()){ ?>
                 <!-- Tekst -->
                 <div class="form-group">
                   <label>Endre tekst</label><div class="float-right text-muted" id="teller"></div>
@@ -197,10 +207,12 @@ $row = mysqli_fetch_array($result);
             <?php
             }
 
-            $sqlYt="SELECT * FROM videolink WHERE sub_nodes_idsub_nodes = '$idsub_nodes'";
-            $resultYt = mysqli_query($conn,$sqlYt);
+            $sqlYt = $conn->prepare("SELECT * FROM videolink WHERE sub_nodes_idsub_nodes = ?");
+            $sqlYt->bind_param('i', $idsub_nodes);
+            $sqlYt->execute();
+            $resultYt = $sqlYt->get_result();
             if(mysqli_num_rows($resultYt) > 0){
-              while($rowYt = mysqli_fetch_array($resultYt)){
+              while($rowYt = $resultYt->fetch_assoc()){
                 $fullLink = "https://www.youtube.com/watch?v=" . $rowYt['videolink'];
                  ?>
                 <!-- Youtube -->
@@ -235,10 +247,12 @@ $row = mysqli_fetch_array($result);
             <?php
             }
 
-            $sqlVideo="SELECT * FROM video WHERE sub_nodes_idsub_nodes = '$idsub_nodes'";
-            $resultVideo = mysqli_query($conn,$sqlVideo);
+            $sqlVideo = $conn->prepare("SELECT * FROM video WHERE sub_nodes_idsub_nodes = ?");
+            $sqlVideo->bind_param('i', $idsub_nodes);
+            $sqlVideo->execute();
+            $resultVideo = $sqlVideo->get_result();
             if(mysqli_num_rows($resultVideo) > 0){
-              while($rowVideo = mysqli_fetch_array($resultVideo)){ ?>
+              while($rowVideo = $resultVideo->fetch_assoc()){ ?>
                 <!-- Video -->
                   <div class="form-group">
                   <label>Endre video</label>
@@ -275,10 +289,12 @@ $row = mysqli_fetch_array($result);
             <?php
             }
 
-            $sqlLyd="SELECT * FROM lyd WHERE sub_nodes_idsub_nodes = '$idsub_nodes'";
-            $resultLyd = mysqli_query($conn,$sqlLyd);
+            $sqlLyd = $conn->prepare("SELECT * FROM lyd WHERE sub_nodes_idsub_nodes = ?");
+            $sqlLyd->bind_param('i', $idsub_nodes);
+            $sqlLyd->execute();
+            $resultLyd = $sqlLyd->get_result();
             if(mysqli_num_rows($resultLyd) > 0){
-              while($rowLyd = mysqli_fetch_array($resultLyd)){ ?>
+              while($rowLyd = $resultLyd->fetch_assoc()){ ?>
                 <!-- Lyd -->
                 <div class="form-group">
                 <label>Endre lydfil</label>
@@ -315,8 +331,10 @@ $row = mysqli_fetch_array($result);
             <?php
             }
 
-            $sqlSpm="SELECT * FROM sporsmaal WHERE sub_nodes_idsub_nodes = '$idsub_nodes'";
-            $resultSpm = mysqli_query($conn,$sqlSpm);
+            $sqlSpm = $conn->prepare("SELECT * FROM sporsmaal WHERE sub_nodes_idsub_nodes = ?");
+            $sqlSpm->bind_param('i', $idsub_nodes);
+            $sqlSpm->execute();
+            $resultSpm = $sqlSpm->get_result();
             if(mysqli_num_rows($resultSpm) > 0){ ?>
               <div class="form-group">
               <label class= "spmlabel">Spørsmål<div class="removeInput"><div id="removeInput-text">Fjern spørsmålene</div><i class="fa fa-remove"></i></div><div class="float-right text-muted" id="tellerSpm"></div></label>

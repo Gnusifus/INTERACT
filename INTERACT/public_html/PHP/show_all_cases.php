@@ -2,15 +2,20 @@
 //Henter alle caser fra db og viser dem til siden all_cases.php
 include 'dbconnect.php';
 
-$sql="SELECT * FROM cases";
-$result = mysqli_query($conn,$sql);
+//admin
+$sql = $conn->prepare("SELECT * FROM cases");
+$sql->execute();
+$result = $sql->get_result();
 
-$student_sql = "SELECT * FROM cases WHERE publisert = 1";
-$student_result = mysqli_query($conn,$student_sql);
+//student
+$student_sql = $conn->prepare("SELECT * FROM cases WHERE publisert = 1");
+$student_sql->execute();
+$student_result = $student_sql->get_result();
+
 
 if($_SESSION['loggetinn'] == TRUE){
   if(mysqli_num_rows($result) > 0){
-    while($row = mysqli_fetch_array($result)){
+    while($row = $result->fetch_assoc()){
       $dbdate = DateTime::createFromFormat('Y-m-d H:i:s', $row['dato']);
       $nordate = $dbdate->format('d/m/Y');
       $nortime = $dbdate->format('H:i');
@@ -88,7 +93,7 @@ if($_SESSION['loggetinn'] == TRUE){
 }
 else{
   if(mysqli_num_rows($student_result) > 0){
-    while($row = mysqli_fetch_array($student_result)) {
+    while($row = $student_result->fetch_assoc()) {
       $dbdate = DateTime::createFromFormat('Y-m-d H:i:s', $row['dato']);
       $nordate = $dbdate->format('d/m/Y');
       $nortime = $dbdate->format('H:i');

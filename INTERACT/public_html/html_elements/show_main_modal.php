@@ -4,9 +4,11 @@ include './PHP/dbconnect.php';
 
 $case = $_GET['case'];
 
-$sql="SELECT * FROM cases WHERE idcases = '$case'";
-$result = mysqli_query($conn,$sql);
-$row = mysqli_fetch_array($result);
+$sql = $conn->prepare("SELECT * FROM cases WHERE idcases = ?");
+$sql->bind_param('i', $case);
+$sql->execute();
+$result = $sql->get_result();
+$row = $result->fetch_assoc();
 if(mysqli_num_rows($result) == 1){
   echo "
   <div class='modal fade bd-example-modal-lg' tabindex='-1' role='dialog' aria-labelledby='modal' aria-hidden='true'>

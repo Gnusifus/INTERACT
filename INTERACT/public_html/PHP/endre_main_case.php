@@ -11,10 +11,11 @@ if(isset($_POST['submit_endre'])){
 
   if(move_uploaded_file($_FILES['bildeup']['tmp_name'], $bildedir.$path)){
     $dbBilde = "./img/".$path;
-    $sql="UPDATE cases
-          SET tittel = '$tittel', tekst = '$tekst', bilde = '$dbBilde', dato = now()
-          WHERE idcases = '$case'";
-    $result = mysqli_query($conn,$sql);
+
+    $sql = $conn->prepare("UPDATE cases SET tittel = ?, tekst = ?, bilde = ?, dato = now() WHERE idcases = ?");
+    $sql->bind_param('sssi', $tittel, $tekst, $dbBilde, $case);
+    $sql->execute();
+    $result = $sql->get_result();
   }
   elseif(isset($_POST['slett_bilde'])){
     $random_bilde_dir = "../color_imgs/";
@@ -22,26 +23,17 @@ if(isset($_POST['submit_endre'])){
     $randomImg = $images[array_rand($images)];
     $dbBilde = "./color_imgs/".$randomImg;
 
-    $sql="UPDATE cases
-          SET tittel = '$tittel', tekst = '$tekst', bilde = '$dbBilde', dato = now()
-          WHERE idcases = '$case'";
-
-    $result = mysqli_query($conn, $sql);
-
+    $sql = $conn->prepare("UPDATE cases SET tittel = ?, tekst = ?, bilde = ?, dato = now() WHERE idcases = ?");
+    $sql->bind_param('sssi', $tittel, $tekst, $dbBilde, $case);
+    $sql->execute();
+    $result = $sql->get_result();
   }
   else{
-    $sql="UPDATE cases
-          SET tittel = '$tittel', tekst = '$tekst', dato = now()
-          WHERE idcases = '$case'";
-    $result = mysqli_query($conn,$sql);
+    $sql = $conn->prepare("UPDATE cases SET tittel = ?, tekst = ?, dato = now() WHERE idcases = ?");
+    $sql->bind_param('ssi', $tittel, $tekst, $case);
+    $sql->execute();
+    $result = $sql->get_result();
   }
-
-  if($result){
-    header("Location: ../case.php?case=".$case);
-  }
-  else {
-     echo "Error: " . $sql . "<br>" . $conn->error;
-     $conn->close();
-  }
+  header("Location: ../case.php?case=".$case);
 }
  ?>

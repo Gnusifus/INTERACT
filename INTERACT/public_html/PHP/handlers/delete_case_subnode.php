@@ -46,11 +46,8 @@ if(mysql_num_rows($resultSelectDoc) > 0){
     unlink($doc);
   }
 }*/
-
-$sql="DELETE FROM sub_nodes WHERE idsub_nodes = '$sub_nodeid'";
-$result = mysqli_query($conn,$sql);
-
-if(!$result){
-  echo "Kunne ikke slette kortet";
-}
+$sql = $conn->prepare("DELETE FROM sub_nodes WHERE idsub_nodes = ?");
+$sql->bind_param('i', $sub_nodeid);
+$sql->execute();
+$result = $sql->get_result();
  ?>

@@ -11,10 +11,9 @@ if(isset($_POST['submit_endre'])){
 
   if(move_uploaded_file($_FILES['bildeup']['tmp_name'], $bildedir.$path)){
     $dbBilde = "./img/".$path;
-    $sql="UPDATE nodes
-          SET overskrift = '$overskrift', bilde = '$dbBilde'
-          WHERE idnodes = '$node'";
-    $result = mysqli_query($conn,$sql);
+    $sql = $conn->prepare("UPDATE nodes SET overskrift = ?, bilde = ? WHERE idnodes = ?");
+    $sql->bind_param('ssi', $overskrift, $dbBilde, $node);
+    $sql->execute();
   }
   elseif(isset($_POST['slett_bilde'])){
     $random_bilde_dir = "../color_imgs/";
@@ -22,27 +21,15 @@ if(isset($_POST['submit_endre'])){
     $randomImg = $images[array_rand($images)];
     $dbBilde = "./color_imgs/".$randomImg;
 
-    $sql="UPDATE nodes
-          SET overskrift = '$overskrift', bilde = '$dbBilde'
-          WHERE idnodes = '$node'";
-
-    $result = mysqli_query($conn, $sql);
-
+    $sql = $conn->prepare("UPDATE nodes SET overskrift = ?, bilde = ? WHERE idnodes = ?");
+    $sql->bind_param('ssi', $overskrift, $dbBilde, $node);
+    $sql->execute();
   }
   else{
-    $sql="UPDATE nodes
-          SET overskrift = '$overskrift'
-          WHERE idnodes = '$node'";
-
-    $result = mysqli_query($conn,$sql);
+    $sql = $conn->prepare("UPDATE nodes SET overskrift = ? WHERE idnodes = ?");
+    $sql->bind_param('si', $overskrift, $node);
+    $sql->execute();
   }
-
-  if($result){
-    header("Location: ../case.php?case=".$case);
-  }
-  else {
-     echo "Error: " . $sql . "<br>" . $conn->error;
-     $conn->close();
-  }
+  header("Location: ../case.php?case=".$case);
 }
  ?>

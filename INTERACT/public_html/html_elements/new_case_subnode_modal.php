@@ -2,9 +2,11 @@
 $case = $_GET['case'];
 $node = $_GET['node'];
 
-$sql="SELECT * FROM nodes WHERE idnodes = '$node'";
-$result = mysqli_query($conn,$sql);
-$row = mysqli_fetch_array($result);
+$sql = $conn->prepare("SELECT * FROM nodes WHERE idnodes = ?");
+$sql->bind_param('i', $node);
+$sql->execute();
+$result = $sql->get_result();
+$row = $result->fetch_assoc();
 ?>
 <!-- Modal ny node -->
 <div class="modal fade ny_case_subnode_modal" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
