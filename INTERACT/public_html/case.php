@@ -38,13 +38,13 @@ include './html_elements/head.html';
         }
         else if ($count === 0){
           echo "<div class='pluss_btn'>
-                  Klikk her for å begynne å legge til noder!
+                  Klikk her for å begynne å legge til temakort!
                   <button data-toggle='modal' data-target='.ny_case_node_modal' class='btn btn-primary btn-lg'><i class='fas fa-plus'></i></button>
                 </div>";
         }
         else{
           echo "<div class='pluss_btn'>
-                  Maks antall noder er nådd!
+                  Maks antall temakort er nådd!
                   <button disabled class='btn btn-primary btn-lg'><i class='fas fa-plus'></i></button>
                 </div>";
         }

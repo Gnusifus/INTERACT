@@ -73,7 +73,7 @@ $(function(){
   $(document).on('click','.addDocument',function(){
     $(this).parents().eq(3).find(".documentInput").show("200");
   });
-  $(document).on('click','.addQuesiton',function(){
+  $(document).on('click','.addQuestion',function(){
     $(this).parents().eq(3).find(".questionInput").show("200");
   });
   $(document).on('click','.addLink',function(){
@@ -85,7 +85,7 @@ $(function(){
 
   //Legger til flere spørsmål
   $(document).on('click', '.addSpm', function(){
-    var $spm = "<div class='input-group mb-3'><div class='input-group-prepend'><span class='input-group-text' id='basic-addon1'><i class='fa fa-remove'></i></span></div><input type='text' class='form-control' name='sporsmaal[]' placeholder='Skriv inn ett spørsmål i hvert felt...' aria-label='sporsmaal' aria-describedby='basic-addon1'></div>";
+    var $spm = "<div class='input-group mb-3'><div class='input-group-prepend'><span class='input-group-text' id='basic-addon1'><i class='fa fa-remove'></i></span></div><input type='text' maxlength='255' onkeyup='countCharSpm(event, this)' class='form-control' name='sporsmaal[]' placeholder='Skriv inn ett spørsmål i hvert felt...' aria-label='sporsmaal' aria-describedby='basic-addon1'></div>";
     $($spm).insertBefore(".addSpm");
   });
 

@@ -1,20 +1,40 @@
   //Teller chars i textaera
-  function countChar(val) {
+  function countChar(e, val) {
     var len = val.value.length;
     if (len >= 2000) {
       val.value = val.value.substring(0, 2000);
     } else {
-      $('#teller').text(2000 - len);
+      $(e.target).parent().find('#teller').text(2000 - len);
     }
   };
 
-  //Teller chars i textaera
-  function countCharTitle(val) {
+  //Teller chars i tittel
+  function countCharTitle(e, val) {
     var len = val.value.length;
-    if (len >= 25) {
-      val.value = val.value.substring(0, 25);
+    if (len >= 45) {
+      val.value = val.value.substring(0, 45);
     } else {
-      $('#tellerTittel').text(25 - len);
+      $(e.target).parent().find('#tellerTittel').text(45 - len);
+    }
+  };
+
+  //Teller chars i case beskrivelse
+  function countCharDesc(e, val) {
+    var len = val.value.length;
+    if (len >= 500) {
+      val.value = val.value.substring(0, 500);
+    } else {
+      $(e.target).parent().find('#tellerBeskrivelse').text(500 - len);
+    }
+  };
+
+  //Teller chars i spørsmål
+  function countCharSpm(e, val) {
+    var len = val.value.length;
+    if (len >= 255) {
+      val.value = val.value.substring(0, 255);
+    } else {
+      $(e.target).parent().find('#tellerSpm').text(255 - len);
     }
   };
 
@@ -40,7 +60,7 @@ $(function(){
 
   //Sletter case
   $(".all_cases_delete").click(function(e){
-     if (confirm("Er du sikker på at du vil slette denne casen, og alle dens noder?")) {
+     if (confirm("Er du sikker på at du vil slette denne casen, og alle tilhørende kort?")) {
        var id = $(this).find('.edit').attr('id');
        $.post({
            url: './PHP/handlers/delete_case.php',
@@ -62,7 +82,7 @@ $(function(){
 
   //Sletter node
   $(".node_trash").click(function(e){
-     if (confirm("Er du sikker på at du vil slette denne?"))
+     if (confirm("Er du sikker på at du vil slette dette temakoret?"))
        var id = $(this).parent().attr('id');
        $.post({
            url: './PHP/handlers/delete_case_node.php',
@@ -105,7 +125,7 @@ $(function(){
 
   //Sletter sub_node
   $(".sub_node_trash").click(function(e){
-     if (confirm("Er du sikker på at du vil slette denne noden?")) {
+     if (confirm("Er du sikker på at du vil slette dette kortet?")) {
        var id = $(this).parent().attr('id');
        $.post({
            url: './PHP/handlers/delete_case_subnode.php',

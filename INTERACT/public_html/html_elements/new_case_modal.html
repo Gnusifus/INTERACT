@@ -12,13 +12,13 @@
           <form action="./PHP/new_case.php" method="post" enctype="multipart/form-data">
 
       <div class="form-group" required>
-              <label class="control-label" for="tittel">Case tittel</label><div class="float-right text-muted" id="tellerTittel"></div>
-              <input type="text" class="form-control" name="tittel" onkeyup="countCharTitle(this)" placeholder="Skriv inn case tittel her..." required>
+              <label class="control-label" for="tittel">Case tittel<div class="float-right text-muted" id="tellerTittel"></div></label>
+              <input type="text" class="form-control" name="tittel" onkeyup="countCharTitle(event, this)" placeholder="Skriv inn case tittel her..." required>
             </div>
 
             <div class="form-group" required>
-              <label class="control-label" for="beskrivelse" >Case beskrivelse</label><div class="float-right text-muted" id="teller"></div>
-              <textarea class="form-control" name="beskrivelse" rows="3" onkeyup="countChar(this)" placeholder="Beskriv casen her..." required></textarea>
+              <label class="control-label" for="beskrivelse" >Case beskrivelse<div class="float-right text-muted" id="tellerBeskrivelse"></div></label>
+              <textarea class="form-control" name="beskrivelse" rows="3" onkeyup="countCharDesc(event, this)" placeholder="Beskriv casen her..." required></textarea>
             </div>
 
             <div class="form-group">

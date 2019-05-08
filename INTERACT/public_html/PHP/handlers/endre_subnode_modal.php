@@ -8,7 +8,7 @@ $row = mysqli_fetch_array($result);
 ?>
 <!-- Modal ny node -->
       <div class="modal-header" id="endre_subnode">
-        <h5 class="modal-title">Endre "<?php echo $row['overskrift'] ?>"</h5>
+        <h5 class="modal-title">Endre kortet "<?php echo $row['overskrift']?>"</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -18,8 +18,8 @@ $row = mysqli_fetch_array($result);
 
             <!--Overskrift * -->
             <div class="form-group">
-              <label>Overskrift</label>
-              <input type="text" class="form-control" name="overskrift" value="<?php echo $row['overskrift'] ?>" required>
+              <label>Endre overskrift<div class="float-right text-muted" id="tellerTittel"></div></label>
+              <input type="text" class="form-control" name="overskrift" onkeyup="countCharTitle(event, this)" value="<?php echo $row['overskrift'] ?>" required>
             </div>
 
             <?php
@@ -29,7 +29,7 @@ $row = mysqli_fetch_array($result);
               while($rowBilde = mysqli_fetch_array($resultBilde)){ ?>
                 <!-- Bilde -->
                 <div class="form-group">
-                  <label>Bilde</label>
+                  <label>Endre bilde</label>
                   <div class="custom-file">
                     <input type="file" class="custom-file-input image-input" id="inputGroupFile02" name="bildeup">
                     <label class="custom-file-label" name="bilde" for="inputGroupFile02"><?php echo $rowBilde['bilde'] ?></label>
@@ -69,7 +69,7 @@ $row = mysqli_fetch_array($result);
               while($rowDoc = mysqli_fetch_array($resultDoc)){ ?>
                 <!-- Dokument -->
                 <div class="form-group">
-                <label>Dokument</label>
+                <label>Endre dokument</label>
                   <div class="custom-file">
                     <input type="file" class="custom-file-input document-input" id="inputGroupFile02" name="dokumentup">
                     <label class="custom-file-label" name="dokument" for="inputGroupFile02"><?php echo $rowDoc['dokument'] ?></label>
@@ -89,8 +89,8 @@ $row = mysqli_fetch_array($result);
 
                 <!-- dokument beksrivelse -->
                 <div class="form-group">
-                  <label>Skriv gjerne inn tittelen på dokumentet, lar du denne stå tom vises kun filnavnet på dokumentet.</label>
-                  <input type="text" class="form-control doc-desc" name="dokument_beksrivelse" value="<?php echo $rowDoc['beskrivelse'] ?>">
+                  <label>Skriv gjerne inn tittelen på dokumentet, lar du denne stå tom vises kun filnavnet på dokumentet.<div class="float-right text-muted" id="tellerTittel"></div></label>
+                  <input type="text" class="form-control doc-desc" name="dokument_beksrivelse" onkeyup="countCharTitle(event, this)" value="<?php echo $rowDoc['beskrivelse'] ?>">
                 </div>
               <?php
               }
@@ -109,8 +109,8 @@ $row = mysqli_fetch_array($result);
 
               <!-- dokument beksrivelse -->
               <div class="form-group documentInput_beskrivelse">
-                <label>Skriv gjerne inn tittelen på dokumentet, lar du denne stå tom vises kun filnavnet på dokumentet.</label>
-                <input type="text" class="form-control doc-desc" name="dokument_beksrivelse" placeholder="Feks. Olas regnskap, lampe bruksanvisning eller lønnsslipp">
+                <label>Skriv gjerne inn tittelen på dokumentet, lar du denne stå tom vises kun filnavnet på dokumentet.<div class="float-right text-muted" id="tellerTittel"></div></label>
+                <input type="text" class="form-control doc-desc" name="dokument_beksrivelse" onkeyup="countCharTitle(event, this)" placeholder="Feks. Olas regnskap, lampe bruksanvisning eller lønnsslipp">
               </div>
             <?php
             }
@@ -122,7 +122,7 @@ $row = mysqli_fetch_array($result);
                 <!-- Lenke -->
                 <div class="form-group">
                   <div class="input">
-                    <label>Lenke</label>
+                    <label>Endre lenke</label>
                     <div class="input">
                       <input type="text" class="form-control link-input" name="lenke" value="<?php echo $rowLenke['link'] ?>">
                       <div class="feil d-none text-danger">Påse at du har kopiert lenken direkte fra nettleseren, denne lenken er ikke gyldig!</div>
@@ -141,8 +141,8 @@ $row = mysqli_fetch_array($result);
 
                 <!-- Lenke beksrivelse -->
                 <div class="form-group">
-                  <label>Skriv inn et ord eller to om hva som befinner seg bak linken</label>
-                  <input type="text" class="form-control link-desc" name="lenke_beksrivelse" value="<?php echo $rowLenke['beskrivelse'] ?>">
+                  <label>Skriv inn et ord eller to om hva som befinner seg bak lenken.<div class="float-right text-muted" id="tellerTittel"></div></label>
+                  <input type="text" class="form-control link-desc" name="lenke_beksrivelse" onkeyup="countCharTitle(event, this)" value="<?php echo $rowLenke['beskrivelse'] ?>">
                 </div>
               <?php
               }
@@ -157,8 +157,8 @@ $row = mysqli_fetch_array($result);
 
               <!-- Lenke beksrivelse -->
               <div class="form-group linkInput_beskrivelse">
-                <label>Skriv inn et ord eller to om hva som befinner seg bak lenken</label>
-                <input type="text" class="form-control link-desc" name="lenke_beksrivelse" placeholder="Feks. kosthold, legemiddelhåndtering eller bruk av tannpirker">
+                <label>Skriv inn et ord eller to om hva som befinner seg bak lenken.<div class="float-right text-muted" id="tellerTittel"></div></label>
+                <input type="text" class="form-control link-desc" name="lenke_beksrivelse" onkeyup="countCharTitle(event, this)" placeholder="Feks. kosthold, legemiddelhåndtering eller bruk av tannpirker">
               </div>
             <?php
             }
@@ -169,9 +169,9 @@ $row = mysqli_fetch_array($result);
               while($rowTxt = mysqli_fetch_array($resultTxt)){ ?>
                 <!-- Tekst -->
                 <div class="form-group">
-                  <label>Tekst</label><div class="float-right text-muted" id="teller"></div>
+                  <label>Endre tekst</label><div class="float-right text-muted" id="teller"></div>
                   <div class="input">
-                    <textarea class="form-control" name="tekst" rows="3" onkeyup="countChar(this)"><?php echo $rowTxt['tekst'] ?></textarea>
+                    <textarea class="form-control" name="tekst" rows="3" onkeyup="countChar(event, this)"><?php echo $rowTxt['tekst'] ?></textarea>
                     <div class="mye_tekst d-none text-warning">Oisann, ikke plass til alt? Vurder heller å laste opp et dokument.</div>
                   </div>
                     <div class="float-right">
@@ -191,7 +191,7 @@ $row = mysqli_fetch_array($result);
               <!-- Tekst -->
               <div class="form-group textInput">
                 <label>Legg til tekst<div class="removeInput"><div id="removeInput-text">Fjern teksten</div><i class="fa fa-remove"></i></div></label><div class="float-right text-muted" id="teller"></div>
-                <textarea class="form-control" name="tekst" rows="3" onkeyup="countChar(this)" placeholder="Skriv tekst her..."></textarea>
+                <textarea class="form-control" name="tekst" rows="3" onkeyup="countChar(event, this)" placeholder="Skriv tekst her..."></textarea>
                 <div class="mye_tekst d-none text-warning">Oisann, ikke plass til alt? Vurder heller å laste opp et dokument.</div>
               </div>
             <?php
@@ -205,7 +205,7 @@ $row = mysqli_fetch_array($result);
                  ?>
                 <!-- Youtube -->
                 <div class="form-group">
-                <label>Youtube-video</label>
+                <label>Endre Youtube-video</label>
                   <div class="input">
                     <input type="text" class="form-control yt-video" name="ytvideo" value="<?php echo $fullLink ?>">
                     <div class="feil d-none text-danger">Lenken du har limt inn er ingen gyldig YouTube-lenke, <br>
@@ -241,7 +241,7 @@ $row = mysqli_fetch_array($result);
               while($rowVideo = mysqli_fetch_array($resultVideo)){ ?>
                 <!-- Video -->
                   <div class="form-group">
-                  <label>Video</label>
+                  <label>Endre video</label>
                     <div class="custom-file">
                       <input type="file" class="custom-file-input video-input" id="inputGroupFile02" name="videoup">
                       <label class="custom-file-label" name="video" for="inputGroupFile02"><?php echo $rowVideo['video'] ?></label>
@@ -281,7 +281,7 @@ $row = mysqli_fetch_array($result);
               while($rowLyd = mysqli_fetch_array($resultLyd)){ ?>
                 <!-- Lyd -->
                 <div class="form-group">
-                <label>Lydfil</label>
+                <label>Endre lydfil</label>
                   <div class="custom-file">
                     <input type="file" class="custom-file-input audio-input" id="inputGroupFile02" name="lydup">
                     <label class="custom-file-label" name="lyd" for="inputGroupFile02">Last opp en ny lydfil her...</label>

@@ -135,6 +135,7 @@ a:hover{
 
 /*Midterste node på case.php -------------------------------------------------*/
 .main{
+  margin-top: 10%;
   width: 300px;
   display: block;
   margin-left: auto;
@@ -211,7 +212,7 @@ a:hover{
 
 .n4{
     right: 42%;
-    top: 73%;
+    top: 86%;
     margin-bottom: 4%;
 }
 
@@ -357,7 +358,7 @@ video{
     padding: 10px 20px 10px 20px;
     text-align: center;
     font-size: 1.9em;
-    margin: 2%;
+    margin: 1%;
 }
 
 /*case navigation case_mer.html ----------------------------------------------*/

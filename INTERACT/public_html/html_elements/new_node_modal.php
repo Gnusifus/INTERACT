@@ -3,7 +3,7 @@
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Legg til en ny node</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle">Legg til et nytt temakort</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -12,8 +12,8 @@
           <form action="./PHP/new_case_node.php?case=<?php echo $case ?>" method="post" enctype="multipart/form-data" id="new_node_form">
 
             <div class="form-group">
-              <label for="exampleFormControlInput1">Node overskrift</label>
-              <input type="text" class="form-control" name="overskrift" placeholder="Skriv inn case tittel her..." required>
+              <label>Overskrift<div class="float-right text-muted" id="tellerTittel"></div></label>
+              <input type="text" class="form-control" name="overskrift" onkeyup="countCharTitle(event, this)" placeholder="Skriv inn case tittel her..." required>
             </div>
 
             <div class="form-group">
@@ -22,7 +22,7 @@
                 <label class="custom-file-label" name="bilde" for="bilde">Last opp et bilde her...</label>
                 <div class="feil d-none text-danger">Bildet må være av typen .gif, .jpeg eller .png!</div>
                 <div class="size d-none text-danger">Filen kan ikke være større enn 2MB!</div>
-                <label class="control-label" for="bildeup"><small class="text-muted">Noden blir gitt en tilfeldig farge, dersom du velger å ikke laste opp et bilde.</small></label>
+                <label class="control-label" for="bildeup"><small class="text-muted">Temakortet blir gitt en tilfeldig farge, dersom du velger å ikke laste opp et bilde.</small></label>
               </div>
             </div>
 

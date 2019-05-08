@@ -11,7 +11,7 @@ $row = mysqli_fetch_array($result);
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Endre <?php echo $row['tittel']; ?></h5>
+        <h5 class="modal-title" id="exampleModalLongTitle">Endre "<?php echo $row['tittel']?>"</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -20,13 +20,13 @@ $row = mysqli_fetch_array($result);
         <form action="./PHP/endre_main_case.php?case=<?php echo $case ?>" method="post" enctype="multipart/form-data">
 
           <div class="form-group" required>
-            <label>Endre case tittel</label><div class="float-right text-muted" id="tellerTittel"></div>
-            <input type="text" class="form-control" name="overskrift" onkeyup="countCharTitle(this)" value="<?php echo $row['tittel']?>" required>
+            <label>Endre tittel<div class="float-right text-muted" id="tellerTittel"></div></label>
+            <input type="text" class="form-control" name="overskrift" onkeyup="countCharTitle(event, this)" value="<?php echo $row['tittel']?>" required>
           </div>
 
           <div class="form-group" required>
-            <label for="beskrivelse">Case beskrivelse</label><div class="float-right text-muted" id="teller"></div>
-            <textarea class="form-control" name="beskrivelse" rows="3" required="required" onkeyup="countChar(this)"><?php echo $row['tekst']?></textarea>
+            <label for="beskrivelse">Endre beskrivelse<div class="float-right text-muted" id="tellerBeskrivelse"></div></label>
+            <textarea class="form-control" name="beskrivelse" rows="3" required="required" onkeyup="countCharDesc(event, this)"><?php echo $row['tekst']?></textarea>
           </div>
 
           <div class="form-group lastOppBilde">

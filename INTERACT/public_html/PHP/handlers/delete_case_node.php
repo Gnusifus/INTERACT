@@ -16,6 +16,6 @@ $sql="DELETE FROM nodes WHERE idnodes = '$nodeid'";
 $result = mysqli_query($conn,$sql);
 
 if(!$result){
-  echo "Kunne ikke slette noden";
+  echo "Kunne ikke slette temakortet";
 }
  ?>

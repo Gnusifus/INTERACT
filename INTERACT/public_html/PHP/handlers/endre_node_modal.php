@@ -8,7 +8,7 @@ $row = mysqli_fetch_array($result);
  ?>
 
 <div class='modal-header'>
-  <h5 class='modal-title' id='exampleModalLongTitle'>Endre "<?php echo $row['overskrift'] ?>"</h5>
+  <h5 class='modal-title' id='exampleModalLongTitle'>Endre temakortet "<?php echo $row['overskrift']?>"</h5>
   <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
     <span aria-hidden='true'>&times;</span>
   </button>
@@ -17,13 +17,13 @@ $row = mysqli_fetch_array($result);
   <form action="./PHP/endre_node.php?node=<?php echo $nodeid ?>&case=<?php echo $row['cases_idcases'] ?>" method="post" enctype="multipart/form-data">
 
     <div class="form-group" required>
-      <label>Endre node overskrift</label>
-      <input type="text" class="form-control" name="overskrift" value="<?php echo $row['overskrift']?>" required>
+      <label>Endre overskrift<div class="float-right text-muted" id="tellerTittel"></div></label>
+      <input type="text" class="form-control" onkeyup="countCharTitle(event, this)" name="overskrift" value="<?php echo $row['overskrift']?>" required>
     </div>
 
 
     <div class="form-group lastOppBilde">
-      <label>Bilde</label>
+      <label>Endre bilde</label>
       <div class="custom-file">
         <input type="file" class="custom-file-input nyBilde" id="inputGroupFile02" name="bildeup">
         <label class="custom-file-label" for="inputGroupFile02"><?php echo $row['bilde'] ?></label>
