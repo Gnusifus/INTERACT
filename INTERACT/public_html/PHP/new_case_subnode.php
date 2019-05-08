@@ -77,7 +77,7 @@ if(isset($_POST['submit'])){
       if(move_uploaded_file($_FILES['dokumentup']['tmp_name'], $docdir.$dokument)){
         $docsql = "INSERT INTO dokument (dokument, sub_nodes_idsub_nodes, sub_nodes_nodes_idnodes, sub_nodes_nodes_cases_idcases, beskrivelse)
                     VALUES ('$dokument', $sub_node, '$node', '$case', '$docbeskrivelse')";
-        $test = mysqli_query($conn, $docsql);
+        mysqli_query($conn, $docsql);
       }
     }
 
