@@ -8,7 +8,7 @@ $sql->execute();
 $result = $sql->get_result();
 $row = $result->fetch_assoc();
  ?>
-
+<script type="text/javascript" src="./JavaScript/core.js"></script>
 <div class='modal-header'>
   <h5 class='modal-title' id='exampleModalLongTitle'>Endre temakortet "<?php echo $row['overskrift']?>"</h5>
   <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
@@ -18,7 +18,7 @@ $row = $result->fetch_assoc();
 <div class="modal-body">
   <form action="./PHP/endre_node.php?node=<?php echo $nodeid ?>&case=<?php echo $row['cases_idcases'] ?>" method="post" enctype="multipart/form-data">
 
-    <div class="form-group" required>
+    <div class="form-group">
       <label>Endre overskrift<div class="float-right text-muted" id="tellerTittel"></div></label>
       <input type="text" class="form-control" onkeyup="countCharTitle(event, this)" name="overskrift" value="<?php echo $row['overskrift']?>" required>
     </div>
@@ -27,7 +27,7 @@ $row = $result->fetch_assoc();
     <div class="form-group lastOppBilde">
       <label>Endre bilde</label>
       <div class="custom-file">
-        <input type="file" class="custom-file-input nyBilde" id="inputGroupFile02" name="bildeup">
+        <input type="file" class="custom-file-input image-input" id="inputGroupFile02" name="bildeup">
         <label class="custom-file-label" for="inputGroupFile02"><?php echo $row['bilde'] ?></label>
         <div class="feil d-none text-danger">Bildet må være av typen .gif, .jpeg eller .png!</div>
         <div class="size d-none text-danger">Filen kan ikke være større enn 2MB!</div>

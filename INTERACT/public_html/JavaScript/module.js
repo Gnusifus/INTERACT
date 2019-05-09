@@ -104,11 +104,10 @@ $(function(){
         data: {id: id},
         success: function(result){
           if($('.empty_modal').find('.modal-content').is(':empty')){
-              $(this).find(".modal-dialog").removeClass("modal-lg").addClass("modal-md");
-               $('.empty_modal').find('.modal-content').append(result);
+                $('.empty_modal').find('.modal-content').append(result);
+                $(".empty_modal").modal('toggle');
+            }
           }
-          $(".empty_modal").modal('toggle');
-        }
     });
   });
 
@@ -116,6 +115,10 @@ $(function(){
     if($(this).find("input[type='checkbox']").prop('checked')){
       $(this).parents('.form-group').find(".custom-file").hide("200");
       $(this).parents('.form-group').find(".input").hide("200");
+      $(this).parents('.form-group').find(".size").addClass("d-none").removeClass("d-block");
+      $(this).parents('.form-group').find(".feil").addClass("d-none").removeClass("d-block");
+      $(this).parents('.form-group').find(".custom-file-input").val(null);
+      $(this).parents('.form-group').find('.custom-file-label').removeClass("selected").html("Last opp her..");
 
       if($(this).parents().eq(1).find(".document-input, .link-input").eq(0).length > 0){
         $(this).parents('.form-group').next().hide("200");
@@ -127,6 +130,27 @@ $(function(){
       }
       $(this).parents('.form-group').find(".custom-file").show("200");
       $(this).parents('.form-group').find(".input").show("200");
+      if($(this).parents('.form-group').find(".custom-file-input").val() != ""){
+        $(this).parents('.form-group').find(".size").addClass("d-block").removeClass("d-none");
+        $(this).parents('.form-group').find(".feil").addClass("d-block").removeClass("d-none");
+      }
+      else{
+        $(this).parents('.form-group').find(".size").addClass("d-none").removeClass("d-block");
+        $(this).parents('.form-group').find(".feil").addClass("d-none").removeClass("d-block");
+      }
+    }
+
+    if($(this).parents('.form-group').find(".size").hasClass("d-block")){
+      $(this).parents('form').find('input[type="submit"]').prop("disabled", true);
+    }
+    else{
+      $(this).parents('form').find('input[type="submit"]').prop("disabled", false);
+    }
+    if($(this).parents('.form-group').find(".feil").hasClass("d-block")){
+      $(this).parents('form').find('input[type="submit"]').prop("disabled", true);
+    }
+    else{
+      $(this).parents('form').find('input[type="submit"]').prop("disabled", false);
     }
   });
 

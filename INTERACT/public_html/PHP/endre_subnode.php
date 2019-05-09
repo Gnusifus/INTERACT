@@ -80,7 +80,7 @@ if(isset($_POST['submit'])){
     $sql->bind_param('i', $sub_node);
     $sql->execute();
   }
-  else{
+  elseif(isset($_POST['ytvideo'])){
     preg_match("#(?<=v=)[a-zA-Z0-9-]+(?=&)|(?<=v\/)[^&\n]+(?=\?)|(?<=v=)[^&\n]+|(?<=youtu.be/)[^&\n]+#", $ytvideo, $treff);
     $funn = $treff[0];
     $sql = $conn->prepare("UPDATE videolink SET videolink = ? WHERE sub_nodes_idsub_nodes = ?");
@@ -88,12 +88,11 @@ if(isset($_POST['submit'])){
     $sql->execute();
   }
 
-  $bildedir = "./img/";
+  $bildedir = "../img/";
   $bildepath = time().$bilde;
   if(move_uploaded_file($_FILES['bildeup']['tmp_name'], $bildedir.$bildepath)){
-    $dbBilde = "./img/".$path;
     $sql = $conn->prepare("UPDATE bilde SET bilde = ? WHERE sub_nodes_idsub_nodes = ?");
-    $sql->bind_param('si', $dbBilde, $sub_node);
+    $sql->bind_param('si', $bildepath, $sub_node);
     $sql->execute();
   }
   elseif(isset($_POST['slett_bilde'])){
@@ -102,7 +101,7 @@ if(isset($_POST['submit'])){
     $sql->execute();
   }
 
-  $docdir = "./doc/";
+  $docdir = "../doc/";
   if(move_uploaded_file($_FILES['dokumentup']['tmp_name'], $docdir.$dokument)){
     $docbeskrivelse = $_POST['dokument_beksrivelse'];
     if(strlen($docbeskrivelse) > 0){
@@ -121,7 +120,7 @@ if(isset($_POST['submit'])){
     $sql->execute();
   }
 
-  $videodir = "./vid/";
+  $videodir = "../vid/";
   $videopath = time().$video;
   if(move_uploaded_file($_FILES['videoup']['tmp_name'], $videodir.$videopath)){
     $sql = $conn->prepare("UPDATE video SET video = ? WHERE sub_nodes_idsub_nodes = ?");
@@ -134,7 +133,7 @@ if(isset($_POST['submit'])){
     $sql->execute();
   }
 
-  $lyddir = "./audio/";
+  $lyddir = "../audio/";
   $lydpath = time().$lyd;
   if(move_uploaded_file($_FILES['lydup']['tmp_name'], $lyddir.$lydpath)){
     $sql = $conn->prepare("UPDATE lyd SET lyd = ? WHERE sub_nodes_idsub_nodes = ?");

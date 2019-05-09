@@ -108,11 +108,10 @@ $(function(){
 
   }).on("mouseleave", ".removeInput", function(){
     $(this).find("#removeInput-text").stop(1,1).fadeOut("500");
-    
+
   }).on("click", ".removeInput", function(){
     //Fjerner opplastet fil
     $(this).parents().eq(1).find(".custom-file-input").val(null);
-    console.log($(this).parents('custom-file'));
     $(this).parents().eq(1).find(".size").addClass("d-none").removeClass("d-block");
     $(this).parents().eq(1).find(".feil").addClass("d-none").removeClass("d-block");
     $(this).parents('form').find('input[type="submit"]').prop("disabled", false);

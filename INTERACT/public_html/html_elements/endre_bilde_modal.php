@@ -8,8 +8,8 @@ $sql->execute();
 $result = $sql->get_result();
 $row = $result->fetch_assoc();
 ?>
-<div class="modal fade endre_bilde_modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal fade endre_bilde_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLongTitle">Endre "<?php echo $row['tittel']?>"</h5>
@@ -20,7 +20,7 @@ $row = $result->fetch_assoc();
       <div class="modal-body">
         <form action="./PHP/endre_main_case.php?case=<?php echo $case ?>" method="post" enctype="multipart/form-data">
 
-          <div class="form-group" required>
+          <div class="form-group">
             <label>Endre tittel<div class="float-right text-muted" id="tellerTittel"></div></label>
             <input type="text" class="form-control" name="overskrift" onkeyup="countCharTitle(event, this)" value="<?php echo $row['tittel']?>" required>
           </div>
@@ -33,7 +33,7 @@ $row = $result->fetch_assoc();
           <div class="form-group lastOppBilde">
             <label>Bilde</label>
             <div class="custom-file">
-              <input type="file" class="custom-file-input nyBilde" id="inputGroupFile02" name="bildeup">
+              <input type="file" class="custom-file-input nyBilde image-input" id="inputGroupFile02" name="bildeup">
               <label class="custom-file-label" for="inputGroupFile02"><?php echo $row['bilde'] ?></label>
               <div class="feil d-none text-danger">Bildet må være av typen .gif, .jpeg eller .png!</div>
               <div class="size d-none text-danger">Filen kan ikke være større enn 2MB!</div>
@@ -51,8 +51,8 @@ $row = $result->fetch_assoc();
 
         <br><hr>
           <input type="submit" value="Lagre endringer" name="submit_endre" class="btn btn-primary mb-2">
+        </form>
       </div>
-    </form>
     </div>
   </div>
 </div>

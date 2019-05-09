@@ -9,6 +9,7 @@ $result = $sql->get_result();
 $row = $result->fetch_assoc();
 ?>
 <!-- Modal ny node -->
+      <script type="text/javascript" src="./JavaScript/core.js"></script>
       <div class="modal-header" id="endre_subnode">
         <h5 class="modal-title">Endre kortet "<?php echo $row['overskrift']?>"</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
