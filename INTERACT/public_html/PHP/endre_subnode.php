@@ -99,14 +99,13 @@ if(isset($_POST['submit'])){
         $sql = $conn->prepare("INSERT INTO tekst (tekst, sub_nodes_idsub_nodes, sub_nodes_nodes_idnodes, sub_nodes_nodes_cases_idcases)
                               VALUES (?,?,?,?)");
         $sql->bind_param('siii', $tekst, $sub_node, $node, $case);
-        $sql->execute();
       }
       else{
         $sql = $conn->prepare("UPDATE tekst SET tekst = ? WHERE sub_nodes_idsub_nodes = ?");
         $sql->bind_param('si', $tekst, $sub_node);
-        $sql->execute();
       }
     }
+    $sql->execute();
   }
 
   if(isset($_POST['slett_lenke'])){
@@ -123,14 +122,8 @@ if(isset($_POST['submit'])){
         $sql->bind_param('siiis', $lenke, $sub_node, $node, $case,$lenkebeskrivelse);
       }
       else{
-        if(strlen($lenkebeskrivelse) > 0){
-          $sql = $conn->prepare("UPDATE link SET link = ?, beskrivelse = ? WHERE sub_nodes_idsub_nodes = ?");
-          $sql->bind_param('ssi', $lenke, $lenkebeskrivelse, $sub_node);
-        }
-        else{
-          $sql = $conn->prepare("UPDATE link SET link = ? WHERE sub_nodes_idsub_nodes = ?");
-          $sql->bind_param('si', $lenke, $sub_node);
-        }
+        $sql = $conn->prepare("UPDATE link SET link = ?, beskrivelse = ? WHERE sub_nodes_idsub_nodes = ?");
+        $sql->bind_param('ssi', $lenke, $lenkebeskrivelse, $sub_node);
       }
     }
     $sql->execute();
@@ -181,28 +174,27 @@ if(isset($_POST['submit'])){
   }
 
   $docdir = "../doc/";
+  $docbeskrivelse = $_POST['dokument_beksrivelse'];
   if(isset($_POST['slett_dokument'])){
     $sql = $conn->prepare("DELETE FROM dokument WHERE sub_nodes_idsub_nodes = ?");
     $sql->bind_param('i', $sub_node);
     $sql->execute();
   }
   elseif(move_uploaded_file($_FILES['dokumentup']['tmp_name'], $docdir.$dokument)){
-    $docbeskrivelse = $_POST['dokument_beksrivelse'];
     if(mysqli_num_rows($dokumentres) == 0){
       $sql = $conn->prepare("INSERT INTO dokument (dokument, sub_nodes_idsub_nodes, sub_nodes_nodes_idnodes, sub_nodes_nodes_cases_idcases, beskrivelse)
                             VALUES (?,?,?,?,?)");
       $sql->bind_param('siiis', $dokument, $sub_node, $node, $case, $docbeskrivelse);
     }
     else{
-      if(strlen($docbeskrivelse) > 0){
         $sql = $conn->prepare("UPDATE dokument SET dokument = ?, beskrivelse = ? WHERE sub_nodes_idsub_nodes = ?");
         $sql->bind_param('ssi', $dokument, $docbeskrivelse, $sub_node);
       }
-      else{
-        $sql = $conn->prepare("UPDATE dokument SET dokument = ? WHERE sub_nodes_idsub_nodes = ?");
-        $sql->bind_param('si', $dokument, $sub_node);
-      }
-    }
+    $sql->execute();
+  }
+  else{
+    $sql = $conn->prepare("UPDATE dokument SET beskrivelse = ? WHERE sub_nodes_idsub_nodes = ?");
+    $sql->bind_param('si', $docbeskrivelse, $sub_node);
     $sql->execute();
   }
 

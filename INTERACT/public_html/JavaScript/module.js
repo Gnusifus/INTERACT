@@ -118,6 +118,7 @@ $(function(){
       $(this).parents('.form-group').find(".size").addClass("d-none").removeClass("d-block");
       $(this).parents('.form-group').find(".feil").addClass("d-none").removeClass("d-block");
       $(this).parents('.form-group').find(".custom-file-input").val(null);
+      $(this).parents('.form-group').find(".form-control").val(null);
       $(this).parents('.form-group').find('.custom-file-label').removeClass("selected").html("Last opp her..");
 
       if($(this).parents().eq(1).find(".document-input, .link-input").eq(0).length > 0){

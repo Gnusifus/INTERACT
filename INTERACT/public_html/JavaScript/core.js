@@ -11,7 +11,7 @@ $(function(){
     }
     if($(this).hasClass("document-input")){
       var valid =  ["application/pdf", "application/msword", "text/plain", "application/vnd.oasis.opendocument.text", "application/vnd.openxmlformats-officedocument.wordprocessingml.document", "application/vnd.ms-powerpoint", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"];
-      var max = 2000000;
+      var max = 2000000000; //2GB
     }
     if($(this).hasClass("video-input")){
       var valid = ["video/mp4", "video/webm", "video/ogg"];
@@ -49,13 +49,12 @@ $(function(){
 });
 
   $('.link-input').keyup (function(){
-    //RegEx hentet fra: https://stackoverflow.com/questions/3809401/what-is-a-good-regular-expression-to-match-a-url
-    var expression = /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/gi;
+    //RegEx hentet fra: https://stackoverflow.com/questions/18568244/url-validation-regex-url-just-valid-with-http
+    var expression = /^http(s)?:\/\/(www\.)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/;
     var regex = new RegExp(expression);
     var val = $(this).val();
 
     if(val.match(regex)){
-      //show Hva inneholder linken
       $(".linkInput_beskrivelse").show("200");
       $(this).parent().find(".feil").addClass("d-none");
       $(this).parents('form').find('input[type="submit"]').prop("disabled", false);

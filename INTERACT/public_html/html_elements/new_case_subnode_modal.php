@@ -46,7 +46,7 @@ $row = $result->fetch_assoc();
                 <input type="file" class="custom-file-input document-input" id="inputGroupFile02" name="dokumentup">
                 <label class="custom-file-label" name="dokument" for="inputGroupFile02">Last opp et dokument her...</label>
                 <div class="feil d-none text-danger">Dokumentet du har lastet opp er i et ugyldig format!</div>
-                <div class="size d-none text-danger">Filen kan ikke være større enn 2MB!</div>
+                <div class="size d-none text-danger">Filen kan ikke være større enn 2GB!</div>
               </div>
             </div>
 
@@ -60,7 +60,7 @@ $row = $result->fetch_assoc();
             <div class="form-group col-md-12 linkInput">
               <label>Lenke<div class="removeInput"><div id="removeInput-text">Fjern lenken</div><i class="fa fa-remove"></i></div></label>
               <input type="text" class="form-control link-input" name="lenke" placeholder="Lim inn en lenke her...">
-              <div class="feil d-none text-danger">Påse at du har kopiert linken direkte fra nettleseren, denne linken er ikke gyldig!</div>
+              <div class="feil d-none text-danger">Pass på at du har kopiert linken direkte fra nettleseren, denne linken er ikke gyldig!</div>
             </div>
 
             <!-- Lenke beksrivelse -->
@@ -93,7 +93,7 @@ $row = $result->fetch_assoc();
               <label>YouTube-video<div class="removeInput"><div id="removeInput-text">Fjern videoen</div><i class="fa fa-remove"></i></div></label>
                 <input type="text" class="form-control yt-video" name="ytvideo" placeholder="Lim inn en lenke her...">
                 <div class="feil d-none text-danger">Lenken du har limt inn er ingen gyldig YouTube-lenke, <br>
-                                                    påse at du har kopiert lenken direkte fra YouTube</div>
+                                                    pass på at du har kopiert lenken direkte fra YouTube</div>
               </div>
 
             <!-- Lyd -->

@@ -81,7 +81,7 @@ $row = $result->fetch_assoc();
                     <input type="file" class="custom-file-input document-input" id="inputGroupFile02" name="dokumentup">
                     <label class="custom-file-label" name="dokument" for="inputGroupFile02"><?php echo $rowDoc['dokument'] ?></label>
                     <div class="feil d-none text-danger">Dokumentet du har lastet opp er i et ugyldig format!</div>
-                    <div class="size d-none text-danger">Filen kan ikke være større enn 2MB!</div>
+                    <div class="size d-none text-danger">Filen kan ikke være større enn 2GB!</div>
                   </div>
                   <div class="float-right">
                     <div class="onoffswitch">
@@ -110,7 +110,7 @@ $row = $result->fetch_assoc();
                   <input type="file" class="custom-file-input document-input" id="inputGroupFile02" name="dokumentup">
                   <label class="custom-file-label" name="dokument" for="inputGroupFile02">Last opp et dokument her...</label>
                   <div class="feil d-none text-danger">Dokumentet du har lastet opp er i et ugyldig format!</div>
-                  <div class="size d-none text-danger">Filen kan ikke være større enn 2MB!</div>
+                  <div class="size d-none text-danger">Filen kan ikke være større enn 2GB!</div>
                 </div>
               </div>
 
@@ -130,11 +130,11 @@ $row = $result->fetch_assoc();
               while($rowLenke = $resultLenke->fetch_assoc()){ ?>
                 <!-- Lenke -->
                 <div class="form-group">
+                  <label>Endre lenke</label>
                   <div class="input">
-                    <label>Endre lenke</label>
                     <div class="input">
                       <input type="text" class="form-control link-input" name="lenke" value="<?php echo $rowLenke['link'] ?>">
-                      <div class="feil d-none text-danger">Påse at du har kopiert lenken direkte fra nettleseren, denne lenken er ikke gyldig!</div>
+                      <div class="feil d-none text-danger">Pass på at du har kopiert lenken direkte fra nettleseren, denne lenken er ikke gyldig!</div>
                     </div>
                   </div>
                   <div class="float-right">
@@ -161,7 +161,7 @@ $row = $result->fetch_assoc();
               <div class="form-group linkInput">
                 <label>Legg til lenke<div class="removeInput"><div id="removeInput-text">Fjern lenken</div><i class="fa fa-remove"></i></div></label>
                 <input type="text" class="form-control link-input" name="lenke" placeholder="Lim inn en lenke her...">
-                <div class="feil d-none text-danger">Påse at du har kopiert lenken direkte fra nettleseren, denne lenken er ikke gyldig!</div>
+                <div class="feil d-none text-danger">Pass på at du har kopiert lenken direkte fra nettleseren, denne lenken er ikke gyldig!</div>
               </div>
 
               <!-- Lenke beksrivelse -->
